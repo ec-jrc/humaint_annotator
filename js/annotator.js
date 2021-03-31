@@ -10,6 +10,22 @@ function toggleAccordionItem(accordionItem){
     }
 }
 
+function collapseAllButThis(element){
+    var listOfCollapsableElems = [];
+
+    $("#accordionExample >> div").each((index, elem) => {
+        listOfCollapsableElems.push(elem.id);
+    });
+
+    for(i = 0; i < listOfCollapsableElems.length; i++){
+        if(listOfCollapsableElems[i] != element){
+            var elementById = document.getElementById(listOfCollapsableElems[i]);
+            elementById.classList.remove('show');
+            elementById.previousElementSibling.children[0].classList.add('collapsed')
+        }
+    }
+}
+
 function coordPercentages(x, y){
     this.X = x/$('#imgToAnnotate').width()*100;
     this.Y = y/$('#imgToAnnotate').height()*100;
@@ -36,10 +52,12 @@ $(document).ready(function() {
         
         if(clickedPointInPercentages.X > minXOne && clickedPointInPercentages.X < maxXOne && 
             clickedPointInPercentages.Y > minYOne && clickedPointInPercentages.Y < maxYOne){
+            collapseAllButThis('collapseOne');
             toggleAccordionItem('collapseOne');
         }
         else if(clickedPointInPercentages.X > minXTwo && clickedPointInPercentages.X < maxXTwo && 
             clickedPointInPercentages.Y > minYTwo && clickedPointInPercentages.Y < maxYTwo){
+            collapseAllButThis('collapseTwo');
             toggleAccordionItem('collapseTwo');
         }
     });
