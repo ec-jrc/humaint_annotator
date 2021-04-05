@@ -31,7 +31,55 @@ function coordPercentages(x, y){
     this.Y = y/$('#imgToAnnotate').height()*100;
 }
 
+function loadJSONData(){
+    const JSONPath = "../annotations_json/anno_val/frankfurt_000000_012868_leftImg8bit_annotation.json";
+    var jsonObj = {};
+
+    $.ajax({
+        url: JSONPath,
+        async: false,
+        dataType: 'json',
+        success: function(json) {
+            jsonObj = json;
+        }
+    });
+
+    return jsonObj;
+}
+
+function loadCanvas(jsonData){
+    var canvas = document.getElementById('imgToAnnotate'),
+    context = canvas.getContext('2d');
+
+    make_base(context, jsonData);
+}
+
+function make_base(context, jsonData)
+{
+    base_image = new Image();
+    base_image.src = '../img/val/frankfurt/frankfurt_000000_012868_leftImg8bit.png';
+    canvasElem = document.getElementById('imgToAnnotate');
+    base_image.onload = function(){
+        canvasElem.width = base_image.width;
+        canvasElem.height = base_image.height;
+        context.drawImage(base_image, 0, 0, canvasElem.width, canvasElem.height);
+
+        for(i = 0; i < Object.keys(jsonData.bbs).length; i++){
+            var agent = Object.keys(jsonData.bbs)[i];
+            var x = jsonData.bbs[agent].x1;
+            var y = jsonData.bbs[agent].y1;
+            var bBoxWidth = jsonData.bbs[agent].w;
+            var bBoxHeight = jsonData.bbs[agent].h;
+            context.strokeStyle = "red";
+            context.linewidth = 5;
+            context.strokeRect(x, y, bBoxWidth, bBoxHeight);
+        }
+    }
+}
+
 $(document).ready(function() {
+    var jsonData = loadJSONData();
+    loadCanvas(jsonData);
     $("#imgToAnnotate").click(function(event){            
         var relX = event.pageX - $(this).offset().left;
         var relY = event.pageY - $(this).offset().top;
