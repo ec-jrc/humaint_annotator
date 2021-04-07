@@ -32,49 +32,21 @@
             </div>
         </nav>
         <div class="container mt-5">
-            <div class="row">
-                <div class="col-lg-12 mb-5 mb-lg-0">
-                  <canvas id="imgToAnnotate"></canvas>
-                </div>
+          <div class="row">
+              <div id="canvasContainer" class="col-lg-12 mb-5 mb-lg-0 magnifying-glass-container">
+                <canvas id="imgToAnnotate"></canvas>
+                <canvas id="zoomed-canvas"></canvas>
+              </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 mb-5 mb-lg-0">
+              <div class="accordion" id="agentsAccordion">
+              </div>
             </div>
-            <div class="row">
-              <div class="col-lg-12 mb-5 mb-lg-0">
-                <div class="accordion" id="accordionExample">
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                          Agent 1
-                        </button>
-                      </h2>
-                      <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <p class="mb-0">Age</p>
-                            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">Adult</span></button>
-                            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">Kid</span></button>
-                            <p class="mb-0 mt-1">Gender</p>
-                            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">Male</span></button>
-                            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">Female</span></button>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                          Agent 2
-                        </button>
-                      </h2>
-                      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                          <strong>Lorem ipsum dolor sit amet</strong>, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </div>
-                      </div>
-                    </div>
-                </div>
-            </div>
-            </div>         
+          </div>         
         </div>
         <div class="text-center mt-5">
-            <button type="button" class="btn btn-primary btn-lg rounded" onclick="loadData()"><span class="font-weight-bold">Load image</span></button>
+          <button type="button" class="btn btn-primary btn-lg rounded" onclick="saveCurrent();loadData()"><span class="font-weight-bold">Load image</span></button>
         </div>
         <footer></footer>
         <div class="copyright py-4 text-center text-white bg-primary mt-5">

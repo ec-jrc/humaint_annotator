@@ -336,5 +336,18 @@ body{
 .left-addon input  { padding-left:  30px; }
 .right-addon input { padding-right: 30px; }
 
-canvas#imgToAnnotate { border: 1px solid white; width: 100%; height: auto}
+canvas#imgToAnnotate { border: 1px solid white; width: 100%; height: auto; position: relative;}
+
+.magnifying-glass-container {
+    position: relative;
+}
+
+#zoomed-canvas {
+    position: absolute;
+    border: 3px solid #000;
+    border-radius: 50%;
+    /*Set the size of the magnifier glass:*/
+    width: 200px;
+    height: 200px;
+}
           
