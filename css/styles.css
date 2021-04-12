@@ -336,7 +336,7 @@ body{
 .left-addon input  { padding-left:  30px; }
 .right-addon input { padding-right: 30px; }
 
-canvas#imgToAnnotate { border: 1px solid white; width: 100%; height: auto; position: relative;}
+canvas#imgToAnnotate { border: 1px solid white; width: auto; height: auto; position: relative;}
 
 .magnifying-glass-container {
     position: relative;
@@ -347,7 +347,14 @@ canvas#imgToAnnotate { border: 1px solid white; width: 100%; height: auto; posit
     border: 3px solid #000;
     border-radius: 50%;
     /*Set the size of the magnifier glass:*/
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
+    pointer-events: none;
+}
+
+#canvasContainer {
+    width: 1296px;
+    height: 654px;
+    overflow:hidden;
 }
           

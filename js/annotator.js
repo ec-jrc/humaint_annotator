@@ -1,3 +1,7 @@
+/** GLOBAL VARIABLES **/
+var listOfFiles = [];
+var currentImageIndex = 0;
+
 function toggleAccordionItem(accordionItem){
     var element = document.getElementById(accordionItem);
     if(element.classList.contains('show')){
@@ -26,13 +30,10 @@ function collapseAllButThis(element){
     }
 }
 
-function coordPercentages(x, y){
-    this.X = x/$('#imgToAnnotate').width()*100;
-    this.Y = y/$('#imgToAnnotate').height()*100;
-}
-
-function loadJSONData(){
-    const JSONPath = "../annotations_json/anno_train/strasbourg_000000_004383_leftImg8bit_annotation.json";
+function loadJSONData(listOfFiles){
+    var file = listOfFiles[currentImageIndex];
+    var jsonFile = file.replace(".png", "_annotation.json");
+    const JSONPath = "../annotations_json/anno_train/" + jsonFile;
     var jsonObj = {};
 
     $.ajax({
@@ -48,7 +49,7 @@ function loadJSONData(){
 }
 
 function loadCanvas(jsonData, img, canvasElem){
-    var canvas = document.getElementById('imgToAnnotate'),
+    var canvas = canvasElem,
     context = canvas.getContext('2d');
 
     make_base(context, jsonData, img, canvasElem);
@@ -60,13 +61,16 @@ function make_base(context, jsonData, img, canvasElem)
         canvasElem.width = img.width;
         canvasElem.height = img.height;
         context.drawImage(img, 0, 0, canvasElem.width, canvasElem.height);
-
+        var imgWidth = 2048;
+        var imgHeight = 1024;
+        var canvasWidth = 1296;
+        var canvasHeight = 654;
         for(i = 0; i < Object.keys(jsonData.bbs).length; i++){
             var agent = Object.keys(jsonData.bbs)[i];
-            var x = jsonData.bbs[agent].x1;
-            var y = jsonData.bbs[agent].y1;
-            var bBoxWidth = jsonData.bbs[agent].w;
-            var bBoxHeight = jsonData.bbs[agent].h;
+            var x = jsonData.bbs[agent].x1/imgWidth*canvasWidth;
+            var y = jsonData.bbs[agent].y1/imgHeight*canvasHeight;
+            var bBoxWidth = jsonData.bbs[agent].w/imgWidth*canvasWidth;
+            var bBoxHeight = jsonData.bbs[agent].h/imgHeight*canvasHeight;
             context.strokeStyle = "red";
             context.linewidth = 5;
             context.strokeRect(x, y, bBoxWidth, bBoxHeight);
@@ -101,15 +105,9 @@ function loadAgents(jsonData){
         accordionButton.className = "accordion-button collapsed";
         accordionButton.type = "button";
         accordionButton.innerText = "Agent " + agentIndex;
-        /*accordionButton.data-bs-toggle = "collapse";
-        accordionButton.data-bs-target = "#collapse" + agentIndex;
-        accordionButton.aria-expanded = "false";
-        accordionButton.aria-controls = "collapse" + agentIndex;*/
 
         collapsableElement.className = "accordion-collapse collapse";
         collapsableElement.id = "collapse" + agentIndex;
-        /*collapsableElement.aria-labelledby = "heading" + agentIndex;
-        collapsableElement.data-bs-parent = "#agentsAccordion"*/
 
         var agent = Object.keys(jsonData.bbs)[i];
         var classLabelNumber = jsonData.bbs[agent].class_label;
@@ -152,6 +150,7 @@ function getAgentToDeploy(jsonData, relX, relY){
         var xCoordBottomRight = x + bBoxWidth;
         var yCoordBottomRight = y + bBoxHeight;
 
+        //Check if click has been inside a bounding box
         if(relX > x*percentageOfReductionWidth && relX < xCoordBottomRight*percentageOfReductionWidth && 
             relY > y*percentageOfReductionHeight && relY < yCoordBottomRight*percentageOfReductionHeight){
                 agentToDeploy = i + 1;
@@ -162,32 +161,76 @@ function getAgentToDeploy(jsonData, relX, relY){
     return agentToDeploy;
 }
 
+function saveCurrent(){
+    /*
+    Update json with new annotations
+     */
+}
+
+function loadData(){
+    /*
+    refresh page with new image index
+    */
+}
+
+function getImagesList(){
+    var folder = "../img/train/strasbourg/";
+    var imagesList = [];
+    var pageData = "";
+
+    $.ajax({
+        url : folder,
+        async: false,
+        success: function (data) {
+            pageData = data;
+        }
+    });
+
+    //Using regular expressions to get the list of images
+    const regex = "addRow\\(\"\\w+.png\"";
+    var matches = [...pageData.matchAll(regex)];
+
+    const fileNameRegex = "\\w+.png";
+    for(i = 0; i < matches.length; i++){
+        imagesList.push(matches[i][0].match(fileNameRegex)[0]);
+    }
+
+    return imagesList;
+}
+
+function displayMagnifyingGlass(currentElem, e, canvasElem, zoom, zoomCtx){
+    var cursorX = e.pageX - $(currentElem).offset().left;//Page coordinates minus the offset of the canvas container
+    var cursorY = e.pageY - $(currentElem).offset().top;
+    var zoomFactor = 2;
+    var w = zoom.offsetWidth / zoomFactor;
+    var h = zoom.offsetHeight / zoomFactor;
+    zoomCtx.fillStyle = "transparent";
+    var glassDim = 150; //Square dimensions of the magnifying glass
+    var glassCursorRepositioningFactor = glassDim/4;
+    var glassCanvasWidth = canvasElem.height/zoomFactor;//current width of canvasElem divided by zoomFactor*canvas width/canvas height);
+    var glassCanvasHeight = glassCanvasWidth;//Since the glass is a square canvas we use glassCanvasWidth
+    zoomCtx.drawImage(canvasElem, cursorX-glassCursorRepositioningFactor, cursorY-glassCursorRepositioningFactor, glassCanvasWidth, glassCanvasHeight, 0, 0, canvasElem.width, canvasElem.height);
+    zoom.style.top = cursorY - h + "px";//Relocation of the canvas to set the cursor in the center instead of in top left position
+    zoom.style.left = cursorX - w + "px";
+    zoom.style.display = "block";
+}
+
 $(document).ready(function() {
-    var jsonData = loadJSONData();  
+    listOfFiles = getImagesList();
+    currentImageIndex = Math.floor(Math.random() * (listOfFiles.length - 0)) + 0;
+    var jsonData = loadJSONData(listOfFiles);  
     img = new Image();
-    img.src = '../img/train/strasbourg/strasbourg_000000_004383_leftImg8bit.png';
+    img.src = '../img/train/strasbourg/' + listOfFiles[currentImageIndex];
+    img.width = $("#canvasContainer").width();
+    img.height = $("#canvasContainer").height();
     var canvasElem = document.getElementById('imgToAnnotate');
     var zoom = document.getElementById("zoomed-canvas");
     var zoomCtx = zoom.getContext("2d");
     loadCanvas(jsonData, img, canvasElem);
     loadAgents(jsonData);
-   /* $('#canvasContainer').mousemove(function(e){
-        var cursorX = e.pageX - $(this).offset().left;
-        var cursorY = e.pageY - $(this).offset().top;
-        var zoomFactor = 2;
-        var bw = 3;
-        var w = zoom.offsetWidth / 2;
-        var h = zoom.offsetHeight / 2;
-        zoomCtx.fillStyle = "transparent";
-        zoomCtx.fillRect(0,0, zoom.width, zoom.height);
-        //zoomCtx.drawImage(canvasElem, cursorX, cursorY, canvasElem.width, canvasElem.height, 0, 0, zoomFactor*canvasElem.width, zoomFactor*canvasElem.height);
-        zoom.style.backgroundRepeat = "no-repeat";
-        //zoom.style.backgroundSize = (canvasElem.width * zoomFactor) + "px " + (canvasElem.height * zoomFactor) + "px";
-        zoom.style.top = cursorY - h + "px";
-        zoom.style.left = cursorX - w + "px";
-        zoom.style.display = "block";
-        //zoom.style.backgroundPosition = "-" + ((cursorX * zoomFactor) - w + bw) + "px -" + ((cursorY * zoomFactor) - h + bw) + "px";
-    });*/
+    $('#canvasContainer').mousemove(function(e){
+        displayMagnifyingGlass(this, e, canvasElem, zoom, zoomCtx);
+    });
     $('#imgToannotate').mouseout(function(){
         zoom.style.display = "none";
     });

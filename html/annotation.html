@@ -32,18 +32,16 @@
             </div>
         </nav>
         <div class="container mt-5">
-          <div class="row">
-              <div id="canvasContainer" class="col-lg-12 mb-5 mb-lg-0 magnifying-glass-container">
-                <canvas id="imgToAnnotate"></canvas>
-                <canvas id="zoomed-canvas"></canvas>
-              </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-12 mb-5 mb-lg-0">
-              <div class="accordion" id="agentsAccordion">
-              </div>
-            </div>
-          </div>         
+                <div id="canvasContainer" class= "magnifying-glass-container">
+                    <canvas id="imgToAnnotate"></canvas>
+                    <canvas id="zoomed-canvas"></canvas>
+                </div>
+            <div class="row">
+                <div class="col-lg-12 mb-5 mb-lg-0">
+                <div class="accordion" id="agentsAccordion">
+                </div>
+                </div>
+            </div>         
         </div>
         <div class="text-center mt-5">
           <button type="button" class="btn btn-primary btn-lg rounded" onclick="saveCurrent();loadData()"><span class="font-weight-bold">Load image</span></button>
