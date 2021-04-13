@@ -1,6 +1,9 @@
 /** GLOBAL VARIABLES **/
 var listOfFiles = [];
 var currentImageIndex = 0;
+var selectedDataset = "";
+var canvasElem, zoom, zoomCtx;
+var imgData = new Object();
 
 function toggleAccordionItem(accordionItem){
     var element = document.getElementById(accordionItem);
@@ -30,8 +33,7 @@ function collapseAllButThis(element){
     }
 }
 
-function loadJSONData(listOfFiles){
-    var file = listOfFiles[currentImageIndex];
+function loadJSONData(file){
     var jsonFile = file.replace(".png", "_annotation.json");
     const JSONPath = "../annotations_json/anno_train/" + jsonFile;
     var jsonObj = {};
@@ -215,32 +217,59 @@ function displayMagnifyingGlass(currentElem, e, canvasElem, zoom, zoomCtx){
     zoom.style.display = "block";
 }
 
-$(document).ready(function() {
+function selectDataset(){
+    var selectBox = document.getElementById("selectBox");
+    selectedDataset = selectBox.options[selectBox.selectedIndex].value;
     listOfFiles = getImagesList();
+    imgData = getRandomImageDataFromDataset();
+    canvasElem = document.getElementById('imgToAnnotate');
+    zoom = document.getElementById("zoomed-canvas");
+    zoomCtx = zoom.getContext("2d");
+    loadCanvas(imgData.json, imgData.img, canvasElem);
+    loadAgents(imgData.json);
+    $('#canvasContainer').css("visibility", "visible");
+}
+
+function getRandomImageDataFromDataset(){
     currentImageIndex = Math.floor(Math.random() * (listOfFiles.length - 0)) + 0;
-    var jsonData = loadJSONData(listOfFiles);  
     img = new Image();
     img.src = '../img/train/strasbourg/' + listOfFiles[currentImageIndex];
     img.width = $("#canvasContainer").width();
     img.height = $("#canvasContainer").height();
-    var canvasElem = document.getElementById('imgToAnnotate');
-    var zoom = document.getElementById("zoomed-canvas");
-    var zoomCtx = zoom.getContext("2d");
-    loadCanvas(jsonData, img, canvasElem);
-    loadAgents(jsonData);
-    $('#canvasContainer').mousemove(function(e){
-        displayMagnifyingGlass(this, e, canvasElem, zoom, zoomCtx);
-    });
-    $('#imgToannotate').mouseout(function(){
-        zoom.style.display = "none";
-    });
-    $("#imgToAnnotate").click(function(event){            
-        var relX = event.pageX - $(this).offset().left;
-        var relY = event.pageY - $(this).offset().top;
-        var agentNumber = getAgentToDeploy(jsonData, relX, relY);
-        var collapsableElement = "collapse" + agentNumber;
+    var jsonData = loadJSONData(listOfFiles[currentImageIndex]); 
+    imgData.img = img;
+    imgData.json = jsonData;
 
-        collapseAllButThis(collapsableElement);
-        toggleAccordionItem(collapsableElement);
+    return imgData;
+}
+
+$(document).ready(function() {
+    $('#canvasContainer').mousemove(function(e){
+        if(selectedDataset != ""){
+            displayMagnifyingGlass(this, e, canvasElem, zoom, zoomCtx);
+        }
     });
+
+    $('#imgToannotate').mouseout(function(){
+        if(selectedDataset != ""){
+            zoom.style.display = "none";
+        }
+    });
+
+    $("#imgToAnnotate").click(function(event){    
+        if(selectedDataset != ""){        
+            var relX = event.pageX - $(this).offset().left;
+            var relY = event.pageY - $(this).offset().top;
+            var agentNumber = getAgentToDeploy(imgData.json, relX, relY);
+            var collapsableElement = "collapse" + agentNumber;
+    
+            collapseAllButThis(collapsableElement);
+            toggleAccordionItem(collapsableElement);
+        }
+    });
+
+    if(selectedDataset == ""){
+        $('#canvasContainer').css("visibility", "hidden");
+    }
+    
 });
