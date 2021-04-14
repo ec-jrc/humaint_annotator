@@ -4,6 +4,8 @@ var currentImageIndex = 0;
 var selectedDataset = "";
 var canvasElem, zoom, zoomCtx;
 var imgData = new Object();
+var currentSelectedAgent = new Object();
+var firstDraw = true;
 
 function toggleAccordionItem(accordionItem){
     var element = document.getElementById(accordionItem);
@@ -80,6 +82,26 @@ function make_base(context, jsonData, img, canvasElem)
     }
 }
 
+function drawImgCanvas(context, jsonData, img, canvasElem){
+    canvasElem.width = img.width;
+    canvasElem.height = img.height;
+    context.drawImage(img, 0, 0, canvasElem.width, canvasElem.height);
+    var imgWidth = 2048;
+    var imgHeight = 1024;
+    var canvasWidth = 1296;
+    var canvasHeight = 654;
+    for(i = 0; i < Object.keys(jsonData.bbs).length; i++){
+        var agent = Object.keys(jsonData.bbs)[i];
+        var x = jsonData.bbs[agent].x1/imgWidth*canvasWidth;
+        var y = jsonData.bbs[agent].y1/imgHeight*canvasHeight;
+        var bBoxWidth = jsonData.bbs[agent].w/imgWidth*canvasWidth;
+        var bBoxHeight = jsonData.bbs[agent].h/imgHeight*canvasHeight;
+        context.strokeStyle = "red";
+        context.linewidth = 5;
+        context.strokeRect(x, y, bBoxWidth, bBoxHeight);
+    }
+}
+
 function loadAgents(jsonData){
     var agentsAccordion = document.getElementById("agentsAccordion");
     const classLabels = {
@@ -122,10 +144,16 @@ function loadAgents(jsonData){
         <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">Adult</span></button>
         <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">Kid</span></button>
         <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">Unknown</span></button>
-        <p class="mb-0 mt-1">Sex</p>
+        <p class="mb-0 mt-3">Sex</p>
         <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">Male</span></button>
         <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">Female</span></button>
-        <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">Unknown</span></button>`
+        <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">Unknown</span></button>
+        <p class="mb-0 mt-3">Custom labels</p>
+        <div class="row col-lg-7">
+        <div class="col"><input type="text" class="form-control labelclass-input" placeholder="Label class"></div>
+        <div class="col"><input type="text" class="form-control label-input" placeholder="Label"></div>
+        <div class="col col-lg-1"><button type="button" class="btn btn-primary rounded btn-sm" data-bs-toggle="button" title="Click to add the label">
+        <span class="font-weight-bold">Add</span></button></div>`
 
         accordionHeader.appendChild(accordionButton);
         collapsableElement.appendChild(accordionBody);
@@ -136,6 +164,15 @@ function loadAgents(jsonData){
 }
 
 function getAgentToDeploy(jsonData, relX, relY){
+    var context = canvasElem.getContext("2d");
+    if(!firstDraw){
+        context.clearRect(0,0,canvasElem.width, canvasElem.height);
+        context.globalAlpha = 1;
+        drawImgCanvas(context, imgData.json, imgData.img, canvasElem);
+    }
+    else{
+        firstDraw = false;
+    }
     var agentToDeploy = 0;
     var canvasWidth = $('#imgToAnnotate').width();
     var canvasHeight = $('#imgToAnnotate').height();
@@ -155,6 +192,13 @@ function getAgentToDeploy(jsonData, relX, relY){
         //Check if click has been inside a bounding box
         if(relX > x*percentageOfReductionWidth && relX < xCoordBottomRight*percentageOfReductionWidth && 
             relY > y*percentageOfReductionHeight && relY < yCoordBottomRight*percentageOfReductionHeight){
+                context.globalAlpha = 0.2;
+                context.fillStyle = "blue";
+                context.fillRect(x*percentageOfReductionWidth, y*percentageOfReductionHeight, bBoxWidth*percentageOfReductionWidth, bBoxHeight*percentageOfReductionHeight);
+                currentSelectedAgent.x = x*percentageOfReductionWidth;
+                currentSelectedAgent.y = y*percentageOfReductionHeight;
+                currentSelectedAgent.width = bBoxWidth*percentageOfReductionWidth;
+                currentSelectedAgent.height = bBoxHeight*percentageOfReductionHeight;
                 agentToDeploy = i + 1;
                 break;
         }
@@ -228,6 +272,7 @@ function selectDataset(){
     loadCanvas(imgData.json, imgData.img, canvasElem);
     loadAgents(imgData.json);
     $('#canvasContainer').css("visibility", "visible");
+    $('#loadimage-btn').css("visibility", "visible");
 }
 
 function getRandomImageDataFromDataset(){
@@ -244,6 +289,7 @@ function getRandomImageDataFromDataset(){
 }
 
 $(document).ready(function() {
+    selectDataset();
     $('#canvasContainer').mousemove(function(e){
         if(selectedDataset != ""){
             displayMagnifyingGlass(this, e, canvasElem, zoom, zoomCtx);
