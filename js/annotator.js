@@ -83,6 +83,8 @@ function make_base(context, jsonData, img, canvasElem)
 }
 
 function drawImgCanvas(context, jsonData, img, canvasElem){
+    context.clearRect(0,0,canvasElem.width, canvasElem.height);
+    context.globalAlpha = 1;
     canvasElem.width = img.width;
     canvasElem.height = img.height;
     context.drawImage(img, 0, 0, canvasElem.width, canvasElem.height);
@@ -138,22 +140,22 @@ function loadAgents(jsonData){
         var classLabel = classLabels[classLabelNumber];
 
         accordionBody.className = "accordion-body";
-        accordionBody.innerHTML = `<p class="mb-0">Current label<p>
-        <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">` + classLabel + `</span></button>
-        <p class="mb-0">Age</p> 
+        accordionBody.innerHTML = `<div class="mb-0"><span>Current label</span><br/>
+        <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">` + classLabel + `</span></button></div>
+        <div class="mb-0"><span>Age</span><br/> 
         <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">Adult</span></button>
         <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">Kid</span></button>
-        <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">Unknown</span></button>
-        <p class="mb-0 mt-3">Sex</p>
+        <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">Unknown</span></button></div>
+        <div class="mb-0 mt-3"><span>Sex</span><br/>
         <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">Male</span></button>
         <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">Female</span></button>
-        <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">Unknown</span></button>
-        <p class="mb-0 mt-3">Custom labels</p>
+        <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">Unknown</span></button></div>
+        <div class="mb-0 mt-3"><span>Custom labels</span><br/>
         <div class="row col-lg-7">
         <div class="col"><input type="text" class="form-control labelclass-input" placeholder="Label class"></div>
         <div class="col"><input type="text" class="form-control label-input" placeholder="Label"></div>
         <div class="col col-lg-1"><button type="button" class="btn btn-primary rounded btn-sm" data-bs-toggle="button" title="Click to add the label">
-        <span class="font-weight-bold">Add</span></button></div>`
+        <span class="font-weight-bold">Add</span></button></div></div>`
 
         accordionHeader.appendChild(accordionButton);
         collapsableElement.appendChild(accordionBody);
@@ -166,8 +168,6 @@ function loadAgents(jsonData){
 function getAgentToDeploy(jsonData, relX, relY){
     var context = canvasElem.getContext("2d");
     if(!firstDraw){
-        context.clearRect(0,0,canvasElem.width, canvasElem.height);
-        context.globalAlpha = 1;
         drawImgCanvas(context, imgData.json, imgData.img, canvasElem);
     }
     else{
@@ -208,15 +208,33 @@ function getAgentToDeploy(jsonData, relX, relY){
 }
 
 function saveCurrent(){
-    /*
-    Update json with new annotations
-     */
+    var editedJSONsPath = "../edited_jsons/";
+    // TODO: Mark picture as annotated
+
+    var numberOfAgents = Object.keys(imgData.json["bbs"]).length;
+    for (i = 0; i < numberOfAgents; i++){
+        var index = i + 1;
+        var agent = imgData.json["bbs"][Object.keys(imgData.json["bbs"])[i]];
+        var query = "#collapse" + index + ">> div";
+        var numCategoriesAgent = $(query).length;
+        var key, value;
+        for(j = 1; j < numCategoriesAgent - 1; j++){//We don't want the current labels nor the custom label form info
+            var numLabelsOfCategory = $(query)[j].children.length
+            key = $($(query)[j]).children()[0].innerHTML;//We need the content of span tag
+            for(k = 2; numLabelsOfCategory; j++){
+                if($(query)[j].children[k].classList.contains("selected")){
+                    value = $($(query)[j].children[k]).children()[0].innerHTML;//We need the content of span tag
+                    break;
+                }
+            }
+            agent[key] = value;
+        }
+    }
 }
 
 function loadData(){
-    /*
-    refresh page with new image index
-    */
+    saveCurrent();
+    location.reload();
 }
 
 function getImagesList(){
