@@ -30,7 +30,7 @@ booktitle={Proc. of the IEEE Conference on Computer Vision and Pattern Recogniti
 year={2016}
 }
 
-### Eurocity Persons Dataset and annotations  
+## Eurocity Persons Dataset and annotations  
 https://eurocity-dataset.tudelft.nl/eval/license/citation  
 
 @article{  
