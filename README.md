@@ -30,3 +30,22 @@ booktitle={Proc. of the IEEE Conference on Computer Vision and Pattern Recogniti
 year={2016}
 }
 
+### Eurocity Persons Dataset and annotations  
+https://eurocity-dataset.tudelft.nl/eval/license/citation  
+
+@article{  
+    braun2019eurocity,  
+    author={Braun, Markus and Krebs, Sebastian and Flohr, Fabian B. and Gavrila, Dariu M.},  
+    journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},  
+    title={EuroCity Persons: A Novel Benchmark for Person Detection in Traffic Scenes},  
+    year={2019},  
+    volume={},  
+    number={},  
+    pages={1-1},  
+    keywords={Proposals;Benchmark testing;Object detection;  
+            Feature extraction;Urban areas;Deep learning;  
+            Training;Object detection;benchmarking},  
+    doi={10.1109/TPAMI.2019.2897684},  
+    ISSN={0162-8828},  
+    month={}  
+}
