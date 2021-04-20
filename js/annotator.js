@@ -35,9 +35,17 @@ function collapseAllButThis(element){
     }
 }
 
-function loadJSONData(file){
-    var jsonFile = file.replace(".png", "_annotation.json");
-    const JSONPath = "../annotations_json/anno_train/" + jsonFile;
+function loadJSONData(selectedDataset, file){
+    var jsonFile, JSONPath;
+    switch (selectedDataset){
+        case "citypersons":
+            jsonFile = file.replace(".png", "_annotation.json");
+            JSONPath = "../annotations_json/citypersons/anno_train/" + jsonFile;
+        case "eurocity":
+            jsonFile = file.replace(".png", ".json");
+            JSONPath = "../annotations_json/ECP/ECP_day_labels_val/ECP/day/labels/val/barcelona/" + jsonFile;
+    }
+
     var jsonObj = {};
 
     $.ajax({
@@ -52,34 +60,68 @@ function loadJSONData(file){
     return jsonObj;
 }
 
-function loadCanvas(jsonData, img, canvasElem){
+function loadCanvas(selectedDataset, jsonData, img, canvasElem){
     var canvas = canvasElem,
     context = canvas.getContext('2d');
 
-    make_base(context, jsonData, img, canvasElem);
+    make_base(selectedDataset, context, jsonData, img, canvasElem);
 }
 
-function make_base(context, jsonData, img, canvasElem)
+function make_base(selectedDataset, context, jsonData, img, canvasElem)
 {
     img.onload = function(){
         canvasElem.width = img.width;
         canvasElem.height = img.height;
         context.drawImage(img, 0, 0, canvasElem.width, canvasElem.height);
-        var imgWidth = 2048;
-        var imgHeight = 1024;
-        var canvasWidth = 1296;
-        var canvasHeight = 654;
-        for(i = 0; i < Object.keys(jsonData.bbs).length; i++){
-            var agent = Object.keys(jsonData.bbs)[i];
-            var x = jsonData.bbs[agent].x1/imgWidth*canvasWidth;
-            var y = jsonData.bbs[agent].y1/imgHeight*canvasHeight;
-            var bBoxWidth = jsonData.bbs[agent].w/imgWidth*canvasWidth;
-            var bBoxHeight = jsonData.bbs[agent].h/imgHeight*canvasHeight;
+        var agents, jsonInfo, imgWidth, imgHeight, canvasWidth = 1296, canvasHeight = 654;
+        var x, y, w, h;
+        switch (selectedDataset){
+            case "citypersons":
+                imgWidth = 2048;
+                imgHeight = 1024;
+                jsonInfo = jsonData.bbs;
+                break;
+            case "eurocity":
+                debugger;
+                imgWidth = 1920;
+                imgHeight = 1024;
+                jsonInfo = jsonData.children;
+                break;
+        }
+        agents = Object.keys(jsonInfo);
+        for(i = 0; i < agents.length; i++){
+            var agent = agents[i];
+            var bBoxValues = getbBoxValues(selectedDataset, jsonInfo[agent]);
+            var x = bBoxValues.x/imgWidth*canvasWidth;
+            var y = bBoxValues.y/imgHeight*canvasHeight;
+            var bBoxWidth = bBoxValues.w/imgWidth*canvasWidth;
+            var bBoxHeight = bBoxValues.h/imgHeight*canvasHeight;
             context.strokeStyle = "red";
             context.linewidth = 5;
             context.strokeRect(x, y, bBoxWidth, bBoxHeight);
         }
     }
+}
+
+function getbBoxValues(selectedDataset, agentInfo){
+    var bBoxValues = new Object();
+
+    switch (selectedDataset){
+        case "citypersons":
+            bBoxValues.x = agentInfo.x1;
+            bBoxValues.y = agentInfo.y1;
+            bBoxValues.w = agentInfo.w;
+            bBoxValues.h = agentInfo.h;
+            break;
+        case "eurocity":
+            bBoxValues.x = agentInfo.x0;
+            bBoxValues.y = agentInfo.y0;
+            bBoxValues.w = agentInfo.x1 - agentInfo.x0;
+            bBoxValues.h = agentInfo.y1 - agentInfo.y0;
+            break;
+    }
+
+    return bBoxValues;
 }
 
 function drawImgCanvas(context, jsonData, img, canvasElem){
@@ -237,8 +279,16 @@ function loadData(){
     location.reload();
 }
 
-function getImagesList(){
-    var folder = "../img/train/strasbourg/";
+function getImagesList(selectedDataset){
+    var folder;
+    switch(selectedDataset){
+        case "citypersons":
+            folder = "../img/citypersons/train/strasbourg/";
+            break;
+        case "eurocity":
+            folder = "../img/ECP/day/img/val/barcelona/";
+            break;
+    }
     var imagesList = [];
     var pageData = "";
 
@@ -282,24 +332,33 @@ function displayMagnifyingGlass(currentElem, e, canvasElem, zoom, zoomCtx){
 function selectDataset(){
     var selectBox = document.getElementById("selectBox");
     selectedDataset = selectBox.options[selectBox.selectedIndex].value;
-    listOfFiles = getImagesList();
-    imgData = getRandomImageDataFromDataset();
+    listOfFiles = getImagesList(selectedDataset);
+    imgData = getRandomImageDataFromDataset(selectedDataset);
     canvasElem = document.getElementById('imgToAnnotate');
     zoom = document.getElementById("zoomed-canvas");
     zoomCtx = zoom.getContext("2d");
-    loadCanvas(imgData.json, imgData.img, canvasElem);
-    loadAgents(imgData.json);
+    loadCanvas(selectedDataset, imgData.json, imgData.img, canvasElem);
+    //loadAgents(imgData.json);
     $('#canvasContainer').css("visibility", "visible");
     $('#loadimage-btn').css("visibility", "visible");
 }
 
-function getRandomImageDataFromDataset(){
+function getRandomImageDataFromDataset(selectedDataset){
     currentImageIndex = Math.floor(Math.random() * (listOfFiles.length - 0)) + 0;
+    var path;
+    switch (selectedDataset){
+        case "citypersons":
+            path = "../img/citypersons/train/strasbourg/";
+            break;
+        case "eurocity":
+            path = "../img/ECP/day/img/val/barcelona/";
+            break;
+    }
     img = new Image();
-    img.src = '../img/train/strasbourg/' + listOfFiles[currentImageIndex];
+    img.src = path + listOfFiles[currentImageIndex];
     img.width = $("#canvasContainer").width();
     img.height = $("#canvasContainer").height();
-    var jsonData = loadJSONData(listOfFiles[currentImageIndex]); 
+    var jsonData = loadJSONData(selectedDataset, listOfFiles[currentImageIndex]); 
     imgData.img = img;
     imgData.json = jsonData;
 
@@ -307,7 +366,7 @@ function getRandomImageDataFromDataset(){
 }
 
 $(document).ready(function() {
-    selectDataset();
+    //selectDataset();
     $('#canvasContainer').mousemove(function(e){
         if(selectedDataset != ""){
             displayMagnifyingGlass(this, e, canvasElem, zoom, zoomCtx);
@@ -334,6 +393,7 @@ $(document).ready(function() {
 
     if(selectedDataset == ""){
         $('#canvasContainer').css("visibility", "hidden");
+        $('#loadimage-btn').css("visibility", "hidden");
     }
     
 });
