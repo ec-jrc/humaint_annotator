@@ -203,6 +203,7 @@ function loadAgentsD2(agents){
 
 function loadAgents(){
     var agentsAccordion = document.getElementById("agentsAccordion");
+    $(agentsAccordion).empty();
 
     for(i = 0; i < Object.keys(datasetSpecificFeatures.agents).length; i++){
         var accordionItem = document.createElement("div");
@@ -274,7 +275,7 @@ function getAgentToDeploy(selectedDataset, jsonData, relX, relY){
 }
 
 function saveCurrent(){
-    var editedJSONsPath = "../edited_jsons/";
+    //datasetSpecificFeatures.editedJSONsPath;
     // TODO: Mark picture as annotated
 
     var numberOfAgents = Object.keys(imgData.json["bbs"]).length;
@@ -298,10 +299,20 @@ function saveCurrent(){
     }
 }
 
+function cleanAndDrawNew(){
+    imgData = getRandomImageDataFromDataset();
+    canvasElem = document.getElementById('imgToAnnotate');
+    zoom = document.getElementById("zoomed-canvas");
+    zoomCtx = zoom.getContext("2d");
+
+    assignDatasetSpecificFeatures(selectedDataset, imgData.json);
+    loadCanvas(selectedDataset, imgData.img, canvasElem);
+    loadAgents();
+}
+
 function loadData(){
-    saveCurrent();
-    //assignDatasetSpecificFeatures(selectedDataset,imgData.json);
-    location.reload();
+    //saveCurrent();
+    cleanAndDrawNew();
 }
 
 function getImagesList(){
@@ -351,11 +362,13 @@ function assignDatasetPaths(selectedDataset){
             datasetSpecificFeatures.imgPath = "../img/citypersons/train/strasbourg/";
             datasetSpecificFeatures.jsonPath = "../annotations_json/citypersons/anno_train/";
             datasetSpecificFeatures.jsonFileEnding = "_annotation.json";
+            datasetSpecificFeatures.editedJSONsPath = "../edited_jsons/citypersons/";
             break;
         case "eurocity":
             datasetSpecificFeatures.imgPath = "../img/ECP/day/img/val/barcelona/";
             datasetSpecificFeatures.jsonPath = "../annotations_json/ECP/ECP_day_labels_val/ECP/day/labels/val/barcelona/";
             datasetSpecificFeatures.jsonFileEnding = ".json";
+            datasetSpecificFeatures.editedJSONsPath = "../edited_jsons/eurocity";
             break;
     }
 }
@@ -380,14 +393,7 @@ function selectDataset(){
     selectedDataset = selectBox.options[selectBox.selectedIndex].value;
     assignDatasetPaths(selectedDataset);
     listOfFiles = getImagesList();
-    imgData = getRandomImageDataFromDataset();
-    canvasElem = document.getElementById('imgToAnnotate');
-    zoom = document.getElementById("zoomed-canvas");
-    zoomCtx = zoom.getContext("2d");
-
-    assignDatasetSpecificFeatures(selectedDataset, imgData.json);
-    loadCanvas(selectedDataset, imgData.img, canvasElem);
-    loadAgents();
+    cleanAndDrawNew();
 
     $('#canvasContainer').css("visibility", "visible");
     $('#loadimage-btn').css("visibility", "visible");
