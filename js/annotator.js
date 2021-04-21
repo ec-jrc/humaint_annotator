@@ -5,6 +5,7 @@ var selectedDataset = "";
 var canvasElem, zoom, zoomCtx;
 var imgData = new Object();
 var currentSelectedAgent = new Object();
+var datasetSpecificFeatures = new Object();
 var firstDraw = true;
 
 function toggleAccordionItem(accordionItem){
@@ -35,21 +36,12 @@ function collapseAllButThis(element){
     }
 }
 
-function loadJSONData(selectedDataset, file){
-    var jsonFile, JSONPath;
-    switch (selectedDataset){
-        case "citypersons":
-            jsonFile = file.replace(".png", "_annotation.json");
-            JSONPath = "../annotations_json/citypersons/anno_train/" + jsonFile;
-        case "eurocity":
-            jsonFile = file.replace(".png", ".json");
-            JSONPath = "../annotations_json/ECP/ECP_day_labels_val/ECP/day/labels/val/barcelona/" + jsonFile;
-    }
-
+function loadJSONData(file){
+    var jsonFile = file.replace(".png", datasetSpecificFeatures.jsonFileEnding);
     var jsonObj = {};
 
     $.ajax({
-        url: JSONPath,
+        url: datasetSpecificFeatures.jsonPath + jsonFile,
         async: false,
         dataType: 'json',
         success: function(json) {
@@ -60,41 +52,29 @@ function loadJSONData(selectedDataset, file){
     return jsonObj;
 }
 
-function loadCanvas(selectedDataset, jsonData, img, canvasElem){
+function loadCanvas(selectedDataset, img, canvasElem){
     var canvas = canvasElem,
     context = canvas.getContext('2d');
 
-    make_base(selectedDataset, context, jsonData, img, canvasElem);
+    make_base(selectedDataset, context, img, canvasElem);
 }
 
-function make_base(selectedDataset, context, jsonData, img, canvasElem)
+function make_base(selectedDataset, context, img, canvasElem)
 {
     img.onload = function(){
         canvasElem.width = img.width;
         canvasElem.height = img.height;
         context.drawImage(img, 0, 0, canvasElem.width, canvasElem.height);
-        var agents, jsonInfo, imgWidth, imgHeight, canvasWidth = 1296, canvasHeight = 654;
-        var x, y, w, h;
-        switch (selectedDataset){
-            case "citypersons":
-                imgWidth = 2048;
-                imgHeight = 1024;
-                jsonInfo = jsonData.bbs;
-                break;
-            case "eurocity":
-                debugger;
-                imgWidth = 1920;
-                imgHeight = 1024;
-                jsonInfo = jsonData.children;
-                break;
-        }
-        agents = Object.keys(jsonInfo);
-        for(i = 0; i < agents.length; i++){
-            var agent = agents[i];
-            var bBoxValues = getbBoxValues(selectedDataset, jsonInfo[agent]);
-            var x = bBoxValues.x/imgWidth*canvasWidth;
+        var agentsKeys, imgHeight = 1024, canvasWidth = 1296, canvasHeight = 654;
+        var x, y;
+        agentsKeys = Object.keys(datasetSpecificFeatures.agents);
+
+        for(i = 0; i < agentsKeys.length; i++){
+            var agent = agentsKeys[i];
+            var bBoxValues = getbBoxValues(selectedDataset, datasetSpecificFeatures.agents[agent]);
+            var x = bBoxValues.x/datasetSpecificFeatures.imgWidth*canvasWidth;
             var y = bBoxValues.y/imgHeight*canvasHeight;
-            var bBoxWidth = bBoxValues.w/imgWidth*canvasWidth;
+            var bBoxWidth = bBoxValues.w/datasetSpecificFeatures.imgWidth*canvasWidth;
             var bBoxHeight = bBoxValues.h/imgHeight*canvasHeight;
             context.strokeStyle = "red";
             context.linewidth = 5;
@@ -124,30 +104,31 @@ function getbBoxValues(selectedDataset, agentInfo){
     return bBoxValues;
 }
 
-function drawImgCanvas(context, jsonData, img, canvasElem){
+function drawImgCanvas(selectedDataset, context, img, canvasElem){
     context.clearRect(0,0,canvasElem.width, canvasElem.height);
     context.globalAlpha = 1;
     canvasElem.width = img.width;
     canvasElem.height = img.height;
     context.drawImage(img, 0, 0, canvasElem.width, canvasElem.height);
-    var imgWidth = 2048;
     var imgHeight = 1024;
     var canvasWidth = 1296;
     var canvasHeight = 654;
-    for(i = 0; i < Object.keys(jsonData.bbs).length; i++){
-        var agent = Object.keys(jsonData.bbs)[i];
-        var x = jsonData.bbs[agent].x1/imgWidth*canvasWidth;
-        var y = jsonData.bbs[agent].y1/imgHeight*canvasHeight;
-        var bBoxWidth = jsonData.bbs[agent].w/imgWidth*canvasWidth;
-        var bBoxHeight = jsonData.bbs[agent].h/imgHeight*canvasHeight;
+
+    for(i = 0; i < Object.keys(datasetSpecificFeatures.agents).length; i++){
+        var agent = Object.keys(datasetSpecificFeatures.agents)[i];
+        var bBoxValues = getbBoxValues(selectedDataset, datasetSpecificFeatures.agents[agent]);
+        var x = bBoxValues.x/datasetSpecificFeatures.imgWidth*canvasWidth;
+        var y = bBoxValues.y/imgHeight*canvasHeight;
+        var bBoxWidth = bBoxValues.w/datasetSpecificFeatures.imgWidth*canvasWidth;
+        var bBoxHeight = bBoxValues.h/imgHeight*canvasHeight;
         context.strokeStyle = "red";
         context.linewidth = 5;
         context.strokeRect(x, y, bBoxWidth, bBoxHeight);
     }
 }
 
-function loadAgents(jsonData){
-    var agentsAccordion = document.getElementById("agentsAccordion");
+function loadAgentsD1(agents){
+    var accordionBodies = [];
     const classLabels = {
         0: "Ignore",
         1: "Pedestrian",
@@ -157,28 +138,10 @@ function loadAgents(jsonData){
         5: "Group of people"
     };
 
-    for(i = 0; i < Object.keys(jsonData.bbs).length; i++){
-        var accordionItem = document.createElement("div");
-        var accordionHeader = document.createElement("h2");
-        var accordionButton = document.createElement("button");
-        var collapsableElement = document.createElement("div");
+    for(i = 0; i < Object.keys(agents).length; i++){
         var accordionBody = document.createElement("div");
-        var agentIndex = i+1;
-
-        accordionItem.className = "accordion-item";
-
-        accordionHeader.className = "accordion-header"
-        accordionHeader.id = "heading" + agentIndex;
-        
-        accordionButton.className = "accordion-button collapsed";
-        accordionButton.type = "button";
-        accordionButton.innerText = "Agent " + agentIndex;
-
-        collapsableElement.className = "accordion-collapse collapse";
-        collapsableElement.id = "collapse" + agentIndex;
-
-        var agent = Object.keys(jsonData.bbs)[i];
-        var classLabelNumber = jsonData.bbs[agent].class_label;
+        var agent = Object.keys(agents)[i];
+        var classLabelNumber = agents[agent].class_label;
         var classLabel = classLabels[classLabelNumber];
 
         accordionBody.className = "accordion-body";
@@ -199,48 +162,109 @@ function loadAgents(jsonData){
         <div class="col col-lg-1"><button type="button" class="btn btn-primary rounded btn-sm" data-bs-toggle="button" title="Click to add the label">
         <span class="font-weight-bold">Add</span></button></div></div>`
 
+        accordionBodies.push(accordionBody);
+    }
+
+    return accordionBodies;
+}
+
+function loadAgentsD2(agents){
+    var accordionBodies = [];
+
+    for(i = 0; i < Object.keys(agents).length; i++){
+        var accordionBody = document.createElement("div");
+        var agent = Object.keys(agents)[i];
+        var identity = agents[agent].identity;
+
+        accordionBody.className = "accordion-body";
+        accordionBody.innerHTML = `<div class="mb-0"><span>Current label</span><br/>
+        <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">` + identity + `</span></button></div>
+        <div class="mb-0"><span>Age</span><br/> 
+        <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">Adult</span></button>
+        <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">Kid</span></button>
+        <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">Unknown</span></button></div>
+        <div class="mb-0 mt-3"><span>Sex</span><br/>
+        <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">Male</span></button>
+        <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">Female</span></button>
+        <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">Unknown</span></button></div>
+        <div class="mb-0 mt-3"><span>Custom labels</span><br/>
+        <div class="row col-lg-7">
+        <div class="col"><input type="text" class="form-control labelclass-input" placeholder="Label class"></div>
+        <div class="col"><input type="text" class="form-control label-input" placeholder="Label"></div>
+        <div class="col col-lg-1"><button type="button" class="btn btn-primary rounded btn-sm" data-bs-toggle="button" title="Click to add the label">
+        <span class="font-weight-bold">Add</span></button></div></div>`
+
+        accordionBodies.push(accordionBody);
+    }
+
+    return accordionBodies;
+}
+
+
+function loadAgents(){
+    var agentsAccordion = document.getElementById("agentsAccordion");
+
+    for(i = 0; i < Object.keys(datasetSpecificFeatures.agents).length; i++){
+        var accordionItem = document.createElement("div");
+        var accordionHeader = document.createElement("h2");
+        var accordionButton = document.createElement("button");
+        var collapsableElement = document.createElement("div");
+        var agentIndex = i+1;
+
+        accordionItem.className = "accordion-item";
+
+        accordionHeader.className = "accordion-header"
+        accordionHeader.id = "heading" + agentIndex;
+        
+        accordionButton.className = "accordion-button collapsed";
+        accordionButton.type = "button";
+        accordionButton.innerText = "Agent " + agentIndex;
+
+        collapsableElement.className = "accordion-collapse collapse";
+        collapsableElement.id = "collapse" + agentIndex;
+
         accordionHeader.appendChild(accordionButton);
-        collapsableElement.appendChild(accordionBody);
+        collapsableElement.appendChild(datasetSpecificFeatures.accordionBodies[i]);
         accordionItem.appendChild(accordionHeader);
         accordionItem.appendChild(collapsableElement);
         agentsAccordion.appendChild(accordionItem);
     }
 }
 
-function getAgentToDeploy(jsonData, relX, relY){
+function getAgentToDeploy(selectedDataset, jsonData, relX, relY){
     var context = canvasElem.getContext("2d");
+    var imgOriginalHeight = 1024;
+
     if(!firstDraw){
-        drawImgCanvas(context, imgData.json, imgData.img, canvasElem);
+        drawImgCanvas(selectedDataset, context, imgData.img, canvasElem);
     }
     else{
         firstDraw = false;
     }
+
     var agentToDeploy = 0;
     var canvasWidth = $('#imgToAnnotate').width();
     var canvasHeight = $('#imgToAnnotate').height();
-    const imgOriginalWidth = 2048;
-    const imgOriginalHeight = 1024;
-    var percentageOfReductionWidth = canvasWidth/imgOriginalWidth;
+    var percentageOfReductionWidth = canvasWidth/datasetSpecificFeatures.imgWidth;
     var percentageOfReductionHeight = canvasHeight/imgOriginalHeight;
-    for(i = 0; i < Object.keys(jsonData.bbs).length; i++){
-        var agent = Object.keys(jsonData.bbs)[i];
-        var x = jsonData.bbs[agent].x1;
-        var y = jsonData.bbs[agent].y1;
-        var bBoxWidth = jsonData.bbs[agent].w;
-        var bBoxHeight = jsonData.bbs[agent].h;
-        var xCoordBottomRight = x + bBoxWidth;
-        var yCoordBottomRight = y + bBoxHeight;
+
+    for(i = 0; i < Object.keys(datasetSpecificFeatures.agents).length; i++){
+        var agent = Object.keys(datasetSpecificFeatures.agents)[i];
+        var bBoxValues = getbBoxValues(selectedDataset, datasetSpecificFeatures.agents[agent]);
+        var xCoordBottomRight = bBoxValues.x + bBoxValues.w;
+        var yCoordBottomRight = bBoxValues.y + bBoxValues.h;
 
         //Check if click has been inside a bounding box
-        if(relX > x*percentageOfReductionWidth && relX < xCoordBottomRight*percentageOfReductionWidth && 
-            relY > y*percentageOfReductionHeight && relY < yCoordBottomRight*percentageOfReductionHeight){
+        if(relX > bBoxValues.x*percentageOfReductionWidth && relX < xCoordBottomRight*percentageOfReductionWidth && 
+            relY > bBoxValues.y*percentageOfReductionHeight && relY < yCoordBottomRight*percentageOfReductionHeight){
                 context.globalAlpha = 0.2;
                 context.fillStyle = "blue";
-                context.fillRect(x*percentageOfReductionWidth, y*percentageOfReductionHeight, bBoxWidth*percentageOfReductionWidth, bBoxHeight*percentageOfReductionHeight);
-                currentSelectedAgent.x = x*percentageOfReductionWidth;
-                currentSelectedAgent.y = y*percentageOfReductionHeight;
-                currentSelectedAgent.width = bBoxWidth*percentageOfReductionWidth;
-                currentSelectedAgent.height = bBoxHeight*percentageOfReductionHeight;
+                context.fillRect(bBoxValues.x*percentageOfReductionWidth, bBoxValues.y*percentageOfReductionHeight, 
+                    bBoxValues.w*percentageOfReductionWidth, bBoxValues.h*percentageOfReductionHeight);
+                currentSelectedAgent.x = bBoxValues.x*percentageOfReductionWidth;
+                currentSelectedAgent.y = bBoxValues.y*percentageOfReductionHeight;
+                currentSelectedAgent.width = bBoxValues.w*percentageOfReductionWidth;
+                currentSelectedAgent.height = bBoxValues.h*percentageOfReductionHeight;
                 agentToDeploy = i + 1;
                 break;
         }
@@ -276,24 +300,16 @@ function saveCurrent(){
 
 function loadData(){
     saveCurrent();
+    //assignDatasetSpecificFeatures(selectedDataset,imgData.json);
     location.reload();
 }
 
-function getImagesList(selectedDataset){
-    var folder;
-    switch(selectedDataset){
-        case "citypersons":
-            folder = "../img/citypersons/train/strasbourg/";
-            break;
-        case "eurocity":
-            folder = "../img/ECP/day/img/val/barcelona/";
-            break;
-    }
+function getImagesList(){
     var imagesList = [];
     var pageData = "";
 
     $.ajax({
-        url : folder,
+        url : datasetSpecificFeatures.imgPath,
         async: false,
         success: function (data) {
             pageData = data;
@@ -329,36 +345,61 @@ function displayMagnifyingGlass(currentElem, e, canvasElem, zoom, zoomCtx){
     zoom.style.display = "block";
 }
 
+function assignDatasetPaths(selectedDataset){
+    switch(selectedDataset){
+        case "citypersons":
+            datasetSpecificFeatures.imgPath = "../img/citypersons/train/strasbourg/";
+            datasetSpecificFeatures.jsonPath = "../annotations_json/citypersons/anno_train/";
+            datasetSpecificFeatures.jsonFileEnding = "_annotation.json";
+            break;
+        case "eurocity":
+            datasetSpecificFeatures.imgPath = "../img/ECP/day/img/val/barcelona/";
+            datasetSpecificFeatures.jsonPath = "../annotations_json/ECP/ECP_day_labels_val/ECP/day/labels/val/barcelona/";
+            datasetSpecificFeatures.jsonFileEnding = ".json";
+            break;
+    }
+}
+
+function assignDatasetSpecificFeatures(selectedDataset, jsonData){
+    switch(selectedDataset){
+        case "citypersons":
+            datasetSpecificFeatures.agents = jsonData.bbs;
+            datasetSpecificFeatures.imgWidth = 2048;
+            datasetSpecificFeatures.accordionBodies = loadAgentsD1(datasetSpecificFeatures.agents);
+            break;
+        case "eurocity":
+            datasetSpecificFeatures.agents = jsonData.children;
+            datasetSpecificFeatures.imgWidth = 1920;
+            datasetSpecificFeatures.accordionBodies = loadAgentsD2(datasetSpecificFeatures.agents);
+            break;
+    }
+}
+
 function selectDataset(){
     var selectBox = document.getElementById("selectBox");
     selectedDataset = selectBox.options[selectBox.selectedIndex].value;
-    listOfFiles = getImagesList(selectedDataset);
-    imgData = getRandomImageDataFromDataset(selectedDataset);
+    assignDatasetPaths(selectedDataset);
+    listOfFiles = getImagesList();
+    imgData = getRandomImageDataFromDataset();
     canvasElem = document.getElementById('imgToAnnotate');
     zoom = document.getElementById("zoomed-canvas");
     zoomCtx = zoom.getContext("2d");
-    loadCanvas(selectedDataset, imgData.json, imgData.img, canvasElem);
-    //loadAgents(imgData.json);
+
+    assignDatasetSpecificFeatures(selectedDataset, imgData.json);
+    loadCanvas(selectedDataset, imgData.img, canvasElem);
+    loadAgents();
+
     $('#canvasContainer').css("visibility", "visible");
     $('#loadimage-btn').css("visibility", "visible");
 }
 
-function getRandomImageDataFromDataset(selectedDataset){
+function getRandomImageDataFromDataset(){
     currentImageIndex = Math.floor(Math.random() * (listOfFiles.length - 0)) + 0;
-    var path;
-    switch (selectedDataset){
-        case "citypersons":
-            path = "../img/citypersons/train/strasbourg/";
-            break;
-        case "eurocity":
-            path = "../img/ECP/day/img/val/barcelona/";
-            break;
-    }
     img = new Image();
-    img.src = path + listOfFiles[currentImageIndex];
+    img.src = datasetSpecificFeatures.imgPath + listOfFiles[currentImageIndex];
     img.width = $("#canvasContainer").width();
     img.height = $("#canvasContainer").height();
-    var jsonData = loadJSONData(selectedDataset, listOfFiles[currentImageIndex]); 
+    var jsonData = loadJSONData(listOfFiles[currentImageIndex]); 
     imgData.img = img;
     imgData.json = jsonData;
 
@@ -383,7 +424,7 @@ $(document).ready(function() {
         if(selectedDataset != ""){        
             var relX = event.pageX - $(this).offset().left;
             var relY = event.pageY - $(this).offset().top;
-            var agentNumber = getAgentToDeploy(imgData.json, relX, relY);
+            var agentNumber = getAgentToDeploy(selectedDataset, imgData.json, relX, relY);
             var collapsableElement = "collapse" + agentNumber;
     
             collapseAllButThis(collapsableElement);
