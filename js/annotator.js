@@ -62,25 +62,19 @@ function loadCanvas(selectedDataset, img, canvasElem){
 function make_base(selectedDataset, context, img, canvasElem)
 {
     img.onload = function(){
-        canvasElem.width = img.width;
-        canvasElem.height = img.height;
-        context.drawImage(img, 0, 0, canvasElem.width, canvasElem.height);
-        var agentsKeys, imgHeight = 1024, canvasWidth = 1296, canvasHeight = 654;
-        var x, y;
-        agentsKeys = Object.keys(datasetSpecificFeatures.agents);
-
-        for(i = 0; i < agentsKeys.length; i++){
-            var agent = agentsKeys[i];
-            var bBoxValues = getbBoxValues(selectedDataset, datasetSpecificFeatures.agents[agent]);
-            var x = bBoxValues.x/datasetSpecificFeatures.imgWidth*canvasWidth;
-            var y = bBoxValues.y/imgHeight*canvasHeight;
-            var bBoxWidth = bBoxValues.w/datasetSpecificFeatures.imgWidth*canvasWidth;
-            var bBoxHeight = bBoxValues.h/imgHeight*canvasHeight;
-            context.strokeStyle = "red";
-            context.linewidth = 5;
-            context.strokeRect(x, y, bBoxWidth, bBoxHeight);
-        }
+        drawImgCanvas(selectedDataset, context, img, canvasElem)
     }
+}
+
+function drawRect(context, imgHeight, canvasWidth, canvasHeight, selectedDataset, agent){
+    var bBoxValues = getbBoxValues(selectedDataset, agent);
+    var x = bBoxValues.x/datasetSpecificFeatures.imgWidth*canvasWidth;
+    var y = bBoxValues.y/imgHeight*canvasHeight;
+    var bBoxWidth = bBoxValues.w/datasetSpecificFeatures.imgWidth*canvasWidth;
+    var bBoxHeight = bBoxValues.h/imgHeight*canvasHeight;
+    context.strokeStyle = "red";
+    context.linewidth = 5;
+    context.strokeRect(x, y, bBoxWidth, bBoxHeight);
 }
 
 function getbBoxValues(selectedDataset, agentInfo){
@@ -110,20 +104,17 @@ function drawImgCanvas(selectedDataset, context, img, canvasElem){
     canvasElem.width = img.width;
     canvasElem.height = img.height;
     context.drawImage(img, 0, 0, canvasElem.width, canvasElem.height);
-    var imgHeight = 1024;
-    var canvasWidth = 1296;
-    var canvasHeight = 654;
+    var agentsKeys, imgHeight = 1024, canvasWidth = 1296, canvasHeight = 654;
+    agentsKeys = Object.keys(datasetSpecificFeatures.agents);
 
-    for(i = 0; i < Object.keys(datasetSpecificFeatures.agents).length; i++){
-        var agent = Object.keys(datasetSpecificFeatures.agents)[i];
-        var bBoxValues = getbBoxValues(selectedDataset, datasetSpecificFeatures.agents[agent]);
-        var x = bBoxValues.x/datasetSpecificFeatures.imgWidth*canvasWidth;
-        var y = bBoxValues.y/imgHeight*canvasHeight;
-        var bBoxWidth = bBoxValues.w/datasetSpecificFeatures.imgWidth*canvasWidth;
-        var bBoxHeight = bBoxValues.h/imgHeight*canvasHeight;
-        context.strokeStyle = "red";
-        context.linewidth = 5;
-        context.strokeRect(x, y, bBoxWidth, bBoxHeight);
+    for(i = 0; i < agentsKeys.length; i++){
+        var agent = agentsKeys[i];
+        drawRect(context, imgHeight, canvasWidth, canvasHeight, selectedDataset, datasetSpecificFeatures.agents[agent]);
+
+        //Agents might be riders, and their vehicle bounding box is provided as subchild
+        if(datasetSpecificFeatures.agents[agent].hasOwnProperty("children") && datasetSpecificFeatures.agents[agent].children.length != 0){
+            drawRect(context, imgHeight, canvasWidth, canvasHeight, selectedDataset, datasetSpecificFeatures.agents[agent].children[0]);
+        }
     }
 }
 
@@ -145,22 +136,7 @@ function loadAgentsD1(agents){
         var classLabel = classLabels[classLabelNumber];
 
         accordionBody.className = "accordion-body";
-        accordionBody.innerHTML = `<div class="mb-0"><span>Current label</span><br/>
-        <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">` + classLabel + `</span></button></div>
-        <div class="mb-0"><span>Age</span><br/> 
-        <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">Adult</span></button>
-        <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">Kid</span></button>
-        <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">Unknown</span></button></div>
-        <div class="mb-0 mt-3"><span>Sex</span><br/>
-        <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">Male</span></button>
-        <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">Female</span></button>
-        <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">Unknown</span></button></div>
-        <div class="mb-0 mt-3"><span>Custom labels</span><br/>
-        <div class="row col-lg-7">
-        <div class="col"><input type="text" class="form-control labelclass-input" placeholder="Label class"></div>
-        <div class="col"><input type="text" class="form-control label-input" placeholder="Label"></div>
-        <div class="col col-lg-1"><button type="button" class="btn btn-primary rounded btn-sm" data-bs-toggle="button" title="Click to add the label">
-        <span class="font-weight-bold">Add</span></button></div></div>`
+        accordionBody.innerHTML = getAgentInnerHTML(classLabel);
 
         accordionBodies.push(accordionBody);
     }
@@ -177,22 +153,26 @@ function loadAgentsD2(agents){
         var identity = agents[agent].identity;
 
         accordionBody.className = "accordion-body";
-        accordionBody.innerHTML = `<div class="mb-0"><span>Current label</span><br/>
-        <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">` + identity + `</span></button></div>
-        <div class="mb-0"><span>Age</span><br/> 
-        <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">Adult</span></button>
-        <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">Kid</span></button>
-        <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">Unknown</span></button></div>
-        <div class="mb-0 mt-3"><span>Sex</span><br/>
-        <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">Male</span></button>
-        <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">Female</span></button>
-        <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">Unknown</span></button></div>
-        <div class="mb-0 mt-3"><span>Custom labels</span><br/>
-        <div class="row col-lg-7">
-        <div class="col"><input type="text" class="form-control labelclass-input" placeholder="Label class"></div>
-        <div class="col"><input type="text" class="form-control label-input" placeholder="Label"></div>
-        <div class="col col-lg-1"><button type="button" class="btn btn-primary rounded btn-sm" data-bs-toggle="button" title="Click to add the label">
-        <span class="font-weight-bold">Add</span></button></div></div>`
+        accordionBody.innerHTML = getAgentInnerHTML(identity);
+
+        if(datasetSpecificFeatures.agents[agent].hasOwnProperty("children") && datasetSpecificFeatures.agents[agent].children.length != 0){
+            identity = datasetSpecificFeatures.agents[agent].children[0].identity;
+            accordionBody.innerHTML += `<div class="mb-0 mt-3"><span>Sub-entities</span><br/>
+            <div id="subentity" class="border border-primary rounded" style="padding:10px;">
+            <div class="mb-0"><span>Current label</span><br/>
+            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">` + identity + `</span></button></div>
+            <div class="mb-0 mt-3"><span>Color</span><br/> 
+            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Black</span></button>
+            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">White</span></button>
+            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Grey</span></button>
+            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Blue</span></button>
+            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Red</span></button>
+            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Yellow</span></button>
+            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Green</span></button>
+            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Other</span></button>
+            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>
+            </div>`;
+        }
 
         accordionBodies.push(accordionBody);
     }
@@ -200,6 +180,40 @@ function loadAgentsD2(agents){
     return accordionBodies;
 }
 
+function getAgentInnerHTML(currentClass){
+    var innerHTML = `<div class="mb-0"><span>Current label</span><br/>
+    <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">` + currentClass + `</span></button></div>
+    <div class="mb-0 mt-3"><span>Age</span><br/> 
+    <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Adult</span></button>
+    <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Kid</span></button>
+    <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>
+    <div class="mb-0 mt-3"><span>Sex</span><br/>
+    <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Male</span></button>
+    <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Female</span></button>
+    <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>
+    <div class="mb-0 mt-3"><span>Custom labels</span><br/>
+    <div class="row col-lg-7">
+    <div class="col"><input type="text" class="form-control labelclass-input" placeholder="Label class"></div>
+    <div class="col"><input type="text" class="form-control label-input" placeholder="Label"></div>
+    <div class="col col-lg-1"><button type="button" class="btn btn-primary rounded btn-sm" data-bs-toggle="button" title="Click to add the label">
+    <span class="font-weight-bold">Add</span></button></div></div>`;
+
+    return innerHTML;
+}
+
+function isGroupOfPeople(){
+    //TODO: detection of several people together as a group
+}
+
+function toggleTag(element){
+    var elementParentChildren = element.parentElement.children;
+    for(i = 2; i < elementParentChildren.length; i++){//first two elements are not buttons
+        elementParentChildren[i].classList.remove("tag-pressed");
+        elementParentChildren[i].classList.add("btn-primary");
+    }
+    element.classList.remove("btn-primary");
+    element.classList.add("tag-pressed");
+}
 
 function loadAgents(){
     var agentsAccordion = document.getElementById("agentsAccordion");
@@ -277,19 +291,19 @@ function getAgentToDeploy(selectedDataset, jsonData, relX, relY){
 function saveCurrent(){
     //datasetSpecificFeatures.editedJSONsPath;
     // TODO: Mark picture as annotated
-
-    var numberOfAgents = Object.keys(imgData.json["bbs"]).length;
+    debugger;
+    var numberOfAgents = datasetSpecificFeatures.agents.length;
     for (i = 0; i < numberOfAgents; i++){
         var index = i + 1;
-        var agent = imgData.json["bbs"][Object.keys(imgData.json["bbs"])[i]];
+        var agent = datasetSpecificFeatures.agents[i];
         var query = "#collapse" + index + ">> div";
-        var numCategoriesAgent = $(query).length;
+        var numCategoriesAgent = $(query).length;//$(query).not('.ignore-div').length
         var key, value;
         for(j = 1; j < numCategoriesAgent - 1; j++){//We don't want the current labels nor the custom label form info
             var numLabelsOfCategory = $(query)[j].children.length
             key = $($(query)[j]).children()[0].innerHTML;//We need the content of span tag
             for(k = 2; numLabelsOfCategory; j++){
-                if($(query)[j].children[k].classList.contains("selected")){
+                if($(query)[j].children[k].classList.contains("tag-pressed")){
                     value = $($(query)[j].children[k]).children()[0].innerHTML;//We need the content of span tag
                     break;
                 }
@@ -311,7 +325,7 @@ function cleanAndDrawNew(){
 }
 
 function loadData(){
-    //saveCurrent();
+    saveCurrent();
     cleanAndDrawNew();
 }
 
@@ -413,7 +427,6 @@ function getRandomImageDataFromDataset(){
 }
 
 $(document).ready(function() {
-    //selectDataset();
     $('#canvasContainer').mousemove(function(e){
         if(selectedDataset != ""){
             displayMagnifyingGlass(this, e, canvasElem, zoom, zoomCtx);
