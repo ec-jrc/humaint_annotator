@@ -247,7 +247,7 @@ function loadAgents(){
     }
 }
 
-function getAgentToDeploy(selectedDataset, jsonData, relX, relY){
+function getAgentToDeploy(selectedDataset, relX, relY){
     var context = canvasElem.getContext("2d");
     var imgOriginalHeight = 1024;
 
@@ -308,11 +308,18 @@ function saveCurrent(){
                     var subEntityQuery = $("#collapse" + index + " >> div >> #subentity-color");
                     key = subEntityQuery.children()[0].innerHTML;
                     var numLabelsOfSubEntity = subEntityQuery.children().length;
-                    subEntity = editAgent(subEntityQuery.children(), numLabelsOfSubEntity, key, agent["children"][0]);
-                    agent["children"] = subEntity;
+                    var subEntity = editAgent(subEntityQuery.children(), numLabelsOfSubEntity, key, agent["children"][0]);
+                    if(!imageLabelled){
+                        break;
+                    }
+                    agent["children"][0] = subEntity;
                 }
                 else{
-                    agent = editAgent(query[j].children, numLabelsOfCategory, key, agent);
+                    var auxAgent = editAgent(query[j].children, numLabelsOfCategory, key, agent);
+                    if(!imageLabelled){
+                        break;
+                    }
+                    agent = auxAgent;
                 }
             }
         }
@@ -346,8 +353,10 @@ function editAgent(queryChildren, availableLabels, key, agent){
     for(k = 2; k < availableLabels; k++){
         if(queryChildren[k].classList.contains("tag-pressed")){
             value = queryChildren[k].children[0].innerHTML;//We need the content of span tag
+            tagged = true;
             break;
         }
+        imageLabelled = false;
     }
     if(tagged){
         agent[key.toLowerCase()] = value.toLowerCase();
@@ -490,7 +499,7 @@ $(document).ready(function() {
         if(selectedDataset != ""){        
             var relX = event.pageX - $(this).offset().left;
             var relY = event.pageY - $(this).offset().top;
-            var agentNumber = getAgentToDeploy(selectedDataset, imgData.json, relX, relY);
+            var agentNumber = getAgentToDeploy(selectedDataset, relX, relY);
             var collapsableElement = "collapse" + agentNumber;
     
             collapseAllButThis(collapsableElement);
