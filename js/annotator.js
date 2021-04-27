@@ -6,6 +6,7 @@ var canvasElem, zoom, zoomCtx;
 var imgData = new Object();
 var currentSelectedAgent = new Object();
 var datasetSpecificFeatures = new Object();
+var newAgentsLabels = new Object();
 var firstDraw = true;
 var imageLabelled = false;
 
@@ -214,6 +215,17 @@ function toggleTag(element){
     }
     element.classList.remove("btn-primary");
     element.classList.add("tag-pressed");
+
+    var currentAgent = element.closest(".accordion-item").firstElementChild.innerText;//Get agent name
+    var category = element.parentElement.firstElementChild.innerText;//Get label category
+    var labelValue = element.innerText;//Get label value
+
+    if(element.closest("#subentity") != null){//If the label comes from a subentity, agent's children dictionary has to be edited
+        newAgentsLabels[currentAgent]["children"][category.toLowerCase()] = labelValue.toLowerCase();
+    }
+    else{
+        newAgentsLabels[currentAgent][category.toLowerCase()] = labelValue.toLowerCase();
+    }
 }
 
 function loadAgents(){
@@ -244,6 +256,10 @@ function loadAgents(){
         accordionItem.appendChild(accordionHeader);
         accordionItem.appendChild(collapsableElement);
         agentsAccordion.appendChild(accordionItem);
+
+        //Initializing newAgentsLabels to be used in toggleTag() method
+        newAgentsLabels["Agent " + agentIndex] = new Object();
+        newAgentsLabels["Agent " + agentIndex]["children"] = new Object();
     }
 }
 
@@ -292,50 +308,79 @@ function getAgentToDeploy(selectedDataset, relX, relY){
 function saveCurrent(){
     // TODO: Mark picture as annotated
     var numberOfAgents = datasetSpecificFeatures.agents.length;
-    var editedJson = imgData.json;
-    editedJson.children = [];//Empty children array to be filled with edited agents
+
+    //Edit each agent of the json object
     for (i = 0; i < numberOfAgents; i++){
         var index = i + 1;
+        var currentAgentNewInfo = newAgentsLabels["Agent " + index];
         var agent = datasetSpecificFeatures.agents[i];
-        var query = $("#collapse" + index + " >> div");
-        var numCategoriesAgent = query.length;
-        var key;
-        for(j = 1; j < numCategoriesAgent; j++){//We don't want the current labels nor the custom label form info
-            var numLabelsOfCategory = query[j].children.length
-            key = query[j].children[0].innerHTML;//We need the content of span tag
-            if(key != "Custom labels"){
-                if(key == "Sub-entities"){
-                    var subEntityQuery = $("#collapse" + index + " >> div >> #subentity-color");
-                    key = subEntityQuery.children()[0].innerHTML;
-                    var numLabelsOfSubEntity = subEntityQuery.children().length;
-                    var subEntity = editAgent(subEntityQuery.children(), numLabelsOfSubEntity, key, agent["children"][0]);
-                    if(!imageLabelled){
-                        break;
-                    }
-                    agent["children"][0] = subEntity;
-                }
-                else{
-                    var auxAgent = editAgent(query[j].children, numLabelsOfCategory, key, agent);
-                    if(!imageLabelled){
-                        break;
-                    }
-                    agent = auxAgent;
+        
+        var agentKeys = Object.keys(currentAgentNewInfo); 
+        for(j = 0; j < agentKeys.length; j++){
+            if(agentKeys[j] != "children"){
+                agent[agentKeys[j]] = currentAgentNewInfo[agentKeys[j]];//Copy info from new labels into the agent
+            }
+            else{
+                var childrenKeys = Object.keys(currentAgentNewInfo[agentKeys[j]]);
+                for(k = 0; k < childrenKeys.length; k++){
+                    //Copy info from new labels's children into the agent
+                    agent[agentKeys[j]][0][childrenKeys[k]] = currentAgentNewInfo[agentKeys[j]][childrenKeys[k]]; 
                 }
             }
         }
-        if(imageLabelled){//imageLabelled variable is edited in editAgent() method. If it is false, that means the agent is not fully labelled
-            editedJson.children.push(agent);
+        imgData.json.children[i] = agent;//Adding edited agents to img json
+    }
+
+    var agentsLabelled = isAgentCorrectlyLabelled(numberOfAgents);
+
+    if(!agentsLabelled){
+        alert("You need to label all the agents of the picture to load a new image");
+        imageLabelled = false;
+    }
+    else{
+        imageLabelled = true;
+        var editedJsonFile = listOfFiles[currentImageIndex].replace(".png", "_edited.json");
+        downloadNewJson(imgData.json, editedJsonFile, 'text/plain');
+    }
+}
+
+function isAgentCorrectlyLabelled(numberOfAgents){
+    var agentsCorrectlyLabelled = 0;
+    for (i = 0; i < numberOfAgents; i++){
+        var index = i + 1;
+        var query = $("#collapse" + index + " >> div");
+        var numCategoriesAgent = query.length;
+        for(j = 1; j < numCategoriesAgent; j++){//We don't want the current labels nor the custom label form info
+            if(query[j].firstElementChild.innerText != "Custom labels"){
+                if(query[j].firstElementChild.innerText == "Sub-entities"){
+                    var subentityChildren = $(query).find("#subentity")[0].children;
+                    var numCategoriesSubEntity = subentityChildren.length;
+                    for(k = 1; k < numCategoriesSubEntity; k++){//We don't want the current labels
+                        //Look for pressed tags in sub-entity
+                        agentsCorrectlyLabelled = $(subentityChildren[k]).find(".tag-pressed").length;
+
+                        if(!agentsCorrectlyLabelled){//If one category is not labelled, agent is not correctly labelled
+                            break;
+                        }
+                    }
+                }
+                else{
+                    //Look for pressed tags in category
+                    agentsCorrectlyLabelled = $(query[j]).find(".tag-pressed").length;
+                }
+
+                if(!agentsCorrectlyLabelled){//If one category is not labelled, agent is not correctly labelled
+                    break;
+                }
+            }
         }
-        else{
-            alert("You need to label all the agents of the picture to load a new image");
+
+        if(!agentsCorrectlyLabelled){//If one category is not labelled, agent is not correctly labelled
             break;
         }
     }
-    // TODO CORRECT
-    if(imageLabelled){//imageLabelled variable is edited in editAgent() method. If it is false, that means the agent is not fully labelled
-        var editedJsonFile = listOfFiles[currentImageIndex].replace(".png", "_edited.json");
-        downloadNewJson(editedJson, editedJsonFile, 'text/plain');
-    }
+
+    return agentsCorrectlyLabelled;
 }
 
 function downloadNewJson(jsonData, fileName, contentType){
@@ -345,25 +390,6 @@ function downloadNewJson(jsonData, fileName, contentType){
     a.download = fileName;
     a.click();
     URL.revokeObjectURL(a.href);
-}
-
-function editAgent(queryChildren, availableLabels, key, agent){
-    var value;
-    var tagged = false;
-    for(k = 2; k < availableLabels; k++){
-        if(queryChildren[k].classList.contains("tag-pressed")){
-            value = queryChildren[k].children[0].innerHTML;//We need the content of span tag
-            tagged = true;
-            break;
-        }
-        imageLabelled = false;
-    }
-    if(tagged){
-        agent[key.toLowerCase()] = value.toLowerCase();
-        imageLabelled = true;
-    }
-
-    return agent;
 }
 
 function cleanAndDrawNew(){
@@ -379,7 +405,7 @@ function cleanAndDrawNew(){
 
 function loadData(){
     saveCurrent();
-    if(imageLabelled){//TODO CORRECT
+    if(imageLabelled){
         cleanAndDrawNew();
         imageLabelled = false;
     }
