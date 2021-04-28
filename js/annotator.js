@@ -307,28 +307,32 @@ function getAgentToDeploy(selectedDataset, relX, relY){
 
 function saveCurrent(){
     // TODO: Mark picture as annotated
-    var numberOfAgents = datasetSpecificFeatures.agents.length;
+    var numberOfAgents = datasetSpecificFeatures.numberOfAgents;
 
     //Edit each agent of the json object
     for (i = 0; i < numberOfAgents; i++){
         var index = i + 1;
         var currentAgentNewInfo = newAgentsLabels["Agent " + index];
-        var agent = datasetSpecificFeatures.agents[i];
+        var agent;
+        if(selectedDataset == "citypersons"){
+            agent = datasetSpecificFeatures.agents["agent_" + index];
+        }
+        else{
+            agent = datasetSpecificFeatures.agents[i];
+        }
         
         var agentKeys = Object.keys(currentAgentNewInfo); 
         for(j = 0; j < agentKeys.length; j++){
-            if(agentKeys[j] != "children"){
-                agent[agentKeys[j]] = currentAgentNewInfo[agentKeys[j]];//Copy info from new labels into the agent
+            parserInfo = datasetSpecificJSONParse(i, j, agent, currentAgentNewInfo, agentKeys);
+            if(agentKeys[j] == "children"){
+                agent = parserInfo.agent;
             }
             else{
-                var childrenKeys = Object.keys(currentAgentNewInfo[agentKeys[j]]);
-                for(k = 0; k < childrenKeys.length; k++){
-                    //Copy info from new labels's children into the agent
-                    agent[agentKeys[j]][0][childrenKeys[k]] = currentAgentNewInfo[agentKeys[j]][childrenKeys[k]]; 
-                }
+                agent[agentKeys[j]] = currentAgentNewInfo[agentKeys[j]];//Copy info from new labels into the agent
             }
         }
-        imgData.json.children[i] = agent;//Adding edited agents to img json
+
+        datasetSpecificFeatures.agents[parserInfo.index] = agent;//Adding edited agents to img json
     }
 
     var agentsLabelled = isAgentCorrectlyLabelled(numberOfAgents);
@@ -342,6 +346,28 @@ function saveCurrent(){
         var editedJsonFile = listOfFiles[currentImageIndex].replace(".png", "_edited.json");
         downloadNewJson(imgData.json, editedJsonFile, 'text/plain');
     }
+}
+
+function datasetSpecificJSONParse(agentIndex, agentNewKeysIndex, agent, currentAgentNewInfo, agentKeys){
+    var parserInfo = new Object();
+    switch(selectedDataset){
+        case "citypersons":
+            parserInfo.index = "agent_" + agentIndex + 1;
+            delete(agent["children"]);//Children key does not exist in this dataset
+            break;
+        case "eurocity":
+            parserInfo.index = agentIndex;
+            var childrenKeys = Object.keys(currentAgentNewInfo[agentKeys[agentNewKeysIndex]]);
+            for(k = 0; k < childrenKeys.length; k++){
+                //Copy info from new labels's children into the agent
+                agent[agentKeys[agentNewKeysIndex]][0][childrenKeys[k]] = currentAgentNewInfo[agentKeys[agentNewKeysIndex]][childrenKeys[k]]; 
+            }
+            break;
+    }
+
+    parserInfo.agent = agent;
+
+    return parserInfo;
 }
 
 function isAgentCorrectlyLabelled(numberOfAgents){
@@ -473,11 +499,13 @@ function assignDatasetSpecificFeatures(selectedDataset, jsonData){
     switch(selectedDataset){
         case "citypersons":
             datasetSpecificFeatures.agents = jsonData.bbs;
+            datasetSpecificFeatures.numberOfAgents = Object.keys(jsonData.bbs).length;
             datasetSpecificFeatures.imgWidth = 2048;
             datasetSpecificFeatures.accordionBodies = loadAgentsD1(datasetSpecificFeatures.agents);
             break;
         case "eurocity":
             datasetSpecificFeatures.agents = jsonData.children;
+            datasetSpecificFeatures.numberOfAgents = jsonData.children.length;
             datasetSpecificFeatures.imgWidth = 1920;
             datasetSpecificFeatures.accordionBodies = loadAgentsD2(datasetSpecificFeatures.agents);
             break;
