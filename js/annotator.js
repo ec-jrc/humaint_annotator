@@ -10,6 +10,32 @@ var newAgentsLabels = new Object();
 var firstDraw = true;
 var imageLabelled = false;
 
+//Only for CityPersons dataset
+const classLabels = {
+    0: "Ignore",
+    1: "Pedestrian",
+    2: "Rider",
+    3: "Sitting person",
+    4: "Person in unusual posture",
+    5: "Group of people"
+};
+
+//Only for Eurocity Persons dataset
+const identitiesToAvoid = [
+    "bicycle ", 
+    "buggy ",
+    "motorbike ",
+    "scooter ", 
+    "tricycle ", 
+    "wheelchair ",
+    "bicycle-group",
+    "buggy-group", 
+    "motorbike-group", 
+    "scooter-group", 
+    "tricycle-group", 
+    "wheelchair-group"
+]
+
 function toggleAccordionItem(accordionItem){
     var element = document.getElementById(accordionItem);
     if(element.classList.contains('show')){
@@ -68,13 +94,13 @@ function make_base(selectedDataset, context, img, canvasElem)
     }
 }
 
-function drawRect(context, imgHeight, canvasWidth, canvasHeight, selectedDataset, agent){
+function drawRect(context, imgHeight, canvasWidth, canvasHeight, selectedDataset, agent, rectColor){
     var bBoxValues = getbBoxValues(selectedDataset, agent);
     var x = bBoxValues.x/datasetSpecificFeatures.imgWidth*canvasWidth;
     var y = bBoxValues.y/imgHeight*canvasHeight;
     var bBoxWidth = bBoxValues.w/datasetSpecificFeatures.imgWidth*canvasWidth;
     var bBoxHeight = bBoxValues.h/imgHeight*canvasHeight;
-    context.strokeStyle = "red";
+    context.strokeStyle = rectColor;
     context.linewidth = 5;
     context.strokeRect(x, y, bBoxWidth, bBoxHeight);
 }
@@ -111,36 +137,38 @@ function drawImgCanvas(selectedDataset, context, img, canvasElem){
 
     for(i = 0; i < agentsKeys.length; i++){
         var agent = agentsKeys[i];
-        drawRect(context, imgHeight, canvasWidth, canvasHeight, selectedDataset, datasetSpecificFeatures.agents[agent]);
+        var isRealAgent = true;
+        if((datasetSpecificFeatures.agents[agent].hasOwnProperty("class_label") && datasetSpecificFeatures.agents[agent].class_label == 0) ||
+            (datasetSpecificFeatures.agents[agent].hasOwnProperty("identity") && 
+                identitiesToAvoid.includes(datasetSpecificFeatures.agents[agent].identity))){
+                isRealAgent = false;
+        }
+        if(isRealAgent){
+            drawRect(context, imgHeight, canvasWidth, canvasHeight, selectedDataset, datasetSpecificFeatures.agents[agent], "red");
 
-        //Agents might be riders, and their vehicle bounding box is provided as subchild
-        if(datasetSpecificFeatures.agents[agent].hasOwnProperty("children") && datasetSpecificFeatures.agents[agent].children.length != 0){
-            drawRect(context, imgHeight, canvasWidth, canvasHeight, selectedDataset, datasetSpecificFeatures.agents[agent].children[0]);
+            //Agents might be riders, and their vehicle bounding box is provided as subchild (Only for Eurocity Persons dataset)
+            if(datasetSpecificFeatures.agents[agent].hasOwnProperty("children") && datasetSpecificFeatures.agents[agent].children.length != 0){
+                drawRect(context, imgHeight, canvasWidth, canvasHeight, selectedDataset, datasetSpecificFeatures.agents[agent].children[0], "green");
+            }
         }
     }
 }
 
 function loadAgentsD1(agents){
     var accordionBodies = [];
-    const classLabels = {
-        0: "Ignore",
-        1: "Pedestrian",
-        2: "Rider",
-        3: "Sitting person",
-        4: "Person in unusual posture",
-        5: "Group of people"
-    };
-
+    
     for(i = 0; i < Object.keys(agents).length; i++){
         var accordionBody = document.createElement("div");
         var agent = Object.keys(agents)[i];
         var classLabelNumber = agents[agent].class_label;
         var classLabel = classLabels[classLabelNumber];
 
-        accordionBody.className = "accordion-body";
-        accordionBody.innerHTML = getAgentInnerHTML(classLabel);
+        if(classLabel != "Ignore"){
+            accordionBody.className = "accordion-body";
+            accordionBody.innerHTML = getAgentInnerHTML(classLabel);
 
-        accordionBodies.push(accordionBody);
+            accordionBodies.push(accordionBody);
+        }
     }
 
     return accordionBodies;
@@ -154,29 +182,31 @@ function loadAgentsD2(agents){
         var agent = Object.keys(agents)[i];
         var identity = agents[agent].identity;
 
-        accordionBody.className = "accordion-body";
-        accordionBody.innerHTML = getAgentInnerHTML(identity);
+        if(!identitiesToAvoid.includes(identity)){
+            accordionBody.className = "accordion-body";
+            accordionBody.innerHTML = getAgentInnerHTML(identity);
 
-        if(datasetSpecificFeatures.agents[agent].hasOwnProperty("children") && datasetSpecificFeatures.agents[agent].children.length != 0){
-            identity = datasetSpecificFeatures.agents[agent].children[0].identity;
-            accordionBody.innerHTML += `<div class="mb-0 mt-3"><span>Sub-entities</span><br/>
-            <div id="subentity" class="border border-primary rounded" style="padding:10px;">
-            <div class="mb-0"><span>Current label</span><br/>
-            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">` + identity + `</span></button></div>
-            <div id="subentity-color" class="mb-0 mt-3"><span>Color</span><br/> 
-            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Black</span></button>
-            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">White</span></button>
-            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Grey</span></button>
-            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Blue</span></button>
-            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Red</span></button>
-            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Yellow</span></button>
-            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Green</span></button>
-            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Other</span></button>
-            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>
-            </div>`;
+            if(datasetSpecificFeatures.agents[agent].hasOwnProperty("children") && datasetSpecificFeatures.agents[agent].children.length != 0){
+                identity = datasetSpecificFeatures.agents[agent].children[0].identity;
+                accordionBody.innerHTML += `<div class="mb-0 mt-3"><span>Sub-entities</span><br/>
+                <div id="subentity" class="border border-primary rounded" style="padding:10px;">
+                <div class="mb-0"><span>Current label</span><br/>
+                <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">` + identity + `</span></button></div>
+                <div id="subentity-color" class="mb-0 mt-3"><span>Color</span><br/> 
+                <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Black</span></button>
+                <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">White</span></button>
+                <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Grey</span></button>
+                <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Blue</span></button>
+                <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Red</span></button>
+                <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Yellow</span></button>
+                <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Green</span></button>
+                <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Other</span></button>
+                <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>
+                </div>`;
+            }
+
+            accordionBodies.push(accordionBody);
         }
-
-        accordionBodies.push(accordionBody);
     }
 
     return accordionBodies;
@@ -232,7 +262,7 @@ function loadAgents(){
     var agentsAccordion = document.getElementById("agentsAccordion");
     $(agentsAccordion).empty();
 
-    for(i = 0; i < Object.keys(datasetSpecificFeatures.agents).length; i++){
+    for(i = 0; i < datasetSpecificFeatures.accordionBodies.length; i++){
         var accordionItem = document.createElement("div");
         var accordionHeader = document.createElement("h2");
         var accordionButton = document.createElement("button");
