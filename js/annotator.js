@@ -4,7 +4,6 @@ var currentImageIndex = 0;
 var selectedDataset = "";
 var canvasElem, zoom, zoomCtx;
 var imgData = new Object();
-var currentSelectedAgent = new Object();
 var datasetSpecificFeatures = new Object();
 var newAgentsLabels = new Object();
 var firstDraw = true;
@@ -51,7 +50,7 @@ function toggleAccordionItem(accordionItem){
 function collapseAllButThis(element){
     var listOfCollapsableElems = [];
 
-    $("#agentsAccordion >> div").each((index, elem) => {
+    $("#agentsAccordion >> div").each((index, elem) => {//Do not remove "index" even if unused, o.w. listOfCollapsableElems will be filled with undefineds
         listOfCollapsableElems.push(elem.id);
     });
 
@@ -94,14 +93,14 @@ function make_base(selectedDataset, context, img, canvasElem)
     }
 }
 
-function drawRect(context, imgHeight, canvasWidth, canvasHeight, selectedDataset, agent, rectColor){
+function drawRect(context, imgHeight, canvasWidth, canvasHeight, selectedDataset, agent, rectColor, linewidth){
     var bBoxValues = getbBoxValues(selectedDataset, agent);
     var x = bBoxValues.x/datasetSpecificFeatures.imgWidth*canvasWidth;
     var y = bBoxValues.y/imgHeight*canvasHeight;
     var bBoxWidth = bBoxValues.w/datasetSpecificFeatures.imgWidth*canvasWidth;
     var bBoxHeight = bBoxValues.h/imgHeight*canvasHeight;
     context.strokeStyle = rectColor;
-    context.linewidth = 5;
+    context.linewidth = linewidth;
     context.strokeRect(x, y, bBoxWidth, bBoxHeight);
 }
 
@@ -139,16 +138,15 @@ function drawImgCanvas(selectedDataset, context, img, canvasElem){
         var agent = agentsKeys[i];
         var isRealAgent = true;
         if((datasetSpecificFeatures.agents[agent].hasOwnProperty("class_label") && datasetSpecificFeatures.agents[agent].class_label == 0) ||
-            (datasetSpecificFeatures.agents[agent].hasOwnProperty("identity") && 
-                identitiesToAvoid.includes(datasetSpecificFeatures.agents[agent].identity))){
+            (datasetSpecificFeatures.agents[agent].hasOwnProperty("identity") && identitiesToAvoid.includes(datasetSpecificFeatures.agents[agent].identity))){
                 isRealAgent = false;
         }
         if(isRealAgent){
-            drawRect(context, imgHeight, canvasWidth, canvasHeight, selectedDataset, datasetSpecificFeatures.agents[agent], "red");
+            drawRect(context, imgHeight, canvasWidth, canvasHeight, selectedDataset, datasetSpecificFeatures.agents[agent], "red", 5);
 
             //Agents might be riders, and their vehicle bounding box is provided as subchild (Only for Eurocity Persons dataset)
             if(datasetSpecificFeatures.agents[agent].hasOwnProperty("children") && datasetSpecificFeatures.agents[agent].children.length != 0){
-                drawRect(context, imgHeight, canvasWidth, canvasHeight, selectedDataset, datasetSpecificFeatures.agents[agent].children[0], "green");
+                drawRect(context, imgHeight, canvasWidth, canvasHeight, selectedDataset, datasetSpecificFeatures.agents[agent].children[0], "green", 10);
             }
         }
     }
@@ -277,6 +275,8 @@ function loadAgents(){
         accordionButton.className = "accordion-button collapsed";
         accordionButton.type = "button";
         accordionButton.innerText = "Agent " + agentIndex;
+        accordionButton.setAttribute("onclick", "collapseAllButThis('collapse" + agentIndex + "'); toggleAccordionItem('collapse" + 
+                                        agentIndex + "'); selectAgentInCanvas(" + agentIndex + ");");
 
         collapsableElement.className = "accordion-collapse collapse";
         collapsableElement.id = "collapse" + agentIndex;
@@ -293,42 +293,86 @@ function loadAgents(){
     }
 }
 
-function getAgentToDeploy(selectedDataset, relX, relY){
-    var context = canvasElem.getContext("2d");
-    var imgOriginalHeight = 1024;
+function selectAgentInCanvas(visibleAgentsIndex){
+    var canvasSpecs = setCanvasSpecs();
+    var correctionIndex = 0;
 
+    for(i = 0; i < Object.keys(datasetSpecificFeatures.agents).length; i++){
+        var agent = Object.keys(datasetSpecificFeatures.agents)[i];
+        var bBoxValues = getbBoxValues(selectedDataset, datasetSpecificFeatures.agents[agent]);
+        var agentAutenticity = getAgentAutenticity(agent, correctionIndex);//Check if it is a real agent or not
+
+        if(agentAutenticity.isRealAgent && visibleAgentsIndex == i + 1 - agentAutenticity.correctionIndex){
+            highlightAgent(canvasSpecs.context, bBoxValues.x*canvasSpecs.percentageOfReductionWidth, bBoxValues.y*canvasSpecs.percentageOfReductionHeight, 
+                bBoxValues.w*canvasSpecs.percentageOfReductionWidth, bBoxValues.h*canvasSpecs.percentageOfReductionHeight);
+        }
+    }
+}
+
+function highlightAgent(context, x, y, w, h){
+    context.globalAlpha = 0.5;
+    context.fillStyle = "#6acadd";//Light blue
+    context.fillRect(x, y, w, h);
+}
+
+function getAgentAutenticity(agent, correctionIndex){
+    var agentAutenticity = new Object();
+    agentAutenticity.isRealAgent = true;
+    agentAutenticity.correctionIndex = correctionIndex;//If an agent is skipped, it must be taken into account
+    if((datasetSpecificFeatures.agents[agent].hasOwnProperty("class_label") && datasetSpecificFeatures.agents[agent].class_label == 0) ||
+            (datasetSpecificFeatures.agents[agent].hasOwnProperty("identity") && identitiesToAvoid.includes(datasetSpecificFeatures.agents[agent].identity))){
+        agentAutenticity.isRealAgent = false;
+        agentAutenticity.correctionIndex += 1;
+    }
+
+    return agentAutenticity;
+}
+
+function setCanvasSpecs(){
+    var canvasSpecs = new Object();
+    canvasSpecs.context = canvasElem.getContext("2d");
+
+    //Next condition resets the image in the canvas removing highlight from agents
     if(!firstDraw){
-        drawImgCanvas(selectedDataset, context, imgData.img, canvasElem);
+        drawImgCanvas(selectedDataset, canvasSpecs.context, imgData.img, canvasElem);
     }
     else{
         firstDraw = false;
     }
 
-    var agentToDeploy = 0;
+    var imgOriginalHeight = 1024;
     var canvasWidth = $('#imgToAnnotate').width();
     var canvasHeight = $('#imgToAnnotate').height();
-    var percentageOfReductionWidth = canvasWidth/datasetSpecificFeatures.imgWidth;
-    var percentageOfReductionHeight = canvasHeight/imgOriginalHeight;
+
+    //Percentages of reduction are needed since image dimensions and canvas dimensions do not match
+    canvasSpecs.percentageOfReductionWidth = canvasWidth/datasetSpecificFeatures.imgWidth;
+    canvasSpecs.percentageOfReductionHeight = canvasHeight/imgOriginalHeight;
+
+    return canvasSpecs;
+}
+
+function getAgentToDeploy(selectedDataset, relX, relY){
+    var agentToDeploy = 0;
+    var canvasSpecs = setCanvasSpecs();
+    var correctionIndex = 0;
 
     for(i = 0; i < Object.keys(datasetSpecificFeatures.agents).length; i++){
         var agent = Object.keys(datasetSpecificFeatures.agents)[i];
         var bBoxValues = getbBoxValues(selectedDataset, datasetSpecificFeatures.agents[agent]);
         var xCoordBottomRight = bBoxValues.x + bBoxValues.w;
         var yCoordBottomRight = bBoxValues.y + bBoxValues.h;
-
-        //Check if click has been inside a bounding box
-        if(relX > bBoxValues.x*percentageOfReductionWidth && relX < xCoordBottomRight*percentageOfReductionWidth && 
-            relY > bBoxValues.y*percentageOfReductionHeight && relY < yCoordBottomRight*percentageOfReductionHeight){
-                context.globalAlpha = 0.2;
-                context.fillStyle = "blue";
-                context.fillRect(bBoxValues.x*percentageOfReductionWidth, bBoxValues.y*percentageOfReductionHeight, 
-                    bBoxValues.w*percentageOfReductionWidth, bBoxValues.h*percentageOfReductionHeight);
-                currentSelectedAgent.x = bBoxValues.x*percentageOfReductionWidth;
-                currentSelectedAgent.y = bBoxValues.y*percentageOfReductionHeight;
-                currentSelectedAgent.width = bBoxValues.w*percentageOfReductionWidth;
-                currentSelectedAgent.height = bBoxValues.h*percentageOfReductionHeight;
-                agentToDeploy = i + 1;
-                break;
+        var agentAutenticity = getAgentAutenticity(agent, correctionIndex);
+        
+        if(agentAutenticity.isRealAgent){
+            //Check if click has been inside a bounding box
+            if(relX > bBoxValues.x*canvasSpecs.percentageOfReductionWidth && relX < xCoordBottomRight*canvasSpecs.percentageOfReductionWidth && 
+                relY > bBoxValues.y*canvasSpecs.percentageOfReductionHeight && relY < yCoordBottomRight*canvasSpecs.percentageOfReductionHeight){
+                    highlightAgent(canvasSpecs.context, bBoxValues.x*canvasSpecs.percentageOfReductionWidth, 
+                        bBoxValues.y*canvasSpecs.percentageOfReductionHeight, bBoxValues.w*canvasSpecs.percentageOfReductionWidth, 
+                        bBoxValues.h*canvasSpecs.percentageOfReductionHeight);
+                    agentToDeploy = i + 1 - agentAutenticity.correctionIndex;
+                    break;
+            }
         }
     }
 
