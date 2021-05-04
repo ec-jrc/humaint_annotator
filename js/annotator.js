@@ -8,6 +8,24 @@ var datasetSpecificFeatures = new Object();
 var newAgentsLabels = new Object();
 var firstDraw = true;
 var imageLabelled = false;
+var groupsInPicture = new Object();
+var correctionIndex = 0;
+
+const divisionThresholdsX = {
+    "firstDivision" : 1,
+    "secondDivision" : 15,
+    "thirdDivision" : 60,
+    "fourthDivision": 150,
+    "fifthDivision" : 250
+}
+
+const divisionThresholdsY = {
+    "firstDivision" : 1,
+    "secondDivision" : 2,
+    "thirdDivision" : 10,
+    "fourthDivision": 50,
+    "fifthDivision" : 100
+}
 
 //Only for CityPersons dataset
 const classLabels = {
@@ -154,6 +172,7 @@ function drawImgCanvas(selectedDataset, context, img, canvasElem){
 
 function loadAgentsD1(agents){
     var accordionBodies = [];
+    var agentIndex = 0;
     
     for(i = 0; i < Object.keys(agents).length; i++){
         var accordionBody = document.createElement("div");
@@ -162,8 +181,10 @@ function loadAgentsD1(agents){
         var classLabel = classLabels[classLabelNumber];
 
         if(classLabel != "Ignore"){
+            agentIndex += 1;
+            var group = getPeopleGroup(agentIndex, agents[agent].x1 + agents[agent].w, agents[agent].y1 + agents[agent].h);
             accordionBody.className = "accordion-body";
-            accordionBody.innerHTML = getAgentInnerHTML(classLabel);
+            accordionBody.innerHTML = getAgentInnerHTML(agentIndex, classLabel, group);
 
             accordionBodies.push(accordionBody);
         }
@@ -174,6 +195,7 @@ function loadAgentsD1(agents){
 
 function loadAgentsD2(agents){
     var accordionBodies = [];
+    var agentIndex = 0;
 
     for(i = 0; i < Object.keys(agents).length; i++){
         var accordionBody = document.createElement("div");
@@ -181,8 +203,10 @@ function loadAgentsD2(agents){
         var identity = agents[agent].identity;
 
         if(!identitiesToAvoid.includes(identity)){
+            agentIndex += 1;
+            var group = getPeopleGroup(agentIndex, agents[agent].x1, agents[agent].y1);
             accordionBody.className = "accordion-body";
-            accordionBody.innerHTML = getAgentInnerHTML(identity);
+            accordionBody.innerHTML = getAgentInnerHTML(agentIndex, identity, group);
 
             if(datasetSpecificFeatures.agents[agent].hasOwnProperty("children") && datasetSpecificFeatures.agents[agent].children.length != 0){
                 identity = datasetSpecificFeatures.agents[agent].children[0].identity;
@@ -210,8 +234,14 @@ function loadAgentsD2(agents){
     return accordionBodies;
 }
 
-function getAgentInnerHTML(currentClass){
-    var innerHTML = `<div class="mb-0"><span>Current label</span><br/>
+function getAgentsInGroup(group){
+    var numberOfAgentsInGroup = Object.keys(groupsInPicture[group]).length;
+
+    return numberOfAgentsInGroup;
+}
+
+function getAgentInnerHTML(i, currentClass){
+    var innerHTML = `<div id="current-labels-` + i + `" class="mb-0"><span>Current label</span><br/>
     <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">` + currentClass + `</span></button></div>
     <div class="mb-0 mt-3"><span>Age</span><br/> 
     <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Adult</span></button>
@@ -231,8 +261,77 @@ function getAgentInnerHTML(currentClass){
     return innerHTML;
 }
 
-function isGroupOfPeople(){
-    //TODO: detection of several people together as a group
+//POC
+function getPeopleGroup(agentNumber, xRight, yBottom){//x1 and x2 to measure x middle point and y2 to get bbox bottom
+    var groupOfAgent;
+    var adaptedXRight = (xRight/datasetSpecificFeatures.imgWidth) * 1296;
+    var adaptedYBottom = (yBottom/1024) * 654;
+    var bBoxDivisionAssignment = getPictureDivision(yBottom);
+    var yAxisThreshold = divisionThresholdsY[bBoxDivisionAssignment.y + "Division"];//Depending on the y position of the agent we can guess if it is a group
+    var xAxisThreshold = divisionThresholdsX[bBoxDivisionAssignment.y + "Division"];
+    var groupsKeys = Object.keys(groupsInPicture);
+    var createNewGroup = false;
+    var currentAgent = "agent_" + agentNumber;
+
+    for(t = 0; t < groupsKeys.length; t++){
+        var group = groupsKeys[t]; 
+        var agentsInGroup = Object.keys(groupsInPicture[group]);
+        var breakLoop = false;
+        for(k = 0; k < agentsInGroup.length; k++){
+            var agent = agentsInGroup[k];
+            if(Math.abs(adaptedXRight - groupsInPicture[group][agent].x) < xAxisThreshold && 
+                    Math.abs(adaptedYBottom - groupsInPicture[group][agent].y) < yAxisThreshold){
+                groupOfAgent = group;
+                groupsInPicture[group][currentAgent] = new Object();
+                groupsInPicture[group][currentAgent].x = adaptedXRight;//First agent in group defines group position
+                groupsInPicture[group][currentAgent].y = adaptedYBottom;
+                createNewGroup = false;
+                breakLoop = true;
+            }    
+        }
+
+        if(breakLoop){
+            break;
+        }
+        else{
+            createNewGroup = true;
+        }
+    }
+
+    if(createNewGroup || groupsKeys.length == 0){
+        groupsInPicture[groupsKeys.length] = new Object();
+        groupsInPicture[groupsKeys.length][currentAgent] = new Object();
+        groupsInPicture[groupsKeys.length][currentAgent].x = adaptedXRight;//First agent in group defines group position
+        groupsInPicture[groupsKeys.length][currentAgent].y = adaptedYBottom;
+        groupOfAgent = Object.keys(groupsInPicture)[groupsKeys.length];
+    }
+
+    return groupOfAgent;
+}
+
+function getPictureDivision(y){
+    var pictureDivision = new Object();
+    var adaptedY = (y/1024) * 654;
+
+    const heightDivisionLength = 654/5;//Length of each height division of the image in pixels
+    const heightDivisions = {
+        "first" : heightDivisionLength,
+        "second" : 2*heightDivisionLength,
+        "third" : 3*heightDivisionLength,
+        "fourth" : 4*heightDivisionLength,
+        "fifth" : 5*heightDivisionLength
+    }
+
+    var heightDivisionsKeys = Object.keys(heightDivisions);
+    for(j = 0; j < heightDivisionsKeys.length; j++){
+        var heightDivision = heightDivisionsKeys[j];
+        if(adaptedY < heightDivisions[heightDivision]){
+            pictureDivision.y = heightDivision;
+            break;
+        }
+    }
+
+    return pictureDivision;
 }
 
 function toggleTag(element){
@@ -291,22 +390,44 @@ function loadAgents(){
         newAgentsLabels["Agent " + agentIndex] = new Object();
         newAgentsLabels["Agent " + agentIndex]["children"] = new Object();
     }
+
+    for(j = 0; j < Object.keys(groupsInPicture).length; j++){
+        var numberOfAgentsInGroup = getAgentsInGroup(j);
+
+        if(numberOfAgentsInGroup > 1){
+            var agentsInGroup = Object.keys(groupsInPicture[j]);
+            for(k = 0; k < agentsInGroup.length; k++){
+                var agentNumber = agentsInGroup[k].replace("agent_", "");
+                var cardBody = document.getElementById("current-labels-" + agentNumber);
+                var button = document.createElement("button");
+                button.type = "button";
+                button.className = "btn btn-primary rounded-pill btn-sm group-btn";
+                button.innerHTML = "<span class='font-weight-bold'>Group " + j + "</span>";
+                button.setAttribute("onclick", "removeAutomaticTag(this)");
+                cardBody.appendChild(button);
+            }
+        }
+    }
+}
+
+function removeAutomaticTag(element){
+    element.parentNode.removeChild(element);
 }
 
 function selectAgentInCanvas(visibleAgentsIndex){
     var canvasSpecs = setCanvasSpecs();
-    var correctionIndex = 0;
 
     for(i = 0; i < Object.keys(datasetSpecificFeatures.agents).length; i++){
         var agent = Object.keys(datasetSpecificFeatures.agents)[i];
         var bBoxValues = getbBoxValues(selectedDataset, datasetSpecificFeatures.agents[agent]);
-        var agentAutenticity = getAgentAutenticity(agent, correctionIndex);//Check if it is a real agent or not
+        var isRealAgent = getAgentAutenticity(agent);//Check if it is a real agent or not
 
-        if(agentAutenticity.isRealAgent && visibleAgentsIndex == i + 1 - agentAutenticity.correctionIndex){
+        if(isRealAgent && visibleAgentsIndex == i + 1 - correctionIndex){
             highlightAgent(canvasSpecs.context, bBoxValues.x*canvasSpecs.percentageOfReductionWidth, bBoxValues.y*canvasSpecs.percentageOfReductionHeight, 
                 bBoxValues.w*canvasSpecs.percentageOfReductionWidth, bBoxValues.h*canvasSpecs.percentageOfReductionHeight);
         }
     }
+    correctionIndex = 0;
 }
 
 function highlightAgent(context, x, y, w, h){
@@ -315,17 +436,15 @@ function highlightAgent(context, x, y, w, h){
     context.fillRect(x, y, w, h);
 }
 
-function getAgentAutenticity(agent, correctionIndex){
-    var agentAutenticity = new Object();
-    agentAutenticity.isRealAgent = true;
-    agentAutenticity.correctionIndex = correctionIndex;//If an agent is skipped, it must be taken into account
+function getAgentAutenticity(agent){
+    isRealAgent = true;
     if((datasetSpecificFeatures.agents[agent].hasOwnProperty("class_label") && datasetSpecificFeatures.agents[agent].class_label == 0) ||
             (datasetSpecificFeatures.agents[agent].hasOwnProperty("identity") && identitiesToAvoid.includes(datasetSpecificFeatures.agents[agent].identity))){
-        agentAutenticity.isRealAgent = false;
-        agentAutenticity.correctionIndex += 1;
+        isRealAgent = false;
+        correctionIndex += 1;//If an agent is skipped, it must be taken into account
     }
 
-    return agentAutenticity;
+    return isRealAgent;
 }
 
 function setCanvasSpecs(){
@@ -354,27 +473,27 @@ function setCanvasSpecs(){
 function getAgentToDeploy(selectedDataset, relX, relY){
     var agentToDeploy = 0;
     var canvasSpecs = setCanvasSpecs();
-    var correctionIndex = 0;
 
     for(i = 0; i < Object.keys(datasetSpecificFeatures.agents).length; i++){
         var agent = Object.keys(datasetSpecificFeatures.agents)[i];
         var bBoxValues = getbBoxValues(selectedDataset, datasetSpecificFeatures.agents[agent]);
         var xCoordBottomRight = bBoxValues.x + bBoxValues.w;
         var yCoordBottomRight = bBoxValues.y + bBoxValues.h;
-        var agentAutenticity = getAgentAutenticity(agent, correctionIndex);
+        var isRealAgent = getAgentAutenticity(agent);
         
-        if(agentAutenticity.isRealAgent){
+        if(isRealAgent){
             //Check if click has been inside a bounding box
             if(relX > bBoxValues.x*canvasSpecs.percentageOfReductionWidth && relX < xCoordBottomRight*canvasSpecs.percentageOfReductionWidth && 
                 relY > bBoxValues.y*canvasSpecs.percentageOfReductionHeight && relY < yCoordBottomRight*canvasSpecs.percentageOfReductionHeight){
                     highlightAgent(canvasSpecs.context, bBoxValues.x*canvasSpecs.percentageOfReductionWidth, 
                         bBoxValues.y*canvasSpecs.percentageOfReductionHeight, bBoxValues.w*canvasSpecs.percentageOfReductionWidth, 
                         bBoxValues.h*canvasSpecs.percentageOfReductionHeight);
-                    agentToDeploy = i + 1 - agentAutenticity.correctionIndex;
+                    agentToDeploy = i + 1 - correctionIndex;
                     break;
             }
         }
     }
+    correctionIndex = 0;
 
     return agentToDeploy;
 }
@@ -588,6 +707,7 @@ function assignDatasetSpecificFeatures(selectedDataset, jsonData){
 
 function selectDataset(){
     var selectBox = document.getElementById("selectBox");
+    groupsInPicture = new Object();
     selectedDataset = selectBox.options[selectBox.selectedIndex].value;
     assignDatasetPaths(selectedDataset);
     listOfFiles = getImagesList();

@@ -373,3 +373,7 @@ canvas#imgToAnnotate { border: 1px solid white; width: auto; height: auto; posit
     background: #3f6995;
     color: white;
 }
+
+.group-btn:hover:after{
+    content: "  X";
+}
