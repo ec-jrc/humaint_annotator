@@ -13,16 +13,16 @@ var correctionIndex = 0;
 
 const divisionThresholdsX = {
     "firstDivision" : 1,
-    "secondDivision" : 15,
-    "thirdDivision" : 60,
-    "fourthDivision": 150,
+    "secondDivision" : 20,
+    "thirdDivision" : 90,
+    "fourthDivision": 160,
     "fifthDivision" : 250
 }
 
 const divisionThresholdsY = {
     "firstDivision" : 1,
-    "secondDivision" : 2,
-    "thirdDivision" : 10,
+    "secondDivision" : 5,
+    "thirdDivision" : 15,
     "fourthDivision": 50,
     "fifthDivision" : 100
 }
@@ -168,6 +168,31 @@ function drawImgCanvas(selectedDataset, context, img, canvasElem){
             }
         }
     }
+
+    for(i = 0; i < Object.keys(groupsInPicture).length; i++){
+        if(Object.keys(groupsInPicture[i]).length > 1){//If there is more than one agent in the group (i.e. it is a group)
+            var agents = Object.entries(groupsInPicture[i]);
+            var minMax = {
+                "minX" : 1296,
+                "minY" : 654,
+                "maxX" : 0,
+                "maxY" : 0
+            }
+            agents.forEach(agent => minMax = getMinMax(agent, minMax));
+            context.strokeStyle = "blue";
+            context.linewidth = 5;
+            context.strokeRect(minMax.minX, minMax.minY, minMax.maxX - minMax.minX, minMax.maxY - minMax.minY);
+        }
+    }
+}
+
+function getMinMax(agent, minMax){
+    minMax.minX = agent[1].xInit < minMax.minX ? agent[1].xInit : minMax.minX;
+    minMax.minY = agent[1].yInit < minMax.minY ? agent[1].yInit : minMax.minY;
+    minMax.maxX = agent[1].xRight > minMax.maxX ? agent[1].xRight : minMax.maxX;
+    minMax.maxY = agent[1].yBottom > minMax.maxY ? agent[1].yBottom : minMax.maxY;
+
+    return minMax;
 }
 
 function loadAgentsD1(agents){
@@ -182,7 +207,8 @@ function loadAgentsD1(agents){
 
         if(classLabel != "Ignore"){
             agentIndex += 1;
-            var group = getPeopleGroup(agentIndex, agents[agent].x1 + agents[agent].w, agents[agent].y1 + agents[agent].h);
+            var group = getPeopleGroup(agentIndex, agents[agent].x1, agents[agent].y1, 
+                agents[agent].x1 + agents[agent].w, agents[agent].y1 + agents[agent].h);
             accordionBody.className = "accordion-body";
             accordionBody.innerHTML = getAgentInnerHTML(agentIndex, classLabel, group);
 
@@ -204,7 +230,7 @@ function loadAgentsD2(agents){
 
         if(!identitiesToAvoid.includes(identity)){
             agentIndex += 1;
-            var group = getPeopleGroup(agentIndex, agents[agent].x1, agents[agent].y1);
+            var group = getPeopleGroup(agentIndex, agents[agent].x0, agents[agent].y0, agents[agent].x1, agents[agent].y1);
             accordionBody.className = "accordion-body";
             accordionBody.innerHTML = getAgentInnerHTML(agentIndex, identity, group);
 
@@ -262,11 +288,15 @@ function getAgentInnerHTML(i, currentClass){
 }
 
 //POC
-function getPeopleGroup(agentNumber, xRight, yBottom){//x1 and x2 to measure x middle point and y2 to get bbox bottom
+function getPeopleGroup(agentNumber, xInit, yInit, xRight, yBottom){//x1 and x2 to measure x middle point and y2 to get bbox bottom
     var groupOfAgent;
-    var adaptedXRight = (xRight/datasetSpecificFeatures.imgWidth) * 1296;
-    var adaptedYBottom = (yBottom/1024) * 654;
-    var bBoxDivisionAssignment = getPictureDivision(yBottom);
+    var adaptedXs = new Object();
+    adaptedXs.xInit = (xInit/datasetSpecificFeatures.imgWidth) * 1296;
+    adaptedXs.xRight = (xRight/datasetSpecificFeatures.imgWidth) * 1296;
+    var adaptedYs = new Object();
+    adaptedYs.yInit = (yInit/1024) * 654;
+    adaptedYs.yBottom = (yBottom/1024) * 654;
+    var bBoxDivisionAssignment = getPictureDivision(adaptedYs.yBottom);
     var yAxisThreshold = divisionThresholdsY[bBoxDivisionAssignment.y + "Division"];//Depending on the y position of the agent we can guess if it is a group
     var xAxisThreshold = divisionThresholdsX[bBoxDivisionAssignment.y + "Division"];
     var groupsKeys = Object.keys(groupsInPicture);
@@ -279,12 +309,14 @@ function getPeopleGroup(agentNumber, xRight, yBottom){//x1 and x2 to measure x m
         var breakLoop = false;
         for(k = 0; k < agentsInGroup.length; k++){
             var agent = agentsInGroup[k];
-            if(Math.abs(adaptedXRight - groupsInPicture[group][agent].x) < xAxisThreshold && 
-                    Math.abs(adaptedYBottom - groupsInPicture[group][agent].y) < yAxisThreshold){
+            if(Math.abs(adaptedXs.xRight - groupsInPicture[group][agent].xRight) < xAxisThreshold && 
+                    Math.abs(adaptedYs.yBottom - groupsInPicture[group][agent].yBottom) < yAxisThreshold){
                 groupOfAgent = group;
                 groupsInPicture[group][currentAgent] = new Object();
-                groupsInPicture[group][currentAgent].x = adaptedXRight;//First agent in group defines group position
-                groupsInPicture[group][currentAgent].y = adaptedYBottom;
+                groupsInPicture[group][currentAgent].xInit = adaptedXs.xInit;//First agent in group defines group position
+                groupsInPicture[group][currentAgent].yInit = adaptedYs.yInit;
+                groupsInPicture[group][currentAgent].xRight = adaptedXs.xRight;
+                groupsInPicture[group][currentAgent].yBottom = adaptedYs.yBottom;
                 createNewGroup = false;
                 breakLoop = true;
             }    
@@ -301,8 +333,10 @@ function getPeopleGroup(agentNumber, xRight, yBottom){//x1 and x2 to measure x m
     if(createNewGroup || groupsKeys.length == 0){
         groupsInPicture[groupsKeys.length] = new Object();
         groupsInPicture[groupsKeys.length][currentAgent] = new Object();
-        groupsInPicture[groupsKeys.length][currentAgent].x = adaptedXRight;//First agent in group defines group position
-        groupsInPicture[groupsKeys.length][currentAgent].y = adaptedYBottom;
+        groupsInPicture[groupsKeys.length][currentAgent].xInit = adaptedXs.xInit;//First agent in group defines group position
+        groupsInPicture[groupsKeys.length][currentAgent].yInit = adaptedYs.yInit;
+        groupsInPicture[groupsKeys.length][currentAgent].xRight = adaptedXs.xRight;
+        groupsInPicture[groupsKeys.length][currentAgent].yBottom = adaptedYs.yBottom;
         groupOfAgent = Object.keys(groupsInPicture)[groupsKeys.length];
     }
 
@@ -311,7 +345,6 @@ function getPeopleGroup(agentNumber, xRight, yBottom){//x1 and x2 to measure x m
 
 function getPictureDivision(y){
     var pictureDivision = new Object();
-    var adaptedY = (y/1024) * 654;
 
     const heightDivisionLength = 654/5;//Length of each height division of the image in pixels
     const heightDivisions = {
@@ -325,7 +358,7 @@ function getPictureDivision(y){
     var heightDivisionsKeys = Object.keys(heightDivisions);
     for(j = 0; j < heightDivisionsKeys.length; j++){
         var heightDivision = heightDivisionsKeys[j];
-        if(adaptedY < heightDivisions[heightDivision]){
+        if(y < heightDivisions[heightDivision]){
             pictureDivision.y = heightDivision;
             break;
         }
@@ -411,7 +444,7 @@ function loadAgents(){
 }
 
 function removeAutomaticTag(element){
-    element.parentNode.removeChild(element);
+    element.parentNode.removeChild(element);//Remove group tag
 }
 
 function selectAgentInCanvas(visibleAgentsIndex){
