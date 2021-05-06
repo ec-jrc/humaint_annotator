@@ -216,6 +216,13 @@ function loadAgentsD1(agents){
         }
     }
 
+    var groups = Object.entries(groupsInPicture);
+    document.getElementById('groupsList').innerHTML = "Available groups:&nbsp;&nbsp";
+    groups.forEach(group => addGroupTag(group[0]));
+    if($('#groupsList > button').length == 0){
+        document.getElementById('groupsList').innerHTML = "Available groups: None";
+    }
+
     return accordionBodies;
 }
 
@@ -257,7 +264,40 @@ function loadAgentsD2(agents){
         }
     }
 
+    var groups = Object.entries(groupsInPicture);
+    document.getElementById('groupsList').innerHTML = "Available groups:&nbsp;&nbsp";
+    groups.forEach(group => addGroupTag(group[0]));
+    if($('#groupsList > button').length == 0){
+        document.getElementById('groupsList').innerHTML = "Available groups: None";
+    }
+
     return accordionBodies;
+}
+
+function addGroupTag(group){
+    if(Object.keys(groupsInPicture[group]).length > 1){
+        var availableGroups = document.getElementById('groupsList');
+        var groupTag = document.createElement("button");
+        groupTag.type = "button";
+        groupTag.className = "btn btn-primary rounded-pill btn-sm";
+        groupTag.style = "width: auto; margin-right: 5px";
+        groupTag.innerHTML = "<span class='font-weight-bold'>Group " + group + "</span>";
+        groupTag.setAttribute("onmouseover", "showGroup(" + group + ")");
+        availableGroups.appendChild(groupTag);
+    }
+}
+
+function showGroup(groupNumber){
+    var canvasSpecs = setCanvasSpecs();
+    var agents = Object.entries(groupsInPicture[groupNumber]);
+    var minMax = {
+        "minX" : 1296,
+        "minY" : 654,
+        "maxX" : 0,
+        "maxY" : 0
+    }
+    agents.forEach(agent => minMax = getMinMax(agent, minMax));
+    highlightRect(canvasSpecs.context, minMax.minX, minMax.minY, minMax.maxX - minMax.minX, minMax.maxY - minMax.minY);
 }
 
 function getAgentsInGroup(group){
@@ -282,12 +322,18 @@ function getAgentInnerHTML(i, currentClass){
     <div class="col"><input type="text" class="form-control labelclass-input" placeholder="Label class"></div>
     <div class="col"><input type="text" class="form-control label-input" placeholder="Label"></div>
     <div class="col col-lg-1"><button type="button" class="btn btn-primary rounded btn-sm" data-bs-toggle="button" title="Click to add the label">
-    <span class="font-weight-bold">Add</span></button></div></div>`;
+    <span class="font-weight-bold">Add</span></button></div>
+    <div class="col col-lg-3"><button type="button" class="btn btn-primary rounded btn-sm" data-toggle="modal" onClick="showGroupAssignationPopup(this)" data-target="#assignGroupPopup" title="Click to assign a group">
+    <span class="font-weight-bold">Add to group</span></button></div></div>`;
 
     return innerHTML;
 }
 
-//POC
+function showGroupAssignationPopup(element){
+    var popupBody = document.getElementById('assignGroupPopup-body');
+    popupBody.innerHTML = document.getElementById('groupsList').innerHTML;
+}
+
 function getPeopleGroup(agentNumber, xInit, yInit, xRight, yBottom){//x1 and x2 to measure x middle point and y2 to get bbox bottom
     var groupOfAgent;
     var adaptedXs = new Object();
@@ -444,7 +490,28 @@ function loadAgents(){
 }
 
 function removeAutomaticTag(element){
+    var agent = element.parentElement.id.replace("current-labels-", "agent_");
+    var groupsKeysLength = Object.keys(groupsInPicture).length;
+    for(i = 0; i < groupsKeysLength; i++){
+        if(agent in groupsInPicture[i]){
+            var xInit = groupsInPicture[i][agent].xInit;
+            var yInit = groupsInPicture[i][agent].yInit;
+            var xRight = groupsInPicture[i][agent].xRight;
+            var yBottom = groupsInPicture[i][agent].yBottom;
+            delete groupsInPicture[i][agent];
+
+            //Assign the agent to a new group
+            groupsInPicture[groupsKeysLength] = new Object();
+            groupsInPicture[groupsKeysLength][agent] = new Object();
+            groupsInPicture[groupsKeysLength][agent].xInit = xInit;
+            groupsInPicture[groupsKeysLength][agent].yInit = yInit;
+            groupsInPicture[groupsKeysLength][agent].xRight = xRight;
+            groupsInPicture[groupsKeysLength][agent].yBottom = yBottom;
+            break;
+        }
+    }
     element.parentNode.removeChild(element);//Remove group tag
+    drawImgCanvas(selectedDataset, canvasElem.getContext("2d"), imgData.img, canvasElem);
 }
 
 function selectAgentInCanvas(visibleAgentsIndex){
@@ -456,14 +523,14 @@ function selectAgentInCanvas(visibleAgentsIndex){
         var isRealAgent = getAgentAutenticity(agent);//Check if it is a real agent or not
 
         if(isRealAgent && visibleAgentsIndex == i + 1 - correctionIndex){
-            highlightAgent(canvasSpecs.context, bBoxValues.x*canvasSpecs.percentageOfReductionWidth, bBoxValues.y*canvasSpecs.percentageOfReductionHeight, 
+            highlightRect(canvasSpecs.context, bBoxValues.x*canvasSpecs.percentageOfReductionWidth, bBoxValues.y*canvasSpecs.percentageOfReductionHeight, 
                 bBoxValues.w*canvasSpecs.percentageOfReductionWidth, bBoxValues.h*canvasSpecs.percentageOfReductionHeight);
         }
     }
     correctionIndex = 0;
 }
 
-function highlightAgent(context, x, y, w, h){
+function highlightRect(context, x, y, w, h){
     context.globalAlpha = 0.5;
     context.fillStyle = "#6acadd";//Light blue
     context.fillRect(x, y, w, h);
@@ -518,7 +585,7 @@ function getAgentToDeploy(selectedDataset, relX, relY){
             //Check if click has been inside a bounding box
             if(relX > bBoxValues.x*canvasSpecs.percentageOfReductionWidth && relX < xCoordBottomRight*canvasSpecs.percentageOfReductionWidth && 
                 relY > bBoxValues.y*canvasSpecs.percentageOfReductionHeight && relY < yCoordBottomRight*canvasSpecs.percentageOfReductionHeight){
-                    highlightAgent(canvasSpecs.context, bBoxValues.x*canvasSpecs.percentageOfReductionWidth, 
+                    highlightRect(canvasSpecs.context, bBoxValues.x*canvasSpecs.percentageOfReductionWidth, 
                         bBoxValues.y*canvasSpecs.percentageOfReductionHeight, bBoxValues.w*canvasSpecs.percentageOfReductionWidth, 
                         bBoxValues.h*canvasSpecs.percentageOfReductionHeight);
                     agentToDeploy = i + 1 - correctionIndex;
@@ -748,6 +815,7 @@ function selectDataset(){
 
     $('#canvasContainer').css("visibility", "visible");
     $('#loadimage-btn').css("visibility", "visible");
+    $('#groupsList').css("visibility", "visible");
 }
 
 function getRandomImageDataFromDataset(){
@@ -791,6 +859,7 @@ $(document).ready(function() {
     if(selectedDataset == ""){
         $('#canvasContainer').css("visibility", "hidden");
         $('#loadimage-btn').css("visibility", "hidden");
+        $('#groupsList').css("visibility", "hidden");
     }
     
 });
