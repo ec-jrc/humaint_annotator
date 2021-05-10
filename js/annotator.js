@@ -169,9 +169,11 @@ function drawImgCanvas(selectedDataset, context, img, canvasElem){
         }
     }
 
-    for(i = 0; i < Object.keys(groupsInPicture).length; i++){
-        if(Object.keys(groupsInPicture[i]).length > 1){//If there is more than one agent in the group (i.e. it is a group)
-            var agents = Object.entries(groupsInPicture[i]);
+    var groupsKeys = Object.keys(groupsInPicture);
+    for(i = 0; i < groupsKeys.length; i++){
+        var key = groupsKeys[i];
+        if(Object.keys(groupsInPicture[key]).length > 1){//If there is more than one agent in the group (i.e. it is a group)
+            var agents = Object.entries(groupsInPicture[key]);
             var minMax = {
                 "minX" : 1296,
                 "minY" : 654,
@@ -279,11 +281,30 @@ function addGroupTag(group){
         var availableGroups = document.getElementById('groupsList');
         var groupTag = document.createElement("button");
         groupTag.type = "button";
-        groupTag.className = "btn btn-primary rounded-pill btn-sm";
+        groupTag.id = "group-btn-" + group;
+        groupTag.className = "btn btn-primary rounded-pill btn-sm group-btn";
         groupTag.style = "width: auto; margin-right: 5px";
         groupTag.innerHTML = "<span class='font-weight-bold'>Group " + group + "</span>";
         groupTag.setAttribute("onmouseover", "showGroup(" + group + ")");
+        groupTag.setAttribute("onClick", "removeGroup(" + group + ")");
         availableGroups.appendChild(groupTag);
+    }
+}
+
+function removeGroup(groupNumber){
+    var groupTag = document.getElementById('group-btn-' + groupNumber);
+    groupTag.parentNode.removeChild(groupTag);
+    if($('#groupsList > button').length == 0){
+        document.getElementById('groupsList').innerHTML = "Available groups: None";
+    }
+
+    var agents = Object.keys(groupsInPicture[groupNumber]);
+    for(j = 0; j < agents.length; j++){
+        var agent = agents[j];
+        var currentTagToRemove = $(agent.replace('agent_', '#current-labels-')).find("button")[1];//Group tag is element 1
+        if(Object.keys(groupsInPicture[groupNumber]).length > 1){
+            removeAutomaticTag(currentTagToRemove, true);
+        }
     }
 }
 
@@ -323,15 +344,88 @@ function getAgentInnerHTML(i, currentClass){
     <div class="col"><input type="text" class="form-control label-input" placeholder="Label"></div>
     <div class="col col-lg-1"><button type="button" class="btn btn-primary rounded btn-sm" data-bs-toggle="button" title="Click to add the label">
     <span class="font-weight-bold">Add</span></button></div>
-    <div class="col col-lg-3"><button type="button" class="btn btn-primary rounded btn-sm" data-toggle="modal" onClick="showGroupAssignationPopup(this)" data-target="#assignGroupPopup" title="Click to assign a group">
-    <span class="font-weight-bold">Add to group</span></button></div></div>`;
+    <div class="col col-lg-3"><button id="join-agent-btn-` + i + `" type="button" class="btn btn-primary rounded btn-sm" data-toggle="modal" onClick="showGroupAssignationPopup(` + i + `)" data-target="#assignGroupPopup" title="Click to assign a group">
+    <span class="font-weight-bold">Join to agent</span></button></div></div>`;
 
     return innerHTML;
 }
 
-function showGroupAssignationPopup(element){
+function showGroupAssignationPopup(agentNumber){
     var popupBody = document.getElementById('assignGroupPopup-body');
-    popupBody.innerHTML = document.getElementById('groupsList').innerHTML;
+    var saveChangesButton = document.getElementById('saveChanges-btn');
+    popupBody.innerHTML = "";
+    var agentsDropdown = document.createElement('div');
+    var selectObject = document.createElement('select');
+    var defaultOption = document.createElement('option');
+    
+    agentsDropdown.className = "custom-select";
+    selectObject.id = "agentsSelect";
+    selectObject.className = "rounded mt-3";
+    defaultOption.value = "none";
+    defaultOption.innerText = "Select agent to join";
+
+    selectObject.appendChild(defaultOption);
+    var groupsKeys = Object.keys(groupsInPicture);
+    for(i = 0; i < groupsKeys.length; i++){
+        var key = groupsKeys[i]
+        for(j = 0; j < Object.keys(groupsInPicture[key]).length; j++){
+            var newOption = document.createElement('option');
+            newOption.value = Object.keys(groupsInPicture[key])[j].replace("agent_", "Agent ");
+            newOption.innerText = Object.keys(groupsInPicture[key])[j].replace("agent_", "Agent ");
+            if(Object.keys(groupsInPicture[key]).length > 1){
+                newOption.innerText += " (Group " + key + ")";
+            }
+            selectObject.appendChild(newOption);
+        }
+    }
+    saveChangesButton.setAttribute("onclick", "addAgentToGroup('agentsSelect', " + agentNumber + ")")
+    agentsDropdown.appendChild(selectObject);    
+    popupBody.appendChild(agentsDropdown);
+}
+
+function addAgentToGroup(selectObject, agentNumber){
+    var selectBox = document.getElementById(selectObject);
+    var selectedAgent = selectBox.options[selectBox.selectedIndex].value;
+    selectedAgent = selectedAgent.replace("Agent ", "agent_");
+
+    var agentToChange = "agent_" + agentNumber;
+    var groupsKeys = Object.keys(groupsInPicture);
+    var xInit, yInit, xRight, yBottom;
+    for(i = 0; i < groupsKeys.length; i++){
+        var key = groupsKeys[i];
+        if(agentToChange in groupsInPicture[key]){
+            xInit = groupsInPicture[key][agentToChange].xInit;
+            yInit = groupsInPicture[key][agentToChange].yInit;
+            xRight = groupsInPicture[key][agentToChange].xRight;
+            yBottom = groupsInPicture[key][agentToChange].yBottom;
+            delete groupsInPicture[key][agentToChange];
+
+            if(Object.keys(groupsInPicture[key]).length == 0){
+                delete groupsInPicture[key];
+                groupsKeys = Object.keys(groupsInPicture);
+            }
+            break;
+        }
+    }
+
+    var newGroup;
+    for(i = 0; i < groupsKeys.length; i++){
+        var key = groupsKeys[i];
+        if(selectedAgent in groupsInPicture[key]){
+            newGroup = key;
+            groupsInPicture[key][agentToChange] = new Object();
+            groupsInPicture[key][agentToChange].xInit = xInit;
+            groupsInPicture[key][agentToChange].yInit = yInit;
+            groupsInPicture[key][agentToChange].xRight = xRight;
+            groupsInPicture[key][agentToChange].yBottom = yBottom;
+            break;
+        }
+    }
+    drawImgCanvas(selectedDataset, canvasElem.getContext("2d"), imgData.img, canvasElem);
+    if(document.getElementById('group-btn-' + newGroup) == null){
+        addGroupTag(newGroup);
+    }
+    addGroupButtonToAgent();
 }
 
 function getPeopleGroup(agentNumber, xInit, yInit, xRight, yBottom){//x1 and x2 to measure x middle point and y2 to get bbox bottom
@@ -470,43 +564,66 @@ function loadAgents(){
         newAgentsLabels["Agent " + agentIndex]["children"] = new Object();
     }
 
-    for(j = 0; j < Object.keys(groupsInPicture).length; j++){
-        var numberOfAgentsInGroup = getAgentsInGroup(j);
+    addGroupButtonToAgent();
+}
+
+function addGroupButtonToAgent(){
+    var groupsKeys = Object.keys(groupsInPicture);
+    for(j = 0; j < groupsKeys.length; j++){
+        var key = groupsKeys[j];
+        var numberOfAgentsInGroup = getAgentsInGroup(key);
 
         if(numberOfAgentsInGroup > 1){
-            var agentsInGroup = Object.keys(groupsInPicture[j]);
+            var agentsInGroup = Object.keys(groupsInPicture[key]);
             for(k = 0; k < agentsInGroup.length; k++){
                 var agentNumber = agentsInGroup[k].replace("agent_", "");
                 var cardBody = document.getElementById("current-labels-" + agentNumber);
-                var button = document.createElement("button");
-                button.type = "button";
-                button.className = "btn btn-primary rounded-pill btn-sm group-btn";
-                button.innerHTML = "<span class='font-weight-bold'>Group " + j + "</span>";
-                button.setAttribute("onclick", "removeAutomaticTag(this)");
-                cardBody.appendChild(button);
+                if($("#current-labels-" + agentNumber).find('button').length == 1){
+                    var joinButton = document.getElementById('join-agent-btn-' + agentNumber);
+                    joinButton.classList.add('disabled');
+                    var button = document.createElement("button");
+                    button.type = "button";
+                    button.className = "btn btn-primary rounded-pill btn-sm group-btn";
+                    button.innerHTML = "<span class='font-weight-bold'>Group " + j + "</span>";
+                    button.setAttribute("onclick", "removeAutomaticTag(this, false)");
+                    cardBody.appendChild(button);
+                }
             }
         }
     }
 }
 
-function removeAutomaticTag(element){
+function removeAutomaticTag(element, removeGroup){
     var agent = element.parentElement.id.replace("current-labels-", "agent_");
-    var groupsKeysLength = Object.keys(groupsInPicture).length;
-    for(i = 0; i < groupsKeysLength; i++){
-        if(agent in groupsInPicture[i]){
-            var xInit = groupsInPicture[i][agent].xInit;
-            var yInit = groupsInPicture[i][agent].yInit;
-            var xRight = groupsInPicture[i][agent].xRight;
-            var yBottom = groupsInPicture[i][agent].yBottom;
-            delete groupsInPicture[i][agent];
+    var groupsKeys = Object.keys(groupsInPicture);
+    for(i = 0; i < groupsKeys.length; i++){
+        var key = groupsKeys[i];
+        if(agent in groupsInPicture[key]){
+            var xInit = groupsInPicture[key][agent].xInit;
+            var yInit = groupsInPicture[key][agent].yInit;
+            var xRight = groupsInPicture[key][agent].xRight;
+            var yBottom = groupsInPicture[key][agent].yBottom;
+            delete groupsInPicture[key][agent];
+            var joinButton = document.getElementById('join-agent-btn-' + agent.replace('agent_', ''));
+            joinButton.classList.remove('disabled');
+            var agents = Object.keys(groupsInPicture[key]);
+
+            if(agents.length == 1){//Only 1 agent left in group
+                var lastAgentGroupButton =  $(agents[0].replace("agent_", "#current-labels-")).find('button')[1];//Element 1 is the group button
+                lastAgentGroupButton.parentNode.removeChild(lastAgentGroupButton);//Removing group tag from agent
+                if(!removeGroup){
+                    var availableGroupsTag = document.getElementById('group-btn-' + key);
+                    availableGroupsTag.parentNode.removeChild(availableGroupsTag);//Removing group tag from available groups
+                }
+            }
 
             //Assign the agent to a new group
-            groupsInPicture[groupsKeysLength] = new Object();
-            groupsInPicture[groupsKeysLength][agent] = new Object();
-            groupsInPicture[groupsKeysLength][agent].xInit = xInit;
-            groupsInPicture[groupsKeysLength][agent].yInit = yInit;
-            groupsInPicture[groupsKeysLength][agent].xRight = xRight;
-            groupsInPicture[groupsKeysLength][agent].yBottom = yBottom;
+            groupsInPicture[groupsKeys.length] = new Object();
+            groupsInPicture[groupsKeys.length][agent] = new Object();
+            groupsInPicture[groupsKeys.length][agent].xInit = xInit;
+            groupsInPicture[groupsKeys.length][agent].yInit = yInit;
+            groupsInPicture[groupsKeys.length][agent].xRight = xRight;
+            groupsInPicture[groupsKeys.length][agent].yBottom = yBottom;
             break;
         }
     }
@@ -711,7 +828,7 @@ function downloadNewJson(jsonData, fileName, contentType){
     URL.revokeObjectURL(a.href);
 }
 
-function cleanAndDrawNew(){
+function cleanAndDrawNew(img){
     imgData = getRandomImageDataFromDataset();
     canvasElem = document.getElementById('imgToAnnotate');
     zoom = document.getElementById("zoomed-canvas");
