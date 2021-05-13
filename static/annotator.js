@@ -81,18 +81,26 @@ function collapseAllButThis(element){
     }
 }
 
-function loadJSONData(file){
-    var jsonFile = file.replace(".png", datasetSpecificFeatures.jsonFileEnding);
+async function loadJSONData(file){
+    //file = "barcelona_01375.png";
+    //var jsonFile = file.replace(".png", datasetSpecificFeatures.jsonFileEnding);
     var jsonObj = {};
 
-    $.ajax({
+    await fetch('/img_json/' + selectedDataset + '/' + file)
+        .then(function (response) {
+            return response.json();
+            }).then(function (elem) {
+                jsonObj = elem;
+            });
+
+    /*$.ajax({
         url: datasetSpecificFeatures.jsonPath + jsonFile,
         async: false,
         dataType: 'json',
         success: function(json) {
             jsonObj = json;
         }
-    });
+    });*/
 
     return jsonObj;
 }
@@ -753,7 +761,7 @@ function saveCurrent(){
     }
     else{
         imageLabelled = true;
-        var editedJsonFile = listOfFiles[currentImageIndex].replace(".png", "_edited.json");
+        //var editedJsonFile = listOfFiles[currentImageIndex].replace(".png", "_edited.json");
         downloadNewJson(imgData.json, editedJsonFile, 'text/plain');
     }
 }
@@ -828,8 +836,8 @@ function downloadNewJson(jsonData, fileName, contentType){
     URL.revokeObjectURL(a.href);
 }
 
-function cleanAndDrawNew(img){
-    imgData = getRandomImageDataFromDataset();
+async function cleanAndDrawNew(){
+    /*imgData = */await getRandomImageDataFromDataset();
     canvasElem = document.getElementById('imgToAnnotate');
     zoom = document.getElementById("zoomed-canvas");
     zoomCtx = zoom.getContext("2d");
@@ -926,8 +934,8 @@ function selectDataset(){
     var selectBox = document.getElementById("selectBox");
     groupsInPicture = new Object();
     selectedDataset = selectBox.options[selectBox.selectedIndex].value;
-    assignDatasetPaths(selectedDataset);
-    listOfFiles = getImagesList();
+    //assignDatasetPaths(selectedDataset);//TODO: Remove on full merge
+    //listOfFiles = getImagesList();//TODO: Remove on full merge
     cleanAndDrawNew();
 
     $('#canvasContainer').css("visibility", "visible");
@@ -935,17 +943,27 @@ function selectDataset(){
     $('#groupsList').css("visibility", "visible");
 }
 
-function getRandomImageDataFromDataset(){
-    currentImageIndex = Math.floor(Math.random() * (listOfFiles.length - 0)) + 0;
+async function getRandomImageDataFromDataset(){
+    //currentImageIndex = Math.floor(Math.random() * (listOfFiles.length - 0)) + 0;//TODO: Remove on full merge
     img = new Image();
-    img.src = datasetSpecificFeatures.imgPath + listOfFiles[currentImageIndex];
+    var imgName;
+    var imgInfo = new Object();
+    await fetch('/img_url')
+        .then(function (response) {
+            return response.json();
+            }).then(function (elem) {
+                img.src = elem.img_url;
+                imgName = elem.img_name;
+            });
+    //img.src = imgUrl;//datasetSpecificFeatures.imgPath + listOfFiles[currentImageIndex];//
     img.width = $("#canvasContainer").width();
     img.height = $("#canvasContainer").height();
-    var jsonData = loadJSONData(listOfFiles[currentImageIndex]); 
-    imgData.img = img;
-    imgData.json = jsonData;
+    var jsonData = await loadJSONData(imgName); 
+    imgInfo.img = img;
+    imgInfo.json = jsonData;
+    imgData = imgInfo;
 
-    return imgData;
+    //return imgData;
 }
 
 $(document).ready(function() {
