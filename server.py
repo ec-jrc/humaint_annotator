@@ -6,7 +6,7 @@ import boto3
 from botocore.exceptions import ClientError
 import psycopg2
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
-from flask import Flask, render_template, jsonify, abort
+from flask import Flask, render_template, jsonify, abort, request
 
 app = Flask(__name__)
 
@@ -82,6 +82,17 @@ def get_img_json(dataset, file_name):
         abort(404)
 
     return json_data
+
+@app.route('/save_edited_json/<img_name>', methods=['POST'])
+def save_edited_json(img_name):
+    # POST request
+    edited_json = request.get_json()
+    query = "SELECT associated_json FROM imgs_info WHERE file_name='" + img_name + "'"
+    json_file = str(open_DB_connection(query)[0][0])
+    json_file_path = "edited_jsons/" + json_file
+    with open(json_file_path, 'w', encoding='utf-8') as f:
+        json.dump(edited_json, f, ensure_ascii=False, indent=4)
+    return 'OK', 200
 
 @app.route('/')
 def index():

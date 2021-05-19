@@ -50,7 +50,8 @@ const identitiesToAvoid = [
     "motorbike-group", 
     "scooter-group", 
     "tricycle-group", 
-    "wheelchair-group"
+    "wheelchair-group",
+    "person-group-far-away"
 ]
 
 function toggleAccordionItem(accordionItem){
@@ -346,6 +347,10 @@ function getAgentInnerHTML(i, currentClass){
     <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Male</span></button>
     <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Female</span></button>
     <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>
+    <div class="mb-0 mt-3"><span>Skin tone</span><br/>
+    <button type="button" class="btn btn-dark-skin btn-dark-skin-tone rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Dark Skin</span></button>
+    <button type="button" class="btn btn-light-skin btn-light-skin-tone rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Light Skin</span></button>
+    <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>
     <div class="mb-0 mt-3"><span>Custom labels</span><br/>
     <div class="row col-lg-7">
     <div class="col"><input type="text" class="form-control labelclass-input" placeholder="Label class"></div>
@@ -519,9 +524,25 @@ function toggleTag(element){
     var elementParentChildren = element.parentElement.children;
     for(i = 2; i < elementParentChildren.length; i++){//first two elements are not buttons
         elementParentChildren[i].classList.remove("tag-pressed");
-        elementParentChildren[i].classList.add("btn-primary");
+        if(elementParentChildren[i].classList.contains("btn-dark-skin")){
+            elementParentChildren[i].classList.add("btn-dark-skin-tone");
+        }
+        else if(elementParentChildren[i].classList.contains("btn-light-skin")){
+            elementParentChildren[i].classList.add("btn-light-skin-tone");
+        }
+        else{
+            elementParentChildren[i].classList.add("btn-primary");
+        }
     }
-    element.classList.remove("btn-primary");
+    if(element.classList.contains("btn-dark-skin")){
+        element.classList.remove("btn-dark-skin-tone");
+    }
+    else if(element.classList.contains("btn-light-skin")){
+        element.classList.remove("btn-light-skin-tone");
+    }
+    else{
+        element.classList.remove("btn-primary");
+    }
     element.classList.add("tag-pressed");
 
     var currentAgent = element.closest(".accordion-item").firstElementChild.innerText;//Get agent name
@@ -729,28 +750,37 @@ function saveCurrent(){
 
     //Edit each agent of the json object
     for (i = 0; i < numberOfAgents; i++){
-        var index = i + 1;
-        var currentAgentNewInfo = newAgentsLabels["Agent " + index];
-        var agent;
-        if(selectedDataset == "citypersons"){
-            agent = datasetSpecificFeatures.agents["agent_" + index];
-        }
-        else{
-            agent = datasetSpecificFeatures.agents[i];
-        }
-        
-        var agentKeys = Object.keys(currentAgentNewInfo); 
-        for(j = 0; j < agentKeys.length; j++){
-            parserInfo = datasetSpecificJSONParse(i, j, agent, currentAgentNewInfo, agentKeys);
-            if(agentKeys[j] == "children"){
-                agent = parserInfo.agent;
-            }
-            else{
-                agent[agentKeys[j]] = currentAgentNewInfo[agentKeys[j]];//Copy info from new labels into the agent
-            }
+        var index = 0;
+        var isRealAgent = true;
+        if((datasetSpecificFeatures.agents[i].hasOwnProperty("class_label") && datasetSpecificFeatures.agents[i].class_label == 0) ||
+            (datasetSpecificFeatures.agents[i].hasOwnProperty("identity") && identitiesToAvoid.includes(datasetSpecificFeatures.agents[i].identity))){
+                isRealAgent = false;
         }
 
-        datasetSpecificFeatures.agents[parserInfo.index] = agent;//Adding edited agents to img json
+        if(isRealAgent){
+            index = index + 1;
+            var currentAgentNewInfo = newAgentsLabels["Agent " + index];
+            var agent;
+            if(selectedDataset == "citypersons"){
+                agent = datasetSpecificFeatures.agents["agent_" + index];
+            }
+            else{
+                agent = datasetSpecificFeatures.agents[i];
+            }
+            
+            var agentKeys = Object.keys(currentAgentNewInfo); 
+            for(j = 0; j < agentKeys.length; j++){
+                parserInfo = datasetSpecificJSONParse(i, j, agent, currentAgentNewInfo, agentKeys);
+                if(agentKeys[j] == "children"){
+                    agent = parserInfo.agent;
+                }
+                else{
+                    agent[agentKeys[j]] = currentAgentNewInfo[agentKeys[j]];//Copy info from new labels into the agent
+                }
+            }
+
+            datasetSpecificFeatures.agents[parserInfo.index] = agent;//Adding edited agents to img json
+        }
     }
 
     var agentsLabelled = isAgentCorrectlyLabelled(numberOfAgents);
@@ -762,25 +792,33 @@ function saveCurrent(){
     else{
         imageLabelled = true;
         //var editedJsonFile = listOfFiles[currentImageIndex].replace(".png", "_edited.json");
-        downloadNewJson(imgData.json, editedJsonFile, 'text/plain');
+        //downloadNewJson(imgData.json, editedJsonFile, 'text/plain');
+        saveEditedJson(imgData.json);
     }
 }
 
 function datasetSpecificJSONParse(agentIndex, agentNewKeysIndex, agent, currentAgentNewInfo, agentKeys){
     var parserInfo = new Object();
-    switch(selectedDataset){
-        case "citypersons":
-            parserInfo.index = "agent_" + agentIndex + 1;
-            delete(agent["children"]);//Children key does not exist in this dataset
-            break;
-        case "eurocity":
-            parserInfo.index = agentIndex;
-            var childrenKeys = Object.keys(currentAgentNewInfo[agentKeys[agentNewKeysIndex]]);
-            for(k = 0; k < childrenKeys.length; k++){
-                //Copy info from new labels's children into the agent
-                agent[agentKeys[agentNewKeysIndex]][0][childrenKeys[k]] = currentAgentNewInfo[agentKeys[agentNewKeysIndex]][childrenKeys[k]]; 
-            }
-            break;
+    var isRealAgent = true;
+    if((datasetSpecificFeatures.agents[agentIndex].hasOwnProperty("class_label") && datasetSpecificFeatures.agents[agentIndex].class_label == 0) ||
+        (datasetSpecificFeatures.agents[agentIndex].hasOwnProperty("identity") && identitiesToAvoid.includes(datasetSpecificFeatures.agents[agentIndex].identity))){
+            isRealAgent = false;
+    }
+    if(isRealAgent){
+        switch(selectedDataset){
+            case "citypersons":
+                parserInfo.index = "agent_" + agentIndex + 1;
+                delete(agent["children"]);//Children key does not exist in this dataset
+                break;
+            case "eurocity":
+                parserInfo.index = agentIndex;
+                var childrenKeys = Object.keys(currentAgentNewInfo[agentKeys[agentNewKeysIndex]]);
+                for(k = 0; k < childrenKeys.length; k++){
+                    //Copy info from new labels's children into the agent
+                    agent[agentKeys[agentNewKeysIndex]] = currentAgentNewInfo[agentKeys[agentNewKeysIndex]]; 
+                }
+                break;
+        }
     }
 
     parserInfo.agent = agent;
@@ -827,13 +865,26 @@ function isAgentCorrectlyLabelled(numberOfAgents){
     return agentsCorrectlyLabelled;
 }
 
-function downloadNewJson(jsonData, fileName, contentType){
-    var a = document.createElement("a");
+function saveEditedJson(json){//downloadNewJson(jsonData, fileName, contentType){
+    /*var a = document.createElement("a");
     var file = new Blob([JSON.stringify(jsonData)], {type: contentType});
     a.href = URL.createObjectURL(file);
     a.download = fileName;
     a.click();
-    URL.revokeObjectURL(a.href);
+    URL.revokeObjectURL(a.href);*/
+    fetch('/save_edited_json/' + imgData.imgName, {
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        method: 'POST',
+        body: JSON.stringify({
+            json
+        })
+    }).then(function (response) { // At this point, Flask has printed our JSON
+        return response.text();
+    }).then(function (text) {
+        console.log('POST response: ' + text);
+    });
 }
 
 async function cleanAndDrawNew(){
@@ -930,13 +981,13 @@ function assignDatasetSpecificFeatures(selectedDataset, jsonData){
     }
 }
 
-function selectDataset(){
+async function selectDataset(){
     var selectBox = document.getElementById("selectBox");
     groupsInPicture = new Object();
     selectedDataset = selectBox.options[selectBox.selectedIndex].value;
     //assignDatasetPaths(selectedDataset);//TODO: Remove on full merge
     //listOfFiles = getImagesList();//TODO: Remove on full merge
-    cleanAndDrawNew();
+    await cleanAndDrawNew();
 
     $('#canvasContainer').css("visibility", "visible");
     $('#loadimage-btn').css("visibility", "visible");
@@ -961,6 +1012,7 @@ async function getRandomImageDataFromDataset(){
     var jsonData = await loadJSONData(imgName); 
     imgInfo.img = img;
     imgInfo.json = jsonData;
+    imgInfo.imgName = imgName;
     imgData = imgInfo;
 
     //return imgData;

@@ -377,3 +377,18 @@ canvas#imgToAnnotate { border: 1px solid white; width: auto; height: auto; posit
 .group-btn:hover:after{
     content: "  X";
 }
+
+.skin-tone{
+    width: 150px; 
+    height: 40px; 
+}
+
+.btn-light-skin-tone{
+    color: black;
+    background: linear-gradient(to right, #fdf7e7, #e0c676);
+}
+
+.btn-dark-skin-tone{
+    color: white;
+    background: linear-gradient(to right, #956c49, #2f2629); 
+}
