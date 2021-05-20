@@ -10,6 +10,8 @@ var firstDraw = true;
 var imageLabelled = false;
 var groupsInPicture = new Object();
 var correctionIndex = 0;
+var canvasWidth = 1296;
+var canvasHeight = 654
 
 const divisionThresholdsX = {
     "firstDivision" : 1,
@@ -54,7 +56,7 @@ const identitiesToAvoid = [
     "person-group-far-away"
 ]
 
-function toggleAccordionItem(accordionItem){
+/*function toggleAccordionItem(accordionItem){
     var element = document.getElementById(accordionItem);
     if(element.classList.contains('show')){
         element.classList.remove('show');
@@ -64,20 +66,21 @@ function toggleAccordionItem(accordionItem){
         element.classList.add('show');
         element.previousElementSibling.children[0].classList.remove('collapsed')
     }
-}
+}*/
 
 function collapseAllButThis(element){
     var listOfCollapsableElems = [];
 
-    $("#agentsAccordion >> div").each((index, elem) => {//Do not remove "index" even if unused, o.w. listOfCollapsableElems will be filled with undefineds
-        listOfCollapsableElems.push(elem.id);
+    $("#agentsTabs > button").each((index, elem) => {//Do not remove "index" even if unused, o.w. listOfCollapsableElems will be filled with undefineds
+        listOfCollapsableElems.push(elem.id.replace("agent-tab-", "floating-window-"));
     });
 
     for(i = 0; i < listOfCollapsableElems.length; i++){
         if(listOfCollapsableElems[i] != element){
             var elementById = document.getElementById(listOfCollapsableElems[i]);
-            elementById.classList.remove('show');
-            elementById.previousElementSibling.children[0].classList.add('collapsed')
+            elementById.style.visibility = "hidden";
+            var agentIndex = i + 1;
+            document.getElementById('agent-tab-' + agentIndex).classList.remove('active');
         }
     }
 }
@@ -121,7 +124,7 @@ function make_base(selectedDataset, context, img, canvasElem)
 }
 
 function drawRect(context, imgHeight, canvasWidth, canvasHeight, selectedDataset, agent, rectColor, linewidth){
-    var bBoxValues = getbBoxValues(selectedDataset, agent);
+    var bBoxValues = getAgentbBoxValues(selectedDataset, agent);
     var x = bBoxValues.x/datasetSpecificFeatures.imgWidth*canvasWidth;
     var y = bBoxValues.y/imgHeight*canvasHeight;
     var bBoxWidth = bBoxValues.w/datasetSpecificFeatures.imgWidth*canvasWidth;
@@ -131,25 +134,25 @@ function drawRect(context, imgHeight, canvasWidth, canvasHeight, selectedDataset
     context.strokeRect(x, y, bBoxWidth, bBoxHeight);
 }
 
-function getbBoxValues(selectedDataset, agentInfo){
-    var bBoxValues = new Object();
+function getAgentbBoxValues(selectedDataset, agentInfo){
+    var agentbBoxValues = new Object();
 
     switch (selectedDataset){
         case "citypersons":
-            bBoxValues.x = agentInfo.x1;
-            bBoxValues.y = agentInfo.y1;
-            bBoxValues.w = agentInfo.w;
-            bBoxValues.h = agentInfo.h;
+            agentbBoxValues.x = agentInfo.x1;
+            agentbBoxValues.y = agentInfo.y1;
+            agentbBoxValues.w = agentInfo.w;
+            agentbBoxValues.h = agentInfo.h;
             break;
         case "eurocity":
-            bBoxValues.x = agentInfo.x0;
-            bBoxValues.y = agentInfo.y0;
-            bBoxValues.w = agentInfo.x1 - agentInfo.x0;
-            bBoxValues.h = agentInfo.y1 - agentInfo.y0;
+            agentbBoxValues.x = agentInfo.x0;
+            agentbBoxValues.y = agentInfo.y0;
+            agentbBoxValues.w = agentInfo.x1 - agentInfo.x0;
+            agentbBoxValues.h = agentInfo.y1 - agentInfo.y0;
             break;
     }
 
-    return bBoxValues;
+    return agentbBoxValues;
 }
 
 function drawImgCanvas(selectedDataset, context, img, canvasElem){
@@ -158,7 +161,7 @@ function drawImgCanvas(selectedDataset, context, img, canvasElem){
     canvasElem.width = img.width;
     canvasElem.height = img.height;
     context.drawImage(img, 0, 0, canvasElem.width, canvasElem.height);
-    var agentsKeys, imgHeight = 1024, canvasWidth = 1296, canvasHeight = 654;
+    var agentsKeys, imgHeight = 1024;
     agentsKeys = Object.keys(datasetSpecificFeatures.agents);
 
     for(i = 0; i < agentsKeys.length; i++){
@@ -351,13 +354,13 @@ function getAgentInnerHTML(i, currentClass){
     <button type="button" class="btn btn-dark-skin btn-dark-skin-tone rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Dark Skin</span></button>
     <button type="button" class="btn btn-light-skin btn-light-skin-tone rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Light Skin</span></button>
     <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>
-    <div class="mb-0 mt-3"><span>Custom labels</span><br/>
+    <div class="mb-0 mt-3">`+/*<span>Custom labels</span><br/>
     <div class="row col-lg-7">
     <div class="col"><input type="text" class="form-control labelclass-input" placeholder="Label class"></div>
     <div class="col"><input type="text" class="form-control label-input" placeholder="Label"></div>
     <div class="col col-lg-1"><button type="button" class="btn btn-primary rounded btn-sm" data-bs-toggle="button" title="Click to add the label">
-    <span class="font-weight-bold">Add</span></button></div>
-    <div class="col col-lg-3"><button id="join-agent-btn-` + i + `" type="button" class="btn btn-primary rounded btn-sm" data-toggle="modal" onClick="showGroupAssignationPopup(` + i + `)" data-target="#assignGroupPopup" title="Click to assign a group">
+    <span class="font-weight-bold">Add</span></button></div>*/`
+    <div class="col col-lg-6 mt-5"><button id="join-agent-btn-` + i + `" type="button" class="btn btn-primary rounded btn-sm" data-toggle="modal" onClick="showGroupAssignationPopup(` + i + `)" data-target="#assignGroupPopup" title="Click to assign a group">
     <span class="font-weight-bold">Join to agent</span></button></div></div>`;
 
     return innerHTML;
@@ -545,7 +548,7 @@ function toggleTag(element){
     }
     element.classList.add("tag-pressed");
 
-    var currentAgent = element.closest(".accordion-item").firstElementChild.innerText;//Get agent name
+    var currentAgent = element.closest(".container").firstElementChild.id.replace("current-labels-", "Agent ");//Get agent name
     var category = element.parentElement.firstElementChild.innerText;//Get label category
     var labelValue = element.innerText;//Get label value
 
@@ -558,17 +561,17 @@ function toggleTag(element){
 }
 
 function loadAgents(){
-    var agentsAccordion = document.getElementById("agentsAccordion");
-    $(agentsAccordion).empty();
+    var agentsTabs = document.getElementById("agentsTabs");
+    $(agentsTabs).empty();
 
     for(i = 0; i < datasetSpecificFeatures.accordionBodies.length; i++){
-        var accordionItem = document.createElement("div");
-        var accordionHeader = document.createElement("h2");
-        var accordionButton = document.createElement("button");
-        var collapsableElement = document.createElement("div");
+        //var accordionItem = document.createElement("div");
+        //var accordionHeader = document.createElement("h2");
+        //var accordionButton = document.createElement("button");
+        //var collapsableElement = document.createElement("div");
         var agentIndex = i+1;
 
-        accordionItem.className = "accordion-item";
+        /*accordionItem.className = "accordion-item";
 
         accordionHeader.className = "accordion-header"
         accordionHeader.id = "heading" + agentIndex;
@@ -581,12 +584,20 @@ function loadAgents(){
 
         collapsableElement.className = "accordion-collapse collapse";
         collapsableElement.id = "collapse" + agentIndex;
+        collapsableElement.style.visibility = "hidden";
 
         accordionHeader.appendChild(accordionButton);
         collapsableElement.appendChild(datasetSpecificFeatures.accordionBodies[i]);
         accordionItem.appendChild(accordionHeader);
-        accordionItem.appendChild(collapsableElement);
-        agentsAccordion.appendChild(accordionItem);
+        accordionItem.appendChild(collapsableElement);*/
+        createFloatingWindow(datasetSpecificFeatures.accordionBodies[i].innerHTML, i);
+        //agentsAccordion.appendChild(accordionItem);
+        var agentButton = document.createElement('button');
+        agentButton.id = "agent-tab-" + agentIndex;
+        agentButton.className = "tablinks";
+        agentButton.innerText = "Agent " + agentIndex;
+        agentButton.setAttribute("onclick", "displayFloatingInfo(" + agentIndex + ")")
+        agentsTabs.appendChild(agentButton);
 
         //Initializing newAgentsLabels to be used in toggleTag() method
         newAgentsLabels["Agent " + agentIndex] = new Object();
@@ -665,7 +676,7 @@ function selectAgentInCanvas(visibleAgentsIndex){
 
     for(i = 0; i < Object.keys(datasetSpecificFeatures.agents).length; i++){
         var agent = Object.keys(datasetSpecificFeatures.agents)[i];
-        var bBoxValues = getbBoxValues(selectedDataset, datasetSpecificFeatures.agents[agent]);
+        var bBoxValues = getAgentbBoxValues(selectedDataset, datasetSpecificFeatures.agents[agent]);
         var isRealAgent = getAgentAutenticity(agent);//Check if it is a real agent or not
 
         if(isRealAgent && visibleAgentsIndex == i + 1 - correctionIndex){
@@ -706,8 +717,6 @@ function setCanvasSpecs(){
     }
 
     var imgOriginalHeight = 1024;
-    var canvasWidth = $('#imgToAnnotate').width();
-    var canvasHeight = $('#imgToAnnotate').height();
 
     //Percentages of reduction are needed since image dimensions and canvas dimensions do not match
     canvasSpecs.percentageOfReductionWidth = canvasWidth/datasetSpecificFeatures.imgWidth;
@@ -722,7 +731,7 @@ function getAgentToDeploy(selectedDataset, relX, relY){
 
     for(i = 0; i < Object.keys(datasetSpecificFeatures.agents).length; i++){
         var agent = Object.keys(datasetSpecificFeatures.agents)[i];
-        var bBoxValues = getbBoxValues(selectedDataset, datasetSpecificFeatures.agents[agent]);
+        var bBoxValues = getAgentbBoxValues(selectedDataset, datasetSpecificFeatures.agents[agent]);
         var xCoordBottomRight = bBoxValues.x + bBoxValues.w;
         var yCoordBottomRight = bBoxValues.y + bBoxValues.h;
         var isRealAgent = getAgentAutenticity(agent);
@@ -830,11 +839,11 @@ function isAgentCorrectlyLabelled(numberOfAgents){
     var agentsCorrectlyLabelled = 0;
     for (i = 0; i < numberOfAgents; i++){
         var index = i + 1;
-        var query = $("#collapse" + index + " >> div");
+        var query = $("#floating-window-" + index + " >> div");
         var numCategoriesAgent = query.length;
-        for(j = 1; j < numCategoriesAgent; j++){//We don't want the current labels nor the custom label form info
-            if(query[j].firstElementChild.innerText != "Custom labels"){
-                if(query[j].firstElementChild.innerText == "Sub-entities"){
+        for(j = 1; j < numCategoriesAgent - 1; j++){//We don't want the current labels nor the custom label form info
+            if(query[j].firstElementChild.innerHTML != "Custom labels"){
+                if(query[j].firstElementChild.innerHTML == "Sub-entities"){
                     var subentityChildren = $(query).find("#subentity")[0].children;
                     var numCategoriesSubEntity = subentityChildren.length;
                     for(k = 1; k < numCategoriesSubEntity; k++){//We don't want the current labels
@@ -992,6 +1001,7 @@ async function selectDataset(){
     $('#canvasContainer').css("visibility", "visible");
     $('#loadimage-btn').css("visibility", "visible");
     $('#groupsList').css("visibility", "visible");
+    $('#agentsTabs').css("visibility", "visible");
 }
 
 async function getRandomImageDataFromDataset(){
@@ -1018,6 +1028,44 @@ async function getRandomImageDataFromDataset(){
     //return imgData;
 }
 
+function displayFloatingInfo(agentIndex){
+    collapseAllButThis(document.getElementById('floating-window' + agentIndex));
+    document.getElementById('floating-window-' + agentIndex).style.visibility = "visible";
+    document.getElementById('agent-tab-' + agentIndex).classList.add("active")
+}
+
+function createFloatingWindow(innerHTML, i){
+    var agentIndex = i + 1;
+    var floatingWindow = document.createElement('div');
+    var floatingWindowContainer = document.createElement('div');
+    var closeButton = document.createElement('button');
+    var agentsKeys = Object.keys(datasetSpecificFeatures.agents);
+    var agent = agentsKeys[i];
+    var agentbBoxValues = getAgentbBoxValues(selectedDataset, datasetSpecificFeatures.agents[agent]);
+    var left = agentbBoxValues.x/datasetSpecificFeatures.imgWidth*canvasWidth > 650 ? 0 : 1000;
+
+    closeButton.innerHTML = "X";
+    closeButton.className = "btn btn-primary rounded float-end"
+    closeButton.setAttribute("onclick", "closeFloatingWindow(this)");
+    floatingWindow.id = "floating-window-" + agentIndex;
+    floatingWindowContainer.className = "container";
+    floatingWindowContainer.innerHTML = innerHTML;
+    floatingWindow.style.left = left + 'px';
+    floatingWindow.style.top ='0px';
+    floatingWindow.style.width = '296px';
+    floatingWindow.style.height = '654px';
+    floatingWindow.style.position = 'absolute';
+    floatingWindow.style.background = 'rgba(255, 255, 255, 0.7)';
+    floatingWindow.style.visibility = 'hidden';
+    floatingWindow.appendChild(closeButton);
+    floatingWindow.appendChild(floatingWindowContainer);
+    document.getElementById('canvasContainer').appendChild(floatingWindow);
+}
+
+function closeFloatingWindow(element){
+    element.parentElement.style.visibility = "hidden";
+}
+
 $(document).ready(function() {
     $('#canvasContainer').mousemove(function(e){
         if(selectedDataset != ""){
@@ -1039,7 +1087,8 @@ $(document).ready(function() {
             var collapsableElement = "collapse" + agentNumber;
     
             collapseAllButThis(collapsableElement);
-            toggleAccordionItem(collapsableElement);
+            //toggleAccordionItem(collapsableElement);
+            displayFloatingInfo(agentNumber);
         }
     });
 
