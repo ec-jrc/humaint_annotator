@@ -545,7 +545,8 @@ function loadAgents(){
         agentButton.id = "agent-tab-" + agentIndex;
         agentButton.className = "tablinks";
         agentButton.innerText = "Agent " + agentIndex;
-        agentButton.setAttribute("onclick", "displayFloatingInfo(" + agentIndex + ")")
+        agentButton.setAttribute("onclick", "displayFloatingInfo(" + agentIndex + "); selectAgentInCanvas(" + agentIndex + ");")
+
         agentsTabs.appendChild(agentButton);
 
         createFloatingWindow(datasetSpecificFeatures.agentsBodies[i].innerHTML, i);
