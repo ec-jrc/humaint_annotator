@@ -11,7 +11,8 @@ var imageLabelled = false;
 var groupsInPicture = new Object();
 var correctionIndex = 0;
 var canvasWidth = 1296;
-var canvasHeight = 654
+var canvasHeight = 654;
+var imgHeight = 1024;
 
 const divisionThresholdsX = {
     "firstDivision" : 1,
@@ -56,18 +57,6 @@ const identitiesToAvoid = [
     "person-group-far-away"
 ]
 
-/*function toggleAccordionItem(accordionItem){
-    var element = document.getElementById(accordionItem);
-    if(element.classList.contains('show')){
-        element.classList.remove('show');
-        element.previousElementSibling.children[0].classList.add('collapsed')
-    }
-    else{
-        element.classList.add('show');
-        element.previousElementSibling.children[0].classList.remove('collapsed')
-    }
-}*/
-
 function collapseAllButThis(element){
     var listOfCollapsableElems = [];
 
@@ -76,7 +65,7 @@ function collapseAllButThis(element){
     });
 
     for(i = 0; i < listOfCollapsableElems.length; i++){
-        if(listOfCollapsableElems[i] != element){
+        if(listOfCollapsableElems[i] != element){//Hidding non-selected agent tabs's floating windows
             var elementById = document.getElementById(listOfCollapsableElems[i]);
             elementById.style.visibility = "hidden";
             var agentIndex = i + 1;
@@ -86,45 +75,29 @@ function collapseAllButThis(element){
 }
 
 async function loadJSONData(file){
-    //file = "barcelona_01375.png";
-    //var jsonFile = file.replace(".png", datasetSpecificFeatures.jsonFileEnding);
     var jsonObj = {};
 
-    await fetch('/img_json/' + selectedDataset + '/' + file)
+    await fetch('/img_json/' + selectedDataset + '/' + file)//request for JSON data to flask server
         .then(function (response) {
             return response.json();
             }).then(function (elem) {
                 jsonObj = elem;
             });
 
-    /*$.ajax({
-        url: datasetSpecificFeatures.jsonPath + jsonFile,
-        async: false,
-        dataType: 'json',
-        success: function(json) {
-            jsonObj = json;
-        }
-    });*/
-
     return jsonObj;
 }
 
-function loadCanvas(selectedDataset, img, canvasElem){
+function loadCanvas(img, canvasElem){
     var canvas = canvasElem,
     context = canvas.getContext('2d');
 
-    make_base(selectedDataset, context, img, canvasElem);
-}
-
-function make_base(selectedDataset, context, img, canvasElem)
-{
     img.onload = function(){
-        drawImgCanvas(selectedDataset, context, img, canvasElem)
+        drawImgCanvas(context, img, canvasElem)
     }
 }
 
-function drawRect(context, imgHeight, canvasWidth, canvasHeight, selectedDataset, agent, rectColor, linewidth){
-    var bBoxValues = getAgentbBoxValues(selectedDataset, agent);
+function drawRect(context, agent, rectColor, linewidth){
+    var bBoxValues = getAgentbBoxValues(agent);
     var x = bBoxValues.x/datasetSpecificFeatures.imgWidth*canvasWidth;
     var y = bBoxValues.y/imgHeight*canvasHeight;
     var bBoxWidth = bBoxValues.w/datasetSpecificFeatures.imgWidth*canvasWidth;
@@ -134,9 +107,10 @@ function drawRect(context, imgHeight, canvasWidth, canvasHeight, selectedDataset
     context.strokeRect(x, y, bBoxWidth, bBoxHeight);
 }
 
-function getAgentbBoxValues(selectedDataset, agentInfo){
+function getAgentbBoxValues(agentInfo){
     var agentbBoxValues = new Object();
 
+    //Getting agent's bBox coordinates depending on the dataset (JSONs have different formats)
     switch (selectedDataset){
         case "citypersons":
             agentbBoxValues.x = agentInfo.x1;
@@ -155,28 +129,25 @@ function getAgentbBoxValues(selectedDataset, agentInfo){
     return agentbBoxValues;
 }
 
-function drawImgCanvas(selectedDataset, context, img, canvasElem){
+function drawImgCanvas(context, img, canvasElem){
     context.clearRect(0,0,canvasElem.width, canvasElem.height);
     context.globalAlpha = 1;
     canvasElem.width = img.width;
     canvasElem.height = img.height;
     context.drawImage(img, 0, 0, canvasElem.width, canvasElem.height);
-    var agentsKeys, imgHeight = 1024;
+    var agentsKeys;
     agentsKeys = Object.keys(datasetSpecificFeatures.agents);
 
     for(i = 0; i < agentsKeys.length; i++){
         var agent = agentsKeys[i];
-        var isRealAgent = true;
-        if((datasetSpecificFeatures.agents[agent].hasOwnProperty("class_label") && datasetSpecificFeatures.agents[agent].class_label == 0) ||
-            (datasetSpecificFeatures.agents[agent].hasOwnProperty("identity") && identitiesToAvoid.includes(datasetSpecificFeatures.agents[agent].identity))){
-                isRealAgent = false;
-        }
+        var isRealAgent = getAgentAutenticity(agent, false);
+
         if(isRealAgent){
-            drawRect(context, imgHeight, canvasWidth, canvasHeight, selectedDataset, datasetSpecificFeatures.agents[agent], "red", 5);
+            drawRect(context, datasetSpecificFeatures.agents[agent], "red", 5);
 
             //Agents might be riders, and their vehicle bounding box is provided as subchild (Only for Eurocity Persons dataset)
             if(datasetSpecificFeatures.agents[agent].hasOwnProperty("children") && datasetSpecificFeatures.agents[agent].children.length != 0){
-                drawRect(context, imgHeight, canvasWidth, canvasHeight, selectedDataset, datasetSpecificFeatures.agents[agent].children[0], "green", 10);
+                drawRect(context, datasetSpecificFeatures.agents[agent].children[0], "green", 10);
             }
         }
     }
@@ -187,8 +158,8 @@ function drawImgCanvas(selectedDataset, context, img, canvasElem){
         if(Object.keys(groupsInPicture[key]).length > 1){//If there is more than one agent in the group (i.e. it is a group)
             var agents = Object.entries(groupsInPicture[key]);
             var minMax = {
-                "minX" : 1296,
-                "minY" : 654,
+                "minX" : canvasWidth,
+                "minY" : canvasHeight,
                 "maxX" : 0,
                 "maxY" : 0
             }
@@ -200,6 +171,7 @@ function drawImgCanvas(selectedDataset, context, img, canvasElem){
     }
 }
 
+//Getting left top corner and right bottom corner of the group's bBox
 function getMinMax(agent, minMax){
     minMax.minX = agent[1].xInit < minMax.minX ? agent[1].xInit : minMax.minX;
     minMax.minY = agent[1].yInit < minMax.minY ? agent[1].yInit : minMax.minY;
@@ -209,55 +181,61 @@ function getMinMax(agent, minMax){
     return minMax;
 }
 
+//Load function for agents of Dataset Citypersons
 function loadAgentsD1(agents){
-    var accordionBodies = [];
+    var agentsBodies = [];
     var agentIndex = 0;
     
     for(i = 0; i < Object.keys(agents).length; i++){
-        var accordionBody = document.createElement("div");
+        var agentBody = document.createElement("div");
         var agent = Object.keys(agents)[i];
         var classLabelNumber = agents[agent].class_label;
         var classLabel = classLabels[classLabelNumber];
 
-        if(classLabel != "Ignore"){
+        if(classLabel != "Ignore"){//"Ignore" refers to fake agents detected in dataset
             agentIndex += 1;
             var group = getPeopleGroup(agentIndex, agents[agent].x1, agents[agent].y1, 
                 agents[agent].x1 + agents[agent].w, agents[agent].y1 + agents[agent].h);
-            accordionBody.className = "accordion-body";
-            accordionBody.innerHTML = getAgentInnerHTML(agentIndex, classLabel, group);
+            agentBody.className = "agent-body";
+            agentBody.innerHTML = getAgentInnerHTML(agentIndex, classLabel, group);
 
-            accordionBodies.push(accordionBody);
+            agentsBodies.push(agentBody);
         }
     }
 
+    setAvailableGroupsList(groupsInPicture);
+
+    return agentsBodies;
+}
+
+function setAvailableGroupsList(groupsInPicture){
     var groups = Object.entries(groupsInPicture);
     document.getElementById('groupsList').innerHTML = "Available groups:&nbsp;&nbsp";
     groups.forEach(group => addGroupTag(group[0]));
     if($('#groupsList > button').length == 0){
         document.getElementById('groupsList').innerHTML = "Available groups: None";
     }
-
-    return accordionBodies;
 }
 
+//Load function for agents of Dataset Eurocity
 function loadAgentsD2(agents){
-    var accordionBodies = [];
+    var agentsBodies = [];
     var agentIndex = 0;
 
     for(i = 0; i < Object.keys(agents).length; i++){
-        var accordionBody = document.createElement("div");
+        var agentBody = document.createElement("div");
         var agent = Object.keys(agents)[i];
         var identity = agents[agent].identity;
 
-        if(!identitiesToAvoid.includes(identity)){
+        if(!identitiesToAvoid.includes(identity)){//Identities to avoid are scooters, bikes,...
             agentIndex += 1;
             var group = getPeopleGroup(agentIndex, agents[agent].x0, agents[agent].y0, agents[agent].x1, agents[agent].y1);
-            accordionBody.className = "accordion-body";
-            accordionBody.innerHTML = getAgentInnerHTML(agentIndex, identity, group);
+            agentBody.className = "agent-body";
+            agentBody.innerHTML = getAgentInnerHTML(agentIndex, identity, group);
 
             if(datasetSpecificFeatures.agents[agent].hasOwnProperty("children") && datasetSpecificFeatures.agents[agent].children.length != 0){
                 identity = datasetSpecificFeatures.agents[agent].children[0].identity;
-                accordionBody.innerHTML += `<div class="mb-0 mt-3"><span>Sub-entities</span><br/>
+                agentBody.innerHTML += `<div class="mb-0 mt-3"><span>Sub-entities</span><br/>
                 <div id="subentity" class="border border-primary rounded" style="padding:10px;">
                 <div class="mb-0"><span>Current label</span><br/>
                 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">` + identity + `</span></button></div>
@@ -274,18 +252,13 @@ function loadAgentsD2(agents){
                 </div>`;
             }
 
-            accordionBodies.push(accordionBody);
+            agentsBodies.push(agentBody);
         }
     }
 
-    var groups = Object.entries(groupsInPicture);
-    document.getElementById('groupsList').innerHTML = "Available groups:&nbsp;&nbsp";
-    groups.forEach(group => addGroupTag(group[0]));
-    if($('#groupsList > button').length == 0){
-        document.getElementById('groupsList').innerHTML = "Available groups: None";
-    }
+    setAvailableGroupsList(groupsInPicture);
 
-    return accordionBodies;
+    return agentsBodies;
 }
 
 function addGroupTag(group){
@@ -324,8 +297,8 @@ function showGroup(groupNumber){
     var canvasSpecs = setCanvasSpecs();
     var agents = Object.entries(groupsInPicture[groupNumber]);
     var minMax = {
-        "minX" : 1296,
-        "minY" : 654,
+        "minX" : canvasWidth,
+        "minY" : canvasHeight,
         "maxX" : 0,
         "maxY" : 0
     }
@@ -366,6 +339,7 @@ function getAgentInnerHTML(i, currentClass){
     return innerHTML;
 }
 
+//Shows apopup where the user can assign the agent to a group or join two independent agents
 function showGroupAssignationPopup(agentNumber){
     var popupBody = document.getElementById('assignGroupPopup-body');
     var saveChangesButton = document.getElementById('saveChanges-btn');
@@ -437,7 +411,7 @@ function addAgentToGroup(selectObject, agentNumber){
             break;
         }
     }
-    drawImgCanvas(selectedDataset, canvasElem.getContext("2d"), imgData.img, canvasElem);
+    drawImgCanvas(canvasElem.getContext("2d"), imgData.img, canvasElem);
     if(document.getElementById('group-btn-' + newGroup) == null){
         addGroupTag(newGroup);
     }
@@ -447,11 +421,11 @@ function addAgentToGroup(selectObject, agentNumber){
 function getPeopleGroup(agentNumber, xInit, yInit, xRight, yBottom){//x1 and x2 to measure x middle point and y2 to get bbox bottom
     var groupOfAgent;
     var adaptedXs = new Object();
-    adaptedXs.xInit = (xInit/datasetSpecificFeatures.imgWidth) * 1296;
-    adaptedXs.xRight = (xRight/datasetSpecificFeatures.imgWidth) * 1296;
+    adaptedXs.xInit = (xInit/datasetSpecificFeatures.imgWidth) * canvasWidth;
+    adaptedXs.xRight = (xRight/datasetSpecificFeatures.imgWidth) * canvasWidth;
     var adaptedYs = new Object();
-    adaptedYs.yInit = (yInit/1024) * 654;
-    adaptedYs.yBottom = (yBottom/1024) * 654;
+    adaptedYs.yInit = (yInit/imgHeight) * canvasHeight;
+    adaptedYs.yBottom = (yBottom/imgHeight) * canvasHeight;
     var bBoxDivisionAssignment = getPictureDivision(adaptedYs.yBottom);
     var yAxisThreshold = divisionThresholdsY[bBoxDivisionAssignment.y + "Division"];//Depending on the y position of the agent we can guess if it is a group
     var xAxisThreshold = divisionThresholdsX[bBoxDivisionAssignment.y + "Division"];
@@ -502,7 +476,7 @@ function getPeopleGroup(agentNumber, xInit, yInit, xRight, yBottom){//x1 and x2 
 function getPictureDivision(y){
     var pictureDivision = new Object();
 
-    const heightDivisionLength = 654/5;//Length of each height division of the image in pixels
+    const heightDivisionLength = canvasHeight/5;//Length of each height division of the image in pixels (5 divisions)
     const heightDivisions = {
         "first" : heightDivisionLength,
         "second" : 2*heightDivisionLength,
@@ -564,40 +538,17 @@ function loadAgents(){
     var agentsTabs = document.getElementById("agentsTabs");
     $(agentsTabs).empty();
 
-    for(i = 0; i < datasetSpecificFeatures.accordionBodies.length; i++){
-        //var accordionItem = document.createElement("div");
-        //var accordionHeader = document.createElement("h2");
-        //var accordionButton = document.createElement("button");
-        //var collapsableElement = document.createElement("div");
+    for(i = 0; i < datasetSpecificFeatures.agentsBodies.length; i++){
         var agentIndex = i+1;
-
-        /*accordionItem.className = "accordion-item";
-
-        accordionHeader.className = "accordion-header"
-        accordionHeader.id = "heading" + agentIndex;
-        
-        accordionButton.className = "accordion-button collapsed";
-        accordionButton.type = "button";
-        accordionButton.innerText = "Agent " + agentIndex;
-        accordionButton.setAttribute("onclick", "collapseAllButThis('collapse" + agentIndex + "'); toggleAccordionItem('collapse" + 
-                                        agentIndex + "'); selectAgentInCanvas(" + agentIndex + ");");
-
-        collapsableElement.className = "accordion-collapse collapse";
-        collapsableElement.id = "collapse" + agentIndex;
-        collapsableElement.style.visibility = "hidden";
-
-        accordionHeader.appendChild(accordionButton);
-        collapsableElement.appendChild(datasetSpecificFeatures.accordionBodies[i]);
-        accordionItem.appendChild(accordionHeader);
-        accordionItem.appendChild(collapsableElement);*/
-        createFloatingWindow(datasetSpecificFeatures.accordionBodies[i].innerHTML, i);
-        //agentsAccordion.appendChild(accordionItem);
         var agentButton = document.createElement('button');
+
         agentButton.id = "agent-tab-" + agentIndex;
         agentButton.className = "tablinks";
         agentButton.innerText = "Agent " + agentIndex;
         agentButton.setAttribute("onclick", "displayFloatingInfo(" + agentIndex + ")")
         agentsTabs.appendChild(agentButton);
+
+        createFloatingWindow(datasetSpecificFeatures.agentsBodies[i].innerHTML, i);
 
         //Initializing newAgentsLabels to be used in toggleTag() method
         newAgentsLabels["Agent " + agentIndex] = new Object();
@@ -668,7 +619,7 @@ function removeAutomaticTag(element, removeGroup){
         }
     }
     element.parentNode.removeChild(element);//Remove group tag
-    drawImgCanvas(selectedDataset, canvasElem.getContext("2d"), imgData.img, canvasElem);
+    drawImgCanvas(canvasElem.getContext("2d"), imgData.img, canvasElem);
 }
 
 function selectAgentInCanvas(visibleAgentsIndex){
@@ -676,8 +627,8 @@ function selectAgentInCanvas(visibleAgentsIndex){
 
     for(i = 0; i < Object.keys(datasetSpecificFeatures.agents).length; i++){
         var agent = Object.keys(datasetSpecificFeatures.agents)[i];
-        var bBoxValues = getAgentbBoxValues(selectedDataset, datasetSpecificFeatures.agents[agent]);
-        var isRealAgent = getAgentAutenticity(agent);//Check if it is a real agent or not
+        var bBoxValues = getAgentbBoxValues(datasetSpecificFeatures.agents[agent]);
+        var isRealAgent = getAgentAutenticity(agent, true);//Check if it is a real agent or not
 
         if(isRealAgent && visibleAgentsIndex == i + 1 - correctionIndex){
             highlightRect(canvasSpecs.context, bBoxValues.x*canvasSpecs.percentageOfReductionWidth, bBoxValues.y*canvasSpecs.percentageOfReductionHeight, 
@@ -693,12 +644,12 @@ function highlightRect(context, x, y, w, h){
     context.fillRect(x, y, w, h);
 }
 
-function getAgentAutenticity(agent){
-    isRealAgent = true;
+function getAgentAutenticity(agent, updateCorrectionIndex){
+    var isRealAgent = true;
     if((datasetSpecificFeatures.agents[agent].hasOwnProperty("class_label") && datasetSpecificFeatures.agents[agent].class_label == 0) ||
             (datasetSpecificFeatures.agents[agent].hasOwnProperty("identity") && identitiesToAvoid.includes(datasetSpecificFeatures.agents[agent].identity))){
         isRealAgent = false;
-        correctionIndex += 1;//If an agent is skipped, it must be taken into account
+        correctionIndex = updateCorrectionIndex ? correctionIndex + 1 : correctionIndex;//If an agent is skipped, it must be taken into account
     }
 
     return isRealAgent;
@@ -710,31 +661,29 @@ function setCanvasSpecs(){
 
     //Next condition resets the image in the canvas removing highlight from agents
     if(!firstDraw){
-        drawImgCanvas(selectedDataset, canvasSpecs.context, imgData.img, canvasElem);
+        drawImgCanvas(canvasSpecs.context, imgData.img, canvasElem);
     }
     else{
         firstDraw = false;
     }
 
-    var imgOriginalHeight = 1024;
-
     //Percentages of reduction are needed since image dimensions and canvas dimensions do not match
     canvasSpecs.percentageOfReductionWidth = canvasWidth/datasetSpecificFeatures.imgWidth;
-    canvasSpecs.percentageOfReductionHeight = canvasHeight/imgOriginalHeight;
+    canvasSpecs.percentageOfReductionHeight = canvasHeight/imgHeight;
 
     return canvasSpecs;
 }
 
-function getAgentToDeploy(selectedDataset, relX, relY){
+function getAgentToDeploy(relX, relY){
     var agentToDeploy = 0;
     var canvasSpecs = setCanvasSpecs();
 
     for(i = 0; i < Object.keys(datasetSpecificFeatures.agents).length; i++){
         var agent = Object.keys(datasetSpecificFeatures.agents)[i];
-        var bBoxValues = getAgentbBoxValues(selectedDataset, datasetSpecificFeatures.agents[agent]);
+        var bBoxValues = getAgentbBoxValues(datasetSpecificFeatures.agents[agent]);
         var xCoordBottomRight = bBoxValues.x + bBoxValues.w;
         var yCoordBottomRight = bBoxValues.y + bBoxValues.h;
-        var isRealAgent = getAgentAutenticity(agent);
+        var isRealAgent = getAgentAutenticity(agent, true);
         
         if(isRealAgent){
             //Check if click has been inside a bounding box
@@ -754,17 +703,12 @@ function getAgentToDeploy(selectedDataset, relX, relY){
 }
 
 function saveCurrent(){
-    // TODO: Mark picture as annotated
     var numberOfAgents = datasetSpecificFeatures.numberOfAgents;
 
     //Edit each agent of the json object
     for (i = 0; i < numberOfAgents; i++){
         var index = 0;
-        var isRealAgent = true;
-        if((datasetSpecificFeatures.agents[i].hasOwnProperty("class_label") && datasetSpecificFeatures.agents[i].class_label == 0) ||
-            (datasetSpecificFeatures.agents[i].hasOwnProperty("identity") && identitiesToAvoid.includes(datasetSpecificFeatures.agents[i].identity))){
-                isRealAgent = false;
-        }
+        var isRealAgent = getAgentAutenticity(i, false);
 
         if(isRealAgent){
             index = index + 1;
@@ -800,19 +744,14 @@ function saveCurrent(){
     }
     else{
         imageLabelled = true;
-        //var editedJsonFile = listOfFiles[currentImageIndex].replace(".png", "_edited.json");
-        //downloadNewJson(imgData.json, editedJsonFile, 'text/plain');
         saveEditedJson(imgData.json);
     }
 }
 
 function datasetSpecificJSONParse(agentIndex, agentNewKeysIndex, agent, currentAgentNewInfo, agentKeys){
     var parserInfo = new Object();
-    var isRealAgent = true;
-    if((datasetSpecificFeatures.agents[agentIndex].hasOwnProperty("class_label") && datasetSpecificFeatures.agents[agentIndex].class_label == 0) ||
-        (datasetSpecificFeatures.agents[agentIndex].hasOwnProperty("identity") && identitiesToAvoid.includes(datasetSpecificFeatures.agents[agentIndex].identity))){
-            isRealAgent = false;
-    }
+    var isRealAgent = getAgentAutenticity(agentIndex, false);
+
     if(isRealAgent){
         switch(selectedDataset){
             case "citypersons":
@@ -874,14 +813,8 @@ function isAgentCorrectlyLabelled(numberOfAgents){
     return agentsCorrectlyLabelled;
 }
 
-function saveEditedJson(json){//downloadNewJson(jsonData, fileName, contentType){
-    /*var a = document.createElement("a");
-    var file = new Blob([JSON.stringify(jsonData)], {type: contentType});
-    a.href = URL.createObjectURL(file);
-    a.download = fileName;
-    a.click();
-    URL.revokeObjectURL(a.href);*/
-    fetch('/save_edited_json/' + imgData.imgName, {
+function saveEditedJson(json){
+    fetch('/save_edited_json/' + imgData.imgName, {//Request to flask server to save new json 
         headers: {
           'Content-Type': 'application/json'
         },
@@ -896,14 +829,15 @@ function saveEditedJson(json){//downloadNewJson(jsonData, fileName, contentType)
     });
 }
 
+//Canvas is cleaned and redrawn
 async function cleanAndDrawNew(){
-    /*imgData = */await getRandomImageDataFromDataset();
+    await getRandomImageDataFromDataset();
     canvasElem = document.getElementById('imgToAnnotate');
     zoom = document.getElementById("zoomed-canvas");
     zoomCtx = zoom.getContext("2d");
 
-    assignDatasetSpecificFeatures(selectedDataset, imgData.json);
-    loadCanvas(selectedDataset, imgData.img, canvasElem);
+    assignDatasetSpecificFeatures(imgData.json);
+    loadCanvas(imgData.img, canvasElem);
     loadAgents();
 }
 
@@ -913,30 +847,6 @@ function loadData(){
         cleanAndDrawNew();
         imageLabelled = false;
     }
-}
-
-function getImagesList(){
-    var imagesList = [];
-    var pageData = "";
-
-    $.ajax({
-        url : datasetSpecificFeatures.imgPath,
-        async: false,
-        success: function (data) {
-            pageData = data;
-        }
-    });
-
-    //Using regular expressions to get the list of images
-    const regex = "addRow\\(\"\\w+.png\"";
-    var matches = [...pageData.matchAll(regex)];
-
-    const fileNameRegex = "\\w+.png";
-    for(i = 0; i < matches.length; i++){
-        imagesList.push(matches[i][0].match(fileNameRegex)[0]);
-    }
-
-    return imagesList;
 }
 
 function displayMagnifyingGlass(currentElem, e, canvasElem, zoom, zoomCtx){
@@ -956,36 +866,19 @@ function displayMagnifyingGlass(currentElem, e, canvasElem, zoom, zoomCtx){
     zoom.style.display = "block";
 }
 
-function assignDatasetPaths(selectedDataset){
-    switch(selectedDataset){
-        case "citypersons":
-            datasetSpecificFeatures.imgPath = "../img/citypersons/train/strasbourg/";
-            datasetSpecificFeatures.jsonPath = "../annotations_json/citypersons/anno_train/";
-            datasetSpecificFeatures.jsonFileEnding = "_annotation.json";
-            datasetSpecificFeatures.editedJSONsPath = "../edited_jsons/citypersons/";
-            break;
-        case "eurocity":
-            datasetSpecificFeatures.imgPath = "../img/ECP/day/img/val/barcelona/";
-            datasetSpecificFeatures.jsonPath = "../annotations_json/ECP/ECP_day_labels_val/ECP/day/labels/val/barcelona/";
-            datasetSpecificFeatures.jsonFileEnding = ".json";
-            datasetSpecificFeatures.editedJSONsPath = "../edited_jsons/eurocity/";
-            break;
-    }
-}
-
-function assignDatasetSpecificFeatures(selectedDataset, jsonData){
+function assignDatasetSpecificFeatures(jsonData){
     switch(selectedDataset){
         case "citypersons":
             datasetSpecificFeatures.agents = jsonData.bbs;
             datasetSpecificFeatures.numberOfAgents = Object.keys(jsonData.bbs).length;
             datasetSpecificFeatures.imgWidth = 2048;
-            datasetSpecificFeatures.accordionBodies = loadAgentsD1(datasetSpecificFeatures.agents);
+            datasetSpecificFeatures.agentsBodies = loadAgentsD1(datasetSpecificFeatures.agents);
             break;
         case "eurocity":
             datasetSpecificFeatures.agents = jsonData.children;
             datasetSpecificFeatures.numberOfAgents = jsonData.children.length;
             datasetSpecificFeatures.imgWidth = 1920;
-            datasetSpecificFeatures.accordionBodies = loadAgentsD2(datasetSpecificFeatures.agents);
+            datasetSpecificFeatures.agentsBodies = loadAgentsD2(datasetSpecificFeatures.agents);
             break;
     }
 }
@@ -994,8 +887,6 @@ async function selectDataset(){
     var selectBox = document.getElementById("selectBox");
     groupsInPicture = new Object();
     selectedDataset = selectBox.options[selectBox.selectedIndex].value;
-    //assignDatasetPaths(selectedDataset);//TODO: Remove on full merge
-    //listOfFiles = getImagesList();//TODO: Remove on full merge
     await cleanAndDrawNew();
 
     $('#canvasContainer').css("visibility", "visible");
@@ -1005,35 +896,33 @@ async function selectDataset(){
 }
 
 async function getRandomImageDataFromDataset(){
-    //currentImageIndex = Math.floor(Math.random() * (listOfFiles.length - 0)) + 0;//TODO: Remove on full merge
     img = new Image();
     var imgName;
-    var imgInfo = new Object();
-    await fetch('/img_url')
+    await fetch('/img_url')//Request to flask server to retrieve a random image from storage
         .then(function (response) {
             return response.json();
             }).then(function (elem) {
                 img.src = elem.img_url;
                 imgName = elem.img_name;
             });
-    //img.src = imgUrl;//datasetSpecificFeatures.imgPath + listOfFiles[currentImageIndex];//
-    img.width = $("#canvasContainer").width();
-    img.height = $("#canvasContainer").height();
-    var jsonData = await loadJSONData(imgName); 
-    imgInfo.img = img;
-    imgInfo.json = jsonData;
-    imgInfo.imgName = imgName;
-    imgData = imgInfo;
+    img.width = canvasWidth;
+    img.height = canvasHeight;
 
-    //return imgData;
+    var jsonData = await loadJSONData(imgName); 
+
+    imgData.img = img;
+    imgData.json = jsonData;
+    imgData.imgName = imgName;
 }
 
+//Agent information is displayed inside a window on the side of the canvas
 function displayFloatingInfo(agentIndex){
     collapseAllButThis(document.getElementById('floating-window' + agentIndex));
     document.getElementById('floating-window-' + agentIndex).style.visibility = "visible";
     document.getElementById('agent-tab-' + agentIndex).classList.add("active")
 }
 
+//Each agent has its own floating window with its information
 function createFloatingWindow(innerHTML, i){
     var agentIndex = i + 1;
     var floatingWindow = document.createElement('div');
@@ -1041,7 +930,7 @@ function createFloatingWindow(innerHTML, i){
     var closeButton = document.createElement('button');
     var agentsKeys = Object.keys(datasetSpecificFeatures.agents);
     var agent = agentsKeys[i];
-    var agentbBoxValues = getAgentbBoxValues(selectedDataset, datasetSpecificFeatures.agents[agent]);
+    var agentbBoxValues = getAgentbBoxValues(datasetSpecificFeatures.agents[agent]);
     var left = agentbBoxValues.x/datasetSpecificFeatures.imgWidth*canvasWidth > 650 ? 0 : 1000;
 
     closeButton.innerHTML = "X";
@@ -1083,19 +972,11 @@ $(document).ready(function() {
         if(selectedDataset != ""){        
             var relX = event.pageX - $(this).offset().left;
             var relY = event.pageY - $(this).offset().top;
-            var agentNumber = getAgentToDeploy(selectedDataset, relX, relY);
+            var agentNumber = getAgentToDeploy(relX, relY);
             var collapsableElement = "collapse" + agentNumber;
     
             collapseAllButThis(collapsableElement);
-            //toggleAccordionItem(collapsableElement);
             displayFloatingInfo(agentNumber);
         }
-    });
-
-    if(selectedDataset == ""){
-        $('#canvasContainer').css("visibility", "hidden");
-        $('#loadimage-btn').css("visibility", "hidden");
-        $('#groupsList').css("visibility", "hidden");
-    }
-    
+    });    
 });

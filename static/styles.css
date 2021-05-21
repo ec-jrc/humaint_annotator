@@ -356,6 +356,7 @@ canvas#imgToAnnotate { border: 1px solid white; width: auto; height: auto; posit
     width: 1296px;
     height: 654px;
     overflow:hidden;
+    visibility: hidden;
 }
 
 .custom-select select{
@@ -420,4 +421,12 @@ background-color: #ddd;
 /* Create an active/current tablink class */
 .tab button.active {
 background-color: #ddd;
+}
+
+#loadimage-btn{
+    visibility: hidden;
+}
+
+#groupsList{
+    visibility: hidden;
 }
