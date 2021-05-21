@@ -333,7 +333,7 @@ function getAgentInnerHTML(i, currentClass){
     <div class="col"><input type="text" class="form-control label-input" placeholder="Label"></div>
     <div class="col col-lg-1"><button type="button" class="btn btn-primary rounded btn-sm" data-bs-toggle="button" title="Click to add the label">
     <span class="font-weight-bold">Add</span></button></div>*/`
-    <div class="col col-lg-6 mt-5"><button id="join-agent-btn-` + i + `" type="button" class="btn btn-primary rounded btn-sm" data-toggle="modal" onClick="showGroupAssignationPopup(` + i + `)" data-target="#assignGroupPopup" title="Click to assign a group">
+    <div class="col col-lg-6 mt-5 join-agent"><button id="join-agent-btn-` + i + `" type="button" class="btn btn-primary rounded btn-sm" data-toggle="modal" onClick="showGroupAssignationPopup(` + i + `)" data-target="#assignGroupPopup" title="Click to assign a group">
     <span class="font-weight-bold">Join to agent</span></button></div></div>`;
 
     return innerHTML;
@@ -537,23 +537,28 @@ function toggleTag(element){
 function loadAgents(){
     var agentsTabs = document.getElementById("agentsTabs");
     $(agentsTabs).empty();
+    var agentIndex = 0;
 
-    for(i = 0; i < datasetSpecificFeatures.agentsBodies.length; i++){
-        var agentIndex = i+1;
-        var agentButton = document.createElement('button');
+    for(i = 0; i < datasetSpecificFeatures.agents.length; i++){
+        var agent = Object.keys(datasetSpecificFeatures.agents)[i];
+        var isRealAgent = getAgentAutenticity(agent, true);//Check if it is a real agent or not
+        if(isRealAgent){
+            agentIndex += 1;
+            var agentButton = document.createElement('button');
 
-        agentButton.id = "agent-tab-" + agentIndex;
-        agentButton.className = "tablinks";
-        agentButton.innerText = "Agent " + agentIndex;
-        agentButton.setAttribute("onclick", "displayFloatingInfo(" + agentIndex + "); selectAgentInCanvas(" + agentIndex + ");")
+            agentButton.id = "agent-tab-" + agentIndex;
+            agentButton.className = "tablinks";
+            agentButton.innerText = "Agent " + agentIndex;
+            agentButton.setAttribute("onclick", "displayFloatingInfo(" + agentIndex + "); selectAgentInCanvas(" + agentIndex + ");")
 
-        agentsTabs.appendChild(agentButton);
+            agentsTabs.appendChild(agentButton);
 
-        createFloatingWindow(datasetSpecificFeatures.agentsBodies[i].innerHTML, i);
+            createFloatingWindow(datasetSpecificFeatures.agentsBodies[agentIndex - 1].innerHTML, agent, agentIndex);
 
-        //Initializing newAgentsLabels to be used in toggleTag() method
-        newAgentsLabels["Agent " + agentIndex] = new Object();
-        newAgentsLabels["Agent " + agentIndex]["children"] = new Object();
+            //Initializing newAgentsLabels to be used in toggleTag() method
+            newAgentsLabels["Agent " + agentIndex] = new Object();
+            newAgentsLabels["Agent " + agentIndex]["children"] = new Object();
+        }
     }
 
     addGroupButtonToAgent();
@@ -705,10 +710,10 @@ function getAgentToDeploy(relX, relY){
 
 function saveCurrent(){
     var numberOfAgents = datasetSpecificFeatures.numberOfAgents;
+    var index = 0;
 
     //Edit each agent of the json object
     for (i = 0; i < numberOfAgents; i++){
-        var index = 0;
         var isRealAgent = getAgentAutenticity(i, false);
 
         if(isRealAgent){
@@ -778,36 +783,42 @@ function datasetSpecificJSONParse(agentIndex, agentNewKeysIndex, agent, currentA
 function isAgentCorrectlyLabelled(numberOfAgents){
     var agentsCorrectlyLabelled = 0;
     for (i = 0; i < numberOfAgents; i++){
-        var index = i + 1;
-        var query = $("#floating-window-" + index + " >> div");
-        var numCategoriesAgent = query.length;
-        for(j = 1; j < numCategoriesAgent - 1; j++){//We don't want the current labels nor the custom label form info
-            if(query[j].firstElementChild.innerHTML != "Custom labels"){
-                if(query[j].firstElementChild.innerHTML == "Sub-entities"){
-                    var subentityChildren = $(query).find("#subentity")[0].children;
-                    var numCategoriesSubEntity = subentityChildren.length;
-                    for(k = 1; k < numCategoriesSubEntity; k++){//We don't want the current labels
-                        //Look for pressed tags in sub-entity
-                        agentsCorrectlyLabelled = $(subentityChildren[k]).find(".tag-pressed").length;
+        var isRealAgent = getAgentAutenticity(i, false);
+        if(isRealAgent){
+            var index = i + 1;
+            var query = $("#floating-window-" + index + " >> div");
+            var numCategoriesAgent = query.length;
+            for(j = 1; j < numCategoriesAgent - 1; j++){//We don't want the current labels nor the custom label form info
+                if(!query[j].firstElementChild.classList.contains('join-agent')){
+                    if(query[j].firstElementChild.innerHTML == "Sub-entities"){
+                        var subentityChildren = $(query).find("#subentity")[0].children;
+                        var numCategoriesSubEntity = subentityChildren.length;
+                        for(k = 1; k < numCategoriesSubEntity; k++){//We don't want the current labels
+                            //Look for pressed tags in sub-entity
+                            agentsCorrectlyLabelled = $(subentityChildren[k]).find(".tag-pressed").length;
 
-                        if(!agentsCorrectlyLabelled){//If one category is not labelled, agent is not correctly labelled
-                            break;
+                            if(!agentsCorrectlyLabelled){//If one category is not labelled, agent is not correctly labelled
+                                break;
+                            }
                         }
                     }
-                }
-                else{
-                    //Look for pressed tags in category
-                    agentsCorrectlyLabelled = $(query[j]).find(".tag-pressed").length;
-                }
+                    else{
+                        //Look for pressed tags in category
+                        agentsCorrectlyLabelled = $(query[j]).find(".tag-pressed").length;
+                    }
 
-                if(!agentsCorrectlyLabelled){//If one category is not labelled, agent is not correctly labelled
-                    break;
+                    if(!agentsCorrectlyLabelled){//If one category is not labelled, agent is not correctly labelled
+                        break;
+                    }
                 }
             }
-        }
 
-        if(!agentsCorrectlyLabelled){//If one category is not labelled, agent is not correctly labelled
-            break;
+            if(!agentsCorrectlyLabelled){//If one category is not labelled, agent is not correctly labelled
+                break;
+            }
+        }
+        else{
+            agentsCorrectlyLabelled = numberOfAgents;
         }
     }
 
@@ -832,6 +843,8 @@ function saveEditedJson(json){
 
 //Canvas is cleaned and redrawn
 async function cleanAndDrawNew(){
+    groupsInPicture = {};
+    closeAllFloatingWindows();
     await getRandomImageDataFromDataset();
     canvasElem = document.getElementById('imgToAnnotate');
     zoom = document.getElementById("zoomed-canvas");
@@ -924,13 +937,10 @@ function displayFloatingInfo(agentIndex){
 }
 
 //Each agent has its own floating window with its information
-function createFloatingWindow(innerHTML, i){
-    var agentIndex = i + 1;
+function createFloatingWindow(innerHTML, agent, agentIndex){
     var floatingWindow = document.createElement('div');
     var floatingWindowContainer = document.createElement('div');
     var closeButton = document.createElement('button');
-    var agentsKeys = Object.keys(datasetSpecificFeatures.agents);
-    var agent = agentsKeys[i];
     var agentbBoxValues = getAgentbBoxValues(datasetSpecificFeatures.agents[agent]);
     var left = agentbBoxValues.x/datasetSpecificFeatures.imgWidth*canvasWidth > 650 ? 0 : 1000;
 
@@ -954,6 +964,10 @@ function createFloatingWindow(innerHTML, i){
 
 function closeFloatingWindow(element){
     element.parentElement.style.visibility = "hidden";
+}
+
+function closeAllFloatingWindows(){
+    $('#canvasContainer > div').remove();
 }
 
 $(document).ready(function() {
