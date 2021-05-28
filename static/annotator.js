@@ -30,18 +30,8 @@ const divisionThresholdsY = {
     "fifthDivision" : 100
 }
 
-//Only for CityPersons dataset
-const classLabels = {
-    0: "Ignore",
-    1: "Pedestrian",
-    2: "Rider",
-    3: "Sitting person",
-    4: "Person in unusual posture",
-    5: "Group of people"
-};
-
-//Only for Eurocity Persons dataset
 const identitiesToAvoid = [
+    "Ignore",
     "bicycle ", 
     "buggy ",
     "motorbike ",
@@ -110,21 +100,11 @@ function drawRect(context, agent, rectColor, linewidth){
 function getAgentbBoxValues(agentInfo){
     var agentbBoxValues = new Object();
 
-    //Getting agent's bBox coordinates depending on the dataset (JSONs have different formats)
-    switch (selectedDataset){
-        case "citypersons":
-            agentbBoxValues.x = agentInfo.x1;
-            agentbBoxValues.y = agentInfo.y1;
-            agentbBoxValues.w = agentInfo.w;
-            agentbBoxValues.h = agentInfo.h;
-            break;
-        case "eurocity":
-            agentbBoxValues.x = agentInfo.x0;
-            agentbBoxValues.y = agentInfo.y0;
-            agentbBoxValues.w = agentInfo.x1 - agentInfo.x0;
-            agentbBoxValues.h = agentInfo.y1 - agentInfo.y0;
-            break;
-    }
+    //Getting agent's bBox coordinates
+    agentbBoxValues.x = agentInfo.x0;
+    agentbBoxValues.y = agentInfo.y0;
+    agentbBoxValues.w = agentInfo.x1 - agentInfo.x0;
+    agentbBoxValues.h = agentInfo.y1 - agentInfo.y0;
 
     return agentbBoxValues;
 }
@@ -146,8 +126,8 @@ function drawImgCanvas(context, img, canvasElem){
             drawRect(context, datasetSpecificFeatures.agents[agent], "red", 5);
 
             //Agents might be riders, and their vehicle bounding box is provided as subchild (Only for Eurocity Persons dataset)
-            if(datasetSpecificFeatures.agents[agent].hasOwnProperty("children") && datasetSpecificFeatures.agents[agent].children.length != 0){
-                drawRect(context, datasetSpecificFeatures.agents[agent].children[0], "green", 10);
+            if(datasetSpecificFeatures.agents[agent].sub_entities.length != 0){
+                drawRect(context, datasetSpecificFeatures.agents[agent].sub_entities[0], "green", 10);
             }
         }
     }
@@ -181,44 +161,8 @@ function getMinMax(agent, minMax){
     return minMax;
 }
 
-//Load function for agents of Dataset Citypersons
-function loadAgentsD1(agents){
-    var agentsBodies = [];
-    var agentIndex = 0;
-    
-    for(i = 0; i < Object.keys(agents).length; i++){
-        var agentBody = document.createElement("div");
-        var agent = Object.keys(agents)[i];
-        var classLabelNumber = agents[agent].class_label;
-        var classLabel = classLabels[classLabelNumber];
-
-        if(classLabel != "Ignore"){//"Ignore" refers to fake agents detected in dataset
-            agentIndex += 1;
-            var group = getPeopleGroup(agentIndex, agents[agent].x1, agents[agent].y1, 
-                agents[agent].x1 + agents[agent].w, agents[agent].y1 + agents[agent].h);
-            agentBody.className = "agent-body";
-            agentBody.innerHTML = getAgentInnerHTML(agentIndex, classLabel, group);
-
-            agentsBodies.push(agentBody);
-        }
-    }
-
-    setAvailableGroupsList(groupsInPicture);
-
-    return agentsBodies;
-}
-
-function setAvailableGroupsList(groupsInPicture){
-    var groups = Object.entries(groupsInPicture);
-    document.getElementById('groupsList').innerHTML = "Available groups:&nbsp;&nbsp";
-    groups.forEach(group => addGroupTag(group[0]));
-    if($('#groupsList > button').length == 0){
-        document.getElementById('groupsList').innerHTML = "Available groups: None";
-    }
-}
-
-//Load function for agents of Dataset Eurocity
-function loadAgentsD2(agents){
+//Load function for agents info
+function loadAgentsInfo(agents){
     var agentsBodies = [];
     var agentIndex = 0;
 
@@ -233,8 +177,8 @@ function loadAgentsD2(agents){
             agentBody.className = "agent-body";
             agentBody.innerHTML = getAgentInnerHTML(agentIndex, identity, group);
 
-            if(datasetSpecificFeatures.agents[agent].hasOwnProperty("children") && datasetSpecificFeatures.agents[agent].children.length != 0){
-                identity = datasetSpecificFeatures.agents[agent].children[0].identity;
+            if(datasetSpecificFeatures.agents[agent].sub_entities.length != 0){
+                identity = datasetSpecificFeatures.agents[agent].sub_entities[0].identity;
                 agentBody.innerHTML += `<div class="mb-0 mt-3"><span>Sub-entities</span><br/>
                 <div id="subentity" class="border border-primary rounded" style="padding:10px;">
                 <div class="mb-0"><span>Current label</span><br/>
@@ -259,6 +203,16 @@ function loadAgentsD2(agents){
     setAvailableGroupsList(groupsInPicture);
 
     return agentsBodies;
+
+}
+
+function setAvailableGroupsList(groupsInPicture){
+    var groups = Object.entries(groupsInPicture);
+    document.getElementById('groupsList').innerHTML = "Available groups:&nbsp;&nbsp";
+    groups.forEach(group => addGroupTag(group[0]));
+    if($('#groupsList > button').length == 0){
+        document.getElementById('groupsList').innerHTML = "Available groups: None";
+    }
 }
 
 function addGroupTag(group){
@@ -527,7 +481,7 @@ function toggleTag(element){
     var labelValue = element.innerText;//Get label value
 
     if(element.closest("#subentity") != null){//If the label comes from a subentity, agent's children dictionary has to be edited
-        newAgentsLabels[currentAgent]["children"][category.toLowerCase()] = labelValue.toLowerCase();
+        newAgentsLabels[currentAgent]["sub_entities"][0][category.toLowerCase()] = labelValue.toLowerCase();
     }
     else{
         newAgentsLabels[currentAgent][category.toLowerCase()] = labelValue.toLowerCase();
@@ -557,7 +511,7 @@ function loadAgents(){
 
             //Initializing newAgentsLabels to be used in toggleTag() method
             newAgentsLabels["Agent " + agentIndex] = new Object();
-            newAgentsLabels["Agent " + agentIndex]["children"] = new Object();
+            newAgentsLabels["Agent " + agentIndex]["sub_entity"] = new Object();
         }
     }
 
@@ -630,6 +584,7 @@ function removeAutomaticTag(element, removeGroup){
 
 function selectAgentInCanvas(visibleAgentsIndex){
     var canvasSpecs = setCanvasSpecs();
+    correctionIndex = 0;
 
     for(i = 0; i < Object.keys(datasetSpecificFeatures.agents).length; i++){
         var agent = Object.keys(datasetSpecificFeatures.agents)[i];
@@ -652,8 +607,7 @@ function highlightRect(context, x, y, w, h){
 
 function getAgentAutenticity(agent, updateCorrectionIndex){
     var isRealAgent = true;
-    if((datasetSpecificFeatures.agents[agent].hasOwnProperty("class_label") && datasetSpecificFeatures.agents[agent].class_label == 0) ||
-            (datasetSpecificFeatures.agents[agent].hasOwnProperty("identity") && identitiesToAvoid.includes(datasetSpecificFeatures.agents[agent].identity))){
+    if(identitiesToAvoid.includes(datasetSpecificFeatures.agents[agent].identity)){
         isRealAgent = false;
         correctionIndex = updateCorrectionIndex ? correctionIndex + 1 : correctionIndex;//If an agent is skipped, it must be taken into account
     }
@@ -683,6 +637,7 @@ function setCanvasSpecs(){
 function getAgentToDeploy(relX, relY){
     var agentToDeploy = 0;
     var canvasSpecs = setCanvasSpecs();
+    correctionIndex = 0;
 
     for(i = 0; i < Object.keys(datasetSpecificFeatures.agents).length; i++){
         var agent = Object.keys(datasetSpecificFeatures.agents)[i];
@@ -719,22 +674,16 @@ function saveCurrent(){
         if(isRealAgent){
             index = index + 1;
             var currentAgentNewInfo = newAgentsLabels["Agent " + index];
-            var agent;
-            if(selectedDataset == "citypersons"){
-                agent = datasetSpecificFeatures.agents["agent_" + index];
-            }
-            else{
-                agent = datasetSpecificFeatures.agents[i];
-            }
+            var agent = datasetSpecificFeatures.agents[i];
             
             var agentKeys = Object.keys(currentAgentNewInfo); 
             for(j = 0; j < agentKeys.length; j++){
-                parserInfo = datasetSpecificJSONParse(i, j, agent, currentAgentNewInfo, agentKeys);
-                if(agentKeys[j] == "children"){
+                parserInfo = datasetJSONParse(i, j, agent, currentAgentNewInfo, agentKeys);
+                if(agentKeys[j] == "sub_entities"){
                     agent = parserInfo.agent;
                 }
                 else{
-                    agent[agentKeys[j]] = currentAgentNewInfo[agentKeys[j]];//Copy info from new labels into the agent
+                    agent['attributes'][agentKeys[j]] = currentAgentNewInfo[agentKeys[j]];//Copy info from new labels into the agent
                 }
             }
 
@@ -754,24 +703,16 @@ function saveCurrent(){
     }
 }
 
-function datasetSpecificJSONParse(agentIndex, agentNewKeysIndex, agent, currentAgentNewInfo, agentKeys){
+function datasetJSONParse(agentIndex, agentNewKeysIndex, agent, currentAgentNewInfo, agentKeys){
     var parserInfo = new Object();
     var isRealAgent = getAgentAutenticity(agentIndex, false);
 
     if(isRealAgent){
-        switch(selectedDataset){
-            case "citypersons":
-                parserInfo.index = "agent_" + agentIndex + 1;
-                delete(agent["children"]);//Children key does not exist in this dataset
-                break;
-            case "eurocity":
-                parserInfo.index = agentIndex;
-                var childrenKeys = Object.keys(currentAgentNewInfo[agentKeys[agentNewKeysIndex]]);
-                for(k = 0; k < childrenKeys.length; k++){
-                    //Copy info from new labels's children into the agent
-                    agent[agentKeys[agentNewKeysIndex]] = currentAgentNewInfo[agentKeys[agentNewKeysIndex]]; 
-                }
-                break;
+        parserInfo.index = agentIndex;
+        var childrenKeys = Object.keys(currentAgentNewInfo[agentKeys[agentNewKeysIndex]]);
+        for(k = 0; k < childrenKeys.length; k++){
+            //Copy info from new labels's children into the agent
+            agent[agentKeys[agentNewKeysIndex]] = currentAgentNewInfo[agentKeys[agentNewKeysIndex]]; 
         }
     }
 
@@ -881,20 +822,10 @@ function displayMagnifyingGlass(currentElem, e, canvasElem, zoom, zoomCtx){
 }
 
 function assignDatasetSpecificFeatures(jsonData){
-    switch(selectedDataset){
-        case "citypersons":
-            datasetSpecificFeatures.agents = jsonData.bbs;
-            datasetSpecificFeatures.numberOfAgents = Object.keys(jsonData.bbs).length;
-            datasetSpecificFeatures.imgWidth = 2048;
-            datasetSpecificFeatures.agentsBodies = loadAgentsD1(datasetSpecificFeatures.agents);
-            break;
-        case "eurocity":
-            datasetSpecificFeatures.agents = jsonData.children;
-            datasetSpecificFeatures.numberOfAgents = jsonData.children.length;
-            datasetSpecificFeatures.imgWidth = 1920;
-            datasetSpecificFeatures.agentsBodies = loadAgentsD2(datasetSpecificFeatures.agents);
-            break;
-    }
+    datasetSpecificFeatures.agents = jsonData.agents;
+    datasetSpecificFeatures.numberOfAgents = jsonData.agents.length;
+    datasetSpecificFeatures.imgWidth = jsonData.im_width;
+    datasetSpecificFeatures.agentsBodies = loadAgentsInfo(jsonData.agents);
 }
 
 async function selectDataset(){

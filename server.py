@@ -71,9 +71,9 @@ def get_img_json(dataset, file_name):
     #TEMPORARY TILL JSONS ARE IN STORAGE
     jsons_path = "annotations_json/"
     if dataset == "eurocity":
-        jsons_path += "ECP/ECP_day_labels_val/ECP/day/labels/val/barcelona/" # Barcelona for test purposes
+        jsons_path += "ECP/barcelona/" # Barcelona for test purposes
     elif dataset == "citypersons":
-        jsons_path += "citypersons/anno_val/"
+        jsons_path += "citypersons/aachen/"
 
     if os.path.exists(jsons_path + json_file):
         with open(jsons_path + json_file) as f:
