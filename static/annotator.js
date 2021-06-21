@@ -481,7 +481,7 @@ function toggleTag(element){
     var labelValue = element.innerText;//Get label value
 
     if(element.closest("#subentity") != null){//If the label comes from a subentity, agent's children dictionary has to be edited
-        newAgentsLabels[currentAgent]["sub_entities"][0][category.toLowerCase()] = labelValue.toLowerCase();
+        newAgentsLabels[currentAgent]["sub_entities"][category.toLowerCase()] = labelValue.toLowerCase();
     }
     else{
         newAgentsLabels[currentAgent][category.toLowerCase()] = labelValue.toLowerCase();
@@ -511,7 +511,7 @@ function loadAgents(){
 
             //Initializing newAgentsLabels to be used in toggleTag() method
             newAgentsLabels["Agent " + agentIndex] = new Object();
-            newAgentsLabels["Agent " + agentIndex]["sub_entity"] = new Object();
+            newAgentsLabels["Agent " + agentIndex]["sub_entities"] = new Object();
         }
     }
 
@@ -679,12 +679,7 @@ function saveCurrent(){
             var agentKeys = Object.keys(currentAgentNewInfo); 
             for(j = 0; j < agentKeys.length; j++){
                 parserInfo = datasetJSONParse(i, j, agent, currentAgentNewInfo, agentKeys);
-                if(agentKeys[j] == "sub_entities"){
-                    agent = parserInfo.agent;
-                }
-                else{
-                    agent['attributes'][agentKeys[j]] = currentAgentNewInfo[agentKeys[j]];//Copy info from new labels into the agent
-                }
+                agent = parserInfo.agent;//Copy info from new labels into the agent
             }
 
             datasetSpecificFeatures.agents[parserInfo.index] = agent;//Adding edited agents to img json
@@ -709,10 +704,12 @@ function datasetJSONParse(agentIndex, agentNewKeysIndex, agent, currentAgentNewI
 
     if(isRealAgent){
         parserInfo.index = agentIndex;
-        var childrenKeys = Object.keys(currentAgentNewInfo[agentKeys[agentNewKeysIndex]]);
-        for(k = 0; k < childrenKeys.length; k++){
-            //Copy info from new labels's children into the agent
-            agent[agentKeys[agentNewKeysIndex]] = currentAgentNewInfo[agentKeys[agentNewKeysIndex]]; 
+        //Copy info from new labels's children into the agent
+        if(agentKeys[agentNewKeysIndex] == "sub_entities" && agent["sub_entities"].length != 0){
+            agent["sub_entities"][0]["attributes"] = currentAgentNewInfo[agentKeys[agentNewKeysIndex]];
+        }
+        else if(agentKeys[agentNewKeysIndex] != "sub_entities"){
+            agent['attributes'][agentKeys[agentNewKeysIndex]] = currentAgentNewInfo[agentKeys[agentNewKeysIndex]]; 
         }
     }
 
