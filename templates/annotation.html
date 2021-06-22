@@ -34,12 +34,17 @@
             </div>
         </nav>
         <div id="contentObject" class="container mt-5">
-            <div class="custom-select">
-                <select id="selectBox" class="rounded" onchange="selectDataset()">
+            <div class="custom-select" style="visibility: hidden;">
+                <select id="selectBox" class="rounded" onchange="selectDataset('')">
                   <option value="none">Select a dataset</option>
                   <option value="citypersons">CityPersons</option>
                   <option value="eurocity">Eurocity</option>
                 </select>
+            </div>
+            <div id="ds-buttons" class="container">
+                <span style="font-size: 1.5em; padding: 6px;">Select a dataset</span>
+                <button class="dataset-btn btn-primary mt-3" onclick="selectDataset('citypersons')">CityPersons</button>
+                <button class="dataset-btn btn-primary mt-3" onclick="selectDataset('eurocity')">Eurocity</button>
             </div>
             <div id="canvasContainer" class= "magnifying-glass-container mt-5">
                 <canvas id="imgToAnnotate"></canvas>

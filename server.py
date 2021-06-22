@@ -26,8 +26,9 @@ def open_DB_connection(query):
 
     return result
 
-def get_img():
-    query = "SELECT img_id, dataset, city, file_name FROM imgs_info WHERE dataset='ECP' AND annotated IS NOT TRUE"
+def get_img(dataset):
+    ds = "ECP" if dataset == "eurocity" else "citypersons"
+    query = "SELECT img_id, dataset, city, file_name FROM imgs_info WHERE dataset='" + ds + "' AND annotated IS NOT TRUE"
     images = open_DB_connection(query)
     rand_index = random.randint(0, len(images))
     img_uuid = images[rand_index][0]
@@ -43,15 +44,15 @@ def get_img():
 
     return img
 
-@app.route('/img_url', methods=['GET'])
-def get_img_url():
+@app.route('/img_url/<dataset>', methods=['GET'])
+def get_img_url(dataset):
     # Creating the low level functional client
     # Credentials can be specified but it is safer to keep them in environment variables. boto3 will look for
     # AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY
     client = boto3.client('s3')
 
     try:
-        img = get_img()
+        img = get_img(dataset)
         img_path = img["dataset"] + "/" + img["city"] + "/" + img["file_name"]
         img_url = client.generate_presigned_url('get_object', Params={'Bucket': 'datasets-humaint',
                                                                        'Key': img_path}, ExpiresIn=3600)
@@ -73,7 +74,7 @@ def get_img_json(dataset, file_name):
     if dataset == "eurocity":
         jsons_path += "ECP/barcelona/" # Barcelona for test purposes
     elif dataset == "citypersons":
-        jsons_path += "citypersons/aachen/"
+        jsons_path += "citypersons/strasbourg/"
 
     if os.path.exists(jsons_path + json_file):
         with open(jsons_path + json_file) as f:

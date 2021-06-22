@@ -77,13 +77,17 @@ async function loadJSONData(file){
     return jsonObj;
 }
 
-function loadCanvas(img, canvasElem){
+function loadCanvas(canvasElem){
     var canvas = canvasElem,
     context = canvas.getContext('2d');
 
+    img = new Image();
     img.onload = function(){
         drawImgCanvas(context, img, canvasElem)
     }
+    img.width = canvasWidth;
+    img.height = canvasHeight;
+    img.src = imgData.src;//src is specified later so that the browser does not use cached image
 }
 
 function drawRect(context, agent, rectColor, linewidth){
@@ -798,7 +802,7 @@ async function cleanAndDrawNew(){
     zoomCtx = zoom.getContext("2d");
 
     assignDatasetSpecificFeatures(imgData.json);
-    loadCanvas(imgData.img, canvasElem);
+    loadCanvas(canvasElem);
     loadAgents();
 }
 
@@ -834,34 +838,38 @@ function assignDatasetSpecificFeatures(jsonData){
     datasetSpecificFeatures.agentsBodies = loadAgentsInfo(jsonData.agents);
 }
 
-async function selectDataset(){
+async function selectDataset(ds){
     var selectBox = document.getElementById("selectBox");
     groupsInPicture = new Object();
-    selectedDataset = selectBox.options[selectBox.selectedIndex].value;
+    if(ds == ""){
+        selectedDataset = selectBox.options[selectBox.selectedIndex].value;
+    }
+    else{
+        selectedDataset = ds;
+    }
     await cleanAndDrawNew();
 
     $('#canvasContainer').css("visibility", "visible");
     $('#loadimage-btn').css("visibility", "visible");
     $('#groupsList').css("visibility", "visible");
     $('#agentsTabs').css("visibility", "visible");
+    $('.custom-select').css("visibility", "visible");
+    $('#ds-buttons').css("visibility", "hidden");
 }
 
 async function getRandomImageDataFromDataset(){
-    img = new Image();
-    var imgName;
-    await fetch('/img_url')//Request to flask server to retrieve a random image from storage
+    var imgName, imgSrc;
+    await fetch('/img_url/' + selectedDataset)//Request to flask server to retrieve a random image from storage
         .then(function (response) {
             return response.json();
             }).then(function (elem) {
-                img.src = elem.img_url;
+                imgSrc = elem.img_url;
                 imgName = elem.img_name;
             });
-    img.width = canvasWidth;
-    img.height = canvasHeight;
 
     var jsonData = await loadJSONData(imgName); 
 
-    imgData.img = img;
+    imgData.src = imgSrc;
     imgData.json = jsonData;
     imgData.imgName = imgName;
 }

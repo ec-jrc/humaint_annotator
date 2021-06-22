@@ -402,15 +402,15 @@ canvas#imgToAnnotate { border: 1px solid white; width: auto; height: auto; posit
 
 /* Style the buttons inside the tab */
 .tab button {
-background-color: inherit;
-float: left;
-border: none;
-outline: none;
-cursor: pointer;
-padding: 14px 16px;
-transition: 0.3s;
-font-size: 14px;
-width: 7%;
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 14px;
+    width: 7%;
 }
 
 /* Change background color of buttons on hover */
@@ -429,4 +429,19 @@ background-color: #ddd;
 
 #groupsList{
     visibility: hidden;
+}
+
+.dataset-btn{
+    width: 100%;
+    height: 4em;
+    text-align: left;
+    color: black;
+    border-radius: 5px;
+    background-color: #0d6efd2e;
+    font-size: 1.5em;
+}
+
+#ds-buttons{
+    position: absolute;
+    padding: 0px;
 }
