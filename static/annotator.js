@@ -673,6 +673,15 @@ function saveCurrent(){
 
         if(isRealAgent){
             index = index + 1;
+            var groupTag = $('#current-labels-' + index + ' > button')[1];
+            var assignedGroup = "";
+            if(groupTag != undefined){
+                assignedGroup = $('#current-labels-' + index + ' > button')[1].firstChild.innerHTML.toLowerCase();
+            }
+            else{
+                assignedGroup = "none";
+            }
+            newAgentsLabels["Agent " + index]["group"] = assignedGroup;
             var currentAgentNewInfo = newAgentsLabels["Agent " + index];
             var agent = datasetSpecificFeatures.agents[i];
             
