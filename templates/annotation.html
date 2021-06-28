@@ -13,7 +13,7 @@
         <link href="/static/styles.css" rel="stylesheet" />
     </head>
     <body id="page-top">
-        <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #0b5ed7;">
             <div class="container">
                 <div class="container-fluid">
                 <a href="index.html" class="navbar-brand text-light" href="#">HUMAINT Annotator</a>
@@ -39,12 +39,44 @@
                   <option value="none">Select a dataset</option>
                   <option value="citypersons">CityPersons</option>
                   <option value="eurocity">Eurocity</option>
+                  <option value="nuscenes">NuScenes</option>
                 </select>
             </div>
             <div id="ds-buttons" class="container">
                 <span style="font-size: 1.5em; padding: 6px;">Select a dataset</span>
-                <button class="dataset-btn btn-primary mt-3" onclick="selectDataset('citypersons')">CityPersons</button>
-                <button class="dataset-btn btn-primary mt-3" onclick="selectDataset('eurocity')">Eurocity</button>
+                <button class="dataset-btn btn-primary mt-3" onclick="selectDataset('citypersons')">
+                    <div class="ds-name">CityPersons</div>
+                    <span class="ptg-labelled-title">Images labelled: </span>
+                    <span id="ptg-citypersons" class="percentage-completed">&nbsp;50%</span>
+                    <svg class="ptg-circle">
+                        <circle r="35" cx="50%" cy="50%" stroke="#aeaaaa" fill="none" stroke-width="7" stroke-linecap="round" stroke-dasharray="165, 165">
+                        </circle>
+                        <circle id="success-value-citypersons" r="35" cx="50%" cy="50%" stroke="#6dd0ff" fill="none" stroke-width="7" stroke-linecap="round" stroke-dasharray="0, 220">
+                        </circle>
+                    </svg>
+                </button>
+                <button class="dataset-btn btn-primary mt-3" onclick="selectDataset('eurocity')">
+                    <div class="ds-name">Eurocity</div>
+                    <span class="ptg-labelled-title">Images labelled: </span>
+                    <span id="ptg-eurocity" class="percentage-completed">&nbsp;80%</span>
+                    <svg class="ptg-circle">
+                        <circle r="35" cx="50%" cy="50%" stroke="#aeaaaa" fill="none" stroke-width="7" stroke-linecap="round" stroke-dasharray="165, 165">
+                        </circle>
+                        <circle id="success-value-eurocity" r="35" cx="50%" cy="50%" stroke="#6dd0ff" fill="none" stroke-width="7" stroke-linecap="round" stroke-dasharray="0, 220">
+                        </circle>
+                    </svg>
+                </button>
+                <button class="dataset-btn btn-primary mt-3" onclick="selectDataset('nuscenes')">
+                    <div class="ds-name">NuScenes</div>
+                    <span class="ptg-labelled-title">Images labelled: </span>
+                    <span id="ptg-nuscenes" class="percentage-completed">100%</span>
+                    <svg class="ptg-circle">
+                        <circle r="35" cx="50%" cy="50%" stroke="#aeaaaa" fill="none" stroke-width="7" stroke-linecap="round" stroke-dasharray="165, 165">
+                        </circle>
+                        <circle id="success-value-nuscenes" r="35" cx="50%" cy="50%" stroke="#6dd0ff" fill="none" stroke-width="7" stroke-linecap="round" stroke-dasharray="0, 220">
+                        </circle>
+                    </svg>
+                </button>
             </div>
             <div id="canvasContainer" class= "magnifying-glass-container mt-5">
                 <canvas id="imgToAnnotate"></canvas>
@@ -74,7 +106,7 @@
             </div>
           </div>
         <footer></footer>
-        <div class="copyright py-4 text-center text-white bg-primary mt-5">
+        <div class="copyright py-4 text-center text-white mt-5" style="background-color: #0b5ed7;">
             <div class="container"><small>Copyright © HUMAINT group, European Commision, 2021</small></div>
         </div>
 

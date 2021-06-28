@@ -12,7 +12,6 @@ var groupsInPicture = new Object();
 var correctionIndex = 0;
 var canvasWidth = 1296;
 var canvasHeight = 654;
-var imgHeight = 1024;
 
 const divisionThresholdsX = {
     "firstDivision" : 1,
@@ -44,7 +43,34 @@ const identitiesToAvoid = [
     "scooter-group", 
     "tricycle-group", 
     "wheelchair-group",
-    "person-group-far-away"
+    "person-group-far-away",
+    "cycle.with_rider",
+    "cycle.without_rider",
+    "animal",
+    "vehicle.moving",
+    "vehicle.parked",
+    "vehicle.stopped",
+    "vehicle_light.emergency.flashing",
+    "vehicle_light.emergency.not_flashing",
+    "vertical_position.off_ground",
+    "vertical_position.on_ground",
+    "movable_object.barrier",
+    "movable_object.debris",
+    "movable_object.pushable_pullable",
+    "movable_object.trafficcone",
+    "static_object.bicycle_rack",
+    "vehicle.bicycle",
+    "vehicle.bus.bendy",
+    "vehicle.bus.rigid",
+    "vehicle.car",
+    "vehicle.construction",
+    "vehicle.emergency.ambulance",
+    "vehicle.emergency.police",
+    "vehicle.motorcycle",
+    "vehicle.trailer",
+    "vehicle.truck",
+    "flat.drivable_surface",
+    "flat.ego"
 ]
 
 function collapseAllButThis(element){
@@ -88,14 +114,15 @@ function loadCanvas(canvasElem){
     img.width = canvasWidth;
     img.height = canvasHeight;
     img.src = imgData.src;//src is specified later so that the browser does not use cached image
+    imgData.img = img;
 }
 
 function drawRect(context, agent, rectColor, linewidth){
     var bBoxValues = getAgentbBoxValues(agent);
     var x = bBoxValues.x/datasetSpecificFeatures.imgWidth*canvasWidth;
-    var y = bBoxValues.y/imgHeight*canvasHeight;
+    var y = bBoxValues.y/datasetSpecificFeatures.imgHeight*canvasHeight;
     var bBoxWidth = bBoxValues.w/datasetSpecificFeatures.imgWidth*canvasWidth;
-    var bBoxHeight = bBoxValues.h/imgHeight*canvasHeight;
+    var bBoxHeight = bBoxValues.h/datasetSpecificFeatures.imgHeight*canvasHeight;
     context.strokeStyle = rectColor;
     context.linewidth = linewidth;
     context.strokeRect(x, y, bBoxWidth, bBoxHeight);
@@ -382,8 +409,8 @@ function getPeopleGroup(agentNumber, xInit, yInit, xRight, yBottom){//x1 and x2 
     adaptedXs.xInit = (xInit/datasetSpecificFeatures.imgWidth) * canvasWidth;
     adaptedXs.xRight = (xRight/datasetSpecificFeatures.imgWidth) * canvasWidth;
     var adaptedYs = new Object();
-    adaptedYs.yInit = (yInit/imgHeight) * canvasHeight;
-    adaptedYs.yBottom = (yBottom/imgHeight) * canvasHeight;
+    adaptedYs.yInit = (yInit/datasetSpecificFeatures.imgHeight) * canvasHeight;
+    adaptedYs.yBottom = (yBottom/datasetSpecificFeatures.imgHeight) * canvasHeight;
     var bBoxDivisionAssignment = getPictureDivision(adaptedYs.yBottom);
     var yAxisThreshold = divisionThresholdsY[bBoxDivisionAssignment.y + "Division"];//Depending on the y position of the agent we can guess if it is a group
     var xAxisThreshold = divisionThresholdsX[bBoxDivisionAssignment.y + "Division"];
@@ -633,7 +660,7 @@ function setCanvasSpecs(){
 
     //Percentages of reduction are needed since image dimensions and canvas dimensions do not match
     canvasSpecs.percentageOfReductionWidth = canvasWidth/datasetSpecificFeatures.imgWidth;
-    canvasSpecs.percentageOfReductionHeight = canvasHeight/imgHeight;
+    canvasSpecs.percentageOfReductionHeight = canvasHeight/datasetSpecificFeatures.imgHeight;
 
     return canvasSpecs;
 }
@@ -835,6 +862,7 @@ function assignDatasetSpecificFeatures(jsonData){
     datasetSpecificFeatures.agents = jsonData.agents;
     datasetSpecificFeatures.numberOfAgents = jsonData.agents.length;
     datasetSpecificFeatures.imgWidth = jsonData.im_width;
+    datasetSpecificFeatures.imgHeight = jsonData.im_height;
     datasetSpecificFeatures.agentsBodies = loadAgentsInfo(jsonData.agents);
 }
 
@@ -915,7 +943,27 @@ function closeAllFloatingWindows(){
     $('#canvasContainer > div').remove();
 }
 
+function displayPtgLabelled(){
+    var percentages = $('.percentage-completed');
+
+    for(i = 0; i < percentages.length; i++){
+        var ptgElementId = percentages[i].id;
+        var ptg = percentages[i].innerHTML;
+        ptg = ptg.replace("&nbsp;", "");
+
+        var ptgCircleId = ptgElementId.replace("ptg-", "success-value-");
+
+        //2*PI*35 (circle of radius 35), 0.75 is the displayed part of the circle and ptg/100 is the percentage of labelled images
+        var scaledValue = 2*Math.PI*35*0.75*parseFloat(ptg)/100;
+
+        var ptgCircle = document.getElementById(ptgCircleId);
+        ptgCircle.setAttribute("stroke-dasharray", scaledValue + ", 220");
+    }
+}
+
 $(document).ready(function() {
+    displayPtgLabelled();
+
     $('#canvasContainer').mousemove(function(e){
         if(selectedDataset != ""){
             displayMagnifyingGlass(this, e, canvasElem, zoom, zoomCtx);

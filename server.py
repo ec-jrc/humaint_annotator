@@ -27,7 +27,7 @@ def open_DB_connection(query):
     return result
 
 def get_img(dataset):
-    ds = "ECP" if dataset == "eurocity" else "citypersons"
+    ds = "ECP" if dataset == "eurocity" else dataset
     query = "SELECT img_id, dataset, city, file_name FROM imgs_info WHERE dataset='" + ds + "' AND annotated IS NOT TRUE"
     images = open_DB_connection(query)
     rand_index = random.randint(0, len(images))
@@ -75,10 +75,14 @@ def get_img_json(dataset, file_name):
         jsons_path += "ECP/barcelona/" # Barcelona for test purposes
     elif dataset == "citypersons":
         jsons_path += "citypersons/strasbourg/"
+    elif dataset == "nuscenes":
+        jsons_path += "nuscenes/"
 
-    if os.path.exists(jsons_path + json_file):
-        with open(jsons_path + json_file) as f:
-            json_data = json.load(f)
+    for subdir, dirs, files in os.walk(jsons_path, onerror=walk_error_handler):
+        if os.path.exists(subdir + '/' + json_file):
+            with open(subdir + '/' + json_file) as f:
+                json_data = json.load(f)
+                break
     else:
         abort(404)
 
@@ -102,6 +106,9 @@ def index():
 @app.route('/<page>')
 def render_page(page):
     return render_template(page)
+
+def walk_error_handler(exception_instance):
+    print("The specified path is incorrect or permission is needed")
 
 if __name__ == '__main__':
     app.run(debug=True, host='localhost', port='8080')

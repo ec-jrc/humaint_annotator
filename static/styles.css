@@ -94,7 +94,7 @@ body{
 .login-wrap .icon {
     width: 80px;
     height: 80px;
-    background: #007bff;
+    background: #0b5ed7;
     border-radius: 50%;
     font-size: 30px;
     margin: 0 auto;
@@ -214,11 +214,11 @@ body{
 
 /* Style the checkmark/indicator */
 .checkbox-primary {
-    color: #007bff;
+    color: #0b5ed7;
 }
 
 .checkbox-primary input:checked ~ .checkmark:after {
-    color: #007bff; 
+    color: #0b5ed7; 
 }
 
 .btn {
@@ -234,26 +234,26 @@ body{
 }
 
 .btn.btn-primary {
-    background: #007bff !important;
-    border: 1px solid #007bff !important;
+    background: #0b5ed7 !important;
+    border: 1px solid #0b5ed7 !important;
     color: #fff !important;
  }
 
 .btn.btn-primary:hover {
-    border: 1px solid #007bff;
+    border: 1px solid #0b5ed7;
     background: transparent;
-    color: #007bff; 
+    color: #0b5ed7; 
 }
 
 .btn.btn-primary.btn-outline-primary {
-    border: 1px solid #007bff;
+    border: 1px solid #0b5ed7;
     background: transparent;
-    color: #007bff;
+    color: #0b5ed7;
  }
 
 .btn.btn-primary.btn-outline-primary:hover {
     border: 1px solid transparent;
-    background: #007bff;
+    background: #0b5ed7;
     color: #fff; 
 }
 
@@ -360,7 +360,7 @@ canvas#imgToAnnotate { border: 1px solid white; width: auto; height: auto; posit
 }
 
 .custom-select select{
-    background-color: #0d6efd;
+    background-color: #0b5ed7;
     width:20em;
     height:2em;
     color:white;
@@ -437,11 +437,39 @@ background-color: #ddd;
     text-align: left;
     color: black;
     border-radius: 5px;
-    background-color: #0d6efd2e;
+    background-color: #0b5ed72e;
     font-size: 1.5em;
 }
 
 #ds-buttons{
     position: absolute;
     padding: 0px;
+    
+}
+
+.ptg-circle {
+    width: 100%;
+    height: 100%;
+    transform: rotate(135deg);
+    position:relative;
+    top: -4.4vw;
+    right: -35vw;
+}
+
+.ds-name{
+    position: relative;
+    top: 1.7vw;
+    width: 50%;
+}
+
+.percentage-completed{
+    position: relative;
+    top: -0.45vw; 
+    right: -64.1vw;
+}
+
+.ptg-labelled-title{
+    right: -63vw; 
+    top: -.6vw; 
+    position: relative;
 }
