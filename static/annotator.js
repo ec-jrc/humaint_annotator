@@ -949,8 +949,10 @@ function displayPtgLabelled(){
     for(i = 0; i < percentages.length; i++){
         var ptgElementId = percentages[i].id;
         var ptg = percentages[i].innerHTML;
-        ptg = ptg.replace("&nbsp;", "");
 
+        while(ptg.indexOf("&nbsp;") != -1){
+            ptg = ptg.replace("&nbsp;", "");
+        }
         var ptgCircleId = ptgElementId.replace("ptg-", "success-value-");
 
         //2*PI*35 (circle of radius 35), 0.75 is the displayed part of the circle and ptg/100 is the percentage of labelled images
