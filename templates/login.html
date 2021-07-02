@@ -42,11 +42,11 @@
                         <h3 class="text-center mb-4">Have an account?</h3>
                         <form action="#" id="loginForm" class="login-form">
                             <div class="form-group d-flex mt-3 inner-addon right-addon">
-                                <input type="email" id="person-email" class="form-control rounded-left" placeholder="eg: johndoe@yourmailprovider.com" required="">
+                                <input id="userEmail" type="email" id="person-email" class="form-control rounded-left" placeholder="eg: johndoe@yourmailprovider.com" required="">
                                 <span id="emailCheckIcon" class="glyphicon glyphicon-remove hidden"></span>
                             </div>
                             <div class="form-group d-flex mt-3">
-                                <input type="password" class="form-control rounded-left" placeholder="Password" required="">
+                                <input id="userPwd" type="password" class="form-control rounded-left" placeholder="Password" required="">
                             </div>
                             <div class="form-group d-md-flex mt-3">
                                 <div class="w-50">
@@ -60,7 +60,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <button id="loginButton" type="submit" class="btn btn-primary rounded submit p-3 px-5">Log in!</button>
+                                <button id="loginButton" type="submit" class="btn btn-primary rounded submit p-3 px-5" onclick="loginUser()">Log in!</button>
                             </div>
                         </form>
                     </div>

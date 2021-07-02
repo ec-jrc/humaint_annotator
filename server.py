@@ -3,21 +3,29 @@ import json
 import logging
 import random
 import boto3
+import hashlib
 from botocore.exceptions import ClientError
 import psycopg2
+from psycopg2 import sql
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 from flask import Flask, render_template, jsonify, abort, request
 
 app = Flask(__name__)
 
-def open_DB_connection(query):
-    conn_string = "host='localhost' dbname='img_info' user='postgres'"
+def open_DB_connection(rqst, variable, db_name):
+    conn_string = "host='localhost' dbname='" + db_name + "' user='postgres' password='123456'"
     conn = psycopg2.connect(conn_string)
     conn.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
 
     #Database connection established
     cursor = conn.cursor()
-    cursor.execute(query)
+    if rqst == "login":
+        cursor.execute("SELECT username, pwd FROM user_info WHERE user_email=%(user_email)s", {'user_email': variable})
+    elif rqst == "get_img":
+        cursor.execute("SELECT img_id, dataset, city, file_name FROM imgs_info WHERE dataset=%(dataset)s AND annotated IS NOT TRUE",
+                       {'dataset': variable})
+    elif rqst == "get_json":
+        cursor.execute("SELECT associated_json FROM imgs_info WHERE file_name=%(json_file)s", {'json_file': variable})
 
     result = cursor.fetchall()#All images which have not been annotated
 
@@ -28,8 +36,7 @@ def open_DB_connection(query):
 
 def get_img(dataset):
     ds = "ECP" if dataset == "eurocity" else dataset
-    query = "SELECT img_id, dataset, city, file_name FROM imgs_info WHERE dataset='" + ds + "' AND annotated IS NOT TRUE"
-    images = open_DB_connection(query)
+    images = open_DB_connection("get_img", ds, 'img_info')
     rand_index = random.randint(0, len(images))
     img_uuid = images[rand_index][0]
     img_dataset = images[rand_index][1]
@@ -66,8 +73,7 @@ def get_img_url(dataset):
 
 @app.route('/img_json/<dataset>/<file_name>', methods=['GET'])
 def get_img_json(dataset, file_name):
-    query = "SELECT associated_json FROM imgs_info WHERE file_name='" + file_name + "';"
-    json_file = str(open_DB_connection(query)[0][0])
+    json_file = str(open_DB_connection("get_json", file_name, 'img_info')[0][0])
 
     #TEMPORARY TILL JSONS ARE IN STORAGE
     jsons_path = "annotations_json/"
@@ -92,12 +98,26 @@ def get_img_json(dataset, file_name):
 def save_edited_json(img_name):
     # POST request
     edited_json = request.get_json()
-    query = "SELECT associated_json FROM imgs_info WHERE file_name='" + img_name + "'"
-    json_file = str(open_DB_connection(query)[0][0])
+    json_file = str(open_DB_connection("get_json", img_name, 'img_info')[0][0])
     json_file_path = "edited_jsons/" + json_file
     with open(json_file_path, 'w', encoding='utf-8') as f:
         json.dump(edited_json, f, ensure_ascii=False, indent=4)
     return 'OK', 200
+
+@app.route('/user_credentials/<user_email>/<user_pwd>', methods=['GET'])
+def login_user(user_email, user_pwd):
+    db_result = open_DB_connection("login", user_email, 'users')
+    db_pwd = ""
+    if db_result:
+        db_pwd = db_result[0][1]
+    encoded_pwd = user_pwd.encode()
+    hashed_pwd = hashlib.sha256(encoded_pwd)
+
+    if(hashed_pwd.hexdigest() == db_pwd):
+        return 'OK', 200
+    else:
+        return 'KO', 403
+
 
 @app.route('/')
 def index():

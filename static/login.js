@@ -26,3 +26,19 @@ function displayEmailVerificationIcon(iconType){
     $('#emailCheckIcon').addClass('glyphicon-remove')
   }
 }
+
+async function loginUser(){
+  var userEmail = document.getElementById('userEmail').value;
+  var userPwd = document.getElementById('userPwd').value;
+  var autenticationIsValid = false;
+
+  await fetch('/user_credentials/' + userEmail + '/' + userPwd)
+    .then(function (response) {
+          if(response.ok){
+            alert("Autentication is valid!");
+          }
+          else{
+            alert("Autentication is not valid!");
+          }
+        })
+}
