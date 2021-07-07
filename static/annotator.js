@@ -12,6 +12,7 @@ var groupsInPicture = new Object();
 var correctionIndex = 0;
 var canvasWidth = 1296;
 var canvasHeight = 654;
+var minbBoxArea = 3000;
 
 const divisionThresholdsX = {
     "firstDivision" : 1,
@@ -201,8 +202,9 @@ function loadAgentsInfo(agents){
         var agentBody = document.createElement("div");
         var agent = Object.keys(agents)[i];
         var identity = agents[agent].identity;
+        var bBoxArea = getbBoxArea(agents[agent]);
 
-        if(!identitiesToAvoid.includes(identity)){//Identities to avoid are scooters, bikes,...
+        if(!identitiesToAvoid.includes(identity) && bBoxArea >= minbBoxArea){//Identities to avoid are scooters, bikes,...
             agentIndex += 1;
             var group = getPeopleGroup(agentIndex, agents[agent].x0, agents[agent].y0, agents[agent].x1, agents[agent].y1);
             agentBody.className = "agent-body";
@@ -300,25 +302,29 @@ function getAgentsInGroup(group){
 function getAgentInnerHTML(i, currentClass){
     var innerHTML = `<div id="current-labels-` + i + `" class="mb-0"><span>Current label</span><br/>
     <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">` + currentClass + `</span></button></div>
-    <div class="mb-0 mt-3"><span>Age</span><br/> 
+    <div class="mb-0 mt-2"><span>Age</span><br/> 
     <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Adult</span></button>
     <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Kid</span></button>
     <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>
-    <div class="mb-0 mt-3"><span>Sex</span><br/>
+    <div class="mb-0 mt-2"><span>Sex</span><br/>
     <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Male</span></button>
     <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Female</span></button>
     <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>
-    <div class="mb-0 mt-3"><span>Skin tone</span><br/>
+    <div class="mb-0 mt-2"><span>Skin tone</span><br/>
     <button type="button" class="btn btn-dark-skin btn-dark-skin-tone rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Dark Skin</span></button>
     <button type="button" class="btn btn-light-skin btn-light-skin-tone rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Light Skin</span></button>
     <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>
-    <div class="mb-0 mt-3">`+/*<span>Custom labels</span><br/>
+    <div class="mb-0 mt-2"><span>Mean of transport</span><br/>
+    <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Walking</span></button>
+    <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Bicycle</span></button>
+    <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Others</span></button></div>
+    <div class="mb-0 mt-4">`+/*<span>Custom labels</span><br/>
     <div class="row col-lg-7">
     <div class="col"><input type="text" class="form-control labelclass-input" placeholder="Label class"></div>
     <div class="col"><input type="text" class="form-control label-input" placeholder="Label"></div>
     <div class="col col-lg-1"><button type="button" class="btn btn-primary rounded btn-sm" data-bs-toggle="button" title="Click to add the label">
     <span class="font-weight-bold">Add</span></button></div>*/`
-    <div class="col col-lg-6 mt-5 join-agent"><button id="join-agent-btn-` + i + `" type="button" class="btn btn-primary rounded btn-sm" data-toggle="modal" onClick="showGroupAssignationPopup(` + i + `)" data-target="#assignGroupPopup" title="Click to assign a group">
+    <div class="col col-lg-6 join-agent"><button id="join-agent-btn-` + i + `" type="button" class="btn btn-primary rounded btn-sm" data-toggle="modal" onClick="showGroupAssignationPopup(` + i + `)" data-target="#assignGroupPopup" title="Click to assign a group">
     <span class="font-weight-bold">Join to agent</span></button></div></div>`;
 
     return innerHTML;
@@ -636,9 +642,18 @@ function highlightRect(context, x, y, w, h){
     context.fillRect(x, y, w, h);
 }
 
+function getbBoxArea(agentFeatures){
+    var w = agentFeatures.x1 - agentFeatures.x0;
+    var h = agentFeatures.y1 - agentFeatures.y0;
+    var bBoxArea = w*h;
+
+    return bBoxArea;
+}
+
 function getAgentAutenticity(agent, updateCorrectionIndex){
     var isRealAgent = true;
-    if(identitiesToAvoid.includes(datasetSpecificFeatures.agents[agent].identity)){
+    var bBoxArea = getbBoxArea(datasetSpecificFeatures.agents[agent]);
+    if(identitiesToAvoid.includes(datasetSpecificFeatures.agents[agent].identity) || bBoxArea < minbBoxArea){
         isRealAgent = false;
         correctionIndex = updateCorrectionIndex ? correctionIndex + 1 : correctionIndex;//If an agent is skipped, it must be taken into account
     }
@@ -823,14 +838,37 @@ function saveEditedJson(json){
 async function cleanAndDrawNew(){
     groupsInPicture = {};
     closeAllFloatingWindows();
-    await getRandomImageDataFromDataset();
-    canvasElem = document.getElementById('imgToAnnotate');
-    zoom = document.getElementById("zoomed-canvas");
-    zoomCtx = zoom.getContext("2d");
-
-    assignDatasetSpecificFeatures(imgData.json);
+    var autoDiscardImg = true;
+    while(autoDiscardImg){
+        await getRandomImageDataFromDataset();
+        canvasElem = document.getElementById('imgToAnnotate');
+        zoom = document.getElementById("zoomed-canvas");
+        zoomCtx = zoom.getContext("2d");
+        assignDatasetSpecificFeatures(imgData.json);
+        autoDiscardImg = isDiscardableImg();
+    }
     loadCanvas(canvasElem);
     loadAgents();
+}
+
+function isDiscardableImg(){
+    var agentsKeys = Object.keys(datasetSpecificFeatures.agents);
+    var realAgentsNum = 0;
+    for(i = 0; i < agentsKeys.length; i++){
+        var isRealAgent = getAgentAutenticity(i);
+        if(isRealAgent){
+            realAgentsNum +=1
+            break;//No need to continue checking
+        }
+    }
+
+    if(realAgentsNum > 0){
+        return false;
+    }
+    else{
+        discardImage('auto-discarded');
+        return true;
+    }
 }
 
 function loadData(){
@@ -879,10 +917,19 @@ async function selectDataset(ds){
 
     $('#canvasContainer').css("visibility", "visible");
     $('#loadimage-btn').css("visibility", "visible");
+    $('#discardimage-btn').css("visibility", "visible");
     $('#groupsList').css("visibility", "visible");
     $('#agentsTabs').css("visibility", "visible");
     $('.custom-select').css("visibility", "visible");
     $('#ds-buttons').css("visibility", "hidden");
+}
+
+function discardImage(discardAuthor){
+    fetch('/discard-img/' + discardAuthor + '/' + imgData.imgName)
+        .then(function (response){
+            console.log(response.text());
+        })
+    cleanAndDrawNew();
 }
 
 async function getRandomImageDataFromDataset(){

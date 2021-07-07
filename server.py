@@ -12,7 +12,7 @@ from flask import Flask, render_template, jsonify, abort, request
 
 app = Flask(__name__)
 
-def open_DB_connection(rqst, variable, db_name):
+def open_DB_connection(rqst, variables, db_name):
     conn_string = "host='localhost' dbname='" + db_name + "' user='postgres' password='123456'"
     conn = psycopg2.connect(conn_string)
     conn.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
@@ -20,14 +20,25 @@ def open_DB_connection(rqst, variable, db_name):
     #Database connection established
     cursor = conn.cursor()
     if rqst == "login":
-        cursor.execute("SELECT username, pwd FROM user_info WHERE user_email=%(user_email)s", {'user_email': variable})
+        cursor.execute("SELECT username, pwd FROM user_info WHERE user_email=%(user_email)s", {'user_email': variables[0]})
     elif rqst == "get_img":
-        cursor.execute("SELECT img_id, dataset, city, file_name FROM imgs_info WHERE dataset=%(dataset)s AND annotated IS NOT TRUE",
-                       {'dataset': variable})
+        cursor.execute("SELECT img_id, dataset, city, file_name FROM imgs_info WHERE dataset=%(dataset)s AND annotated IS NOT TRUE AND "
+                       "discarded_by_user IS NOT TRUE AND auto_discarded IS NOT TRUE",
+                       {'dataset': variables[0]})
     elif rqst == "get_json":
-        cursor.execute("SELECT associated_json FROM imgs_info WHERE file_name=%(json_file)s", {'json_file': variable})
+        cursor.execute("SELECT associated_json FROM imgs_info WHERE file_name=%(json_file)s", {'json_file': variables[0]})
+    elif rqst == "discard_img":
+        if(variables[1] == "discarded-by-user"):
+            cursor.execute("UPDATE imgs_info SET discarded_by_user=true WHERE file_name=%(img_name)s",
+                       {'img_name': variables[0]})
+        else:
+            cursor.execute("UPDATE imgs_info SET auto_discarded=true WHERE file_name=%(img_name)s",
+                           {'img_name': variables[0]})
 
-    result = cursor.fetchall()#All images which have not been annotated
+        cursor.execute("SELECT discarded_by_user, auto_discarded FROM imgs_info WHERE file_name=%(img_name)s",
+                       {'img_name': variables[0]})
+
+    result = cursor.fetchall()
 
     conn.close()
     # Database connection closed
@@ -36,7 +47,8 @@ def open_DB_connection(rqst, variable, db_name):
 
 def get_img(dataset):
     ds = "ECP" if dataset == "eurocity" else dataset
-    images = open_DB_connection("get_img", ds, 'img_info')
+    variables = [ds]
+    images = open_DB_connection("get_img", variables, 'img_info')
     rand_index = random.randint(0, len(images))
     img_uuid = images[rand_index][0]
     img_dataset = images[rand_index][1]
@@ -73,7 +85,8 @@ def get_img_url(dataset):
 
 @app.route('/img_json/<dataset>/<file_name>', methods=['GET'])
 def get_img_json(dataset, file_name):
-    json_file = str(open_DB_connection("get_json", file_name, 'img_info')[0][0])
+    variables = [file_name]
+    json_file = str(open_DB_connection("get_json", variables, 'img_info')[0][0])
 
     #TEMPORARY TILL JSONS ARE IN STORAGE
     jsons_path = "annotations_json/"
@@ -98,7 +111,8 @@ def get_img_json(dataset, file_name):
 def save_edited_json(img_name):
     # POST request
     edited_json = request.get_json()
-    json_file = str(open_DB_connection("get_json", img_name, 'img_info')[0][0])
+    variables = [img_name]
+    json_file = str(open_DB_connection("get_json", variables, 'img_info')[0][0])
     json_file_path = "edited_jsons/" + json_file
     with open(json_file_path, 'w', encoding='utf-8') as f:
         json.dump(edited_json, f, ensure_ascii=False, indent=4)
@@ -106,7 +120,8 @@ def save_edited_json(img_name):
 
 @app.route('/user_credentials/<user_email>/<user_pwd>', methods=['GET'])
 def login_user(user_email, user_pwd):
-    db_result = open_DB_connection("login", user_email, 'users')
+    variables = [user_email]
+    db_result = open_DB_connection("login", variables, 'users')
     db_pwd = ""
     if db_result:
         db_pwd = db_result[0][1]
@@ -117,6 +132,13 @@ def login_user(user_email, user_pwd):
         return 'OK', 200
     else:
         return 'KO', 403
+
+@app.route('/discard-img/<discard_author>/<img_name>', methods=['GET'])
+def discard_img(img_name, discard_author):
+    variables = [img_name, discard_author]
+    db_result = open_DB_connection("discard_img", variables, 'img_info')
+
+    return 'OK', 200
 
 
 @app.route('/')
