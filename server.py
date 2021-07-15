@@ -5,19 +5,20 @@ import random
 import boto3
 import hashlib
 from botocore.exceptions import ClientError
-import psycopg2
-from psycopg2 import sql
-from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
+import pymysql
 from flask import Flask, render_template, jsonify, abort, request
 
 app = Flask(__name__)
 
 def open_DB_connection(rqst, variables, db_name):
-    conn_string = "host='localhost' dbname='" + db_name + "' user='postgres' password='123456'"
-    conn = psycopg2.connect(conn_string)
-    conn.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
+    #Database connection
+    conn = pymysql.connect(
+        host='localhost',
+        user='whatever',
+        password='whatever',
+        database='humaint_annotator'
+    )
 
-    #Database connection established
     cursor = conn.cursor()
     if rqst == "login":
         cursor.execute("SELECT username, pwd FROM user_info WHERE user_email=%(user_email)s", {'user_email': variables[0]})
