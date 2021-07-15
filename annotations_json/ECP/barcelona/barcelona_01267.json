@@ -1,0 +1,52 @@
+{
+    "im_name": "barcelona_01267.png",
+    "city_name": "barcelona",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "4cb4443b-81ea-42ca-8f59-9d05dcdbe709",
+            "identity": "rider",
+            "x0": 1099,
+            "y0": 405,
+            "x1": 1128,
+            "y1": 480,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": [
+                {
+                    "identity": "motorbike",
+                    "x0": 1062,
+                    "y0": 435,
+                    "x1": 1157,
+                    "y1": 494,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "occluded>40"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "5b4e1d3b-7794-4395-bc54-36d0c351adc6",
+            "identity": "motorbike-group",
+            "x0": 1364,
+            "y0": 431,
+            "x1": 1426,
+            "y1": 476,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

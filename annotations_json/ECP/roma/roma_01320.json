@@ -1,0 +1,93 @@
+{
+    "im_name": "roma_01320.png",
+    "city_name": "roma",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "51f26c91-fddb-437e-a3a6-6e54cbd07c85",
+            "identity": "pedestrian",
+            "x0": 795,
+            "y0": 527,
+            "x1": 817,
+            "y1": 596,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "c81f64b9-98e3-45b0-bbca-f8f77f188a2a",
+            "identity": "pedestrian",
+            "x0": 810,
+            "y0": 520,
+            "x1": 835,
+            "y1": 594,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "0c4ea22f-a59d-4e30-b1c7-11cad4d6e063",
+            "identity": "scooter-group",
+            "x0": 807,
+            "y0": 525,
+            "x1": 980,
+            "y1": 612,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "a01928a4-7e38-40f2-a80c-8abef197a5f1",
+            "identity": "scooter-group",
+            "x0": 1127,
+            "y0": 530,
+            "x1": 1406,
+            "y1": 645,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "bb69995e-bb79-4b99-9ea5-9a0601e88302",
+            "identity": "pedestrian",
+            "x0": 1781,
+            "y0": 471,
+            "x1": 1864,
+            "y1": 726,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "8e1e4388-3fd3-48f4-9896-7128aa07e148",
+            "identity": "person-group-far-away",
+            "x0": 956,
+            "y0": 533,
+            "x1": 969,
+            "y1": 575,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

@@ -1,0 +1,111 @@
+{
+    "im_name": "ljubljana_00994.png",
+    "city_name": "ljubljana",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "7b1ad720-1fb1-4ab4-8b94-35fb279704cd",
+            "identity": "person-group-far-away",
+            "x0": 122,
+            "y0": 539,
+            "x1": 173,
+            "y1": 684,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "bebde595-a379-470a-8013-04880c8c50f8",
+            "identity": "pedestrian",
+            "x0": 146,
+            "y0": 531,
+            "x1": 217,
+            "y1": 695,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "6284aea2-f38e-4e23-96fd-46df0824e3ca",
+            "identity": "pedestrian",
+            "x0": 135,
+            "y0": 522,
+            "x1": 190,
+            "y1": 713,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "867f4e77-28bc-46e4-8548-28c6a5d186f1",
+            "identity": "pedestrian",
+            "x0": 206,
+            "y0": 532,
+            "x1": 285,
+            "y1": 699,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "b8e7f002-6b35-455d-831e-7b6057a5a758",
+            "identity": "rider",
+            "x0": 1282,
+            "y0": 536,
+            "x1": 1314,
+            "y1": 603,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 1258,
+                    "y0": 560,
+                    "x1": 1335,
+                    "y1": 612,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "b27592a2-a793-4722-993d-7a4c203ae6a9",
+            "identity": "rider",
+            "x0": 1416,
+            "y0": 530,
+            "x1": 1458,
+            "y1": 604,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 1391,
+                    "y0": 561,
+                    "x1": 1468,
+                    "y1": 610,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        }
+    ]
+}

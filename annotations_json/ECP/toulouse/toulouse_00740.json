@@ -1,0 +1,154 @@
+{
+    "im_name": "toulouse_00740.png",
+    "city_name": "toulouse",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "79f6e2a2-6a82-4f96-8fc4-bf4ad546e445",
+            "identity": "pedestrian",
+            "x0": 448,
+            "y0": 422,
+            "x1": 498,
+            "y1": 569,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "c1c55c4d-7036-4b76-91a0-9e9d85c7160b",
+            "identity": "pedestrian",
+            "x0": 758,
+            "y0": 441,
+            "x1": 771,
+            "y1": 479,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "c104911c-5db5-454f-b344-970db05ab444",
+            "identity": "pedestrian",
+            "x0": 792,
+            "y0": 423,
+            "x1": 830,
+            "y1": 518,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "95dacef8-2f34-4e2e-9111-65da0e8b8593",
+            "identity": "scooter-group",
+            "x0": 1686,
+            "y0": 415,
+            "x1": 1730,
+            "y1": 479,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "186d6f2b-c625-45bf-ba6b-418c8bfab0ea",
+            "identity": "scooter-group",
+            "x0": 1751,
+            "y0": 405,
+            "x1": 1819,
+            "y1": 478,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "76d9408f-8b42-49ba-8567-c4fd5557c97c",
+            "identity": "bicycle-group",
+            "x0": 1762,
+            "y0": 428,
+            "x1": 1920,
+            "y1": 645,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10",
+                    "truncated>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "db4969df-3169-4f92-956b-4304602162ef",
+            "identity": "person-group-far-away",
+            "x0": 789,
+            "y0": 441,
+            "x1": 801,
+            "y1": 472,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_8",
+            "uuid": "9c6cf536-b4a3-40d8-9e4c-78366de91807",
+            "identity": "pedestrian",
+            "x0": 1802,
+            "y0": 384,
+            "x1": 1828,
+            "y1": 479,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_9",
+            "uuid": "9dc905bc-0d12-4597-bc0a-c46137df7772",
+            "identity": "rider",
+            "x0": 1093,
+            "y0": 370,
+            "x1": 1149,
+            "y1": 519,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 1093,
+                    "y0": 435,
+                    "x1": 1147,
+                    "y1": 533,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "occluded>80",
+                            "unsure_orientation"
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

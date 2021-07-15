@@ -1,0 +1,37 @@
+{
+    "im_name": "amsterdam_01194.png",
+    "city_name": "amsterdam",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [
+        "rainy"
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "547a6d13-8df2-4ad9-ad27-1c2868b3d9b0",
+            "identity": "rider",
+            "x0": 434,
+            "y0": 582,
+            "x1": 446,
+            "y1": 610,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "scooter",
+                    "x0": 433,
+                    "y0": 589,
+                    "x1": 448,
+                    "y1": 610,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "occluded>10"
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

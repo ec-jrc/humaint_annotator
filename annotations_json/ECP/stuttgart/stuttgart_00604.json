@@ -1,0 +1,65 @@
+{
+    "im_name": "stuttgart_00604.png",
+    "city_name": "stuttgart",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "d9bd177f-fb24-4326-a5f4-31beb5e28f5e",
+            "identity": "pedestrian",
+            "x0": 1537,
+            "y0": 409,
+            "x1": 1599,
+            "y1": 516,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10",
+                    "sitting-lying",
+                    "behind-glass"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "4b46328b-42bd-4a75-84c7-8f8b07fa8cfe",
+            "identity": "pedestrian",
+            "x0": 1384,
+            "y0": 383,
+            "x1": 1434,
+            "y1": 513,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "89d0fbbd-7b3b-4aa5-84ec-b2af21962f45",
+            "identity": "person-group-far-away",
+            "x0": 1327,
+            "y0": 408,
+            "x1": 1353,
+            "y1": 471,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "ba23e3a7-8b0c-48c0-af8d-e15cc3afc7c2",
+            "identity": "person-group-far-away",
+            "x0": 1475,
+            "y0": 394,
+            "x1": 1503,
+            "y1": 487,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

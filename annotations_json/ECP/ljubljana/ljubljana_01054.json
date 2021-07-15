@@ -1,0 +1,91 @@
+{
+    "im_name": "ljubljana_01054.png",
+    "city_name": "ljubljana",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "b160422b-6dd8-4660-a326-dc36ea4a8978",
+            "identity": "pedestrian",
+            "x0": 1232,
+            "y0": 540,
+            "x1": 1271,
+            "y1": 639,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "89a5cf2b-1157-48ee-8279-4df421444f2d",
+            "identity": "pedestrian",
+            "x0": 1203,
+            "y0": 540,
+            "x1": 1238,
+            "y1": 642,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "6dceb855-cdae-431b-8675-3594a2c35e16",
+            "identity": "pedestrian",
+            "x0": 353,
+            "y0": 556,
+            "x1": 392,
+            "y1": 650,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "f8cdda0a-f16c-4bcc-bd2b-e38d7b273d61",
+            "identity": "person-group-far-away",
+            "x0": 620,
+            "y0": 572,
+            "x1": 646,
+            "y1": 596,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "431a2c15-7ac5-45a9-8fc9-6fbc458e2a69",
+            "identity": "person-group-far-away",
+            "x0": 647,
+            "y0": 575,
+            "x1": 680,
+            "y1": 593,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "a05086f2-afa0-4ea2-86e5-8c226093c69e",
+            "identity": "pedestrian",
+            "x0": 862,
+            "y0": 564,
+            "x1": 872,
+            "y1": 594,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

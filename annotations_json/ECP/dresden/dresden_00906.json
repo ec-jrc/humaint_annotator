@@ -1,0 +1,151 @@
+{
+    "im_name": "dresden_00906.png",
+    "city_name": "dresden",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "4a409359-8e14-4647-b89e-3ef4e14618f0",
+            "identity": "bicycle-group",
+            "x0": 0,
+            "y0": 572,
+            "x1": 105,
+            "y1": 674,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "e12ea988-5422-44cc-95c5-31f217bc704a",
+            "identity": "pedestrian",
+            "x0": 517,
+            "y0": 543,
+            "x1": 546,
+            "y1": 616,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "6cacf03e-8fca-4a4c-9664-c13707a6182f",
+            "identity": "pedestrian",
+            "x0": 487,
+            "y0": 525,
+            "x1": 523,
+            "y1": 628,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "ce3125e6-5e65-44b2-b156-7138bf96d2d9",
+            "identity": "pedestrian",
+            "x0": 561,
+            "y0": 540,
+            "x1": 587,
+            "y1": 611,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "996a3724-109c-4e9c-9f15-2ebf403db278",
+            "identity": "person-group-far-away",
+            "x0": 779,
+            "y0": 560,
+            "x1": 788,
+            "y1": 579,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "c730ea6f-c83e-425d-9ae2-6b0d7201b2a3",
+            "identity": "bicycle-group",
+            "x0": 1484,
+            "y0": 509,
+            "x1": 1600,
+            "y1": 662,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "7afe342d-8b2e-4547-8034-616cf7118cf5",
+            "identity": "pedestrian",
+            "x0": 1096,
+            "y0": 526,
+            "x1": 1110,
+            "y1": 582,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_8",
+            "uuid": "543ece01-fb42-4e27-8698-9a8db8b135fe",
+            "identity": "pedestrian",
+            "x0": 1102,
+            "y0": 526,
+            "x1": 1119,
+            "y1": 583,
+            "attributes": {
+                "sandbox_tags": [
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_9",
+            "uuid": "200a39cb-1e40-4870-9096-fa5cfe68cc8c",
+            "identity": "pedestrian",
+            "x0": 1039,
+            "y0": 542,
+            "x1": 1049,
+            "y1": 577,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_10",
+            "uuid": "a3a1cf61-3b07-4f78-b666-e288cbc5f7c2",
+            "identity": "pedestrian",
+            "x0": 410,
+            "y0": 538,
+            "x1": 441,
+            "y1": 626,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

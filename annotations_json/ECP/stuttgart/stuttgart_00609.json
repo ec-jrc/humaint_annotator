@@ -1,0 +1,82 @@
+{
+    "im_name": "stuttgart_00609.png",
+    "city_name": "stuttgart",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "c7204e7e-791c-4dc8-b7e7-cc563265fe37",
+            "identity": "pedestrian",
+            "x0": 285,
+            "y0": 415,
+            "x1": 336,
+            "y1": 522,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "48f6b545-93fa-4736-b61a-93278eb669d3",
+            "identity": "person-group-far-away",
+            "x0": 374,
+            "y0": 360,
+            "x1": 403,
+            "y1": 459,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "e8bc5e47-b64b-464f-8f05-3a5e3ebafa9c",
+            "identity": "person-group-far-away",
+            "x0": 481,
+            "y0": 353,
+            "x1": 513,
+            "y1": 420,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "4b688397-979c-4181-8a91-b5122eef84ca",
+            "identity": "person-group-far-away",
+            "x0": 353,
+            "y0": 377,
+            "x1": 376,
+            "y1": 452,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "aef9aa89-0e9b-4e30-8347-9f736374ab5f",
+            "identity": "pedestrian",
+            "x0": 1636,
+            "y0": 364,
+            "x1": 1799,
+            "y1": 572,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

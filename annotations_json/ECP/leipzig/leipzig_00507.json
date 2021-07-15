@@ -1,0 +1,86 @@
+{
+    "im_name": "leipzig_00507.png",
+    "city_name": "leipzig",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [
+        "rainy",
+        "wiper"
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "0a48b6a9-86f5-4384-95ad-5d71ead4b71e",
+            "identity": "rider",
+            "x0": 773,
+            "y0": 550,
+            "x1": 786,
+            "y1": 575,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 765,
+                    "y0": 561,
+                    "x1": 791,
+                    "y1": 577,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "e4615c7c-ec8c-4591-ae59-fdb3ad78fabe",
+            "identity": "person-group-far-away",
+            "x0": 822,
+            "y0": 556,
+            "x1": 828,
+            "y1": 571,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "d4f4173f-e54b-44a4-97cf-d2c56cecdbac",
+            "identity": "rider",
+            "x0": 860,
+            "y0": 547,
+            "x1": 869,
+            "y1": 567,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 856,
+                    "y0": 555,
+                    "x1": 877,
+                    "y1": 570,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "22bb1930-4c3b-4ce6-897c-24991741fd8c",
+            "identity": "person-group-far-away",
+            "x0": 839,
+            "y0": 550,
+            "x1": 848,
+            "y1": 570,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

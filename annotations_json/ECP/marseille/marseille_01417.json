@@ -1,0 +1,98 @@
+{
+    "im_name": "marseille_01417.png",
+    "city_name": "marseille",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "1846f7e7-2e2d-40c8-aa5d-b656a0a47e85",
+            "identity": "person-group-far-away",
+            "x0": 660,
+            "y0": 415,
+            "x1": 676,
+            "y1": 469,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "ab716b40-0054-4c18-83fd-c62748243a77",
+            "identity": "person-group-far-away",
+            "x0": 691,
+            "y0": 411,
+            "x1": 709,
+            "y1": 456,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "aa0f0ea1-fe99-4fb5-b73d-dcd2b1d5f226",
+            "identity": "person-group-far-away",
+            "x0": 873,
+            "y0": 414,
+            "x1": 883,
+            "y1": 443,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "b910f043-2835-4986-bfe0-c95bd8e8d238",
+            "identity": "person-group-far-away",
+            "x0": 943,
+            "y0": 415,
+            "x1": 950,
+            "y1": 431,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "b0d35419-b5db-4642-b2f4-b5cee363a36b",
+            "identity": "rider",
+            "x0": 994,
+            "y0": 422,
+            "x1": 1007,
+            "y1": 442,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "scooter",
+                    "x0": 994,
+                    "y0": 428,
+                    "x1": 1007,
+                    "y1": 446,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "765a2a5a-7bf6-4093-8238-a55a1b56e93b",
+            "identity": "person-group-far-away",
+            "x0": 1030,
+            "y0": 416,
+            "x1": 1038,
+            "y1": 435,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

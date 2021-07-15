@@ -1,0 +1,84 @@
+{
+    "im_name": "bologna_01294.png",
+    "city_name": "bologna",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "a43364e7-76ef-4005-a9b5-f7882755bd96",
+            "identity": "pedestrian",
+            "x0": 911,
+            "y0": 532,
+            "x1": 927,
+            "y1": 599,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "87713cae-a424-4a3e-996b-ac63ea853d3d",
+            "identity": "pedestrian",
+            "x0": 926,
+            "y0": 531,
+            "x1": 948,
+            "y1": 600,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "28128e90-f395-4fa1-a25a-3ed004a66ab4",
+            "identity": "rider",
+            "x0": 1335,
+            "y0": 522,
+            "x1": 1395,
+            "y1": 655,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 1295,
+                    "y0": 573,
+                    "x1": 1435,
+                    "y1": 665,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "occluded>10"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "467dc0e2-e16d-4c2b-9d58-502de3c29ad2",
+            "identity": "scooter-group",
+            "x0": 1366,
+            "y0": 504,
+            "x1": 1656,
+            "y1": 755,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

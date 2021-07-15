@@ -1,0 +1,86 @@
+{
+    "im_name": "barcelona_01431.png",
+    "city_name": "barcelona",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "6aff6351-5004-42f7-96db-742200ae1af8",
+            "identity": "person-group-far-away",
+            "x0": 0,
+            "y0": 406,
+            "x1": 13,
+            "y1": 660,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "2dafe381-d98f-46e0-b14d-59149b6c7450",
+            "identity": "pedestrian",
+            "x0": 0,
+            "y0": 273,
+            "x1": 240,
+            "y1": 689,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "a95198e6-5e30-4f49-96e9-8e13b5ad0a49",
+            "identity": "person-group-far-away",
+            "x0": 891,
+            "y0": 427,
+            "x1": 898,
+            "y1": 443,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "a05a6969-dee9-4be8-ac05-1406bcb65c5d",
+            "identity": "rider",
+            "x0": 1073,
+            "y0": 284,
+            "x1": 1352,
+            "y1": 789,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": [
+                {
+                    "identity": "scooter",
+                    "x0": 1092,
+                    "y0": 418,
+                    "x1": 1400,
+                    "y1": 824,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "occluded>10"
+                        ]
+                    }
+                },
+                {
+                    "identity": "co-rider",
+                    "x0": 1125,
+                    "y0": 315,
+                    "x1": 1354,
+                    "y1": 747,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        }
+    ]
+}

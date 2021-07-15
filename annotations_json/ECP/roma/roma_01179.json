@@ -1,0 +1,46 @@
+{
+    "im_name": "roma_01179.png",
+    "city_name": "roma",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "cfa10cbe-1d06-481c-957d-6f8d84f91013",
+            "identity": "rider",
+            "x0": 928,
+            "y0": 540,
+            "x1": 938,
+            "y1": 562,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "motorbike",
+                    "x0": 928,
+                    "y0": 545,
+                    "x1": 938,
+                    "y1": 567,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "1b74b7c9-2808-4e9f-9d9d-71c60a560a72",
+            "identity": "pedestrian",
+            "x0": 1048,
+            "y0": 540,
+            "x1": 1056,
+            "y1": 566,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

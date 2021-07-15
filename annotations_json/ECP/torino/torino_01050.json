@@ -1,0 +1,97 @@
+{
+    "im_name": "torino_01050.png",
+    "city_name": "torino",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "e78ffae8-c7b0-439d-aade-99ea32ff7b98",
+            "identity": "pedestrian",
+            "x0": 1097,
+            "y0": 534,
+            "x1": 1107,
+            "y1": 563,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "eba5d3e8-1ae6-4d24-b59a-8c7dd6391a65",
+            "identity": "scooter-group",
+            "x0": 831,
+            "y0": 533,
+            "x1": 960,
+            "y1": 614,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "222ced5f-329b-43d7-a377-98917ed69807",
+            "identity": "bicycle-group",
+            "x0": 712,
+            "y0": 555,
+            "x1": 745,
+            "y1": 622,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "2f57b6c1-43b3-4726-aa8d-9a5e8207735b",
+            "identity": "pedestrian",
+            "x0": 714,
+            "y0": 533,
+            "x1": 739,
+            "y1": 607,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "c2ee757a-165e-48f6-834e-74cf7d38a684",
+            "identity": "pedestrian",
+            "x0": 683,
+            "y0": 534,
+            "x1": 708,
+            "y1": 620,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "5a3d57fc-6fc5-4af2-9406-176233331a2f",
+            "identity": "pedestrian",
+            "x0": 1084,
+            "y0": 534,
+            "x1": 1094,
+            "y1": 562,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

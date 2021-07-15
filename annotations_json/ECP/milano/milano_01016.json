@@ -1,0 +1,82 @@
+{
+    "im_name": "milano_01016.png",
+    "city_name": "milano",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "4875d875-46e9-48bb-a2ef-84cb1f7b5f55",
+            "identity": "rider+vehicle-group-far-away",
+            "x0": 952,
+            "y0": 552,
+            "x1": 959,
+            "y1": 568,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "ce21ddff-6fa3-4d09-87ad-ea38b74f0bd4",
+            "identity": "pedestrian",
+            "x0": 1234,
+            "y0": 538,
+            "x1": 1250,
+            "y1": 578,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "6a17d264-3e10-4b1d-a51a-c5d9a5981af7",
+            "identity": "person-group-far-away",
+            "x0": 148,
+            "y0": 8,
+            "x1": 193,
+            "y1": 76,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "d5edb800-4a1b-4017-a64e-c6bdb88e6638",
+            "identity": "person-group-far-away",
+            "x0": 192,
+            "y0": 5,
+            "x1": 240,
+            "y1": 71,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "6bbde888-7801-4ebe-a821-4eb5e8120c4f",
+            "identity": "person-group-far-away",
+            "x0": 1583,
+            "y0": 201,
+            "x1": 1728,
+            "y1": 290,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

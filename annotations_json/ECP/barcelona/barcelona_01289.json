@@ -1,0 +1,91 @@
+{
+    "im_name": "barcelona_01289.png",
+    "city_name": "barcelona",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "f274c77c-979e-485c-a36e-2bf7c36988b2",
+            "identity": "pedestrian",
+            "x0": 1873,
+            "y0": 415,
+            "x1": 1911,
+            "y1": 490,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "d9d16528-e28c-48a0-91b1-18099579264a",
+            "identity": "pedestrian",
+            "x0": 1552,
+            "y0": 289,
+            "x1": 1650,
+            "y1": 616,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "0d75e64c-ed0f-45c9-8fd6-a266fa1b1a47",
+            "identity": "rider",
+            "x0": 436,
+            "y0": 406,
+            "x1": 471,
+            "y1": 481,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "scooter",
+                    "x0": 399,
+                    "y0": 423,
+                    "x1": 518,
+                    "y1": 497,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "occluded>40"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "080f4acc-897c-4630-93a6-0c6d1f89d8c0",
+            "identity": "motorbike-group",
+            "x0": 1368,
+            "y0": 431,
+            "x1": 1425,
+            "y1": 475,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "88ad8d62-fec2-4628-b86e-0e9a67a5aa3f",
+            "identity": "person-group-far-away",
+            "x0": 671,
+            "y0": 425,
+            "x1": 679,
+            "y1": 449,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

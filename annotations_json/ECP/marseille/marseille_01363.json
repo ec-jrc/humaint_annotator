@@ -1,0 +1,90 @@
+{
+    "im_name": "marseille_01363.png",
+    "city_name": "marseille",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "261f4cac-e867-406b-9449-c2557a141675",
+            "identity": "motorbike-group",
+            "x0": 441,
+            "y0": 361,
+            "x1": 604,
+            "y1": 546,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "e2ed8701-0594-4410-805d-9b83cdd863ac",
+            "identity": "bicycle-group",
+            "x0": 0,
+            "y0": 400,
+            "x1": 534,
+            "y1": 722,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "81e9c8a8-5cfd-4231-afd4-c5507604514c",
+            "identity": "scooter-group",
+            "x0": 225,
+            "y0": 372,
+            "x1": 457,
+            "y1": 484,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "4e072e75-8bd6-4939-ae11-26784e468bd9",
+            "identity": "person-group-far-away",
+            "x0": 1323,
+            "y0": 389,
+            "x1": 1381,
+            "y1": 528,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "2a51f287-26d5-4241-a3c2-5cc466662b46",
+            "identity": "pedestrian",
+            "x0": 1316,
+            "y0": 367,
+            "x1": 1381,
+            "y1": 539,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "9ff0707b-94db-4880-9531-12e30d03a7eb",
+            "identity": "pedestrian",
+            "x0": 1670,
+            "y0": 391,
+            "x1": 1736,
+            "y1": 536,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40",
+                    "sitting-lying"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

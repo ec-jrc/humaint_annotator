@@ -1,0 +1,65 @@
+{
+    "im_name": "marseille_01433.png",
+    "city_name": "marseille",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "d99b7adf-aee4-46ac-a066-ce9e185eac57",
+            "identity": "pedestrian",
+            "x0": 427,
+            "y0": 434,
+            "x1": 455,
+            "y1": 483,
+            "attributes": {
+                "sandbox_tags": [
+                    "sitting-lying"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "74a4c4ef-e2c5-4330-b225-aa030abea87f",
+            "identity": "motorbike-group",
+            "x0": 537,
+            "y0": 429,
+            "x1": 569,
+            "y1": 467,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "1d64225c-8a02-4c2b-9e35-966948d3be4f",
+            "identity": "pedestrian",
+            "x0": 1279,
+            "y0": 436,
+            "x1": 1289,
+            "y1": 461,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "d69e87b4-f2ba-4477-94e8-7de0fbc716fb",
+            "identity": "person-group-far-away",
+            "x0": 1237,
+            "y0": 433,
+            "x1": 1272,
+            "y1": 461,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

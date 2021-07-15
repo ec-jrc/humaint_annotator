@@ -1,0 +1,68 @@
+{
+    "im_name": "milano_01042.png",
+    "city_name": "milano",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "3c5aa098-ea87-4f4d-861d-d1a8e48f62dc",
+            "identity": "pedestrian",
+            "x0": 0,
+            "y0": 492,
+            "x1": 23,
+            "y1": 643,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40",
+                    "truncated>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "fd3aa8ce-d0e3-4eaa-98ea-a8a5eff8f4b3",
+            "identity": "pedestrian",
+            "x0": 136,
+            "y0": 499,
+            "x1": 187,
+            "y1": 679,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "b0cec3df-3da5-46db-9aa8-378d4542bc74",
+            "identity": "pedestrian",
+            "x0": 1718,
+            "y0": 467,
+            "x1": 1792,
+            "y1": 704,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "5ba17598-2d6d-4969-971a-b8d0383717fa",
+            "identity": "person-group-far-away",
+            "x0": 203,
+            "y0": 518,
+            "x1": 245,
+            "y1": 681,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

@@ -1,0 +1,104 @@
+{
+    "im_name": "bologna_01413.png",
+    "city_name": "bologna",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "ca422b80-ec02-48e8-9e29-00d0ded898f5",
+            "identity": "pedestrian",
+            "x0": 610,
+            "y0": 541,
+            "x1": 672,
+            "y1": 705,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "1be418bd-9a11-413b-a6b1-4b6e19739a9c",
+            "identity": "pedestrian",
+            "x0": 997,
+            "y0": 566,
+            "x1": 1010,
+            "y1": 588,
+            "attributes": {
+                "sandbox_tags": [
+                    "sitting-lying"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "f8b56a03-e2d9-4311-957d-87893b8be7e6",
+            "identity": "pedestrian",
+            "x0": 1050,
+            "y0": 556,
+            "x1": 1062,
+            "y1": 594,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "9a7c5eca-5851-4e9c-a878-109d52e7ee1e",
+            "identity": "scooter-group",
+            "x0": 1112,
+            "y0": 517,
+            "x1": 1344,
+            "y1": 738,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "a27fa3bb-d339-407f-bcc2-cbedd3b058dc",
+            "identity": "bicycle-group",
+            "x0": 1336,
+            "y0": 561,
+            "x1": 1412,
+            "y1": 702,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "16dd9afb-6722-4966-93c0-c8344b2627ba",
+            "identity": "scooter-group",
+            "x0": 1375,
+            "y0": 499,
+            "x1": 1506,
+            "y1": 835,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "97b9e0c5-9595-4d19-a3d2-71947397dbc9",
+            "identity": "bicycle-group",
+            "x0": 936,
+            "y0": 570,
+            "x1": 964,
+            "y1": 592,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

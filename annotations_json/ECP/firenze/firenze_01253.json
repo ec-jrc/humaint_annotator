@@ -1,0 +1,91 @@
+{
+    "im_name": "firenze_01253.png",
+    "city_name": "firenze",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [
+        "lenseFlare"
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "178f9c15-e468-472e-b9ca-81a0a500bae2",
+            "identity": "scooter-group",
+            "x0": 1697,
+            "y0": 550,
+            "x1": 1895,
+            "y1": 732,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "b52eeda5-c5ae-4e13-a6dd-52078b92fc0f",
+            "identity": "rider",
+            "x0": 1309,
+            "y0": 511,
+            "x1": 1369,
+            "y1": 609,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": [
+                {
+                    "identity": "scooter",
+                    "x0": 1268,
+                    "y0": 498,
+                    "x1": 1395,
+                    "y1": 646,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "occluded>80"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "60a8ca31-4009-4fc0-943c-2fc9a108b09a",
+            "identity": "scooter-group",
+            "x0": 1052,
+            "y0": 493,
+            "x1": 1265,
+            "y1": 739,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "9018f34f-aa2e-42fa-babc-17accc595da7",
+            "identity": "scooter-group",
+            "x0": 1212,
+            "y0": 536,
+            "x1": 1387,
+            "y1": 671,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "d99bd224-b7e8-4716-b9ac-c68066423fc6",
+            "identity": "bicycle-group",
+            "x0": 1861,
+            "y0": 570,
+            "x1": 1920,
+            "y1": 745,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

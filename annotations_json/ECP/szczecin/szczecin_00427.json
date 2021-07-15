@@ -1,0 +1,54 @@
+{
+    "im_name": "szczecin_00427.png",
+    "city_name": "szczecin",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "7d7b0619-a1dd-4439-b1c8-86207868d0e1",
+            "identity": "pedestrian",
+            "x0": 46,
+            "y0": 555,
+            "x1": 69,
+            "y1": 607,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "7f7f1e29-0621-4d13-9e21-331059d13d0a",
+            "identity": "pedestrian",
+            "x0": 148,
+            "y0": 553,
+            "x1": 161,
+            "y1": 597,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "3f64e0de-f78a-481f-a85a-40f80faea4f0",
+            "identity": "pedestrian",
+            "x0": 130,
+            "y0": 555,
+            "x1": 148,
+            "y1": 599,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

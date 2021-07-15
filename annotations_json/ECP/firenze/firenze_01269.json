@@ -1,0 +1,63 @@
+{
+    "im_name": "firenze_01269.png",
+    "city_name": "firenze",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "c117b959-08a8-4f6a-9d51-75e08a0b818b",
+            "identity": "bicycle-group",
+            "x0": 0,
+            "y0": 560,
+            "x1": 150,
+            "y1": 638,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "f19e5d66-13b1-4c52-ad21-c379065cff8e",
+            "identity": "bicycle-group",
+            "x0": 154,
+            "y0": 567,
+            "x1": 238,
+            "y1": 629,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "74ef6ba6-e30e-4e4d-af64-9694624433b6",
+            "identity": "pedestrian",
+            "x0": 260,
+            "y0": 514,
+            "x1": 306,
+            "y1": 641,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "d19458cf-0087-4d46-9536-2985d83fb9fd",
+            "identity": "pedestrian",
+            "x0": 1649,
+            "y0": 404,
+            "x1": 1919,
+            "y1": 1009,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

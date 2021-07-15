@@ -1,0 +1,78 @@
+{
+    "im_name": "roma_01321.png",
+    "city_name": "roma",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "e0d1357d-6a0a-462b-8f36-452b213ed60d",
+            "identity": "pedestrian",
+            "x0": 1252,
+            "y0": 500,
+            "x1": 1312,
+            "y1": 681,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "93e1d1d7-c152-43ad-a79e-7796fb6533d4",
+            "identity": "pedestrian",
+            "x0": 1205,
+            "y0": 504,
+            "x1": 1258,
+            "y1": 667,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "8890ca97-3008-4a5c-b96c-678bc25ebb13",
+            "identity": "pedestrian",
+            "x0": 1188,
+            "y0": 499,
+            "x1": 1238,
+            "y1": 680,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "c7d382d9-bdf5-4975-8584-19aeba70ca2b",
+            "identity": "rider",
+            "x0": 1302,
+            "y0": 402,
+            "x1": 1543,
+            "y1": 900,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 1300,
+                    "y0": 585,
+                    "x1": 1507,
+                    "y1": 936,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "occluded>10"
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

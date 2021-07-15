@@ -1,0 +1,37 @@
+{
+    "im_name": "zuerich_00370.png",
+    "city_name": "zuerich",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "73641ab4-d6a5-4db5-a418-ca52f255807e",
+            "identity": "pedestrian",
+            "x0": 1026,
+            "y0": 450,
+            "x1": 1047,
+            "y1": 479,
+            "attributes": {
+                "sandbox_tags": [
+                    "sitting-lying"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "7de169e8-ab77-490f-a248-67a5c4f7d810",
+            "identity": "pedestrian",
+            "x0": 1585,
+            "y0": 324,
+            "x1": 1710,
+            "y1": 599,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

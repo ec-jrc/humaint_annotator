@@ -1,0 +1,73 @@
+{
+    "im_name": "samples/CAM_BACK/n005-2018-06-14-20-11-03+0800__CAM_BACK__1528979868187591.jpg",
+    "city_name": "singapore-onenorth",
+    "im_width": 1600,
+    "im_height": 900,
+    "sandbox_tags": [
+        {
+            "original_img_token": "ba699fa63f74420f949aec49de270fcb"
+        }
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "910efa95-bb5b-4165-8ede-72b99e754c47",
+            "identity": "vehicle.car",
+            "x0": 850,
+            "y0": 456,
+            "x1": 886,
+            "y1": 482,
+            "attributes": {
+                "sandbox_tags": [
+                    "vehicle.moving"
+                ]
+            },
+            "sandbox_tags": [
+                {
+                    "original_agent_token": "714258534696463da05cfc3a4271db14"
+                }
+            ],
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "290380fc-abc5-4207-8ce2-a6f95f12070c",
+            "identity": "vehicle.car",
+            "x0": 650,
+            "y0": 466,
+            "x1": 688,
+            "y1": 488,
+            "attributes": {
+                "sandbox_tags": [
+                    "vehicle.stopped"
+                ]
+            },
+            "sandbox_tags": [
+                {
+                    "original_agent_token": "b83c1ccdf0b0492b979779d1492bb70f"
+                }
+            ],
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "b63a4ce0-8b5e-44a5-9721-00f86fd1de64",
+            "identity": "vehicle.car",
+            "x0": 704,
+            "y0": 457,
+            "x1": 736,
+            "y1": 484,
+            "attributes": {
+                "sandbox_tags": [
+                    "vehicle.stopped"
+                ]
+            },
+            "sandbox_tags": [
+                {
+                    "original_agent_token": "e1a9ff277a564009b2e6965aeba3be0b"
+                }
+            ],
+            "sub_entities": []
+        }
+    ]
+}

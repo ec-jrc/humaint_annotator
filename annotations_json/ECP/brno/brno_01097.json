@@ -1,0 +1,37 @@
+{
+    "im_name": "brno_01097.png",
+    "city_name": "brno",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "d811ba22-b9f0-4a8a-8414-7258676eb892",
+            "identity": "pedestrian",
+            "x0": 799,
+            "y0": 538,
+            "x1": 823,
+            "y1": 604,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "8696a541-62c8-4679-960c-1b775ffc9cde",
+            "identity": "pedestrian",
+            "x0": 826,
+            "y0": 543,
+            "x1": 846,
+            "y1": 585,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

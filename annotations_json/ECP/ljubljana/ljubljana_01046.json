@@ -1,0 +1,78 @@
+{
+    "im_name": "ljubljana_01046.png",
+    "city_name": "ljubljana",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "09ecafd7-b0af-4e60-a51e-ebe54b99d449",
+            "identity": "pedestrian",
+            "x0": 35,
+            "y0": 506,
+            "x1": 86,
+            "y1": 625,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "b563310c-d8a3-48ad-8ee9-e04dab1c835e",
+            "identity": "pedestrian",
+            "x0": 519,
+            "y0": 521,
+            "x1": 555,
+            "y1": 639,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "7beedab7-b3ac-476c-b59b-d99e29f16bb6",
+            "identity": "pedestrian",
+            "x0": 856,
+            "y0": 527,
+            "x1": 923,
+            "y1": 654,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "f824b975-6fb9-4e82-87b1-617bdaa7126b",
+            "identity": "pedestrian",
+            "x0": 1839,
+            "y0": 476,
+            "x1": 1920,
+            "y1": 856,
+            "attributes": {
+                "sandbox_tags": [
+                    "truncated>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "1b9aa7ee-8f90-44fd-b3ac-dfa202d244c8",
+            "identity": "person-group-far-away",
+            "x0": 465,
+            "y0": 518,
+            "x1": 485,
+            "y1": 582,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

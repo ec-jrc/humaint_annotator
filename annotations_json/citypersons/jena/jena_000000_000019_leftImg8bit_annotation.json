@@ -1,0 +1,48 @@
+{
+    "im_name": "jena_000000_000019_leftImg8bit.png",
+    "city_name": "jena",
+    "im_width": 2048,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "9f11d8a4-0f51-4363-bc66-f9ec88807a23",
+            "identity": "Pedestrian",
+            "x0": 263,
+            "y0": 384,
+            "x1": 330,
+            "y1": 549,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "efd4d596-a00a-4ff0-814d-d1107992af4c",
+            "identity": "Pedestrian",
+            "x0": 194,
+            "y0": 379,
+            "x1": 263,
+            "y1": 548,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "8f284918-5b42-4127-a586-5c9dc9ff873a",
+            "identity": "Ignore",
+            "x0": 770,
+            "y0": 437,
+            "x1": 795,
+            "y1": 467,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

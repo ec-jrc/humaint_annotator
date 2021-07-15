@@ -1,0 +1,50 @@
+{
+    "im_name": "budapest_00827.png",
+    "city_name": "budapest",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "ecfb4ab4-5fb9-4d40-9a7e-ac61f5ee8682",
+            "identity": "bicycle-group",
+            "x0": 1173,
+            "y0": 538,
+            "x1": 1353,
+            "y1": 616,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "8e6d0aa0-2db1-4952-ba44-6a09428dc73b",
+            "identity": "pedestrian",
+            "x0": 1394,
+            "y0": 524,
+            "x1": 1414,
+            "y1": 567,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "83595848-e754-4735-8000-5bb8b2d0b29c",
+            "identity": "pedestrian",
+            "x0": 1410,
+            "y0": 507,
+            "x1": 1467,
+            "y1": 619,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

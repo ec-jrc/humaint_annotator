@@ -1,0 +1,67 @@
+{
+    "im_name": "roma_01187.png",
+    "city_name": "roma",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "bc253e2c-9671-45da-92d6-a85b81d3a2a6",
+            "identity": "pedestrian",
+            "x0": 910,
+            "y0": 643,
+            "x1": 924,
+            "y1": 688,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "8da15b25-4d26-49af-a63b-3e2f31dbfef6",
+            "identity": "pedestrian",
+            "x0": 990,
+            "y0": 642,
+            "x1": 1007,
+            "y1": 699,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "fc4a015f-9c72-42dd-8161-e11bb72e247a",
+            "identity": "pedestrian",
+            "x0": 960,
+            "y0": 641,
+            "x1": 978,
+            "y1": 692,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "e2e1f7aa-7c19-4587-ad7b-d0c98d6edccc",
+            "identity": "person-group-far-away",
+            "x0": 768,
+            "y0": 675,
+            "x1": 777,
+            "y1": 697,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

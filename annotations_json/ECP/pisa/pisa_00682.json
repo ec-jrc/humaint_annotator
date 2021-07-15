@@ -1,0 +1,78 @@
+{
+    "im_name": "pisa_00682.png",
+    "city_name": "pisa",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "2293dc77-9694-4598-a3d1-177cea7807ed",
+            "identity": "rider",
+            "x0": 947,
+            "y0": 543,
+            "x1": 963,
+            "y1": 588,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "scooter",
+                    "x0": 946,
+                    "y0": 546,
+                    "x1": 964,
+                    "y1": 595,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "ebff10d6-b11d-4172-abe4-d81684c55f00",
+            "identity": "pedestrian",
+            "x0": 1513,
+            "y0": 496,
+            "x1": 1563,
+            "y1": 646,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "d5c6a7e2-09a3-42c7-aaea-b225e06207b4",
+            "identity": "pedestrian",
+            "x0": 1570,
+            "y0": 513,
+            "x1": 1598,
+            "y1": 609,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "3876eb4a-2a4b-4af4-ac20-ea5db136ead9",
+            "identity": "pedestrian",
+            "x0": 1609,
+            "y0": 516,
+            "x1": 1635,
+            "y1": 604,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

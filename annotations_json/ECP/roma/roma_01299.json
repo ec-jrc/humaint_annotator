@@ -1,0 +1,93 @@
+{
+    "im_name": "roma_01299.png",
+    "city_name": "roma",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "32c655d4-46f0-4454-8aec-719684a2642f",
+            "identity": "person-group-far-away",
+            "x0": 52,
+            "y0": 539,
+            "x1": 72,
+            "y1": 587,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "5eee750c-eaae-470f-89ca-ea2cb7526428",
+            "identity": "pedestrian",
+            "x0": 0,
+            "y0": 481,
+            "x1": 37,
+            "y1": 655,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "086c382b-aaa8-472d-858d-062876eb098d",
+            "identity": "pedestrian",
+            "x0": 150,
+            "y0": 524,
+            "x1": 172,
+            "y1": 592,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "f28ab2e9-4f63-481a-a2db-91683fb3b778",
+            "identity": "pedestrian",
+            "x0": 131,
+            "y0": 510,
+            "x1": 161,
+            "y1": 604,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "f936ac5c-fc88-437c-9b4d-4316d1141a99",
+            "identity": "pedestrian",
+            "x0": 165,
+            "y0": 499,
+            "x1": 210,
+            "y1": 604,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "c8cfc2a0-a70e-4a87-ae6a-eedfc9e270e1",
+            "identity": "pedestrian",
+            "x0": 74,
+            "y0": 492,
+            "x1": 113,
+            "y1": 617,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

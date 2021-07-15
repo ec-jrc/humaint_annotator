@@ -1,0 +1,74 @@
+{
+    "im_name": "bologna_01235.png",
+    "city_name": "bologna",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "31a9299f-1006-4112-9fff-57dce15d6a3d",
+            "identity": "person-group-far-away",
+            "x0": 1124,
+            "y0": 540,
+            "x1": 1133,
+            "y1": 565,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "75ce7908-b76d-46fa-96b4-09e498da932c",
+            "identity": "rider",
+            "x0": 981,
+            "y0": 550,
+            "x1": 992,
+            "y1": 569,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "scooter",
+                    "x0": 981,
+                    "y0": 556,
+                    "x1": 992,
+                    "y1": 574,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "cef99f7e-a861-4300-bce5-02ec74438fd8",
+            "identity": "pedestrian",
+            "x0": 897,
+            "y0": 546,
+            "x1": 914,
+            "y1": 588,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "f86708b1-4a2c-4912-b03b-6ea6e92f3fdc",
+            "identity": "scooter-group",
+            "x0": 1040,
+            "y0": 543,
+            "x1": 1100,
+            "y1": 577,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

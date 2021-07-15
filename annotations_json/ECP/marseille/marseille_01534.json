@@ -1,0 +1,80 @@
+{
+    "im_name": "marseille_01534.png",
+    "city_name": "marseille",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "de17bfa4-4fc8-4e9f-a65f-a0d1616f084e",
+            "identity": "pedestrian",
+            "x0": 1004,
+            "y0": 437,
+            "x1": 1016,
+            "y1": 460,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "e5eada88-c66e-4e2d-904d-7ef97b647cb0",
+            "identity": "pedestrian",
+            "x0": 1062,
+            "y0": 429,
+            "x1": 1077,
+            "y1": 463,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "6b0f42e7-bccf-4306-9763-dc32f51cc2d8",
+            "identity": "pedestrian",
+            "x0": 1046,
+            "y0": 424,
+            "x1": 1060,
+            "y1": 461,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "58c49455-aad2-4f7e-a647-aeb42b304707",
+            "identity": "person-group-far-away",
+            "x0": 1070,
+            "y0": 428,
+            "x1": 1081,
+            "y1": 459,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "c4653689-d68e-465d-a5c4-7a4dfccc96c0",
+            "identity": "pedestrian",
+            "x0": 1053,
+            "y0": 426,
+            "x1": 1066,
+            "y1": 459,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

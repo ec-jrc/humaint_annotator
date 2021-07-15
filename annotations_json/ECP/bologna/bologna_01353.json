@@ -1,0 +1,91 @@
+{
+    "im_name": "bologna_01353.png",
+    "city_name": "bologna",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "8e323146-0292-4634-a020-e7b44200c34b",
+            "identity": "bicycle-group",
+            "x0": 773,
+            "y0": 553,
+            "x1": 822,
+            "y1": 598,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "f4c3f32c-e75d-4fcc-a6b4-f132063b36c6",
+            "identity": "pedestrian",
+            "x0": 876,
+            "y0": 554,
+            "x1": 890,
+            "y1": 585,
+            "attributes": {
+                "sandbox_tags": [
+                    "sitting-lying"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "b1f870ad-9093-42fe-9e3c-595e0b51e65a",
+            "identity": "pedestrian",
+            "x0": 1159,
+            "y0": 515,
+            "x1": 1206,
+            "y1": 635,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "b75257ca-63a3-49b6-b63b-7d788f56f763",
+            "identity": "scooter-group",
+            "x0": 1164,
+            "y0": 472,
+            "x1": 1638,
+            "y1": 914,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "51b5b62f-bfc3-4853-8d1e-13526e5703bd",
+            "identity": "scooter-group",
+            "x0": 1817,
+            "y0": 371,
+            "x1": 1919,
+            "y1": 1021,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "c5bfb235-50a7-4aa2-aa86-132a796846d4",
+            "identity": "bicycle-group",
+            "x0": 963,
+            "y0": 558,
+            "x1": 984,
+            "y1": 585,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

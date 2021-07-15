@@ -1,0 +1,93 @@
+{
+    "im_name": "bratislava_00852.png",
+    "city_name": "bratislava",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "61060dc2-dadd-4516-8c31-2a9f56794ec0",
+            "identity": "pedestrian",
+            "x0": 317,
+            "y0": 510,
+            "x1": 382,
+            "y1": 668,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "89f0b89c-951c-47b2-84b3-09803423b871",
+            "identity": "pedestrian",
+            "x0": 689,
+            "y0": 531,
+            "x1": 728,
+            "y1": 601,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "91c16208-f3a8-46a5-ae1c-243ae25604a0",
+            "identity": "pedestrian",
+            "x0": 1359,
+            "y0": 549,
+            "x1": 1373,
+            "y1": 585,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "7388baa2-a318-4304-a9e9-e667c8fe0522",
+            "identity": "pedestrian",
+            "x0": 1536,
+            "y0": 561,
+            "x1": 1546,
+            "y1": 586,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "f361682e-a4a1-4571-b76d-aabba20c4fc7",
+            "identity": "person-group-far-away",
+            "x0": 1863,
+            "y0": 563,
+            "x1": 1901,
+            "y1": 666,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "a76edeee-e2c5-4745-b0ee-2ecc9b15e4c1",
+            "identity": "pedestrian",
+            "x0": 1811,
+            "y0": 555,
+            "x1": 1860,
+            "y1": 651,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

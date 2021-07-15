@@ -1,0 +1,61 @@
+{
+    "im_name": "hanover_000000_034720_leftImg8bit.png",
+    "city_name": "hanover",
+    "im_width": 2048,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "6524cbf2-7ce4-44a6-82fe-70406d46367c",
+            "identity": "Pedestrian",
+            "x0": 910,
+            "y0": 406,
+            "x1": 925,
+            "y1": 441,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "2b80f59a-3b2b-4d68-bf34-6514e8800c31",
+            "identity": "Pedestrian",
+            "x0": 918,
+            "y0": 402,
+            "x1": 939,
+            "y1": 453,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "62d32d3f-73c8-4f3c-9e4a-230c8dc1e2e4",
+            "identity": "Ignore",
+            "x0": 875,
+            "y0": 292,
+            "x1": 916,
+            "y1": 312,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "9d1d74f5-b2d1-4089-a7c3-491a607c3cc8",
+            "identity": "Group of people",
+            "x0": 941,
+            "y0": 406,
+            "x1": 957,
+            "y1": 420,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

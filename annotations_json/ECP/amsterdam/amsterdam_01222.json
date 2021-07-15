@@ -1,0 +1,78 @@
+{
+    "im_name": "amsterdam_01222.png",
+    "city_name": "amsterdam",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [
+        "wiper"
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "eefba4ce-224e-447f-abfc-00c529dbcb15",
+            "identity": "bicycle-group",
+            "x0": 297,
+            "y0": 685,
+            "x1": 430,
+            "y1": 838,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "89d615b1-3591-4dbf-865d-8c5ebf9639a9",
+            "identity": "bicycle-group",
+            "x0": 1647,
+            "y0": 727,
+            "x1": 1920,
+            "y1": 960,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "8704472e-7730-483c-b94e-a6a21298badc",
+            "identity": "bicycle-group",
+            "x0": 1445,
+            "y0": 741,
+            "x1": 1548,
+            "y1": 833,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "3ed661e2-a011-4c94-88bf-be5ab26db1c9",
+            "identity": "pedestrian",
+            "x0": 1441,
+            "y0": 652,
+            "x1": 1454,
+            "y1": 689,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "a445f173-a325-4442-878d-3baff4afaa2c",
+            "identity": "bicycle-group",
+            "x0": 1143,
+            "y0": 716,
+            "x1": 1326,
+            "y1": 807,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

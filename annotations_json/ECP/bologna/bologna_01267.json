@@ -1,0 +1,146 @@
+{
+    "im_name": "bologna_01267.png",
+    "city_name": "bologna",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "2284e887-b12b-4787-9ee6-ee71163b3a16",
+            "identity": "rider",
+            "x0": 294,
+            "y0": 543,
+            "x1": 370,
+            "y1": 679,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 294,
+                    "y0": 601,
+                    "x1": 386,
+                    "y1": 699,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "occluded>10"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "1f2ecea8-0fe5-45e7-9248-132dee474ffa",
+            "identity": "pedestrian",
+            "x0": 607,
+            "y0": 552,
+            "x1": 629,
+            "y1": 617,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "434eaeb3-6422-4314-9ab0-643d46b1083f",
+            "identity": "person-group-far-away",
+            "x0": 627,
+            "y0": 557,
+            "x1": 669,
+            "y1": 608,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "4dde4377-b3d9-4497-9a1a-13b3aa473ef7",
+            "identity": "rider",
+            "x0": 896,
+            "y0": 548,
+            "x1": 921,
+            "y1": 608,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40",
+                    "behind-glass"
+                ]
+            },
+            "sub_entities": [
+                {
+                    "identity": "scooter",
+                    "x0": 894,
+                    "y0": 575,
+                    "x1": 923,
+                    "y1": 623,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "unsure_orientation",
+                            "occluded>40",
+                            "behind-glass"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "a52e02a7-1f75-4091-88c3-7ce36e411e3d",
+            "identity": "rider",
+            "x0": 431,
+            "y0": 454,
+            "x1": 653,
+            "y1": 809,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "scooter",
+                    "x0": 391,
+                    "y0": 531,
+                    "x1": 667,
+                    "y1": 932,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "8ef2a4b2-2823-411a-b0c7-50319f45b1fb",
+            "identity": "rider",
+            "x0": 1399,
+            "y0": 487,
+            "x1": 1534,
+            "y1": 832,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 1399,
+                    "y0": 603,
+                    "x1": 1587,
+                    "y1": 858,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        }
+    ]
+}

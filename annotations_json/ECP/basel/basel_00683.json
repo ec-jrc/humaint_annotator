@@ -1,0 +1,50 @@
+{
+    "im_name": "basel_00683.png",
+    "city_name": "basel",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "9e86fff8-ff5d-4a5a-87f0-200ccae9c0db",
+            "identity": "bicycle-group",
+            "x0": 767,
+            "y0": 431,
+            "x1": 831,
+            "y1": 473,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "14fdd98a-e5fb-4dd5-8f83-3023bb778a63",
+            "identity": "pedestrian",
+            "x0": 781,
+            "y0": 401,
+            "x1": 797,
+            "y1": 458,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "091089cc-6e48-42e5-88a3-7ceb396983e9",
+            "identity": "bicycle-group",
+            "x0": 559,
+            "y0": 407,
+            "x1": 604,
+            "y1": 467,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

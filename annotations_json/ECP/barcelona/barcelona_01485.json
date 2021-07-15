@@ -1,0 +1,105 @@
+{
+    "im_name": "barcelona_01485.png",
+    "city_name": "barcelona",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "607d1eb6-be6b-4d83-84b7-956227108929",
+            "identity": "pedestrian",
+            "x0": 264,
+            "y0": 419,
+            "x1": 314,
+            "y1": 532,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "f41b6e06-f9ce-45de-8a61-150e0b75da26",
+            "identity": "scooter-group",
+            "x0": 471,
+            "y0": 436,
+            "x1": 622,
+            "y1": 522,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "afe2731f-53f3-44d7-890b-ce52bcf578a9",
+            "identity": "pedestrian",
+            "x0": 1203,
+            "y0": 410,
+            "x1": 1221,
+            "y1": 470,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "2d26b3d9-ad28-4303-8750-181267427b2e",
+            "identity": "pedestrian",
+            "x0": 1860,
+            "y0": 373,
+            "x1": 1920,
+            "y1": 577,
+            "attributes": {
+                "sandbox_tags": [
+                    "truncated>10",
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "5cec64a8-0977-44c9-9587-05d7c7e5b448",
+            "identity": "scooter-group",
+            "x0": 1801,
+            "y0": 441,
+            "x1": 1920,
+            "y1": 663,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "ea92cb5a-4293-423b-9d43-b880113414a0",
+            "identity": "scooter-group",
+            "x0": 1152,
+            "y0": 421,
+            "x1": 1357,
+            "y1": 571,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "c3f55933-a67b-4de2-a708-f4772807303c",
+            "identity": "person-group-far-away",
+            "x0": 1045,
+            "y0": 426,
+            "x1": 1057,
+            "y1": 462,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

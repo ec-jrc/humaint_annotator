@@ -1,0 +1,51 @@
+{
+    "im_name": "samples/CAM_BACK_RIGHT/n013-2018-08-02-13-54-05+0800__CAM_BACK_RIGHT__1533189734678054.jpg",
+    "city_name": "singapore-onenorth",
+    "im_width": 1600,
+    "im_height": 900,
+    "sandbox_tags": [
+        {
+            "original_img_token": "5ea607b917fa49ee99c5f12089acab56"
+        }
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "0d7a1336-edf2-4bb5-8df8-7698561d5199",
+            "identity": "movable_object.pushable_pullable",
+            "x0": 1325,
+            "y0": 395,
+            "x1": 1359,
+            "y1": 442,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sandbox_tags": [
+                {
+                    "original_agent_token": "27ed1e03c82141a08a579b94554541e7"
+                }
+            ],
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "d18e0bea-358c-410f-ad94-926993ddead0",
+            "identity": "vehicle.car",
+            "x0": 1378,
+            "y0": 392,
+            "x1": 1572,
+            "y1": 459,
+            "attributes": {
+                "sandbox_tags": [
+                    "vehicle.parked"
+                ]
+            },
+            "sandbox_tags": [
+                {
+                    "original_agent_token": "e73ba600294c42efb7b94e0fe26965cf"
+                }
+            ],
+            "sub_entities": []
+        }
+    ]
+}

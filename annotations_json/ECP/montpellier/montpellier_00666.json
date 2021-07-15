@@ -1,0 +1,100 @@
+{
+    "im_name": "montpellier_00666.png",
+    "city_name": "montpellier",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "7c3af09b-7297-41f4-ad9c-3873a9bc408f",
+            "identity": "pedestrian",
+            "x0": 1233,
+            "y0": 345,
+            "x1": 1254,
+            "y1": 392,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "c4a1fccd-7e66-474d-bf49-ecd0c69a5f56",
+            "identity": "rider",
+            "x0": 1481,
+            "y0": 342,
+            "x1": 1537,
+            "y1": 469,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 1482,
+                    "y0": 395,
+                    "x1": 1532,
+                    "y1": 483,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "7ed6360e-0ea2-48ad-b783-6156aa118c70",
+            "identity": "pedestrian",
+            "x0": 1648,
+            "y0": 341,
+            "x1": 1677,
+            "y1": 408,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "cdf280a2-ff6f-4241-bd08-91cb1603b4f9",
+            "identity": "pedestrian",
+            "x0": 1764,
+            "y0": 351,
+            "x1": 1776,
+            "y1": 387,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "01fe92e3-618d-4c09-a990-6de3b4080e21",
+            "identity": "pedestrian",
+            "x0": 1106,
+            "y0": 350,
+            "x1": 1121,
+            "y1": 394,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "97a0a28b-4d0f-49f3-a3f5-a9adf1252b73",
+            "identity": "pedestrian",
+            "x0": 1094,
+            "y0": 356,
+            "x1": 1108,
+            "y1": 394,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

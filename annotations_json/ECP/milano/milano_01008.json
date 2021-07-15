@@ -1,0 +1,96 @@
+{
+    "im_name": "milano_01008.png",
+    "city_name": "milano",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "c90a19d4-7a90-4271-802c-e0f0d8a91455",
+            "identity": "person-group-far-away",
+            "x0": 201,
+            "y0": 473,
+            "x1": 225,
+            "y1": 567,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "f4e5a937-f90e-4fad-ac56-93ff83cc6037",
+            "identity": "rider",
+            "x0": 1033,
+            "y0": 537,
+            "x1": 1046,
+            "y1": 562,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "scooter",
+                    "x0": 1032,
+                    "y0": 542,
+                    "x1": 1047,
+                    "y1": 569,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "b134d1c0-466e-48c3-a57f-3ddd892721a1",
+            "identity": "rider",
+            "x0": 1054,
+            "y0": 535,
+            "x1": 1071,
+            "y1": 568,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "scooter",
+                    "x0": 1054,
+                    "y0": 545,
+                    "x1": 1072,
+                    "y1": 575,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "719d4aa8-ae83-44a1-bef7-21585054309f",
+            "identity": "rider",
+            "x0": 1636,
+            "y0": 469,
+            "x1": 1836,
+            "y1": 805,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "scooter",
+                    "x0": 1621,
+                    "y0": 475,
+                    "x1": 1920,
+                    "y1": 934,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "truncated>10"
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

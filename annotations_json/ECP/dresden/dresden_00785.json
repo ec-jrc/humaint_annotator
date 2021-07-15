@@ -1,0 +1,35 @@
+{
+    "im_name": "dresden_00785.png",
+    "city_name": "dresden",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [
+        "constructionSite"
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "bd8be80d-228d-486a-af53-aaac04f4f117",
+            "identity": "rider",
+            "x0": 1144,
+            "y0": 471,
+            "x1": 1252,
+            "y1": 722,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 1146,
+                    "y0": 561,
+                    "x1": 1240,
+                    "y1": 753,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        }
+    ]
+}

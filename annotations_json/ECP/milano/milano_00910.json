@@ -1,0 +1,152 @@
+{
+    "im_name": "milano_00910.png",
+    "city_name": "milano",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "a6ad552b-b868-4121-846a-a073845c0ea6",
+            "identity": "scooter-group",
+            "x0": 146,
+            "y0": 551,
+            "x1": 240,
+            "y1": 630,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "43df29c9-aa3c-4ac7-95dd-9eae0c6626a0",
+            "identity": "scooter-group",
+            "x0": 579,
+            "y0": 555,
+            "x1": 610,
+            "y1": 608,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "c5e6fe4a-aaa8-4dd7-b9dc-b70d72bdea13",
+            "identity": "scooter-group",
+            "x0": 685,
+            "y0": 551,
+            "x1": 765,
+            "y1": 608,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "ab1ae55e-99a0-48c0-9621-100a6135ed4b",
+            "identity": "pedestrian",
+            "x0": 1317,
+            "y0": 519,
+            "x1": 1344,
+            "y1": 606,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "828865c0-f441-47b5-a665-507348b4970d",
+            "identity": "pedestrian",
+            "x0": 1353,
+            "y0": 509,
+            "x1": 1403,
+            "y1": 631,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "37ac33ac-7cbd-4423-bef2-5238d845bf74",
+            "identity": "pedestrian",
+            "x0": 1419,
+            "y0": 511,
+            "x1": 1452,
+            "y1": 617,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "581cb5c2-0540-431f-b8d4-d00159503ea6",
+            "identity": "pedestrian",
+            "x0": 1866,
+            "y0": 435,
+            "x1": 1920,
+            "y1": 762,
+            "attributes": {
+                "sandbox_tags": [
+                    "truncated>10",
+                    "occluded>40",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_8",
+            "uuid": "42e16f20-3b38-40e0-8a4d-fcbac99fe1c6",
+            "identity": "pedestrian",
+            "x0": 1888,
+            "y0": 435,
+            "x1": 1920,
+            "y1": 788,
+            "attributes": {
+                "sandbox_tags": [
+                    "truncated>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_9",
+            "uuid": "b2c8cf4a-52c3-4c3f-8094-09ed5d05f993",
+            "identity": "rider",
+            "x0": 1825,
+            "y0": 579,
+            "x1": 1902,
+            "y1": 665,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": [
+                {
+                    "identity": "buggy",
+                    "x0": 1816,
+                    "y0": 563,
+                    "x1": 1920,
+                    "y1": 755,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "occluded>10",
+                            "truncated>10"
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

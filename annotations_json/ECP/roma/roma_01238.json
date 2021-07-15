@@ -1,0 +1,37 @@
+{
+    "im_name": "roma_01238.png",
+    "city_name": "roma",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "44058b62-3fdd-4ea3-8411-1a0495165321",
+            "identity": "person-group-far-away",
+            "x0": 1117,
+            "y0": 536,
+            "x1": 1132,
+            "y1": 588,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "3c4829ba-8ad1-4274-9e03-6d9f5acd3453",
+            "identity": "pedestrian",
+            "x0": 1391,
+            "y0": 435,
+            "x1": 1565,
+            "y1": 821,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

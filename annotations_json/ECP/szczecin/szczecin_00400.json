@@ -1,0 +1,78 @@
+{
+    "im_name": "szczecin_00400.png",
+    "city_name": "szczecin",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "ae6ef576-151a-423f-ab69-ff1b9c66b82c",
+            "identity": "pedestrian",
+            "x0": 1841,
+            "y0": 389,
+            "x1": 1920,
+            "y1": 745,
+            "attributes": {
+                "sandbox_tags": [
+                    "truncated>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "d6d8ad60-4c27-41de-a983-15f59a2e3564",
+            "identity": "pedestrian",
+            "x0": 614,
+            "y0": 565,
+            "x1": 628,
+            "y1": 612,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "053cb136-fbac-4d94-acd5-fe5e1926a905",
+            "identity": "pedestrian",
+            "x0": 629,
+            "y0": 576,
+            "x1": 641,
+            "y1": 609,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "580bd190-2b98-4b56-beba-161d98274982",
+            "identity": "pedestrian",
+            "x0": 639,
+            "y0": 569,
+            "x1": 652,
+            "y1": 610,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "3f31e580-2f1d-4d37-8a7e-f54bb2a9074e",
+            "identity": "pedestrian",
+            "x0": 697,
+            "y0": 581,
+            "x1": 708,
+            "y1": 608,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

@@ -1,0 +1,81 @@
+{
+    "im_name": "marseille_01335.png",
+    "city_name": "marseille",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "acf6049c-4fed-490f-b282-6c89da56d12d",
+            "identity": "pedestrian",
+            "x0": 282,
+            "y0": 438,
+            "x1": 303,
+            "y1": 495,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "3e66ea29-aebe-42cc-91cd-ab76e5491f30",
+            "identity": "pedestrian",
+            "x0": 306,
+            "y0": 437,
+            "x1": 326,
+            "y1": 485,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "feb5682c-e9f3-4d19-aa30-26de047feb9b",
+            "identity": "pedestrian",
+            "x0": 1112,
+            "y0": 427,
+            "x1": 1136,
+            "y1": 507,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "7e633d99-893a-4cec-b5a7-3be5ff7a95ee",
+            "identity": "pedestrian",
+            "x0": 465,
+            "y0": 399,
+            "x1": 496,
+            "y1": 465,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40",
+                    "behind-glass"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "8f493ead-b661-4a6c-98c8-65a64e9fb3c6",
+            "identity": "person-group-far-away",
+            "x0": 391,
+            "y0": 406,
+            "x1": 421,
+            "y1": 471,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

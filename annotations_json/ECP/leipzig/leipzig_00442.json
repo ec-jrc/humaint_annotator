@@ -1,0 +1,153 @@
+{
+    "im_name": "leipzig_00442.png",
+    "city_name": "leipzig",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [
+        "wiper"
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "aaa64c4c-cb8f-44c2-9438-8a92e2e270d6",
+            "identity": "pedestrian",
+            "x0": 1746,
+            "y0": 542,
+            "x1": 1804,
+            "y1": 630,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "b264d809-b0c4-41da-9da2-cb265e7aa406",
+            "identity": "pedestrian",
+            "x0": 1501,
+            "y0": 526,
+            "x1": 1559,
+            "y1": 683,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "7f923b5f-486a-4162-9169-d1b430611c5d",
+            "identity": "pedestrian",
+            "x0": 1290,
+            "y0": 515,
+            "x1": 1335,
+            "y1": 658,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "72657d81-6b3a-4da9-bee8-ed3ed8298583",
+            "identity": "pedestrian",
+            "x0": 1017,
+            "y0": 540,
+            "x1": 1056,
+            "y1": 660,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "e20a07b1-0890-4d75-bf9a-6e5d0d65140b",
+            "identity": "pedestrian",
+            "x0": 429,
+            "y0": 523,
+            "x1": 459,
+            "y1": 630,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "e982650a-aade-488f-be5d-85074fd1f4e7",
+            "identity": "pedestrian",
+            "x0": 549,
+            "y0": 505,
+            "x1": 588,
+            "y1": 640,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "af369852-695a-473c-b42f-c8727cfbc7c3",
+            "identity": "person-group-far-away",
+            "x0": 594,
+            "y0": 541,
+            "x1": 655,
+            "y1": 629,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_8",
+            "uuid": "85c5b599-8234-4aae-a64b-34f759ad052a",
+            "identity": "person-group-far-away",
+            "x0": 1582,
+            "y0": 542,
+            "x1": 1604,
+            "y1": 600,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_9",
+            "uuid": "98b04bab-5f53-466f-8e1f-29622c009d4f",
+            "identity": "person-group-far-away",
+            "x0": 388,
+            "y0": 520,
+            "x1": 415,
+            "y1": 635,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_10",
+            "uuid": "d8900fd4-1a8b-46c1-b3b8-7fc18b2be78a",
+            "identity": "person-group-far-away",
+            "x0": 15,
+            "y0": 509,
+            "x1": 67,
+            "y1": 684,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

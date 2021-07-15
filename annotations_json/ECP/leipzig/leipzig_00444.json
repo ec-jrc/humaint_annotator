@@ -1,0 +1,37 @@
+{
+    "im_name": "leipzig_00444.png",
+    "city_name": "leipzig",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [
+        "rainy"
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "124f2152-1e00-4684-a2f6-dea6d5179a92",
+            "identity": "pedestrian",
+            "x0": 1137,
+            "y0": 515,
+            "x1": 1182,
+            "y1": 622,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "27c18e78-d464-48b8-847c-c4c64f699d93",
+            "identity": "person-group-far-away",
+            "x0": 1051,
+            "y0": 550,
+            "x1": 1064,
+            "y1": 583,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

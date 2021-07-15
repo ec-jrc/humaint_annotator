@@ -1,0 +1,80 @@
+{
+    "im_name": "hamburg_00688.png",
+    "city_name": "hamburg",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "bd62e376-d109-4604-9212-183f1a26fda6",
+            "identity": "pedestrian",
+            "x0": 1043,
+            "y0": 518,
+            "x1": 1066,
+            "y1": 606,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "3639ab90-4026-4dda-9c4a-d37db5b0a757",
+            "identity": "pedestrian",
+            "x0": 1694,
+            "y0": 517,
+            "x1": 1704,
+            "y1": 549,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "6f565f9b-3086-4d94-ad66-a137ef133058",
+            "identity": "pedestrian",
+            "x0": 558,
+            "y0": 508,
+            "x1": 605,
+            "y1": 637,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "8c9d918e-c795-4b35-90ed-8d9de841da1b",
+            "identity": "pedestrian",
+            "x0": 1529,
+            "y0": 524,
+            "x1": 1541,
+            "y1": 560,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "858430d4-51aa-4b06-9b8d-7dbcb2f18496",
+            "identity": "person-group-far-away",
+            "x0": 455,
+            "y0": 400,
+            "x1": 523,
+            "y1": 499,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

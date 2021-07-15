@@ -1,0 +1,76 @@
+{
+    "im_name": "dresden_00894.png",
+    "city_name": "dresden",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "b79878e2-aaba-4fce-a934-78dd28ca37f2",
+            "identity": "pedestrian",
+            "x0": 1595,
+            "y0": 485,
+            "x1": 1628,
+            "y1": 573,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "fcf4d5c2-6b4e-425a-9c5c-32e02a157a0d",
+            "identity": "pedestrian",
+            "x0": 1513,
+            "y0": 506,
+            "x1": 1534,
+            "y1": 567,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "1caf469d-2c88-4ce4-912e-10eb4a92b9e2",
+            "identity": "pedestrian",
+            "x0": 1480,
+            "y0": 500,
+            "x1": 1515,
+            "y1": 568,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "3ce81a2d-b288-42e7-a401-24a1960ffb1f",
+            "identity": "pedestrian",
+            "x0": 1394,
+            "y0": 502,
+            "x1": 1419,
+            "y1": 568,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "68a88fec-c681-40df-ad7a-88735a6e1a39",
+            "identity": "person-group-far-away",
+            "x0": 110,
+            "y0": 558,
+            "x1": 122,
+            "y1": 590,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

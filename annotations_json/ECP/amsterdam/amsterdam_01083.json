@@ -1,0 +1,67 @@
+{
+    "im_name": "amsterdam_01083.png",
+    "city_name": "amsterdam",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "62252005-7e59-4921-b91d-449512df64a0",
+            "identity": "bicycle-group",
+            "x0": 1001,
+            "y0": 545,
+            "x1": 1186,
+            "y1": 637,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "3f98821e-d920-42dd-acc3-cb800405542d",
+            "identity": "scooter-group",
+            "x0": 1125,
+            "y0": 559,
+            "x1": 1215,
+            "y1": 645,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "14b6b4fb-e4e8-4de5-9d3d-2ff09b08093d",
+            "identity": "scooter-group",
+            "x0": 988,
+            "y0": 552,
+            "x1": 1072,
+            "y1": 615,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "c0840e22-ca5c-4322-bb63-c23e27ffe744",
+            "identity": "person-group-far-away",
+            "x0": 1055,
+            "y0": 538,
+            "x1": 1082,
+            "y1": 573,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

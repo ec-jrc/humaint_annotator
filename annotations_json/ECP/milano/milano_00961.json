@@ -1,0 +1,79 @@
+{
+    "im_name": "milano_00961.png",
+    "city_name": "milano",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "44d58f56-9c8c-434c-b4ed-0cb880a55509",
+            "identity": "pedestrian",
+            "x0": 120,
+            "y0": 548,
+            "x1": 147,
+            "y1": 603,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "b04ac4a1-d117-4d94-bf28-f5f0e8255c19",
+            "identity": "pedestrian",
+            "x0": 96,
+            "y0": 546,
+            "x1": 116,
+            "y1": 602,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "80c2602c-e9a6-4a33-984f-c62c93987cb9",
+            "identity": "pedestrian",
+            "x0": 849,
+            "y0": 541,
+            "x1": 873,
+            "y1": 601,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "253713b5-d7a1-4dc1-a09e-fbc98ee777ac",
+            "identity": "person-group-far-away",
+            "x0": 1313,
+            "y0": 523,
+            "x1": 1346,
+            "y1": 624,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "7403b899-8aae-4df2-a02f-6537e0050320",
+            "identity": "pedestrian",
+            "x0": 201,
+            "y0": 553,
+            "x1": 218,
+            "y1": 587,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10",
+                    "sitting-lying"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

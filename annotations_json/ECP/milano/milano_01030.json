@@ -1,0 +1,104 @@
+{
+    "im_name": "milano_01030.png",
+    "city_name": "milano",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "ecca6442-7dc6-4810-80cb-8fdd90cb213e",
+            "identity": "person-group-far-away",
+            "x0": 195,
+            "y0": 571,
+            "x1": 216,
+            "y1": 647,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "d15a2dad-902e-4417-9796-13145f440fa2",
+            "identity": "bicycle-group",
+            "x0": 366,
+            "y0": 594,
+            "x1": 399,
+            "y1": 641,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "56f48e3b-5aff-40f3-a767-527e26daaf84",
+            "identity": "pedestrian",
+            "x0": 1113,
+            "y0": 557,
+            "x1": 1138,
+            "y1": 613,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "eeeacf9a-4641-4750-9c34-3a87acbe6503",
+            "identity": "pedestrian",
+            "x0": 1139,
+            "y0": 554,
+            "x1": 1157,
+            "y1": 614,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "034c20bd-2252-4985-817d-a1ca411ad701",
+            "identity": "pedestrian",
+            "x0": 1172,
+            "y0": 553,
+            "x1": 1195,
+            "y1": 631,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "c047b05a-6178-4ae3-b3bc-a1ccbb641b50",
+            "identity": "scooter-group",
+            "x0": 1180,
+            "y0": 542,
+            "x1": 1224,
+            "y1": 635,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "56b72afa-925a-4b3b-94f2-55e55f112736",
+            "identity": "bicycle-group",
+            "x0": 1231,
+            "y0": 566,
+            "x1": 1283,
+            "y1": 646,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

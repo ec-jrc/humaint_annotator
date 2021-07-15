@@ -1,0 +1,74 @@
+{
+    "im_name": "ljubljana_00964.png",
+    "city_name": "ljubljana",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "d90e688b-0964-4b64-aefa-c3023656784d",
+            "identity": "rider",
+            "x0": 842,
+            "y0": 482,
+            "x1": 958,
+            "y1": 709,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 785,
+                    "y0": 585,
+                    "x1": 1023,
+                    "y1": 730,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "d7af3200-2151-4398-9839-2b4b277297ca",
+            "identity": "rider",
+            "x0": 1265,
+            "y0": 503,
+            "x1": 1371,
+            "y1": 697,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 1210,
+                    "y0": 571,
+                    "x1": 1418,
+                    "y1": 708,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "occluded>10"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "55e18731-0f25-4681-9640-3c69b230e3d8",
+            "identity": "pedestrian",
+            "x0": 1304,
+            "y0": 486,
+            "x1": 1443,
+            "y1": 740,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

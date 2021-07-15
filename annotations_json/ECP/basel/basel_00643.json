@@ -1,0 +1,150 @@
+{
+    "im_name": "basel_00643.png",
+    "city_name": "basel",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "455301aa-3ebc-44dd-98f9-ddc8aae62317",
+            "identity": "pedestrian",
+            "x0": 72,
+            "y0": 429,
+            "x1": 131,
+            "y1": 574,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "076b8732-2a66-4f36-9ae9-dcc93ab1365b",
+            "identity": "bicycle-group",
+            "x0": 355,
+            "y0": 459,
+            "x1": 431,
+            "y1": 520,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "bf6cf10d-680a-4794-844a-93b79393e271",
+            "identity": "bicycle-group",
+            "x0": 498,
+            "y0": 451,
+            "x1": 529,
+            "y1": 498,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "b12d07f3-2efe-4d90-8f7e-d49ab05e2c59",
+            "identity": "bicycle-group",
+            "x0": 566,
+            "y0": 448,
+            "x1": 634,
+            "y1": 488,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "9f3b8934-5a73-4e0a-acb1-622ae70dbd95",
+            "identity": "tricycle-group",
+            "x0": 1282,
+            "y0": 431,
+            "x1": 1427,
+            "y1": 555,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "01cc1d55-6f2e-44ab-a5d1-e0f367b59041",
+            "identity": "pedestrian",
+            "x0": 841,
+            "y0": 427,
+            "x1": 853,
+            "y1": 458,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "32feab6f-9650-461c-a46e-e86d8840dfa0",
+            "identity": "person-group-far-away",
+            "x0": 749,
+            "y0": 435,
+            "x1": 756,
+            "y1": 454,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_8",
+            "uuid": "0d1181d1-5d7a-4347-a764-324057cdd21f",
+            "identity": "bicycle-group",
+            "x0": 713,
+            "y0": 441,
+            "x1": 751,
+            "y1": 463,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_9",
+            "uuid": "3b4a487b-9066-4c8b-98a4-454963cd2fc6",
+            "identity": "rider",
+            "x0": 879,
+            "y0": 427,
+            "x1": 890,
+            "y1": 450,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 873,
+                    "y0": 437,
+                    "x1": 899,
+                    "y1": 454,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_10",
+            "uuid": "f76feb98-e68c-428a-83aa-65261385fbb4",
+            "identity": "pedestrian",
+            "x0": 1009,
+            "y0": 419,
+            "x1": 1018,
+            "y1": 444,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

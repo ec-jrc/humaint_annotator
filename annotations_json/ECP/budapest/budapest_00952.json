@@ -1,0 +1,63 @@
+{
+    "im_name": "budapest_00952.png",
+    "city_name": "budapest",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "15a2b77c-4082-4014-83e7-c385c140c463",
+            "identity": "pedestrian",
+            "x0": 1437,
+            "y0": 573,
+            "x1": 1455,
+            "y1": 625,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "f6a2a5b6-081b-462f-aa81-8773948976f1",
+            "identity": "person-group-far-away",
+            "x0": 1549,
+            "y0": 574,
+            "x1": 1557,
+            "y1": 594,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "f38e15af-ca18-42a3-9b22-c8f074869f46",
+            "identity": "person-group-far-away",
+            "x0": 1411,
+            "y0": 584,
+            "x1": 1422,
+            "y1": 600,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "ed08c877-63ea-4d22-8f75-c47af3ae6596",
+            "identity": "person-group-far-away",
+            "x0": 1688,
+            "y0": 602,
+            "x1": 1722,
+            "y1": 680,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

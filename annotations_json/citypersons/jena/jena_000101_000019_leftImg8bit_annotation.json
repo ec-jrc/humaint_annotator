@@ -1,0 +1,61 @@
+{
+    "im_name": "jena_000101_000019_leftImg8bit.png",
+    "city_name": "jena",
+    "im_width": 2048,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "ad2897d2-9b98-4b81-a460-8eed9c908775",
+            "identity": "Pedestrian",
+            "x0": 1657,
+            "y0": 295,
+            "x1": 1682,
+            "y1": 356,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "9eaa0050-95cd-4060-943a-2f5444f47abc",
+            "identity": "Pedestrian",
+            "x0": 1691,
+            "y0": 302,
+            "x1": 1716,
+            "y1": 362,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "0890f5f6-2092-481f-9bcf-7ea4560d704b",
+            "identity": "Rider",
+            "x0": 787,
+            "y0": 259,
+            "x1": 939,
+            "y1": 630,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "e72dee3a-6d21-46ce-a5e8-a4676a0753a1",
+            "identity": "Ignore",
+            "x0": 204,
+            "y0": 24,
+            "x1": 449,
+            "y1": 245,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

@@ -1,0 +1,63 @@
+{
+    "im_name": "zagreb_00789.png",
+    "city_name": "zagreb",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "042eaa1f-43f2-40a4-8fec-b9a768a3f189",
+            "identity": "pedestrian",
+            "x0": 272,
+            "y0": 529,
+            "x1": 303,
+            "y1": 609,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "090c7e58-2fb5-4730-942e-ec30e668054e",
+            "identity": "person-group-far-away",
+            "x0": 172,
+            "y0": 536,
+            "x1": 201,
+            "y1": 600,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "b2e612ef-583f-4478-b62d-b9724f2d8c71",
+            "identity": "person-group-far-away",
+            "x0": 88,
+            "y0": 529,
+            "x1": 123,
+            "y1": 604,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "95f09224-d6c4-4306-9dff-c51c30a0de47",
+            "identity": "person-group-far-away",
+            "x0": 13,
+            "y0": 525,
+            "x1": 74,
+            "y1": 595,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

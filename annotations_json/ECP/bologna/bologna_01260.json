@@ -1,0 +1,88 @@
+{
+    "im_name": "bologna_01260.png",
+    "city_name": "bologna",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "79e32917-5755-44bf-927a-b12a358758d6",
+            "identity": "rider",
+            "x0": 887,
+            "y0": 552,
+            "x1": 893,
+            "y1": 574,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 887,
+                    "y0": 560,
+                    "x1": 893,
+                    "y1": 578,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "7705d764-185b-4f54-87c1-3ab4b679dfba",
+            "identity": "rider",
+            "x0": 1100,
+            "y0": 492,
+            "x1": 1182,
+            "y1": 729,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 1095,
+                    "y0": 589,
+                    "x1": 1184,
+                    "y1": 768,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "b33f7a9a-a8c9-483f-b28f-fd6abc2384bb",
+            "identity": "pedestrian",
+            "x0": 1636,
+            "y0": 474,
+            "x1": 1703,
+            "y1": 692,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "20c1f3f7-ec82-44c1-8480-9013de09e98f",
+            "identity": "pedestrian",
+            "x0": 1697,
+            "y0": 478,
+            "x1": 1760,
+            "y1": 690,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

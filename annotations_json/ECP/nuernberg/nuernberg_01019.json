@@ -1,0 +1,91 @@
+{
+    "im_name": "nuernberg_01019.png",
+    "city_name": "nuernberg",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "353305f5-4946-42f9-a4b7-78ab8faed0a5",
+            "identity": "bicycle-group",
+            "x0": 645,
+            "y0": 563,
+            "x1": 726,
+            "y1": 634,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "4a7a0986-624f-4bda-8496-521d999d0a77",
+            "identity": "pedestrian",
+            "x0": 1480,
+            "y0": 553,
+            "x1": 1501,
+            "y1": 616,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "a1b583ee-d455-4304-864e-102a9b4591e9",
+            "identity": "pedestrian",
+            "x0": 1653,
+            "y0": 554,
+            "x1": 1662,
+            "y1": 580,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "971b3b39-993d-4235-9665-f79decec9bc5",
+            "identity": "pedestrian",
+            "x0": 1800,
+            "y0": 550,
+            "x1": 1815,
+            "y1": 586,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "971da37b-866d-4de1-bca9-c5924c06a03a",
+            "identity": "pedestrian",
+            "x0": 1788,
+            "y0": 553,
+            "x1": 1801,
+            "y1": 587,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "d8b3885c-0034-4031-8b1e-bd6816e0256f",
+            "identity": "pedestrian",
+            "x0": 1602,
+            "y0": 461,
+            "x1": 1853,
+            "y1": 865,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

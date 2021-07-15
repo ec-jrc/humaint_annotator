@@ -1,0 +1,91 @@
+{
+    "im_name": "ljubljana_00898.png",
+    "city_name": "ljubljana",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "370443e1-56d4-4145-9c5f-c507a3791a44",
+            "identity": "pedestrian",
+            "x0": 474,
+            "y0": 498,
+            "x1": 562,
+            "y1": 803,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "b1d203c9-9912-4488-bc08-301efb10add3",
+            "identity": "pedestrian",
+            "x0": 573,
+            "y0": 522,
+            "x1": 694,
+            "y1": 737,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "9e3fca14-f3cc-48fa-ac25-b1b6e72e2e57",
+            "identity": "pedestrian",
+            "x0": 612,
+            "y0": 509,
+            "x1": 683,
+            "y1": 773,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "96825805-d26c-4871-9743-49dd8f4c27d9",
+            "identity": "pedestrian",
+            "x0": 668,
+            "y0": 494,
+            "x1": 743,
+            "y1": 755,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "032d5a5a-446e-4e01-87cb-63d875dfcd58",
+            "identity": "rider",
+            "x0": 1004,
+            "y0": 529,
+            "x1": 1040,
+            "y1": 622,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 984,
+                    "y0": 572,
+                    "x1": 1066,
+                    "y1": 629,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "occluded>10"
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

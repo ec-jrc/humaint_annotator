@@ -1,0 +1,152 @@
+{
+    "im_name": "roma_01170.png",
+    "city_name": "roma",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "ee2480bb-8f5b-4022-a24e-6117d95e77e5",
+            "identity": "person-group-far-away",
+            "x0": 477,
+            "y0": 507,
+            "x1": 520,
+            "y1": 653,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "6e073e91-9fb7-446a-b089-cdb52444d24e",
+            "identity": "pedestrian",
+            "x0": 1229,
+            "y0": 503,
+            "x1": 1280,
+            "y1": 664,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "2ef88d97-67ba-42e1-9a96-ae7fa5839063",
+            "identity": "pedestrian",
+            "x0": 1454,
+            "y0": 419,
+            "x1": 1558,
+            "y1": 761,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "2971aaa8-af41-49a7-8119-4dc8a6d30966",
+            "identity": "pedestrian",
+            "x0": 1543,
+            "y0": 447,
+            "x1": 1648,
+            "y1": 761,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "b93739bc-885d-4015-857c-0ba75889a6ee",
+            "identity": "pedestrian",
+            "x0": 1620,
+            "y0": 371,
+            "x1": 1755,
+            "y1": 843,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "594410f8-87b2-47c6-94cd-665b8f865b4e",
+            "identity": "pedestrian",
+            "x0": 1835,
+            "y0": 353,
+            "x1": 1920,
+            "y1": 870,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10",
+                    "truncated>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "d39a52e8-4acb-44d4-8368-b59dbc872320",
+            "identity": "person-group-far-away",
+            "x0": 1815,
+            "y0": 405,
+            "x1": 1920,
+            "y1": 840,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_8",
+            "uuid": "9aa88746-7faa-450b-b432-d858f61f365f",
+            "identity": "pedestrian",
+            "x0": 1636,
+            "y0": 363,
+            "x1": 1892,
+            "y1": 923,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_9",
+            "uuid": "129d9fcf-9584-43a4-8364-86d988c40501",
+            "identity": "rider",
+            "x0": 1291,
+            "y0": 399,
+            "x1": 1553,
+            "y1": 906,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 1291,
+                    "y0": 584,
+                    "x1": 1504,
+                    "y1": 945,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "occluded>10"
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

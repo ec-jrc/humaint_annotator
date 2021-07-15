@@ -1,0 +1,240 @@
+{
+    "im_name": "pisa_00721.png",
+    "city_name": "pisa",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "6ec6990e-ee4c-4db8-94c7-490aaddc8ce0",
+            "identity": "pedestrian",
+            "x0": 0,
+            "y0": 460,
+            "x1": 156,
+            "y1": 912,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "c93e778c-0124-40dc-b4d7-ff33e0f9bbb5",
+            "identity": "scooter-group",
+            "x0": 783,
+            "y0": 534,
+            "x1": 886,
+            "y1": 608,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "34842dfb-985d-4c2b-a185-f9a7c1135756",
+            "identity": "pedestrian",
+            "x0": 552,
+            "y0": 509,
+            "x1": 585,
+            "y1": 604,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "d2ab9528-1f9e-4cd8-b40b-6eca9f21cbd6",
+            "identity": "pedestrian",
+            "x0": 608,
+            "y0": 539,
+            "x1": 660,
+            "y1": 661,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "8dc42745-9470-40aa-a6b4-d29c1a9c5791",
+            "identity": "pedestrian",
+            "x0": 679,
+            "y0": 509,
+            "x1": 724,
+            "y1": 675,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "6399ba56-68a1-41cf-8ba7-2935da3dff3f",
+            "identity": "bicycle-group",
+            "x0": 385,
+            "y0": 553,
+            "x1": 745,
+            "y1": 691,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "5b87ff85-f251-4b7e-a455-ff79e0c68716",
+            "identity": "scooter-group",
+            "x0": 137,
+            "y0": 494,
+            "x1": 633,
+            "y1": 783,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_8",
+            "uuid": "3fb010ef-0361-4e5f-95cf-6dc49267885b",
+            "identity": "pedestrian",
+            "x0": 159,
+            "y0": 376,
+            "x1": 348,
+            "y1": 898,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_9",
+            "uuid": "3c3841b8-767d-48cd-93ed-0724a9756e7b",
+            "identity": "pedestrian",
+            "x0": 1023,
+            "y0": 528,
+            "x1": 1060,
+            "y1": 621,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_10",
+            "uuid": "7bb5e0fd-a164-49b2-87e8-a77fe8f45e51",
+            "identity": "pedestrian",
+            "x0": 1095,
+            "y0": 517,
+            "x1": 1136,
+            "y1": 666,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_11",
+            "uuid": "44fd29b4-fbd8-4177-8e31-73ef23628ba1",
+            "identity": "scooter-group",
+            "x0": 1131,
+            "y0": 524,
+            "x1": 1372,
+            "y1": 666,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_12",
+            "uuid": "0361b0c0-58c1-4ad6-9ae8-457b790f77a1",
+            "identity": "pedestrian",
+            "x0": 1051,
+            "y0": 503,
+            "x1": 1104,
+            "y1": 674,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_13",
+            "uuid": "4dfbf38a-82cd-4dca-b671-a55def429f14",
+            "identity": "pedestrian",
+            "x0": 1214,
+            "y0": 547,
+            "x1": 1300,
+            "y1": 664,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40",
+                    "sitting-lying"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_14",
+            "uuid": "f8f857f7-fd5f-486a-8951-e6bcc31096b2",
+            "identity": "pedestrian",
+            "x0": 1481,
+            "y0": 497,
+            "x1": 1508,
+            "y1": 650,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_15",
+            "uuid": "47e56127-c5ab-4670-a339-449eec5ffb9a",
+            "identity": "bicycle-group",
+            "x0": 1515,
+            "y0": 591,
+            "x1": 1920,
+            "y1": 945,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_16",
+            "uuid": "5b9ff1d5-2e20-4880-a214-c538ef9600ff",
+            "identity": "scooter-group",
+            "x0": 0,
+            "y0": 634,
+            "x1": 88,
+            "y1": 1011,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

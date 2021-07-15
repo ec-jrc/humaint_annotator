@@ -1,0 +1,68 @@
+{
+    "im_name": "amsterdam_01225.png",
+    "city_name": "amsterdam",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [
+        "rainy",
+        "wiper"
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "b77ddb97-8221-4ae2-bd47-9ea514c612a0",
+            "identity": "person-group-far-away",
+            "x0": 1308,
+            "y0": 646,
+            "x1": 1317,
+            "y1": 672,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "cfcfbbd6-50bb-47f3-a5cf-1ae2d2ba3569",
+            "identity": "person-group-far-away",
+            "x0": 1294,
+            "y0": 644,
+            "x1": 1303,
+            "y1": 672,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "34b14198-e015-40ea-a270-7ae1ff7baa13",
+            "identity": "bicycle-group",
+            "x0": 568,
+            "y0": 572,
+            "x1": 898,
+            "y1": 775,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "c4b430af-fe04-4411-ba3a-a54585c4f64a",
+            "identity": "bicycle-group",
+            "x0": 159,
+            "y0": 576,
+            "x1": 440,
+            "y1": 756,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

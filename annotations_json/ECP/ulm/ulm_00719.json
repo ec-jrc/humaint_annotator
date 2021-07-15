@@ -1,0 +1,50 @@
+{
+    "im_name": "ulm_00719.png",
+    "city_name": "ulm",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "cd6d62e8-232d-47a9-b8b0-2076081a740f",
+            "identity": "pedestrian",
+            "x0": 1093,
+            "y0": 418,
+            "x1": 1107,
+            "y1": 455,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "7719bb3d-ed43-4a7e-9b03-1356d6dd246d",
+            "identity": "pedestrian",
+            "x0": 661,
+            "y0": 425,
+            "x1": 676,
+            "y1": 467,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "e23550cd-3837-4f8f-ad7a-5482d45f9955",
+            "identity": "person-group-far-away",
+            "x0": 1011,
+            "y0": 424,
+            "x1": 1016,
+            "y1": 438,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

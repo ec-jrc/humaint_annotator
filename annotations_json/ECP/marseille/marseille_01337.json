@@ -1,0 +1,244 @@
+{
+    "im_name": "marseille_01337.png",
+    "city_name": "marseille",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "e82a16c4-4677-4d14-bdbc-ed7d61f8a26f",
+            "identity": "scooter-group",
+            "x0": 1511,
+            "y0": 416,
+            "x1": 1688,
+            "y1": 552,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "07d1ce96-8895-4185-ae06-d3de39ec4afe",
+            "identity": "pedestrian",
+            "x0": 1765,
+            "y0": 361,
+            "x1": 1817,
+            "y1": 516,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "7e8e22bd-ff40-4f31-876f-9b36acc16bae",
+            "identity": "pedestrian",
+            "x0": 1643,
+            "y0": 358,
+            "x1": 1713,
+            "y1": 529,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "223226ca-0338-4cc6-9c9c-ac1d33575482",
+            "identity": "person-group-far-away",
+            "x0": 1121,
+            "y0": 400,
+            "x1": 1140,
+            "y1": 443,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "b4facfc6-c799-44ea-aca7-7d2ae8acdcd7",
+            "identity": "pedestrian",
+            "x0": 0,
+            "y0": 413,
+            "x1": 32,
+            "y1": 501,
+            "attributes": {
+                "sandbox_tags": [
+                    "truncated>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "8da00a88-1e44-4fbc-ba33-2b253b6446b8",
+            "identity": "pedestrian",
+            "x0": 228,
+            "y0": 410,
+            "x1": 269,
+            "y1": 486,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "98b79de0-1a90-4acd-a615-ddf9786ead0f",
+            "identity": "person-group-far-away",
+            "x0": 259,
+            "y0": 418,
+            "x1": 272,
+            "y1": 461,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_8",
+            "uuid": "35bcb93f-5386-4534-87c6-eece757da224",
+            "identity": "pedestrian",
+            "x0": 339,
+            "y0": 410,
+            "x1": 381,
+            "y1": 495,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_9",
+            "uuid": "7a98b95e-c212-485e-a85f-935190158816",
+            "identity": "pedestrian",
+            "x0": 493,
+            "y0": 396,
+            "x1": 521,
+            "y1": 435,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40",
+                    "sitting-lying",
+                    "behind-glass"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_10",
+            "uuid": "67fc9176-541d-4b6b-b750-2d502762cd14",
+            "identity": "rider",
+            "x0": 745,
+            "y0": 258,
+            "x1": 1070,
+            "y1": 844,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": [
+                {
+                    "identity": "motorbike",
+                    "x0": 739,
+                    "y0": 381,
+                    "x1": 1078,
+                    "y1": 925,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "occluded>40"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_11",
+            "uuid": "be8dea8d-5679-42d2-8f58-89a4ab0c8389",
+            "identity": "bicycle-group",
+            "x0": 47,
+            "y0": 430,
+            "x1": 100,
+            "y1": 481,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_12",
+            "uuid": "034405d1-bf29-4bb9-b43c-4a99fb816682",
+            "identity": "person-group-far-away",
+            "x0": 202,
+            "y0": 405,
+            "x1": 211,
+            "y1": 442,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_13",
+            "uuid": "91b39f1c-b8f9-4342-a56c-f1701ae16bee",
+            "identity": "person-group-far-away",
+            "x0": 54,
+            "y0": 421,
+            "x1": 78,
+            "y1": 482,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_14",
+            "uuid": "e7c2b83b-63d3-43bd-88ed-b00ec57e964d",
+            "identity": "person-group-far-away",
+            "x0": 1084,
+            "y0": 407,
+            "x1": 1094,
+            "y1": 443,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_15",
+            "uuid": "354e053f-5f5b-42e4-9363-ed777f61e44a",
+            "identity": "person-group-far-away",
+            "x0": 187,
+            "y0": 405,
+            "x1": 196,
+            "y1": 442,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_16",
+            "uuid": "5830e264-f31e-45ab-8107-c6e57c022683",
+            "identity": "person-group-far-away",
+            "x0": 361,
+            "y0": 416,
+            "x1": 384,
+            "y1": 460,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

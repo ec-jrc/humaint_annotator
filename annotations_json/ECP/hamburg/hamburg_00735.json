@@ -1,0 +1,37 @@
+{
+    "im_name": "hamburg_00735.png",
+    "city_name": "hamburg",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "464604fd-1111-4c23-be31-04c392720338",
+            "identity": "pedestrian",
+            "x0": 363,
+            "y0": 577,
+            "x1": 372,
+            "y1": 609,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "fd0c49e8-c175-4302-8038-f56f7d3f2e49",
+            "identity": "bicycle-group",
+            "x0": 200,
+            "y0": 589,
+            "x1": 246,
+            "y1": 624,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

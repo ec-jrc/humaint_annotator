@@ -1,0 +1,61 @@
+{
+    "im_name": "nuernberg_00957.png",
+    "city_name": "nuernberg",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "f2b970e5-fb3d-406f-88ba-21d4b77abda4",
+            "identity": "rider",
+            "x0": 694,
+            "y0": 512,
+            "x1": 752,
+            "y1": 614,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 664,
+                    "y0": 555,
+                    "x1": 776,
+                    "y1": 624,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "occluded>40"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "8aec38f5-c6fe-490d-a9cf-25c33100fdb2",
+            "identity": "bicycle-group",
+            "x0": 873,
+            "y0": 546,
+            "x1": 895,
+            "y1": 594,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "497a2b64-48d0-49b6-a204-4dd491699529",
+            "identity": "bicycle-group",
+            "x0": 1169,
+            "y0": 547,
+            "x1": 1251,
+            "y1": 602,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

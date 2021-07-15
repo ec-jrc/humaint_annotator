@@ -1,0 +1,76 @@
+{
+    "im_name": "bratislava_00872.png",
+    "city_name": "bratislava",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "44f8eff5-2687-4d65-ae95-b7b1632a60a8",
+            "identity": "pedestrian",
+            "x0": 680,
+            "y0": 546,
+            "x1": 709,
+            "y1": 610,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "f295c984-b390-4f56-b0f8-4b7bfaf1ef38",
+            "identity": "person-group-far-away",
+            "x0": 1067,
+            "y0": 550,
+            "x1": 1090,
+            "y1": 578,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "a3072616-96b7-4a26-a465-fb2b2dbef143",
+            "identity": "pedestrian",
+            "x0": 1068,
+            "y0": 549,
+            "x1": 1085,
+            "y1": 589,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "5a845dad-8812-431b-a780-0d4ef5f29bca",
+            "identity": "pedestrian",
+            "x0": 1234,
+            "y0": 552,
+            "x1": 1251,
+            "y1": 603,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "eb5a3cc9-584d-4dc0-944f-c3cdc6abf975",
+            "identity": "pedestrian",
+            "x0": 587,
+            "y0": 551,
+            "x1": 614,
+            "y1": 609,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

@@ -1,0 +1,63 @@
+{
+    "im_name": "wuerzburg_00738.png",
+    "city_name": "wuerzburg",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "6f6160d0-f5bd-4ee0-ab4e-6db6b13c0f13",
+            "identity": "pedestrian",
+            "x0": 37,
+            "y0": 524,
+            "x1": 97,
+            "y1": 673,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "e4cb9828-4d59-43e3-9d95-e4cf033dba10",
+            "identity": "bicycle-group",
+            "x0": 1294,
+            "y0": 570,
+            "x1": 1334,
+            "y1": 610,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "9deceb6a-d1bc-46ed-83e9-050a7aad2770",
+            "identity": "pedestrian",
+            "x0": 1331,
+            "y0": 540,
+            "x1": 1369,
+            "y1": 672,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "12ee694a-1438-482a-8fac-8f458e2add3e",
+            "identity": "bicycle-group",
+            "x0": 1497,
+            "y0": 548,
+            "x1": 1882,
+            "y1": 726,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

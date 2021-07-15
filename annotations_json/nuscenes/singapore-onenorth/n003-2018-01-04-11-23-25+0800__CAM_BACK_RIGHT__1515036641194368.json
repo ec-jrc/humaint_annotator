@@ -1,0 +1,133 @@
+{
+    "im_name": "samples/CAM_BACK_RIGHT/n003-2018-01-04-11-23-25+0800__CAM_BACK_RIGHT__1515036641194368.jpg",
+    "city_name": "singapore-onenorth",
+    "im_width": 1600,
+    "im_height": 900,
+    "sandbox_tags": [
+        {
+            "original_img_token": "f777c493d69948d394fe035fd1d33347"
+        }
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "7b85b79b-2fa0-4cfe-a015-9c35bb6b62f3",
+            "identity": "human.pedestrian.personal_mobility",
+            "x0": 814,
+            "y0": 480,
+            "x1": 846,
+            "y1": 542,
+            "attributes": {
+                "sandbox_tags": [
+                    "cycle.without_rider"
+                ]
+            },
+            "sandbox_tags": [
+                {
+                    "original_agent_token": "0f04173062b848d69a1074159a918d73"
+                }
+            ],
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "c31b30e2-cb46-4078-a700-a2139b808cb2",
+            "identity": "human.pedestrian.adult",
+            "x0": 462,
+            "y0": 483,
+            "x1": 480,
+            "y1": 535,
+            "attributes": {
+                "sandbox_tags": [
+                    "pedestrian.moving"
+                ]
+            },
+            "sandbox_tags": [
+                {
+                    "original_agent_token": "8ddc0237baac4288b720a538b6b85c3d"
+                }
+            ],
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "6e0678c6-4d30-4a72-a22a-48124433246f",
+            "identity": "human.pedestrian.personal_mobility",
+            "x0": 835,
+            "y0": 480,
+            "x1": 867,
+            "y1": 544,
+            "attributes": {
+                "sandbox_tags": [
+                    "cycle.without_rider"
+                ]
+            },
+            "sandbox_tags": [
+                {
+                    "original_agent_token": "a25fd388582d4966908b144aadb7a5ba"
+                }
+            ],
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "90ec8034-20cd-45d2-9d25-e0b6e2781b22",
+            "identity": "vehicle.bicycle",
+            "x0": 212,
+            "y0": 542,
+            "x1": 368,
+            "y1": 693,
+            "attributes": {
+                "sandbox_tags": [
+                    "cycle.without_rider"
+                ]
+            },
+            "sandbox_tags": [
+                {
+                    "original_agent_token": "b07ab996084e4ed7895138f1addcb7b8"
+                }
+            ],
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "30f88fa6-e7a1-4c4d-9231-9139fa14a59e",
+            "identity": "vehicle.bicycle",
+            "x0": 90,
+            "y0": 565,
+            "x1": 204,
+            "y1": 692,
+            "attributes": {
+                "sandbox_tags": [
+                    "cycle.without_rider"
+                ]
+            },
+            "sandbox_tags": [
+                {
+                    "original_agent_token": "c958a34e816b4a56b8689f1bb39487d2"
+                }
+            ],
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "1790e1ba-c4ef-48c6-8a0f-b1d925915fa1",
+            "identity": "human.pedestrian.adult",
+            "x0": 195,
+            "y0": 492,
+            "x1": 218,
+            "y1": 563,
+            "attributes": {
+                "sandbox_tags": [
+                    "pedestrian.moving"
+                ]
+            },
+            "sandbox_tags": [
+                {
+                    "original_agent_token": "f83c4ece5d8f46d99c975f34c5d5ab04"
+                }
+            ],
+            "sub_entities": []
+        }
+    ]
+}

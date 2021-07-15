@@ -1,0 +1,63 @@
+{
+    "im_name": "bologna_01319.png",
+    "city_name": "bologna",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "d74402be-d32d-4438-9751-e5eebd7b60fc",
+            "identity": "person-group-far-away",
+            "x0": 292,
+            "y0": 440,
+            "x1": 370,
+            "y1": 579,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "30255368-7581-4c88-9e52-7294e6974c50",
+            "identity": "person-group-far-away",
+            "x0": 1791,
+            "y0": 534,
+            "x1": 1815,
+            "y1": 569,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "0a146207-53af-4891-943b-485f9a508110",
+            "identity": "rider",
+            "x0": 1074,
+            "y0": 543,
+            "x1": 1089,
+            "y1": 574,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "motorbike",
+                    "x0": 1074,
+                    "y0": 556,
+                    "x1": 1091,
+                    "y1": 582,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        }
+    ]
+}

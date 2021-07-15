@@ -1,0 +1,153 @@
+{
+    "im_name": "dresden_00791.png",
+    "city_name": "dresden",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "69db39c6-5ea4-48e6-93b6-adbde442b52c",
+            "identity": "bicycle-group",
+            "x0": 302,
+            "y0": 559,
+            "x1": 360,
+            "y1": 606,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "eeec8c48-2dad-4822-88a9-db94af39881d",
+            "identity": "pedestrian",
+            "x0": 309,
+            "y0": 528,
+            "x1": 334,
+            "y1": 608,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "2483551f-d4f2-4969-b12b-d239d2e825b9",
+            "identity": "pedestrian",
+            "x0": 437,
+            "y0": 542,
+            "x1": 460,
+            "y1": 601,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "cc362823-048d-49c8-bd37-6e82c3a671c9",
+            "identity": "bicycle-group",
+            "x0": 474,
+            "y0": 561,
+            "x1": 515,
+            "y1": 604,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "731e7e6d-fcbd-495f-9057-fccef5200754",
+            "identity": "rider",
+            "x0": 515,
+            "y0": 526,
+            "x1": 547,
+            "y1": 605,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 510,
+                    "y0": 560,
+                    "x1": 556,
+                    "y1": 609,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "042b3cfb-ddb5-4b04-930e-a5e2e10b1454",
+            "identity": "pedestrian",
+            "x0": 1072,
+            "y0": 539,
+            "x1": 1095,
+            "y1": 595,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "db733929-1f88-484c-a6ba-a1e9176d59b1",
+            "identity": "bicycle-group",
+            "x0": 1074,
+            "y0": 560,
+            "x1": 1114,
+            "y1": 591,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_8",
+            "uuid": "d4bd7636-61f3-41e1-984a-b76b01843349",
+            "identity": "bicycle-group",
+            "x0": 1107,
+            "y0": 549,
+            "x1": 1165,
+            "y1": 615,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_9",
+            "uuid": "0eeaedb3-ef55-49b2-ae9c-23a97c6a99e7",
+            "identity": "pedestrian",
+            "x0": 1135,
+            "y0": 537,
+            "x1": 1152,
+            "y1": 590,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_10",
+            "uuid": "f20e5011-c47f-4c47-97ce-d8e494f6f05c",
+            "identity": "person-group-far-away",
+            "x0": 1048,
+            "y0": 539,
+            "x1": 1056,
+            "y1": 563,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

@@ -1,0 +1,35 @@
+{
+    "im_name": "dusseldorf_000021_000019_leftImg8bit.png",
+    "city_name": "dusseldorf",
+    "im_width": 2048,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "c2fbbcb9-e9a8-4959-a27b-a63d08753754",
+            "identity": "Pedestrian",
+            "x0": 914,
+            "y0": 436,
+            "x1": 927,
+            "y1": 467,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "d2fcbc0d-e2c2-435b-8120-50abd7bf4c7b",
+            "identity": "Ignore",
+            "x0": 1173,
+            "y0": 413,
+            "x1": 1177,
+            "y1": 421,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

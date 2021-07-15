@@ -1,0 +1,87 @@
+{
+    "im_name": "bologna_01379.png",
+    "city_name": "bologna",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "84bce8de-78e3-4c2c-8b30-12187c899a97",
+            "identity": "pedestrian",
+            "x0": 269,
+            "y0": 523,
+            "x1": 289,
+            "y1": 581,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "aa3e25d8-7fba-4e97-b6a5-8174d177aa9a",
+            "identity": "pedestrian",
+            "x0": 1065,
+            "y0": 555,
+            "x1": 1073,
+            "y1": 578,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "6abb0b6c-091c-4906-b65c-50255b909cbe",
+            "identity": "rider",
+            "x0": 1041,
+            "y0": 553,
+            "x1": 1052,
+            "y1": 578,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "motorbike",
+                    "x0": 1041,
+                    "y0": 564,
+                    "x1": 1053,
+                    "y1": 587,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "4afd1482-1ea3-4dbe-b6c7-de7d83c1e300",
+            "identity": "pedestrian",
+            "x0": 1101,
+            "y0": 554,
+            "x1": 1113,
+            "y1": 589,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "0f8372d1-9cf4-44ae-9c41-914f1199c6a2",
+            "identity": "pedestrian",
+            "x0": 1362,
+            "y0": 553,
+            "x1": 1379,
+            "y1": 604,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

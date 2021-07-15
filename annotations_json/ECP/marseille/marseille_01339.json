@@ -1,0 +1,54 @@
+{
+    "im_name": "marseille_01339.png",
+    "city_name": "marseille",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "d7bfec3e-d4d1-4035-958c-fc8b92582287",
+            "identity": "pedestrian",
+            "x0": 559,
+            "y0": 430,
+            "x1": 592,
+            "y1": 535,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "f18e32c6-8a48-4e4c-8f28-404c2438279a",
+            "identity": "person-group-far-away",
+            "x0": 588,
+            "y0": 433,
+            "x1": 613,
+            "y1": 533,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "414fa467-5dda-4d71-baaa-45f9a5a038bb",
+            "identity": "rider+vehicle-group-far-away",
+            "x0": 962,
+            "y0": 429,
+            "x1": 973,
+            "y1": 445,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

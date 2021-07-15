@@ -1,0 +1,121 @@
+{
+    "im_name": "amsterdam_01247.png",
+    "city_name": "amsterdam",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [
+        "wiper"
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "4fdebf48-9491-49f9-92f1-be1e7e3545aa",
+            "identity": "person-group-far-away",
+            "x0": 1123,
+            "y0": 569,
+            "x1": 1134,
+            "y1": 596,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "710f0c51-cd1b-458e-a0dc-7928fc41fb6e",
+            "identity": "pedestrian",
+            "x0": 865,
+            "y0": 554,
+            "x1": 878,
+            "y1": 604,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "ca45203c-5383-491c-b347-e30edf50ece8",
+            "identity": "bicycle-group",
+            "x0": 751,
+            "y0": 586,
+            "x1": 767,
+            "y1": 604,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "c0a1a179-53d5-4251-bf3f-f03d163e6115",
+            "identity": "rider",
+            "x0": 894,
+            "y0": 554,
+            "x1": 910,
+            "y1": 603,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 878,
+                    "y0": 576,
+                    "x1": 920,
+                    "y1": 604,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "occluded>40"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "0a5492a4-bc2a-41c5-99d0-741657e48c97",
+            "identity": "bicycle-group",
+            "x0": 1295,
+            "y0": 563,
+            "x1": 1350,
+            "y1": 593,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "00691712-df59-45ee-a18a-f596ebc86ba2",
+            "identity": "motorbike-group",
+            "x0": 771,
+            "y0": 579,
+            "x1": 787,
+            "y1": 602,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "7b78644c-4841-453d-bf75-e747a4a0512f",
+            "identity": "pedestrian",
+            "x0": 1355,
+            "y0": 549,
+            "x1": 1374,
+            "y1": 591,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

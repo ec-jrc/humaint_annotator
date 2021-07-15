@@ -1,0 +1,53 @@
+{
+    "im_name": "samples/CAM_BACK_RIGHT/n016-2018-07-06-12-06-18+0800__CAM_BACK_RIGHT__1530850955877917.jpg",
+    "city_name": "singapore-queenstown",
+    "im_width": 1600,
+    "im_height": 900,
+    "sandbox_tags": [
+        {
+            "original_img_token": "fac4a6ec5aa546929d366559bdf238c5"
+        }
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "b76dca27-ab9e-4223-af54-66a4a3fe668f",
+            "identity": "vehicle.bicycle",
+            "x0": 378,
+            "y0": 536,
+            "x1": 537,
+            "y1": 638,
+            "attributes": {
+                "sandbox_tags": [
+                    "cycle.without_rider"
+                ]
+            },
+            "sandbox_tags": [
+                {
+                    "original_agent_token": "5152779fd61c4ba0aaf3b8fddea10fc6"
+                }
+            ],
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "2006435e-06b4-4308-a323-9f4c613f171c",
+            "identity": "human.pedestrian.adult",
+            "x0": 916,
+            "y0": 486,
+            "x1": 958,
+            "y1": 627,
+            "attributes": {
+                "sandbox_tags": [
+                    "pedestrian.moving"
+                ]
+            },
+            "sandbox_tags": [
+                {
+                    "original_agent_token": "e64afb1ba5cf462ca44343e0f9f8172f"
+                }
+            ],
+            "sub_entities": []
+        }
+    ]
+}

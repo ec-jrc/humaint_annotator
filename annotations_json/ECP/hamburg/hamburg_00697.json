@@ -1,0 +1,104 @@
+{
+    "im_name": "hamburg_00697.png",
+    "city_name": "hamburg",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "55530982-39c3-4cd1-a23d-387ee500ea60",
+            "identity": "pedestrian",
+            "x0": 934,
+            "y0": 547,
+            "x1": 954,
+            "y1": 608,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "c813fd74-8ee2-4220-9f16-ed2e434a68d7",
+            "identity": "pedestrian",
+            "x0": 1371,
+            "y0": 509,
+            "x1": 1413,
+            "y1": 631,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "41027171-e41a-48f3-b7d2-31c17569f2c2",
+            "identity": "pedestrian",
+            "x0": 1110,
+            "y0": 546,
+            "x1": 1124,
+            "y1": 587,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "a80ac902-b55a-4a08-ad61-497b8ce554d2",
+            "identity": "person-group-far-away",
+            "x0": 1011,
+            "y0": 549,
+            "x1": 1020,
+            "y1": 578,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "42119d44-dd97-4179-86e8-61e8fbfeff15",
+            "identity": "bicycle-group",
+            "x0": 1180,
+            "y0": 548,
+            "x1": 1207,
+            "y1": 601,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "7155bd4d-687b-4aea-8f35-a1a27391dc7d",
+            "identity": "bicycle-group",
+            "x0": 1508,
+            "y0": 494,
+            "x1": 1920,
+            "y1": 899,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "67c51002-2945-4a70-88bb-5ccb597a4f65",
+            "identity": "bicycle-group",
+            "x0": 74,
+            "y0": 582,
+            "x1": 169,
+            "y1": 679,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

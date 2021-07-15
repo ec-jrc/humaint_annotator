@@ -1,0 +1,76 @@
+{
+    "im_name": "basel_00636.png",
+    "city_name": "basel",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "6589169c-2a73-493b-b7bf-c9aa92cdf36e",
+            "identity": "bicycle-group",
+            "x0": 572,
+            "y0": 456,
+            "x1": 650,
+            "y1": 500,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "5605491b-ec6c-4d31-b8b3-7899212448b2",
+            "identity": "pedestrian",
+            "x0": 582,
+            "y0": 421,
+            "x1": 608,
+            "y1": 498,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "e4725244-df54-462d-9d15-d1208ca48dad",
+            "identity": "pedestrian",
+            "x0": 668,
+            "y0": 402,
+            "x1": 705,
+            "y1": 510,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "169bcd64-b231-4d00-be7f-50facbd3b4d7",
+            "identity": "person-group-far-away",
+            "x0": 789,
+            "y0": 436,
+            "x1": 811,
+            "y1": 467,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "b62295dd-9ec3-4062-9275-39bc1baa7fc0",
+            "identity": "pedestrian",
+            "x0": 974,
+            "y0": 433,
+            "x1": 985,
+            "y1": 472,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

@@ -1,0 +1,93 @@
+{
+    "im_name": "koeln_00202.png",
+    "city_name": "koeln",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "4c0e811b-2419-4f33-91d0-ff996d08e946",
+            "identity": "pedestrian",
+            "x0": 541,
+            "y0": 539,
+            "x1": 575,
+            "y1": 614,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "c56df1f5-df6b-45e9-9091-be3568f74086",
+            "identity": "pedestrian",
+            "x0": 614,
+            "y0": 547,
+            "x1": 635,
+            "y1": 617,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "57f5e1f1-309c-45f9-b5bb-ec4f8cfa94df",
+            "identity": "pedestrian",
+            "x0": 877,
+            "y0": 545,
+            "x1": 921,
+            "y1": 623,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "dbaf7d22-e91f-4fb4-8b31-423280ac2c74",
+            "identity": "pedestrian",
+            "x0": 892,
+            "y0": 547,
+            "x1": 923,
+            "y1": 621,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "fb08da73-7d70-47a7-8385-ed70299ece22",
+            "identity": "pedestrian",
+            "x0": 598,
+            "y0": 547,
+            "x1": 629,
+            "y1": 614,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "4596aa27-6108-4006-adf2-7647fc9ec19e",
+            "identity": "pedestrian",
+            "x0": 547,
+            "y0": 543,
+            "x1": 575,
+            "y1": 613,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

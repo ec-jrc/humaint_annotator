@@ -1,0 +1,78 @@
+{
+    "im_name": "montpellier_00640.png",
+    "city_name": "montpellier",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "fc12f66c-0bc8-409b-98f7-a611b8995d06",
+            "identity": "pedestrian",
+            "x0": 1267,
+            "y0": 195,
+            "x1": 1317,
+            "y1": 326,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "a9ea4e4e-c299-4b3c-9cd6-6c4ec50da1a5",
+            "identity": "pedestrian",
+            "x0": 741,
+            "y0": 451,
+            "x1": 766,
+            "y1": 516,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "9060e10b-82cd-4168-90d1-8224989f7e40",
+            "identity": "pedestrian",
+            "x0": 616,
+            "y0": 450,
+            "x1": 650,
+            "y1": 528,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "7ef506f7-41f5-417f-8c53-aaecab1080e5",
+            "identity": "person-group-far-away",
+            "x0": 689,
+            "y0": 449,
+            "x1": 744,
+            "y1": 489,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "608bbb62-5823-46cc-852b-fe99f80478a8",
+            "identity": "person-group-far-away",
+            "x0": 602,
+            "y0": 457,
+            "x1": 613,
+            "y1": 485,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

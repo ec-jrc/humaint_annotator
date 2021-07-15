@@ -1,0 +1,83 @@
+{
+    "im_name": "bologna_01286.png",
+    "city_name": "bologna",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "b3931ae6-b1e3-4816-b033-5f6d4d296996",
+            "identity": "rider",
+            "x0": 608,
+            "y0": 552,
+            "x1": 620,
+            "y1": 587,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 602,
+                    "y0": 565,
+                    "x1": 623,
+                    "y1": 588,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "79560f79-cdbf-4344-ad7c-7aef111a71b6",
+            "identity": "rider",
+            "x0": 780,
+            "y0": 532,
+            "x1": 805,
+            "y1": 588,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 780,
+                    "y0": 561,
+                    "x1": 807,
+                    "y1": 596,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "occluded>80"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "d47bffe8-9efd-42e9-a189-7156d6463cb3",
+            "identity": "rider",
+            "x0": 1051,
+            "y0": 547,
+            "x1": 1065,
+            "y1": 575,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "motorbike",
+                    "x0": 1048,
+                    "y0": 560,
+                    "x1": 1066,
+                    "y1": 584,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        }
+    ]
+}

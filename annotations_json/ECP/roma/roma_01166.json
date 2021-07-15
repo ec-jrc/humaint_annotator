@@ -1,0 +1,52 @@
+{
+    "im_name": "roma_01166.png",
+    "city_name": "roma",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "dffea13e-6beb-4b31-878e-35b0b37c6071",
+            "identity": "scooter-group",
+            "x0": 1334,
+            "y0": 522,
+            "x1": 1475,
+            "y1": 678,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "0fb66989-33da-45fa-8c7a-c30c4527e33a",
+            "identity": "scooter-group",
+            "x0": 1528,
+            "y0": 535,
+            "x1": 1849,
+            "y1": 772,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "ef2caa7c-aa54-427d-a42b-834de1794eaf",
+            "identity": "person-group-far-away",
+            "x0": 1159,
+            "y0": 544,
+            "x1": 1166,
+            "y1": 567,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

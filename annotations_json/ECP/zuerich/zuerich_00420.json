@@ -1,0 +1,161 @@
+{
+    "im_name": "zuerich_00420.png",
+    "city_name": "zuerich",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "2647c49a-1508-4145-b3b2-72ff32f3a6f9",
+            "identity": "pedestrian",
+            "x0": 1205,
+            "y0": 394,
+            "x1": 1243,
+            "y1": 520,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "0560d241-f247-471f-9799-dd5e0165c2e0",
+            "identity": "pedestrian",
+            "x0": 1268,
+            "y0": 401,
+            "x1": 1310,
+            "y1": 524,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "7db1cbd6-0fcf-4dfc-acec-89a3733ac8de",
+            "identity": "pedestrian",
+            "x0": 1438,
+            "y0": 423,
+            "x1": 1449,
+            "y1": 462,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "cbbfe972-0a68-4a37-90d0-60655f18f865",
+            "identity": "pedestrian",
+            "x0": 1470,
+            "y0": 422,
+            "x1": 1482,
+            "y1": 459,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "e1bd2610-f823-4b6c-88f7-a81410eb817b",
+            "identity": "person-group-far-away",
+            "x0": 1495,
+            "y0": 435,
+            "x1": 1506,
+            "y1": 464,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "109b310f-7f1b-4af6-b52d-10f626ea6594",
+            "identity": "pedestrian",
+            "x0": 1568,
+            "y0": 422,
+            "x1": 1583,
+            "y1": 466,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "0f28129e-960e-46ef-8d3a-43a4b7d860db",
+            "identity": "person-group-far-away",
+            "x0": 1598,
+            "y0": 424,
+            "x1": 1607,
+            "y1": 465,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_8",
+            "uuid": "047d3dcc-912f-4fe5-9b71-b58fe4be974d",
+            "identity": "pedestrian",
+            "x0": 1690,
+            "y0": 436,
+            "x1": 1700,
+            "y1": 469,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_9",
+            "uuid": "8325d7cc-0c63-46d9-b50d-b70a3c1484aa",
+            "identity": "person-group-far-away",
+            "x0": 1712,
+            "y0": 432,
+            "x1": 1729,
+            "y1": 468,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_10",
+            "uuid": "5747a121-97d2-4ed0-8ea7-87bc82652a51",
+            "identity": "person-group-far-away",
+            "x0": 1669,
+            "y0": 434,
+            "x1": 1689,
+            "y1": 468,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_11",
+            "uuid": "ee8d2bd4-03b2-423e-b154-50a97349ceba",
+            "identity": "pedestrian",
+            "x0": 1582,
+            "y0": 424,
+            "x1": 1597,
+            "y1": 464,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

@@ -1,0 +1,66 @@
+{
+    "im_name": "marseille_01411.png",
+    "city_name": "marseille",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [
+        "lenseFlare"
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "7b57b8b2-929d-4398-8019-5415f6f5ea3b",
+            "identity": "pedestrian",
+            "x0": 707,
+            "y0": 407,
+            "x1": 723,
+            "y1": 454,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "27dd0e9c-1b9b-46c6-93ab-8a99307801b0",
+            "identity": "pedestrian",
+            "x0": 726,
+            "y0": 399,
+            "x1": 742,
+            "y1": 449,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "ebba3508-651a-4f6d-8d41-886b3ff7e2a9",
+            "identity": "person-group-far-away",
+            "x0": 1289,
+            "y0": 409,
+            "x1": 1304,
+            "y1": 443,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "65b49ef2-cef9-427c-978a-a5096b86c4bf",
+            "identity": "person-group-far-away",
+            "x0": 1231,
+            "y0": 407,
+            "x1": 1242,
+            "y1": 436,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

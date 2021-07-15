@@ -1,0 +1,97 @@
+{
+    "im_name": "bratislava_00971.png",
+    "city_name": "bratislava",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "1579ad3c-988f-42d7-a535-b1c37d894431",
+            "identity": "pedestrian",
+            "x0": 320,
+            "y0": 507,
+            "x1": 378,
+            "y1": 668,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "6b5f6719-b020-4dd4-b33c-9dcd59f3c200",
+            "identity": "pedestrian",
+            "x0": 1564,
+            "y0": 559,
+            "x1": 1576,
+            "y1": 585,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "dcf72db4-4c17-47f4-be76-d1bfdf601a74",
+            "identity": "pedestrian",
+            "x0": 1808,
+            "y0": 549,
+            "x1": 1864,
+            "y1": 665,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "172ca7fb-641a-4d22-9cc5-42174ec462ce",
+            "identity": "person-group-far-away",
+            "x0": 862,
+            "y0": 535,
+            "x1": 881,
+            "y1": 593,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "956c055d-4bd2-48a6-965e-2f8282423fe7",
+            "identity": "person-group-far-away",
+            "x0": 1338,
+            "y0": 551,
+            "x1": 1351,
+            "y1": 584,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "a821c675-d061-4194-8339-965f7e5f3d2b",
+            "identity": "person-group-far-away",
+            "x0": 1900,
+            "y0": 548,
+            "x1": 1920,
+            "y1": 669,
+            "attributes": {
+                "sandbox_tags": [
+                    "truncated>40",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

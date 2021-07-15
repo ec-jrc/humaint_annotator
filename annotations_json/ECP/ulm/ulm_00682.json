@@ -1,0 +1,80 @@
+{
+    "im_name": "ulm_00682.png",
+    "city_name": "ulm",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "48735864-241d-42e1-86a4-064fbcdb6469",
+            "identity": "pedestrian",
+            "x0": 667,
+            "y0": 403,
+            "x1": 692,
+            "y1": 471,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "646d4722-1648-4668-a898-53bd9192b3ea",
+            "identity": "pedestrian",
+            "x0": 731,
+            "y0": 401,
+            "x1": 755,
+            "y1": 471,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "8a88a58a-8105-4cf6-a6f3-8efa9a5c0820",
+            "identity": "pedestrian",
+            "x0": 815,
+            "y0": 401,
+            "x1": 829,
+            "y1": 450,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "9358a070-ddec-4e57-b515-1d74b94e1abf",
+            "identity": "person-group-far-away",
+            "x0": 952,
+            "y0": 407,
+            "x1": 961,
+            "y1": 430,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "986aeda5-fc08-49a7-9510-55621e4d4643",
+            "identity": "pedestrian",
+            "x0": 782,
+            "y0": 408,
+            "x1": 794,
+            "y1": 454,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

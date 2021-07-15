@@ -1,0 +1,73 @@
+{
+    "im_name": "samples/CAM_BACK_LEFT/n013-2018-08-16-16-15-38+0800__CAM_BACK_LEFT__1534407626447155.jpg",
+    "city_name": "singapore-onenorth",
+    "im_width": 1600,
+    "im_height": 900,
+    "sandbox_tags": [
+        {
+            "original_img_token": "923be25ae4154863bce28dd88e9a8db7"
+        }
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "f567bd31-d218-4eb7-828c-5b0379c850fe",
+            "identity": "vehicle.car",
+            "x0": 797,
+            "y0": 368,
+            "x1": 913,
+            "y1": 433,
+            "attributes": {
+                "sandbox_tags": [
+                    "vehicle.parked"
+                ]
+            },
+            "sandbox_tags": [
+                {
+                    "original_agent_token": "22fa0d35c98649cc8ee50a203d5ce98b"
+                }
+            ],
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "3adb9b44-3be1-4c7a-85de-92e2ef6c7002",
+            "identity": "vehicle.car",
+            "x0": 400,
+            "y0": 371,
+            "x1": 562,
+            "y1": 436,
+            "attributes": {
+                "sandbox_tags": [
+                    "vehicle.parked"
+                ]
+            },
+            "sandbox_tags": [
+                {
+                    "original_agent_token": "410012737085475fb6ebec46ff73f034"
+                }
+            ],
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "b9d5fff8-cad8-451e-9064-6022d98ae5ec",
+            "identity": "vehicle.car",
+            "x0": 154,
+            "y0": 377,
+            "x1": 354,
+            "y1": 465,
+            "attributes": {
+                "sandbox_tags": [
+                    "vehicle.parked"
+                ]
+            },
+            "sandbox_tags": [
+                {
+                    "original_agent_token": "5f234a576c294adba6187031e08409f6"
+                }
+            ],
+            "sub_entities": []
+        }
+    ]
+}

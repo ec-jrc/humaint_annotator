@@ -1,0 +1,93 @@
+{
+    "im_name": "budapest_00956.png",
+    "city_name": "budapest",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "ecda2c46-e24d-4cbc-bb2d-a429a1df9f11",
+            "identity": "rider",
+            "x0": 790,
+            "y0": 551,
+            "x1": 809,
+            "y1": 589,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "motorbike",
+                    "x0": 789,
+                    "y0": 565,
+                    "x1": 809,
+                    "y1": 594,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "cdab7427-3251-489e-983f-1ce4d62700a9",
+            "identity": "person-group-far-away",
+            "x0": 1256,
+            "y0": 221,
+            "x1": 1412,
+            "y1": 421,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "303a110a-d9be-4aec-b80e-cfb573cc55b5",
+            "identity": "pedestrian",
+            "x0": 1688,
+            "y0": 512,
+            "x1": 1701,
+            "y1": 556,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "b655f88d-01dd-4072-ba2d-21d134ceb614",
+            "identity": "pedestrian",
+            "x0": 1502,
+            "y0": 525,
+            "x1": 1516,
+            "y1": 567,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "51be3120-e331-41e2-83f8-f57907a2adc2",
+            "identity": "pedestrian",
+            "x0": 1601,
+            "y0": 517,
+            "x1": 1614,
+            "y1": 562,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

@@ -1,0 +1,107 @@
+{
+    "im_name": "dresden_00815.png",
+    "city_name": "dresden",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "59ff7354-d98c-47cc-a67b-4256d221a283",
+            "identity": "pedestrian",
+            "x0": 1157,
+            "y0": 541,
+            "x1": 1169,
+            "y1": 574,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "8394d787-dc35-4593-91f2-06f3e87e23f6",
+            "identity": "pedestrian",
+            "x0": 1206,
+            "y0": 536,
+            "x1": 1224,
+            "y1": 585,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "e4b20346-4755-405d-974d-aaad806028e1",
+            "identity": "pedestrian",
+            "x0": 1134,
+            "y0": 545,
+            "x1": 1161,
+            "y1": 600,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "9e1ea9b4-ba46-450b-a44c-472749dfea82",
+            "identity": "pedestrian",
+            "x0": 1137,
+            "y0": 543,
+            "x1": 1165,
+            "y1": 602,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "f503349c-3775-45df-a84d-1b85bcc6588b",
+            "identity": "pedestrian",
+            "x0": 1282,
+            "y0": 477,
+            "x1": 1423,
+            "y1": 744,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "1c6c7e98-da59-4b15-a479-e5ed8185bdd7",
+            "identity": "pedestrian",
+            "x0": 1458,
+            "y0": 452,
+            "x1": 1550,
+            "y1": 747,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "d3a835ad-5cbc-420f-bdde-c5526058418c",
+            "identity": "person-group-far-away",
+            "x0": 383,
+            "y0": 534,
+            "x1": 413,
+            "y1": 594,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

@@ -1,0 +1,37 @@
+{
+    "im_name": "ulm_00632.png",
+    "city_name": "ulm",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "a24d99df-7d21-4996-9568-21ef888a0b8e",
+            "identity": "bicycle-group",
+            "x0": 1660,
+            "y0": 466,
+            "x1": 1887,
+            "y1": 592,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "c9345a65-022e-4a45-8d93-f06039c6e618",
+            "identity": "pedestrian",
+            "x0": 695,
+            "y0": 427,
+            "x1": 729,
+            "y1": 513,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

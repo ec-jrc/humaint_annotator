@@ -1,0 +1,93 @@
+{
+    "im_name": "leipzig_00497.png",
+    "city_name": "leipzig",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [
+        "rainy"
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "efdd4c61-e4d1-43f7-9ac1-15560454573c",
+            "identity": "pedestrian",
+            "x0": 1511,
+            "y0": 516,
+            "x1": 1545,
+            "y1": 595,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "a708d9f8-6be6-46f3-b59c-a302a6a2a695",
+            "identity": "pedestrian",
+            "x0": 330,
+            "y0": 520,
+            "x1": 361,
+            "y1": 643,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "1da1ce4d-1244-4412-ba70-c82ead6c9bb3",
+            "identity": "bicycle-group",
+            "x0": 58,
+            "y0": 562,
+            "x1": 159,
+            "y1": 634,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "19c17479-384a-4df4-9650-37a371f45591",
+            "identity": "bicycle-group",
+            "x0": 213,
+            "y0": 560,
+            "x1": 332,
+            "y1": 637,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "8d83a38b-eddd-48b6-8af8-b820d8b4f6c1",
+            "identity": "pedestrian",
+            "x0": 136,
+            "y0": 535,
+            "x1": 190,
+            "y1": 658,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "0d0042b6-ee45-4e82-b46c-2ee844e5272c",
+            "identity": "pedestrian",
+            "x0": 130,
+            "y0": 533,
+            "x1": 180,
+            "y1": 657,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

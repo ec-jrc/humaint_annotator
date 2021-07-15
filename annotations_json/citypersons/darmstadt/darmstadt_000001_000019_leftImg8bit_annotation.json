@@ -1,0 +1,61 @@
+{
+    "im_name": "darmstadt_000001_000019_leftImg8bit.png",
+    "city_name": "darmstadt",
+    "im_width": 2048,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "44f00794-bd5b-472d-8066-8884ec16e5dc",
+            "identity": "Pedestrian",
+            "x0": 1200,
+            "y0": 414,
+            "x1": 1232,
+            "y1": 491,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "e2b57b5a-af16-4b93-99f8-02a533bfaea9",
+            "identity": "Pedestrian",
+            "x0": 554,
+            "y0": 429,
+            "x1": 586,
+            "y1": 507,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "135a274d-6974-4589-910e-e38b53b06a49",
+            "identity": "Rider",
+            "x0": 1061,
+            "y0": 435,
+            "x1": 1071,
+            "y1": 458,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "70f3c42d-a53e-4899-a636-d348a37a1e80",
+            "identity": "Ignore",
+            "x0": 801,
+            "y0": 359,
+            "x1": 831,
+            "y1": 385,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

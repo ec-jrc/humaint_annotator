@@ -1,0 +1,63 @@
+{
+    "im_name": "firenze_01216.png",
+    "city_name": "firenze",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "86c17660-d7d7-4111-9292-34cb6c35db7b",
+            "identity": "pedestrian",
+            "x0": 1124,
+            "y0": 519,
+            "x1": 1163,
+            "y1": 626,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "102719e4-90e4-428f-9c39-d7c98964db99",
+            "identity": "pedestrian",
+            "x0": 1223,
+            "y0": 479,
+            "x1": 1312,
+            "y1": 694,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "38569a88-ccc0-48a8-8432-88d7a29ad553",
+            "identity": "pedestrian",
+            "x0": 1321,
+            "y0": 480,
+            "x1": 1395,
+            "y1": 704,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "e8cfdd61-5e14-45b7-98a1-595bdb998f73",
+            "identity": "scooter-group",
+            "x0": 0,
+            "y0": 441,
+            "x1": 384,
+            "y1": 969,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

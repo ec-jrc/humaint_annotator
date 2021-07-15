@@ -1,0 +1,87 @@
+{
+    "im_name": "firenze_01357.png",
+    "city_name": "firenze",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "7a59fe9f-4a30-48df-94c1-6d44edb057df",
+            "identity": "pedestrian",
+            "x0": 1031,
+            "y0": 573,
+            "x1": 1041,
+            "y1": 599,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "5860ebad-bcfe-4403-8f3d-997833415b1d",
+            "identity": "pedestrian",
+            "x0": 1041,
+            "y0": 574,
+            "x1": 1051,
+            "y1": 602,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "4256c3e7-3419-4305-9fc8-897a1f459333",
+            "identity": "pedestrian",
+            "x0": 1052,
+            "y0": 574,
+            "x1": 1070,
+            "y1": 613,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "83c1d8b0-dfa9-40af-b4e9-b21b6db56e47",
+            "identity": "rider",
+            "x0": 992,
+            "y0": 580,
+            "x1": 1006,
+            "y1": 606,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "scooter",
+                    "x0": 991,
+                    "y0": 585,
+                    "x1": 1008,
+                    "y1": 613,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "39db9475-b5ac-449e-a312-a32b8a8dc4a3",
+            "identity": "bicycle-group",
+            "x0": 850,
+            "y0": 581,
+            "x1": 944,
+            "y1": 657,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

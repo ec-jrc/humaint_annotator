@@ -1,0 +1,104 @@
+{
+    "im_name": "wuerzburg_00752.png",
+    "city_name": "wuerzburg",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "9bdac3f4-ec48-442b-96ec-51b05231855b",
+            "identity": "rider+vehicle-group-far-away",
+            "x0": 159,
+            "y0": 544,
+            "x1": 223,
+            "y1": 629,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "b629db1c-258f-4c8d-9e0c-86a374544505",
+            "identity": "person-group-far-away",
+            "x0": 453,
+            "y0": 554,
+            "x1": 499,
+            "y1": 609,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "6a22ac0f-a871-40c2-80f8-079180b07904",
+            "identity": "pedestrian",
+            "x0": 657,
+            "y0": 546,
+            "x1": 692,
+            "y1": 609,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "c1c2edcb-df69-4de2-a95f-5bb8a3d0167a",
+            "identity": "pedestrian",
+            "x0": 732,
+            "y0": 549,
+            "x1": 757,
+            "y1": 619,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "a503329e-6ee1-4fa8-9751-aed480b6b215",
+            "identity": "person-group-far-away",
+            "x0": 1237,
+            "y0": 544,
+            "x1": 1249,
+            "y1": 576,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "38129f32-ba51-447d-bb48-3788016eb668",
+            "identity": "rider",
+            "x0": 1072,
+            "y0": 489,
+            "x1": 1248,
+            "y1": 755,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 1134,
+                    "y0": 587,
+                    "x1": 1245,
+                    "y1": 786,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        }
+    ]
+}

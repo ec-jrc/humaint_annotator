@@ -1,0 +1,76 @@
+{
+    "im_name": "marseille_01398.png",
+    "city_name": "marseille",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "f8da556d-0deb-4774-b39b-e2b2dd6b7b53",
+            "identity": "pedestrian",
+            "x0": 966,
+            "y0": 411,
+            "x1": 980,
+            "y1": 441,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "d7c91927-ccbe-47bd-bf26-bbd63da4d55a",
+            "identity": "pedestrian",
+            "x0": 1087,
+            "y0": 395,
+            "x1": 1122,
+            "y1": 479,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "d778da6f-0864-459f-b652-adbf5484206a",
+            "identity": "motorbike-group",
+            "x0": 856,
+            "y0": 417,
+            "x1": 890,
+            "y1": 482,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "4bc9f37e-8363-43fe-8d99-7f1e1fdec25f",
+            "identity": "pedestrian",
+            "x0": 953,
+            "y0": 412,
+            "x1": 966,
+            "y1": 442,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "b4a7966c-71c1-4e00-96a5-b7820ecde867",
+            "identity": "motorbike-group",
+            "x0": 1070,
+            "y0": 416,
+            "x1": 1201,
+            "y1": 512,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

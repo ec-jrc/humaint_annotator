@@ -1,0 +1,38 @@
+{
+    "im_name": "torino_01074.png",
+    "city_name": "torino",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "d21aa219-c74e-4f24-a170-34ffc3e6d6b0",
+            "identity": "pedestrian",
+            "x0": 1440,
+            "y0": 548,
+            "x1": 1494,
+            "y1": 622,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10",
+                    "sitting-lying"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "f320bf13-b254-41c0-abce-d0bce285fc57",
+            "identity": "person-group-far-away",
+            "x0": 1172,
+            "y0": 527,
+            "x1": 1197,
+            "y1": 617,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

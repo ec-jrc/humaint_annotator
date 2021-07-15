@@ -1,0 +1,91 @@
+{
+    "im_name": "milano_00896.png",
+    "city_name": "milano",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "5400211a-6742-4932-90a2-3999f2b26d3e",
+            "identity": "pedestrian",
+            "x0": 972,
+            "y0": 533,
+            "x1": 987,
+            "y1": 587,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "d4358187-ec83-4e9d-a4e8-8fa0e339847e",
+            "identity": "rider",
+            "x0": 710,
+            "y0": 533,
+            "x1": 745,
+            "y1": 579,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": [
+                {
+                    "identity": "scooter",
+                    "x0": 700,
+                    "y0": 546,
+                    "x1": 749,
+                    "y1": 584,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "occluded>10"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "9e67d4e8-57e1-458a-b433-e615044cdc78",
+            "identity": "pedestrian",
+            "x0": 12,
+            "y0": 507,
+            "x1": 109,
+            "y1": 787,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "17b36af4-b8da-4b29-9981-5953792145d0",
+            "identity": "pedestrian",
+            "x0": 781,
+            "y0": 481,
+            "x1": 938,
+            "y1": 828,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "67aa6472-d988-40ce-8d22-0374b6849afb",
+            "identity": "person-group-far-away",
+            "x0": 596,
+            "y0": 555,
+            "x1": 605,
+            "y1": 588,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

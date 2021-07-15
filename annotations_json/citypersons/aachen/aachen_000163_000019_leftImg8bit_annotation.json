@@ -1,0 +1,48 @@
+{
+    "im_name": "aachen_000163_000019_leftImg8bit.png",
+    "city_name": "aachen",
+    "im_width": 2048,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "e4e33495-baf0-4386-b321-97d3249cba59",
+            "identity": "Pedestrian",
+            "x0": 197,
+            "y0": 354,
+            "x1": 260,
+            "y1": 507,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "1e23d95c-3eba-4952-b9a2-9821800ae83f",
+            "identity": "Pedestrian",
+            "x0": 673,
+            "y0": 400,
+            "x1": 698,
+            "y1": 461,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "81350451-6399-4064-84f7-1441b480e97c",
+            "identity": "Ignore",
+            "x0": 2030,
+            "y0": 309,
+            "x1": 2046,
+            "y1": 361,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

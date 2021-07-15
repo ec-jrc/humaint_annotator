@@ -1,0 +1,216 @@
+{
+    "im_name": "budapest_00972.png",
+    "city_name": "budapest",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "5ce42ecd-8cbc-451e-b1eb-7456fab7c978",
+            "identity": "person-group-far-away",
+            "x0": 837,
+            "y0": 560,
+            "x1": 852,
+            "y1": 603,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "3e0a87f6-e277-459e-a33a-0615a88525e1",
+            "identity": "pedestrian",
+            "x0": 855,
+            "y0": 556,
+            "x1": 867,
+            "y1": 592,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "c3fe3064-44c8-4d03-82f3-7ee46fceb0bc",
+            "identity": "person-group-far-away",
+            "x0": 869,
+            "y0": 558,
+            "x1": 879,
+            "y1": 590,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "c3fd8b6f-561b-443c-87b3-1641a513f6a8",
+            "identity": "pedestrian",
+            "x0": 1098,
+            "y0": 553,
+            "x1": 1111,
+            "y1": 596,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "65820a04-5570-42d9-a956-7856b1791a01",
+            "identity": "pedestrian",
+            "x0": 1105,
+            "y0": 558,
+            "x1": 1119,
+            "y1": 604,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "ec023d7b-82d6-43b6-b35e-288854d22c15",
+            "identity": "pedestrian",
+            "x0": 1142,
+            "y0": 558,
+            "x1": 1153,
+            "y1": 590,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "afd0dcc7-1124-4bad-9331-85d42b94bd2b",
+            "identity": "pedestrian",
+            "x0": 1471,
+            "y0": 517,
+            "x1": 1515,
+            "y1": 645,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_8",
+            "uuid": "6385e469-53d3-4918-ab2e-0d7555e52649",
+            "identity": "pedestrian",
+            "x0": 1651,
+            "y0": 505,
+            "x1": 1707,
+            "y1": 635,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_9",
+            "uuid": "800c3bb1-5adc-4c8b-9cd3-7e90ffde7dc6",
+            "identity": "person-group-far-away",
+            "x0": 1635,
+            "y0": 368,
+            "x1": 1674,
+            "y1": 436,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_10",
+            "uuid": "ea0c8186-d4f4-453c-b645-5cf1b83220e1",
+            "identity": "person-group-far-away",
+            "x0": 1494,
+            "y0": 224,
+            "x1": 1544,
+            "y1": 285,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_11",
+            "uuid": "5363e840-8199-45dd-9f7b-f79f10f767ff",
+            "identity": "person-group-far-away",
+            "x0": 1781,
+            "y0": 501,
+            "x1": 1839,
+            "y1": 637,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_12",
+            "uuid": "9550263b-0b70-4d52-aa3e-792578636fad",
+            "identity": "pedestrian",
+            "x0": 1877,
+            "y0": 463,
+            "x1": 1920,
+            "y1": 679,
+            "attributes": {
+                "sandbox_tags": [
+                    "truncated>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_13",
+            "uuid": "f83b367b-9a30-4a4c-9233-ccc4a2e3cacd",
+            "identity": "rider",
+            "x0": 1000,
+            "y0": 524,
+            "x1": 1074,
+            "y1": 670,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "motorbike",
+                    "x0": 998,
+                    "y0": 571,
+                    "x1": 1079,
+                    "y1": 693,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_14",
+            "uuid": "0182587a-7d13-4f62-a7aa-01354d4fe7af",
+            "identity": "pedestrian",
+            "x0": 828,
+            "y0": 558,
+            "x1": 840,
+            "y1": 603,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

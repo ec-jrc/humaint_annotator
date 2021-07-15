@@ -1,0 +1,55 @@
+{
+    "im_name": "milano_01041.png",
+    "city_name": "milano",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "cf557467-637d-4d69-b0ac-fbe7fa8a56b8",
+            "identity": "pedestrian",
+            "x0": 1273,
+            "y0": 526,
+            "x1": 1297,
+            "y1": 590,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "022466c7-79a3-469b-a0c8-cc7846d2498b",
+            "identity": "person-group-far-away",
+            "x0": 736,
+            "y0": 544,
+            "x1": 745,
+            "y1": 570,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "10bb7b31-4f73-4ce7-a4e5-f469a06316dd",
+            "identity": "scooter-group",
+            "x0": 772,
+            "y0": 550,
+            "x1": 803,
+            "y1": 581,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

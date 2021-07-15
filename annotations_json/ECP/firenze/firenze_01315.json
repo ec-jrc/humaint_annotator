@@ -1,0 +1,150 @@
+{
+    "im_name": "firenze_01315.png",
+    "city_name": "firenze",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [
+        "lenseFlare"
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "3c5ca6dc-499c-46f5-85ce-e7160908cd54",
+            "identity": "pedestrian",
+            "x0": 1330,
+            "y0": 502,
+            "x1": 1392,
+            "y1": 657,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "91ed89b5-ef14-4df9-b350-37457b760151",
+            "identity": "pedestrian",
+            "x0": 1283,
+            "y0": 517,
+            "x1": 1339,
+            "y1": 657,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "a87f6bc9-fa24-4a6f-8a31-45d42307a506",
+            "identity": "pedestrian",
+            "x0": 1148,
+            "y0": 538,
+            "x1": 1166,
+            "y1": 589,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "a856ac22-0e68-452f-983a-b4f1cd6cd57a",
+            "identity": "pedestrian",
+            "x0": 1134,
+            "y0": 535,
+            "x1": 1150,
+            "y1": 588,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "2f1e770e-a8ed-4a81-a7d8-7ac2a9955969",
+            "identity": "pedestrian",
+            "x0": 1091,
+            "y0": 541,
+            "x1": 1104,
+            "y1": 578,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "e4ef0c61-a92d-4a0b-80ff-30689bc1470e",
+            "identity": "person-group-far-away",
+            "x0": 881,
+            "y0": 556,
+            "x1": 897,
+            "y1": 577,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "d5e64864-027a-4506-ac97-2e1de590c485",
+            "identity": "pedestrian",
+            "x0": 1796,
+            "y0": 539,
+            "x1": 1920,
+            "y1": 706,
+            "attributes": {
+                "sandbox_tags": [
+                    "truncated>40",
+                    "sitting-lying"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_8",
+            "uuid": "c928ac94-be77-44ac-852f-435ea3cfd279",
+            "identity": "pedestrian",
+            "x0": 1542,
+            "y0": 489,
+            "x1": 1609,
+            "y1": 661,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_9",
+            "uuid": "ac717cb7-1b2e-4512-b9a7-dd5e87d1f0e8",
+            "identity": "person-group-far-away",
+            "x0": 1049,
+            "y0": 548,
+            "x1": 1064,
+            "y1": 567,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_10",
+            "uuid": "b00617c9-e321-4ebc-92a0-b0fe713c68d4",
+            "identity": "person-group-far-away",
+            "x0": 918,
+            "y0": 552,
+            "x1": 938,
+            "y1": 568,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

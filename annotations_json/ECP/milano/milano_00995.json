@@ -1,0 +1,55 @@
+{
+    "im_name": "milano_00995.png",
+    "city_name": "milano",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "8bb75cec-c51e-46eb-adfd-5f154b894521",
+            "identity": "pedestrian",
+            "x0": 101,
+            "y0": 492,
+            "x1": 167,
+            "y1": 709,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "33cb6017-a2d7-47a2-8989-836effc0565d",
+            "identity": "pedestrian",
+            "x0": 171,
+            "y0": 517,
+            "x1": 226,
+            "y1": 695,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "8731c0c1-7c3f-4e5c-a7ae-b50fe923a3e5",
+            "identity": "pedestrian",
+            "x0": 348,
+            "y0": 528,
+            "x1": 385,
+            "y1": 649,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

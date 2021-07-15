@@ -1,0 +1,208 @@
+{
+    "im_name": "dresden_00821.png",
+    "city_name": "dresden",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "1b78ab64-4803-4256-9aca-dfa0ed9949b2",
+            "identity": "person-group-far-away",
+            "x0": 1721,
+            "y0": 519,
+            "x1": 1744,
+            "y1": 562,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "1393c322-cb29-487b-ba5a-3e890aa4d9cb",
+            "identity": "pedestrian",
+            "x0": 1750,
+            "y0": 518,
+            "x1": 1781,
+            "y1": 582,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "2a0553f5-3fe6-4a03-8c92-14cc000f2b69",
+            "identity": "pedestrian",
+            "x0": 1860,
+            "y0": 454,
+            "x1": 1920,
+            "y1": 690,
+            "attributes": {
+                "sandbox_tags": [
+                    "truncated>40",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "4fc7644b-ebe5-4f22-9f5b-0d8a4be2b3f0",
+            "identity": "pedestrian",
+            "x0": 1057,
+            "y0": 545,
+            "x1": 1071,
+            "y1": 581,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "401c3048-cb9a-4f8c-88d4-97ba5bde8748",
+            "identity": "rider",
+            "x0": 793,
+            "y0": 549,
+            "x1": 821,
+            "y1": 602,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 792,
+                    "y0": 573,
+                    "x1": 823,
+                    "y1": 604,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "a3cb20c8-817d-465a-8ce4-9b48488306b6",
+            "identity": "person-group-far-away",
+            "x0": 383,
+            "y0": 534,
+            "x1": 413,
+            "y1": 594,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "9cce0e91-16a8-4d2b-808a-be44b2797781",
+            "identity": "bicycle-group",
+            "x0": 213,
+            "y0": 587,
+            "x1": 261,
+            "y1": 626,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_8",
+            "uuid": "fe586b6a-8f7b-42f1-9719-1e6ee69d54da",
+            "identity": "rider",
+            "x0": 371,
+            "y0": 571,
+            "x1": 458,
+            "y1": 702,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "wheelchair",
+                    "x0": 378,
+                    "y0": 599,
+                    "x1": 493,
+                    "y1": 719,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_9",
+            "uuid": "1201a4d6-1bee-483b-9f7b-19b5b0d3dd0b",
+            "identity": "pedestrian",
+            "x0": 458,
+            "y0": 535,
+            "x1": 571,
+            "y1": 715,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_10",
+            "uuid": "e6cb0e42-f687-45c1-ab89-6905a3bfbe66",
+            "identity": "pedestrian",
+            "x0": 150,
+            "y0": 506,
+            "x1": 231,
+            "y1": 708,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_11",
+            "uuid": "e5b505c0-6cca-4a1e-a82d-e52616ec3b00",
+            "identity": "rider",
+            "x0": 32,
+            "y0": 573,
+            "x1": 143,
+            "y1": 707,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "wheelchair",
+                    "x0": 36,
+                    "y0": 598,
+                    "x1": 178,
+                    "y1": 731,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_12",
+            "uuid": "65409940-90c7-491b-baaf-5b880c08402c",
+            "identity": "pedestrian",
+            "x0": 129,
+            "y0": 502,
+            "x1": 241,
+            "y1": 729,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

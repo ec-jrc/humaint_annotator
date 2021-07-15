@@ -1,0 +1,91 @@
+{
+    "im_name": "szczecin_00388.png",
+    "city_name": "szczecin",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "8a1b81dd-057f-49a4-bb5a-b6c619775edb",
+            "identity": "pedestrian",
+            "x0": 316,
+            "y0": 544,
+            "x1": 335,
+            "y1": 597,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "4bbfce62-6878-4a35-8bb5-3d461cfb97f4",
+            "identity": "pedestrian",
+            "x0": 569,
+            "y0": 565,
+            "x1": 583,
+            "y1": 598,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "4f2835e3-d96b-4be1-9388-f3b95d3e17b7",
+            "identity": "person-group-far-away",
+            "x0": 616,
+            "y0": 581,
+            "x1": 623,
+            "y1": 600,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "dd66bb54-f468-43c0-9afd-300137369a84",
+            "identity": "pedestrian",
+            "x0": 609,
+            "y0": 579,
+            "x1": 616,
+            "y1": 600,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "c5a3aca1-9507-4017-97f3-e56f21de573b",
+            "identity": "pedestrian",
+            "x0": 1044,
+            "y0": 542,
+            "x1": 1072,
+            "y1": 624,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "4dd70d17-61af-48ae-9ca1-42bcabb92f5a",
+            "identity": "person-group-far-away",
+            "x0": 131,
+            "y0": 52,
+            "x1": 209,
+            "y1": 194,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

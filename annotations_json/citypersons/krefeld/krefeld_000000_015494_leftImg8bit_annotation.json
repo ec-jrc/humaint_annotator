@@ -1,0 +1,48 @@
+{
+    "im_name": "krefeld_000000_015494_leftImg8bit.png",
+    "city_name": "krefeld",
+    "im_width": 2048,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "e989c11b-cb33-4944-93ea-afd914738bad",
+            "identity": "Pedestrian",
+            "x0": 390,
+            "y0": 368,
+            "x1": 436,
+            "y1": 481,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "8825c96c-fa51-4c50-902e-dcca912e30fe",
+            "identity": "Ignore",
+            "x0": 1149,
+            "y0": 395,
+            "x1": 1160,
+            "y1": 436,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "12a3f2af-e780-4972-8413-4acae1a11a91",
+            "identity": "Ignore",
+            "x0": 1099,
+            "y0": 399,
+            "x1": 1106,
+            "y1": 409,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

@@ -1,0 +1,52 @@
+{
+    "im_name": "zagreb_00818.png",
+    "city_name": "zagreb",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [
+        "rainy"
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "137a29eb-7870-47af-99c8-cc026b486a9b",
+            "identity": "pedestrian",
+            "x0": 295,
+            "y0": 563,
+            "x1": 324,
+            "y1": 642,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "c63f65f1-bb1e-4caa-a2c4-c57dfb81bf4b",
+            "identity": "pedestrian",
+            "x0": 334,
+            "y0": 564,
+            "x1": 364,
+            "y1": 642,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "a7f453d3-8c11-4b5d-8285-0e3602062ad2",
+            "identity": "pedestrian",
+            "x0": 1161,
+            "y0": 543,
+            "x1": 1176,
+            "y1": 584,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

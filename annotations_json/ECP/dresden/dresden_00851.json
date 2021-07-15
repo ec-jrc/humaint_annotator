@@ -1,0 +1,46 @@
+{
+    "im_name": "dresden_00851.png",
+    "city_name": "dresden",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "771ed60d-eeec-44e6-a06b-8ad7ef84214b",
+            "identity": "rider",
+            "x0": 1362,
+            "y0": 546,
+            "x1": 1371,
+            "y1": 568,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 1362,
+                    "y0": 556,
+                    "x1": 1371,
+                    "y1": 571,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "adb3741f-15a2-4061-aaf8-8d7c2f77b4f9",
+            "identity": "pedestrian",
+            "x0": 368,
+            "y0": 505,
+            "x1": 402,
+            "y1": 571,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

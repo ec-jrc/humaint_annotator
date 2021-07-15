@@ -1,0 +1,78 @@
+{
+    "im_name": "brno_01024.png",
+    "city_name": "brno",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "579a4cfa-658e-488b-872e-9d7f3fd817b6",
+            "identity": "pedestrian",
+            "x0": 676,
+            "y0": 524,
+            "x1": 713,
+            "y1": 629,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "e7cd4305-8bf6-413f-bcd2-eb7ee31566bf",
+            "identity": "pedestrian",
+            "x0": 957,
+            "y0": 531,
+            "x1": 982,
+            "y1": 602,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "99a8fd01-2fcc-41a5-98d0-622ee6f4fb12",
+            "identity": "pedestrian",
+            "x0": 935,
+            "y0": 532,
+            "x1": 954,
+            "y1": 602,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "c75f5409-7d98-47d2-b05c-2c635f6ee50f",
+            "identity": "pedestrian",
+            "x0": 970,
+            "y0": 529,
+            "x1": 991,
+            "y1": 602,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "6fa6a4f4-56fc-433d-bdbd-3dff0b9f53c4",
+            "identity": "buggy-group",
+            "x0": 927,
+            "y0": 563,
+            "x1": 954,
+            "y1": 600,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

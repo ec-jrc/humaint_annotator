@@ -1,0 +1,74 @@
+{
+    "im_name": "strasbourg_000001_048605_leftImg8bit.png",
+    "city_name": "strasbourg",
+    "im_width": 2048,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "736ecf76-d5a9-4cd2-bb33-36e9c6fe1068",
+            "identity": "Pedestrian",
+            "x0": 1275,
+            "y0": 388,
+            "x1": 1283,
+            "y1": 408,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "8749c9ef-86fb-4f7f-bfd3-7d06fdfceab2",
+            "identity": "Rider",
+            "x0": 1322,
+            "y0": 351,
+            "x1": 1360,
+            "y1": 443,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "0e3cfff7-96e7-4b32-a4cb-84d5a3025ebd",
+            "identity": "Rider",
+            "x0": 1006,
+            "y0": 343,
+            "x1": 1049,
+            "y1": 446,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "1d8c93e9-01ef-4bd4-8bad-ed82beefb89b",
+            "identity": "Ignore",
+            "x0": 234,
+            "y0": 324,
+            "x1": 251,
+            "y1": 340,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "fd21421a-3200-4b90-81eb-609b8cde04e5",
+            "identity": "Ignore",
+            "x0": 1500,
+            "y0": 306,
+            "x1": 1516,
+            "y1": 321,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

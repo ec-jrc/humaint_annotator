@@ -1,0 +1,48 @@
+{
+    "im_name": "erfurt_000031_000019_leftImg8bit.png",
+    "city_name": "erfurt",
+    "im_width": 2048,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "4e72e17e-cbba-47d3-b43f-a0290fa6b03f",
+            "identity": "Pedestrian",
+            "x0": 74,
+            "y0": 451,
+            "x1": 107,
+            "y1": 532,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "e97eae0c-3cbe-48a8-a830-6d873ec4d4a9",
+            "identity": "Ignore",
+            "x0": 796,
+            "y0": 339,
+            "x1": 809,
+            "y1": 361,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "182676de-5fcf-4f40-aca2-cd509796d870",
+            "identity": "Ignore",
+            "x0": 333,
+            "y0": 443,
+            "x1": 352,
+            "y1": 473,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

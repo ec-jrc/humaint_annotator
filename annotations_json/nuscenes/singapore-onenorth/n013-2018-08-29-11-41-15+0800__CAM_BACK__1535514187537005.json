@@ -1,0 +1,149 @@
+{
+    "im_name": "samples/CAM_BACK/n013-2018-08-29-11-41-15+0800__CAM_BACK__1535514187537005.jpg",
+    "city_name": "singapore-onenorth",
+    "im_width": 1600,
+    "im_height": 900,
+    "sandbox_tags": [
+        {
+            "original_img_token": "4cabfd81faf64f4fa2711c449d6e15e8"
+        }
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "ef5a3d79-903b-4a43-9a3a-f492365559f3",
+            "identity": "movable_object.debris",
+            "x0": 1177,
+            "y0": 508,
+            "x1": 1309,
+            "y1": 620,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sandbox_tags": [
+                {
+                    "original_agent_token": "1aabe7ebd6734d61a447645b21d21c26"
+                }
+            ],
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "9f8b9df0-3c80-4950-b6de-f3467987838e",
+            "identity": "human.pedestrian.adult",
+            "x0": 721,
+            "y0": 473,
+            "x1": 730,
+            "y1": 493,
+            "attributes": {
+                "sandbox_tags": [
+                    "pedestrian.moving"
+                ]
+            },
+            "sandbox_tags": [
+                {
+                    "original_agent_token": "2920cfd081ed448fac935706f99b645b"
+                }
+            ],
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "95c2c221-b4c4-437d-bd7b-74a990bcc3e4",
+            "identity": "vehicle.bicycle",
+            "x0": 1360,
+            "y0": 517,
+            "x1": 1518,
+            "y1": 659,
+            "attributes": {
+                "sandbox_tags": [
+                    "cycle.without_rider"
+                ]
+            },
+            "sandbox_tags": [
+                {
+                    "original_agent_token": "34d166fac1f645d3a4f2aa7075b63cb2"
+                }
+            ],
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "5a25e4e8-830e-43af-94a5-c2f3cff8e3e6",
+            "identity": "human.pedestrian.adult",
+            "x0": 965,
+            "y0": 461,
+            "x1": 974,
+            "y1": 488,
+            "attributes": {
+                "sandbox_tags": [
+                    "pedestrian.moving"
+                ]
+            },
+            "sandbox_tags": [
+                {
+                    "original_agent_token": "452a6c33bd3f4f4e8006b500f7d40463"
+                }
+            ],
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "96fe1570-70a6-478a-a32f-270c29210035",
+            "identity": "movable_object.barrier",
+            "x0": 239,
+            "y0": 498,
+            "x1": 291,
+            "y1": 535,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sandbox_tags": [
+                {
+                    "original_agent_token": "8b8be91676584b5798fa8c5df5a3e274"
+                }
+            ],
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "9ef5a5bf-3968-46aa-bc14-ff4d9849f363",
+            "identity": "human.pedestrian.adult",
+            "x0": 333,
+            "y0": 466,
+            "x1": 340,
+            "y1": 483,
+            "attributes": {
+                "sandbox_tags": [
+                    "pedestrian.standing"
+                ]
+            },
+            "sandbox_tags": [
+                {
+                    "original_agent_token": "94c2af2999c94608b57e0d0b326c9f92"
+                }
+            ],
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "39308aff-37ca-4201-bf7d-29429ae5f2d5",
+            "identity": "vehicle.car",
+            "x0": 821,
+            "y0": 474,
+            "x1": 918,
+            "y1": 553,
+            "attributes": {
+                "sandbox_tags": [
+                    "vehicle.moving"
+                ]
+            },
+            "sandbox_tags": [
+                {
+                    "original_agent_token": "d3e4c5d38df94b5db61c2cef200feadc"
+                }
+            ],
+            "sub_entities": []
+        }
+    ]
+}

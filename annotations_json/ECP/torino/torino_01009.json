@@ -1,0 +1,82 @@
+{
+    "im_name": "torino_01009.png",
+    "city_name": "torino",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "37137e63-1cb2-4e26-9e9a-b1ab2a4a497d",
+            "identity": "scooter-group",
+            "x0": 358,
+            "y0": 572,
+            "x1": 444,
+            "y1": 648,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "f5f2a8f3-7124-472e-8704-60c8e559f16d",
+            "identity": "motorbike-group",
+            "x0": 1184,
+            "y0": 534,
+            "x1": 1278,
+            "y1": 648,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "082d279c-0ff1-4009-86d8-5b0a8c561fbb",
+            "identity": "person-group-far-away",
+            "x0": 914,
+            "y0": 548,
+            "x1": 923,
+            "y1": 575,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "65e2a2d2-8716-46da-a1ac-d343a2dfd2da",
+            "identity": "person-group-far-away",
+            "x0": 991,
+            "y0": 542,
+            "x1": 1001,
+            "y1": 571,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "a8d82ffd-cefe-4758-aada-23f7a2c277fe",
+            "identity": "person-group-far-away",
+            "x0": 973,
+            "y0": 545,
+            "x1": 989,
+            "y1": 576,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

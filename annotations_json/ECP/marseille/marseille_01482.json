@@ -1,0 +1,111 @@
+{
+    "im_name": "marseille_01482.png",
+    "city_name": "marseille",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "ba215b97-837c-47ed-a57a-800bca7f0b5d",
+            "identity": "person-group-far-away",
+            "x0": 708,
+            "y0": 431,
+            "x1": 718,
+            "y1": 463,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "75a1f10e-5eba-49e3-9a36-d33e71146580",
+            "identity": "person-group-far-away",
+            "x0": 691,
+            "y0": 445,
+            "x1": 702,
+            "y1": 469,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "3bca4990-aea1-40da-97d3-a6064e660d2b",
+            "identity": "rider",
+            "x0": 1156,
+            "y0": 391,
+            "x1": 1248,
+            "y1": 601,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 1160,
+                    "y0": 486,
+                    "x1": 1262,
+                    "y1": 635,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "fa194da0-212b-4a6f-ad5d-0494e705526e",
+            "identity": "rider",
+            "x0": 1227,
+            "y0": 361,
+            "x1": 1359,
+            "y1": 628,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 1226,
+                    "y0": 490,
+                    "x1": 1369,
+                    "y1": 687,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "15abef41-56ac-4be9-a139-d9d13d6e6999",
+            "identity": "pedestrian",
+            "x0": 1731,
+            "y0": 454,
+            "x1": 1753,
+            "y1": 499,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "c73a9d0b-7737-4ca0-8e85-ef419c046dd8",
+            "identity": "pedestrian",
+            "x0": 1827,
+            "y0": 420,
+            "x1": 1864,
+            "y1": 503,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

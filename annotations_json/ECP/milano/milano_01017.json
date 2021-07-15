@@ -1,0 +1,39 @@
+{
+    "im_name": "milano_01017.png",
+    "city_name": "milano",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "bc1e6d6f-c418-4dcd-a482-ea5005ac1d56",
+            "identity": "pedestrian",
+            "x0": 1043,
+            "y0": 530,
+            "x1": 1069,
+            "y1": 596,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "6919ddee-a4f1-4db4-bf26-912bd75dd416",
+            "identity": "motorbike-group",
+            "x0": 1794,
+            "y0": 509,
+            "x1": 1920,
+            "y1": 669,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

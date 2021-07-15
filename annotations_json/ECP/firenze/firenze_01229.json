@@ -1,0 +1,92 @@
+{
+    "im_name": "firenze_01229.png",
+    "city_name": "firenze",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "6bb0dedf-6006-4af7-8c1d-b9c8e49715c2",
+            "identity": "pedestrian",
+            "x0": 321,
+            "y0": 543,
+            "x1": 350,
+            "y1": 647,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "a2a6cf40-0612-4700-9397-d0fd1fcf107e",
+            "identity": "rider",
+            "x0": 654,
+            "y0": 518,
+            "x1": 744,
+            "y1": 689,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "scooter",
+                    "x0": 639,
+                    "y0": 517,
+                    "x1": 759,
+                    "y1": 735,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                },
+                {
+                    "identity": "co-rider",
+                    "x0": 689,
+                    "y0": 516,
+                    "x1": 754,
+                    "y1": 688,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "occluded>40"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "1101efc5-df35-4eb2-ac22-809e16378c8c",
+            "identity": "pedestrian",
+            "x0": 1098,
+            "y0": 530,
+            "x1": 1116,
+            "y1": 599,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "6336665f-c219-4846-8720-2be047a946a6",
+            "identity": "pedestrian",
+            "x0": 1116,
+            "y0": 527,
+            "x1": 1141,
+            "y1": 603,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

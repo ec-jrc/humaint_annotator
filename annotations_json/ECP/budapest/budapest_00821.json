@@ -1,0 +1,154 @@
+{
+    "im_name": "budapest_00821.png",
+    "city_name": "budapest",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "fd656058-be83-4f07-8d7a-93d880274b70",
+            "identity": "pedestrian",
+            "x0": 1440,
+            "y0": 529,
+            "x1": 1460,
+            "y1": 592,
+            "attributes": {
+                "sandbox_tags": [
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "96c6ab82-f4f5-4a82-bdb8-9a760a10c271",
+            "identity": "person-group-far-away",
+            "x0": 1482,
+            "y0": 528,
+            "x1": 1523,
+            "y1": 609,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "87e976c3-86b3-43fa-b9b3-2c5c0cf5453a",
+            "identity": "pedestrian",
+            "x0": 1333,
+            "y0": 533,
+            "x1": 1371,
+            "y1": 634,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "673be139-40c5-436c-9a43-21fe42f3170b",
+            "identity": "pedestrian",
+            "x0": 1264,
+            "y0": 542,
+            "x1": 1289,
+            "y1": 630,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "91d4ae1c-9278-4fd6-8582-08782235b92a",
+            "identity": "rider+vehicle-group-far-away",
+            "x0": 1020,
+            "y0": 564,
+            "x1": 1029,
+            "y1": 583,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "096fd089-b215-46c4-aa3d-36e7bfe75e91",
+            "identity": "person-group-far-away",
+            "x0": 22,
+            "y0": 563,
+            "x1": 89,
+            "y1": 690,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "6883194d-a957-4e28-a781-68cde4f8e0db",
+            "identity": "rider",
+            "x0": 912,
+            "y0": 559,
+            "x1": 924,
+            "y1": 586,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "scooter",
+                    "x0": 912,
+                    "y0": 570,
+                    "x1": 924,
+                    "y1": 590,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_8",
+            "uuid": "f16ec8fb-2f92-422a-8ce5-959b85f659a6",
+            "identity": "person-group-far-away",
+            "x0": 1377,
+            "y0": 545,
+            "x1": 1408,
+            "y1": 584,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_9",
+            "uuid": "d7c7a4a4-d8a7-4d7d-beca-08d5ebe514cd",
+            "identity": "pedestrian",
+            "x0": 500,
+            "y0": 567,
+            "x1": 517,
+            "y1": 615,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_10",
+            "uuid": "a89000a2-677a-413f-bcbb-a88b75805f93",
+            "identity": "pedestrian",
+            "x0": 1420,
+            "y0": 536,
+            "x1": 1440,
+            "y1": 590,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

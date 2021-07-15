@@ -1,0 +1,53 @@
+{
+    "im_name": "ljubljana_01053.png",
+    "city_name": "ljubljana",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "388465a8-2e95-4b95-a308-6486b64cde23",
+            "identity": "pedestrian",
+            "x0": 1821,
+            "y0": 428,
+            "x1": 1920,
+            "y1": 739,
+            "attributes": {
+                "sandbox_tags": [
+                    "truncated>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "bfabb335-9664-492b-a704-5fa965860e76",
+            "identity": "pedestrian",
+            "x0": 393,
+            "y0": 535,
+            "x1": 415,
+            "y1": 615,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "ec74d343-e53c-4e53-a95a-46ffa991ab17",
+            "identity": "person-group-far-away",
+            "x0": 417,
+            "y0": 540,
+            "x1": 430,
+            "y1": 605,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

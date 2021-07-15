@@ -1,0 +1,98 @@
+{
+    "im_name": "torino_01045.png",
+    "city_name": "torino",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "a73abec9-f409-4f82-859e-0a648b395bd9",
+            "identity": "person-group-far-away",
+            "x0": 1892,
+            "y0": 516,
+            "x1": 1920,
+            "y1": 615,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "6dc02e0d-db01-43fa-a4bb-2d84025facab",
+            "identity": "pedestrian",
+            "x0": 1369,
+            "y0": 540,
+            "x1": 1385,
+            "y1": 581,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "e83e2659-7a24-4895-a116-d4d8a92cca79",
+            "identity": "scooter-group",
+            "x0": 1334,
+            "y0": 552,
+            "x1": 1350,
+            "y1": 579,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "2e8d3baa-ed7b-401c-bdd3-a3fbde1fff91",
+            "identity": "person-group-far-away",
+            "x0": 1310,
+            "y0": 546,
+            "x1": 1322,
+            "y1": 582,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "aea7bdcb-7024-4b63-acfe-566ac97f1b99",
+            "identity": "scooter-group",
+            "x0": 1223,
+            "y0": 548,
+            "x1": 1311,
+            "y1": 607,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "19c56074-8542-4a07-bcf5-6e2b005d5cc4",
+            "identity": "rider",
+            "x0": 1006,
+            "y0": 550,
+            "x1": 1015,
+            "y1": 575,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 1006,
+                    "y0": 558,
+                    "x1": 1015,
+                    "y1": 578,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,145 @@
+{
+    "im_name": "bologna_01270.png",
+    "city_name": "bologna",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "f771a585-8abb-4783-9b2b-13bc6daff700",
+            "identity": "pedestrian",
+            "x0": 1462,
+            "y0": 544,
+            "x1": 1515,
+            "y1": 677,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "3e336755-7e94-4cd7-8393-241549694032",
+            "identity": "rider",
+            "x0": 1237,
+            "y0": 521,
+            "x1": 1319,
+            "y1": 719,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 1237,
+                    "y0": 594,
+                    "x1": 1321,
+                    "y1": 747,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "328c5f0c-217b-4ffc-9310-6a592c63a873",
+            "identity": "person-group-far-away",
+            "x0": 1073,
+            "y0": 582,
+            "x1": 1086,
+            "y1": 632,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "53529cab-a56f-493c-8b37-e52cf8c819ac",
+            "identity": "scooter-group",
+            "x0": 988,
+            "y0": 573,
+            "x1": 1042,
+            "y1": 649,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "94ca4910-54d2-4096-bb22-e633fae0960d",
+            "identity": "scooter-group",
+            "x0": 896,
+            "y0": 577,
+            "x1": 947,
+            "y1": 659,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "abb418e0-e4b4-4480-9d0e-73d96fed9e70",
+            "identity": "pedestrian",
+            "x0": 768,
+            "y0": 565,
+            "x1": 799,
+            "y1": 646,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "9c2d08e3-e12a-40d7-a995-7ce370a70e33",
+            "identity": "pedestrian",
+            "x0": 792,
+            "y0": 568,
+            "x1": 819,
+            "y1": 652,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_8",
+            "uuid": "c4065b37-e587-4a45-831b-fdc29375c3d2",
+            "identity": "person-group-far-away",
+            "x0": 450,
+            "y0": 562,
+            "x1": 474,
+            "y1": 663,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction",
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_9",
+            "uuid": "f19e00b8-564e-4747-a09d-741386333378",
+            "identity": "pedestrian",
+            "x0": 459,
+            "y0": 550,
+            "x1": 504,
+            "y1": 675,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

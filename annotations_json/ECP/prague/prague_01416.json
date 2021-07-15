@@ -1,0 +1,80 @@
+{
+    "im_name": "prague_01416.png",
+    "city_name": "prague",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "5fd4554b-3dd3-44c2-b768-0329518b8e98",
+            "identity": "pedestrian",
+            "x0": 1177,
+            "y0": 522,
+            "x1": 1197,
+            "y1": 588,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "4a03174e-1401-4a76-aa36-a157d3871a2f",
+            "identity": "pedestrian",
+            "x0": 447,
+            "y0": 547,
+            "x1": 466,
+            "y1": 592,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "b5bc976f-3136-4e42-931b-32cdb09504ae",
+            "identity": "pedestrian",
+            "x0": 659,
+            "y0": 546,
+            "x1": 671,
+            "y1": 580,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "be085c15-2838-4514-944a-d5472a2ea413",
+            "identity": "pedestrian",
+            "x0": 624,
+            "y0": 546,
+            "x1": 636,
+            "y1": 583,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "39b3e6b9-d747-4e30-a2ed-8c63f165c589",
+            "identity": "pedestrian",
+            "x0": 465,
+            "y0": 545,
+            "x1": 484,
+            "y1": 592,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

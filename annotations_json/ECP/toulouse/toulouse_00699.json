@@ -1,0 +1,78 @@
+{
+    "im_name": "toulouse_00699.png",
+    "city_name": "toulouse",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "9707fe9e-c535-4fdd-873c-da74eba5f4b1",
+            "identity": "bicycle-group",
+            "x0": 1197,
+            "y0": 430,
+            "x1": 1307,
+            "y1": 597,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "3d8cbcaa-ce89-4bb8-99f9-47bf60eb5207",
+            "identity": "person-group-far-away",
+            "x0": 1017,
+            "y0": 399,
+            "x1": 1046,
+            "y1": 463,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "df07076a-da4c-405f-8f8b-d518f68dc7c7",
+            "identity": "bicycle-group",
+            "x0": 1020,
+            "y0": 417,
+            "x1": 1163,
+            "y1": 498,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "fd0d7bc6-05ee-4ab7-a345-0c1d7fe2ae41",
+            "identity": "pedestrian",
+            "x0": 1136,
+            "y0": 395,
+            "x1": 1172,
+            "y1": 484,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "497bb5b5-43c9-4a36-bbd6-216e78e870d2",
+            "identity": "pedestrian",
+            "x0": 1193,
+            "y0": 396,
+            "x1": 1233,
+            "y1": 503,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

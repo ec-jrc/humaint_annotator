@@ -1,0 +1,69 @@
+{
+    "im_name": "prague_01412.png",
+    "city_name": "prague",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "2177ff60-d8df-42e8-a448-609023ad086b",
+            "identity": "pedestrian",
+            "x0": 1620,
+            "y0": 538,
+            "x1": 1669,
+            "y1": 680,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "f9cf2b27-d71d-4442-bb2c-b2bf46ac98d8",
+            "identity": "pedestrian",
+            "x0": 1109,
+            "y0": 551,
+            "x1": 1134,
+            "y1": 624,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "dc25459d-d73c-450d-a27d-834e9955c44e",
+            "identity": "pedestrian",
+            "x0": 1074,
+            "y0": 549,
+            "x1": 1098,
+            "y1": 616,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "7036c95d-fcb3-400b-87ab-d59bd129750c",
+            "identity": "pedestrian",
+            "x0": 1038,
+            "y0": 543,
+            "x1": 1064,
+            "y1": 616,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

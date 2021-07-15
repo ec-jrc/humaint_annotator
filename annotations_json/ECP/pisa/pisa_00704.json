@@ -1,0 +1,87 @@
+{
+    "im_name": "pisa_00704.png",
+    "city_name": "pisa",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "ba04f38c-5fa3-44bf-b352-eca80f6cfc5b",
+            "identity": "rider",
+            "x0": 906,
+            "y0": 538,
+            "x1": 918,
+            "y1": 563,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "motorbike",
+                    "x0": 906,
+                    "y0": 548,
+                    "x1": 918,
+                    "y1": 569,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "occluded>10"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "00e5970b-6584-46c3-a2f0-9653c2ec7518",
+            "identity": "pedestrian",
+            "x0": 1030,
+            "y0": 536,
+            "x1": 1041,
+            "y1": 565,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "63f94b68-2c5b-41c9-827d-b81b0409bb9c",
+            "identity": "pedestrian",
+            "x0": 1050,
+            "y0": 537,
+            "x1": 1060,
+            "y1": 567,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "fc024247-66f8-4d21-a563-700c587c6972",
+            "identity": "rider",
+            "x0": 1016,
+            "y0": 534,
+            "x1": 1029,
+            "y1": 565,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 1016,
+                    "y0": 546,
+                    "x1": 1029,
+                    "y1": 574,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        }
+    ]
+}

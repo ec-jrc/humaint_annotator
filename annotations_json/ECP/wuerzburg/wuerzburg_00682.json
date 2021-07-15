@@ -1,0 +1,93 @@
+{
+    "im_name": "wuerzburg_00682.png",
+    "city_name": "wuerzburg",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "8c4db1e0-df26-4354-92b0-c80cef59eab2",
+            "identity": "scooter-group",
+            "x0": 312,
+            "y0": 552,
+            "x1": 385,
+            "y1": 608,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "10e57dc2-515a-4396-972f-03ec97e1bb4c",
+            "identity": "motorbike-group",
+            "x0": 396,
+            "y0": 550,
+            "x1": 469,
+            "y1": 599,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "6408ea41-626a-46c3-8e6c-9664bae04984",
+            "identity": "pedestrian",
+            "x0": 723,
+            "y0": 495,
+            "x1": 736,
+            "y1": 529,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "931e437a-ac18-4d0e-8964-4e28efe3d810",
+            "identity": "person-group-far-away",
+            "x0": 766,
+            "y0": 479,
+            "x1": 774,
+            "y1": 503,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "d8a48188-d8e0-4ee8-a03a-4bae7ac9bd80",
+            "identity": "bicycle-group",
+            "x0": 1303,
+            "y0": 544,
+            "x1": 1343,
+            "y1": 578,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "a3ace03f-c40c-461d-8cd2-b666aa3bc379",
+            "identity": "person-group-far-away",
+            "x0": 1142,
+            "y0": 504,
+            "x1": 1155,
+            "y1": 536,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

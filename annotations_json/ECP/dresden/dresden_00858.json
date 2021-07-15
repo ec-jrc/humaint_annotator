@@ -1,0 +1,76 @@
+{
+    "im_name": "dresden_00858.png",
+    "city_name": "dresden",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "3d62a87c-4b22-41c6-8cbb-88f162fdc4b3",
+            "identity": "pedestrian",
+            "x0": 1204,
+            "y0": 545,
+            "x1": 1223,
+            "y1": 594,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "faa05acb-10b2-490e-961b-cf3659b082f2",
+            "identity": "pedestrian",
+            "x0": 1171,
+            "y0": 526,
+            "x1": 1188,
+            "y1": 583,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "3537176e-5dfc-4727-8be0-09334689c069",
+            "identity": "pedestrian",
+            "x0": 1191,
+            "y0": 530,
+            "x1": 1211,
+            "y1": 587,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "5fdbc040-28e3-4855-a14a-f67377499286",
+            "identity": "rider",
+            "x0": 690,
+            "y0": 532,
+            "x1": 710,
+            "y1": 577,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 690,
+                    "y0": 551,
+                    "x1": 710,
+                    "y1": 583,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        }
+    ]
+}

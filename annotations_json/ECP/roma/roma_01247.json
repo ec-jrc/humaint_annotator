@@ -1,0 +1,148 @@
+{
+    "im_name": "roma_01247.png",
+    "city_name": "roma",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "15238687-80b2-4d7c-abf3-daf22204b21f",
+            "identity": "rider",
+            "x0": 735,
+            "y0": 533,
+            "x1": 756,
+            "y1": 581,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "scooter",
+                    "x0": 736,
+                    "y0": 544,
+                    "x1": 758,
+                    "y1": 586,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "89fbf672-cdec-47d7-a866-2b7e2fb5b1f4",
+            "identity": "rider",
+            "x0": 794,
+            "y0": 530,
+            "x1": 829,
+            "y1": 596,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80"
+                ]
+            },
+            "sub_entities": [
+                {
+                    "identity": "motorbike",
+                    "x0": 792,
+                    "y0": 547,
+                    "x1": 825,
+                    "y1": 610,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                },
+                {
+                    "identity": "co-rider",
+                    "x0": 790,
+                    "y0": 529,
+                    "x1": 830,
+                    "y1": 593,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "edb16bd5-5722-469b-b9f5-6bf028c1c60a",
+            "identity": "rider",
+            "x0": 829,
+            "y0": 533,
+            "x1": 865,
+            "y1": 612,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80"
+                ]
+            },
+            "sub_entities": [
+                {
+                    "identity": "motorbike",
+                    "x0": 831,
+                    "y0": 549,
+                    "x1": 869,
+                    "y1": 625,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                },
+                {
+                    "identity": "co-rider",
+                    "x0": 829,
+                    "y0": 532,
+                    "x1": 867,
+                    "y1": 613,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "bcad1fa5-d93c-4ec6-b4e9-d28d7e9fc4b0",
+            "identity": "rider",
+            "x0": 894,
+            "y0": 535,
+            "x1": 916,
+            "y1": 590,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80"
+                ]
+            },
+            "sub_entities": [
+                {
+                    "identity": "scooter",
+                    "x0": 891,
+                    "y0": 544,
+                    "x1": 916,
+                    "y1": 599,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "occluded>40"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "dfdaec2e-b065-487f-8489-330188b6c824",
+            "identity": "person-group-far-away",
+            "x0": 1279,
+            "y0": 241,
+            "x1": 1365,
+            "y1": 343,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

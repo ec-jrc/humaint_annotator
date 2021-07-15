@@ -1,0 +1,149 @@
+{
+    "im_name": "firenze_01172.png",
+    "city_name": "firenze",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "b3135a54-d4ba-4319-a787-a9f5a9305ee2",
+            "identity": "bicycle-group",
+            "x0": 458,
+            "y0": 572,
+            "x1": 585,
+            "y1": 646,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "a474eea9-b85d-4035-8681-04dd67731979",
+            "identity": "person-group-far-away",
+            "x0": 807,
+            "y0": 558,
+            "x1": 813,
+            "y1": 572,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "44740cd0-9d3e-4b17-80e6-76ee5e9443af",
+            "identity": "scooter-group",
+            "x0": 838,
+            "y0": 549,
+            "x1": 909,
+            "y1": 591,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "841a022f-c999-4c1d-8820-a4909c6d1ca6",
+            "identity": "bicycle-group",
+            "x0": 1028,
+            "y0": 557,
+            "x1": 1058,
+            "y1": 604,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "4e082307-de0d-47b0-8a59-2fb96de1e95f",
+            "identity": "pedestrian",
+            "x0": 1018,
+            "y0": 534,
+            "x1": 1037,
+            "y1": 605,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "2d352fe0-1b26-482a-826a-6f897185f5fc",
+            "identity": "pedestrian",
+            "x0": 1029,
+            "y0": 529,
+            "x1": 1056,
+            "y1": 617,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "ffbc69bc-9415-4c9c-83f3-651825ecf36d",
+            "identity": "pedestrian",
+            "x0": 1065,
+            "y0": 541,
+            "x1": 1089,
+            "y1": 613,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_8",
+            "uuid": "be55a532-1954-41e1-bd08-dafe96512f1b",
+            "identity": "pedestrian",
+            "x0": 1204,
+            "y0": 561,
+            "x1": 1247,
+            "y1": 629,
+            "attributes": {
+                "sandbox_tags": [
+                    "sitting-lying"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_9",
+            "uuid": "445990a3-7f56-4087-8cff-8fb59c07e5e3",
+            "identity": "pedestrian",
+            "x0": 1350,
+            "y0": 464,
+            "x1": 1470,
+            "y1": 765,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_10",
+            "uuid": "ad0e6a8c-7f6e-40b8-9261-6c1dbeee5532",
+            "identity": "pedestrian",
+            "x0": 1595,
+            "y0": 478,
+            "x1": 1708,
+            "y1": 749,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

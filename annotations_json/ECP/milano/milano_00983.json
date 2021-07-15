@@ -1,0 +1,65 @@
+{
+    "im_name": "milano_00983.png",
+    "city_name": "milano",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "1a4c6ffc-dca7-4811-9a77-2b6b472e349c",
+            "identity": "person-group-far-away",
+            "x0": 174,
+            "y0": 538,
+            "x1": 194,
+            "y1": 603,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "f987a57a-9605-4307-818f-bd5213108f12",
+            "identity": "pedestrian",
+            "x0": 697,
+            "y0": 522,
+            "x1": 737,
+            "y1": 641,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "097fcd79-8b24-4063-bc60-df60f6d201d6",
+            "identity": "bicycle-group",
+            "x0": 684,
+            "y0": 559,
+            "x1": 741,
+            "y1": 604,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "a23eb192-a05c-4c09-a6e7-0b5364c43987",
+            "identity": "pedestrian",
+            "x0": 852,
+            "y0": 527,
+            "x1": 914,
+            "y1": 640,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

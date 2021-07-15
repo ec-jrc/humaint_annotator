@@ -1,0 +1,78 @@
+{
+    "im_name": "ljubljana_00933.png",
+    "city_name": "ljubljana",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "67b63835-d67a-4318-b587-6b3d5de03d3d",
+            "identity": "pedestrian",
+            "x0": 1476,
+            "y0": 532,
+            "x1": 1505,
+            "y1": 628,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "c42427ab-7ce0-4488-98e0-dbc807b0b17c",
+            "identity": "pedestrian",
+            "x0": 1535,
+            "y0": 520,
+            "x1": 1565,
+            "y1": 631,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "78d7aea3-d04a-44fc-9e07-410b367c27cd",
+            "identity": "pedestrian",
+            "x0": 1426,
+            "y0": 519,
+            "x1": 1452,
+            "y1": 628,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "420fe335-b924-463f-8434-b4ea998c25cf",
+            "identity": "pedestrian",
+            "x0": 1435,
+            "y0": 520,
+            "x1": 1469,
+            "y1": 629,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "94c42d11-3950-4e17-9715-7e5a689158fe",
+            "identity": "pedestrian",
+            "x0": 848,
+            "y0": 555,
+            "x1": 865,
+            "y1": 597,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

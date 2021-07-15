@@ -1,0 +1,93 @@
+{
+    "im_name": "wuerzburg_00673.png",
+    "city_name": "wuerzburg",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "3fd6a974-a97f-45dd-af34-5f7cf24e9f95",
+            "identity": "pedestrian",
+            "x0": 805,
+            "y0": 535,
+            "x1": 820,
+            "y1": 577,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "c8e06a3a-1105-4a64-abe0-3b78ced07c3c",
+            "identity": "pedestrian",
+            "x0": 895,
+            "y0": 538,
+            "x1": 909,
+            "y1": 571,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "85654a90-7d17-4699-9f0e-5faf90073a7b",
+            "identity": "pedestrian",
+            "x0": 1302,
+            "y0": 505,
+            "x1": 1363,
+            "y1": 645,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "5384aec7-c436-48f8-b143-6492d9eb9f94",
+            "identity": "pedestrian",
+            "x0": 1354,
+            "y0": 518,
+            "x1": 1413,
+            "y1": 652,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "61d8ef46-8a8b-4239-98c8-1c1203d698bc",
+            "identity": "pedestrian",
+            "x0": 1458,
+            "y0": 495,
+            "x1": 1516,
+            "y1": 647,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "3f3eff1b-6185-4b2e-b1dc-4b27356cebb1",
+            "identity": "scooter-group",
+            "x0": 740,
+            "y0": 544,
+            "x1": 806,
+            "y1": 572,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

@@ -1,0 +1,82 @@
+{
+    "im_name": "prague_01360.png",
+    "city_name": "prague",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "c8956e5c-035c-4c56-bf75-5608099ca5b2",
+            "identity": "pedestrian",
+            "x0": 953,
+            "y0": 511,
+            "x1": 977,
+            "y1": 582,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "97ecd2fb-79bc-4a89-90bb-e70b3666ca10",
+            "identity": "pedestrian",
+            "x0": 1235,
+            "y0": 524,
+            "x1": 1246,
+            "y1": 552,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "0fb885ef-d522-4b19-9597-7f7f4f0089f0",
+            "identity": "pedestrian",
+            "x0": 1357,
+            "y0": 519,
+            "x1": 1378,
+            "y1": 572,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "aa2b8737-9feb-4c24-b054-d3f6ca226fd1",
+            "identity": "pedestrian",
+            "x0": 965,
+            "y0": 508,
+            "x1": 986,
+            "y1": 576,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "7aee0378-4ff0-4a12-a317-5b75fd78968a",
+            "identity": "person-group-far-away",
+            "x0": 175,
+            "y0": 486,
+            "x1": 204,
+            "y1": 587,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

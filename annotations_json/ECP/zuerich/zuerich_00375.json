@@ -1,0 +1,63 @@
+{
+    "im_name": "zuerich_00375.png",
+    "city_name": "zuerich",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "8879cf82-4a75-43b0-a7aa-fe9b81ee4936",
+            "identity": "pedestrian",
+            "x0": 211,
+            "y0": 391,
+            "x1": 297,
+            "y1": 628,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "be90cec8-3f6c-4985-a63c-4c7d74c8fb6a",
+            "identity": "pedestrian",
+            "x0": 323,
+            "y0": 390,
+            "x1": 406,
+            "y1": 627,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "c56e52ec-6f0b-423e-b6a8-a9ffc4807127",
+            "identity": "pedestrian",
+            "x0": 1046,
+            "y0": 423,
+            "x1": 1061,
+            "y1": 465,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "2c29d00c-1eda-409a-9aa8-072860104e6f",
+            "identity": "pedestrian",
+            "x0": 1755,
+            "y0": 334,
+            "x1": 1803,
+            "y1": 517,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

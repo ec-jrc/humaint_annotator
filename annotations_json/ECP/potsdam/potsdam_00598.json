@@ -1,0 +1,85 @@
+{
+    "im_name": "potsdam_00598.png",
+    "city_name": "potsdam",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "918b088a-fd12-4e79-9ded-2a2173e35c37",
+            "identity": "rider",
+            "x0": 986,
+            "y0": 556,
+            "x1": 997,
+            "y1": 578,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 986,
+                    "y0": 566,
+                    "x1": 997,
+                    "y1": 582,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "fcfe6e8a-bf4e-4626-a206-9bc2c620a973",
+            "identity": "rider",
+            "x0": 1256,
+            "y0": 507,
+            "x1": 1330,
+            "y1": 724,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 1250,
+                    "y0": 606,
+                    "x1": 1329,
+                    "y1": 765,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "occluded>40"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "e6a555e7-3cbb-41d7-9e08-ae454d52270b",
+            "identity": "rider",
+            "x0": 1200,
+            "y0": 490,
+            "x1": 1303,
+            "y1": 777,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 1200,
+                    "y0": 611,
+                    "x1": 1303,
+                    "y1": 807,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,176 @@
+{
+    "im_name": "berlin_00436.png",
+    "city_name": "berlin",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "5fcd3fa2-912f-4756-a706-ed82032bd4f4",
+            "identity": "rider",
+            "x0": 1209,
+            "y0": 490,
+            "x1": 1343,
+            "y1": 754,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 1209,
+                    "y0": 590,
+                    "x1": 1375,
+                    "y1": 807,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "b0655c35-827d-419d-b0c4-f67f0b6dbd62",
+            "identity": "pedestrian",
+            "x0": 933,
+            "y0": 557,
+            "x1": 955,
+            "y1": 616,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "4976acf9-df18-4e7c-a08d-a2fd04d3d9ae",
+            "identity": "pedestrian",
+            "x0": 980,
+            "y0": 546,
+            "x1": 1002,
+            "y1": 615,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "aa313221-6565-4d52-a0eb-3d33f896d3a9",
+            "identity": "pedestrian",
+            "x0": 996,
+            "y0": 550,
+            "x1": 1018,
+            "y1": 622,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "933acca7-e1f9-4be2-a70e-163db0cdae32",
+            "identity": "pedestrian",
+            "x0": 286,
+            "y0": 569,
+            "x1": 309,
+            "y1": 638,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "02ccf7e3-e189-48cd-9022-ce834033af6a",
+            "identity": "rider",
+            "x0": 254,
+            "y0": 579,
+            "x1": 273,
+            "y1": 624,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 245,
+                    "y0": 595,
+                    "x1": 290,
+                    "y1": 627,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "unsure_orientation"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "a22ad0c8-db26-4766-bae9-9d227cfbfdca",
+            "identity": "pedestrian",
+            "x0": 216,
+            "y0": 567,
+            "x1": 253,
+            "y1": 652,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_8",
+            "uuid": "53ebce8f-39f2-4655-abfb-9c33fdd0abae",
+            "identity": "rider",
+            "x0": 0,
+            "y0": 555,
+            "x1": 63,
+            "y1": 701,
+            "attributes": {
+                "sandbox_tags": [
+                    "truncated>10"
+                ]
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 0,
+                    "y0": 615,
+                    "x1": 63,
+                    "y1": 712,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "truncated>10"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_9",
+            "uuid": "3a4ef822-9d4d-47e2-82b3-98256bfcb0a7",
+            "identity": "pedestrian",
+            "x0": 303,
+            "y0": 573,
+            "x1": 326,
+            "y1": 637,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

@@ -1,0 +1,95 @@
+{
+    "im_name": "leipzig_00496.png",
+    "city_name": "leipzig",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [
+        "rainy"
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "282d0606-cbc3-44bc-b473-5fe344e04d5d",
+            "identity": "pedestrian",
+            "x0": 1361,
+            "y0": 511,
+            "x1": 1393,
+            "y1": 598,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "05ae21a2-e6fb-4f0d-b2b5-05bb7ce2b68f",
+            "identity": "bicycle-group",
+            "x0": 1330,
+            "y0": 544,
+            "x1": 1522,
+            "y1": 665,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "1d186cba-1afb-44b2-951f-c2dfbffcd479",
+            "identity": "bicycle-group",
+            "x0": 1251,
+            "y0": 549,
+            "x1": 1275,
+            "y1": 622,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "b86bf822-537e-4d2b-977a-807411614fd2",
+            "identity": "person-group-far-away",
+            "x0": 1398,
+            "y0": 495,
+            "x1": 1441,
+            "y1": 586,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "8390dac3-aaa6-4559-a148-efb5d69624aa",
+            "identity": "person-group-far-away",
+            "x0": 1584,
+            "y0": 488,
+            "x1": 1605,
+            "y1": 544,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "b532a9c4-fa74-4c2e-b7c4-e2ca09542c1a",
+            "identity": "person-group-far-away",
+            "x0": 1268,
+            "y0": 503,
+            "x1": 1304,
+            "y1": 615,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

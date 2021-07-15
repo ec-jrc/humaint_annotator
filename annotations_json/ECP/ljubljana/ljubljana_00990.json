@@ -1,0 +1,145 @@
+{
+    "im_name": "ljubljana_00990.png",
+    "city_name": "ljubljana",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "ac37545c-c81a-4d0d-8feb-8ee35943f7ec",
+            "identity": "pedestrian",
+            "x0": 634,
+            "y0": 541,
+            "x1": 687,
+            "y1": 634,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "96c14311-ccd2-4336-b786-40cf4da79d40",
+            "identity": "pedestrian",
+            "x0": 626,
+            "y0": 540,
+            "x1": 658,
+            "y1": 638,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "ec0cd338-e5d9-4bec-b988-6413b557aad6",
+            "identity": "rider",
+            "x0": 844,
+            "y0": 531,
+            "x1": 888,
+            "y1": 618,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 819,
+                    "y0": 567,
+                    "x1": 913,
+                    "y1": 624,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "d2f4baeb-ad4c-4d33-941e-21060aa01b1b",
+            "identity": "person-group-far-away",
+            "x0": 1225,
+            "y0": 522,
+            "x1": 1239,
+            "y1": 577,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "18c7c797-6506-4787-b0b0-f2e46fb0f14d",
+            "identity": "pedestrian",
+            "x0": 1181,
+            "y0": 519,
+            "x1": 1215,
+            "y1": 624,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "3927c5a7-9e38-44a5-b8b0-067d34c22e3a",
+            "identity": "person-group-far-away",
+            "x0": 971,
+            "y0": 540,
+            "x1": 980,
+            "y1": 565,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "3b5f8aaf-6270-4669-99cb-c7ce8b0fafec",
+            "identity": "pedestrian",
+            "x0": 991,
+            "y0": 534,
+            "x1": 1005,
+            "y1": 572,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_8",
+            "uuid": "9cbe42d1-0d03-4374-bcf0-067c9c074ec5",
+            "identity": "person-group-far-away",
+            "x0": 1006,
+            "y0": 537,
+            "x1": 1015,
+            "y1": 567,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_9",
+            "uuid": "4a0240ee-b83e-4db9-a48f-06eeaef91766",
+            "identity": "pedestrian",
+            "x0": 794,
+            "y0": 530,
+            "x1": 809,
+            "y1": 563,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40",
+                    "sitting-lying",
+                    "behind-glass"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

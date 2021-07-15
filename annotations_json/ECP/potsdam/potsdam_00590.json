@@ -1,0 +1,85 @@
+{
+    "im_name": "potsdam_00590.png",
+    "city_name": "potsdam",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "198d6ae7-0f40-4efa-9875-17672d579e1b",
+            "identity": "rider",
+            "x0": 1008,
+            "y0": 547,
+            "x1": 1025,
+            "y1": 586,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 1008,
+                    "y0": 566,
+                    "x1": 1025,
+                    "y1": 591,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "e890a946-872d-4e30-b269-bc00fa8994ca",
+            "identity": "bicycle-group",
+            "x0": 1460,
+            "y0": 563,
+            "x1": 1517,
+            "y1": 639,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "cf911f87-f563-47f8-850b-6211f86c073d",
+            "identity": "bicycle-group",
+            "x0": 1575,
+            "y0": 563,
+            "x1": 1759,
+            "y1": 674,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "28d4c4a5-6bd0-4add-9336-79c302d7e17a",
+            "identity": "bicycle-group",
+            "x0": 1752,
+            "y0": 567,
+            "x1": 1914,
+            "y1": 674,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "3de1493c-2133-4f6e-8535-db672468cb4a",
+            "identity": "motorbike-group",
+            "x0": 1684,
+            "y0": 522,
+            "x1": 1920,
+            "y1": 732,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

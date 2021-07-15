@@ -1,0 +1,154 @@
+{
+    "im_name": "marseille_01369.png",
+    "city_name": "marseille",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [
+        "lenseFlare"
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "6b741018-de99-45e3-a518-7ef4e1278b10",
+            "identity": "scooter-group",
+            "x0": 0,
+            "y0": 408,
+            "x1": 51,
+            "y1": 461,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "bd1561cc-b636-422c-b38e-3288b53dbffc",
+            "identity": "scooter-group",
+            "x0": 449,
+            "y0": 413,
+            "x1": 471,
+            "y1": 442,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "ea49929d-4859-42f4-9887-0a6168161584",
+            "identity": "rider",
+            "x0": 957,
+            "y0": 411,
+            "x1": 969,
+            "y1": 436,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "motorbike",
+                    "x0": 957,
+                    "y0": 417,
+                    "x1": 969,
+                    "y1": 440,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "aeb0eb78-4f8d-49c0-989b-683b4c2dde43",
+            "identity": "motorbike-group",
+            "x0": 1013,
+            "y0": 409,
+            "x1": 1065,
+            "y1": 439,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "a909dd28-a00f-42b2-a7c3-d72d7f6171a5",
+            "identity": "motorbike-group",
+            "x0": 1085,
+            "y0": 406,
+            "x1": 1103,
+            "y1": 431,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "09c4780b-86b6-433b-bc1f-fb8388285b67",
+            "identity": "pedestrian",
+            "x0": 1121,
+            "y0": 407,
+            "x1": 1135,
+            "y1": 449,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "e62c9e4e-5150-4417-b07e-e4846509737b",
+            "identity": "pedestrian",
+            "x0": 1138,
+            "y0": 406,
+            "x1": 1153,
+            "y1": 446,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_8",
+            "uuid": "1ec18238-24ff-4d54-8dc1-20298396e533",
+            "identity": "pedestrian",
+            "x0": 1158,
+            "y0": 404,
+            "x1": 1173,
+            "y1": 447,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_9",
+            "uuid": "feb2a58a-52da-4177-abb1-0640865104f9",
+            "identity": "pedestrian",
+            "x0": 1466,
+            "y0": 399,
+            "x1": 1489,
+            "y1": 460,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_10",
+            "uuid": "f070feb2-90a2-42fb-956f-9eaf3372e977",
+            "identity": "pedestrian",
+            "x0": 1698,
+            "y0": 416,
+            "x1": 1710,
+            "y1": 446,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

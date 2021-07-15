@@ -1,0 +1,101 @@
+{
+    "im_name": "roma_01160.png",
+    "city_name": "roma",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [
+        "lenseFlare"
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "df656aa3-c33c-4889-ae52-8ca781026d10",
+            "identity": "pedestrian",
+            "x0": 954,
+            "y0": 521,
+            "x1": 996,
+            "y1": 664,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "91f476d9-22a5-49af-852e-17c2d128c2db",
+            "identity": "rider",
+            "x0": 1036,
+            "y0": 502,
+            "x1": 1122,
+            "y1": 675,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "scooter",
+                    "x0": 1038,
+                    "y0": 581,
+                    "x1": 1122,
+                    "y1": 711,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "88dcb9da-a748-447f-b7b7-7939aae11ff6",
+            "identity": "rider",
+            "x0": 1328,
+            "y0": 547,
+            "x1": 1352,
+            "y1": 602,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": [
+                {
+                    "identity": "scooter",
+                    "x0": 1322,
+                    "y0": 564,
+                    "x1": 1377,
+                    "y1": 612,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "occluded>40"
+                        ]
+                    }
+                },
+                {
+                    "identity": "co-rider",
+                    "x0": 1335,
+                    "y0": 547,
+                    "x1": 1358,
+                    "y1": 600,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "occluded>80"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "33ff27f1-631a-4c6a-8737-d35eb93ae266",
+            "identity": "person-group-far-away",
+            "x0": 747,
+            "y0": 517,
+            "x1": 776,
+            "y1": 614,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

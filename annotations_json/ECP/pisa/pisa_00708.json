@@ -1,0 +1,53 @@
+{
+    "im_name": "pisa_00708.png",
+    "city_name": "pisa",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "0b40145d-4fca-4fde-b69e-9d692a17db42",
+            "identity": "pedestrian",
+            "x0": 444,
+            "y0": 531,
+            "x1": 478,
+            "y1": 615,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "10f3cc75-e307-4aff-a006-f3c236f518f0",
+            "identity": "person-group-far-away",
+            "x0": 1189,
+            "y0": 521,
+            "x1": 1212,
+            "y1": 597,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "8baee14f-146d-4a33-a52f-5b693806a4b6",
+            "identity": "pedestrian",
+            "x0": 1205,
+            "y0": 547,
+            "x1": 1232,
+            "y1": 605,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10",
+                    "sitting-lying"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

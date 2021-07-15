@@ -1,0 +1,67 @@
+{
+    "im_name": "brno_00979.png",
+    "city_name": "brno",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "6ac80fa9-641f-40b7-9212-82d450de5108",
+            "identity": "pedestrian",
+            "x0": 1160,
+            "y0": 553,
+            "x1": 1180,
+            "y1": 619,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "107ab6f7-6138-45ef-9f63-f723e627c7b4",
+            "identity": "pedestrian",
+            "x0": 1143,
+            "y0": 551,
+            "x1": 1164,
+            "y1": 609,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "28f5d7e1-d092-43a3-9714-9840d0981e5d",
+            "identity": "pedestrian",
+            "x0": 1184,
+            "y0": 552,
+            "x1": 1217,
+            "y1": 618,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "dabfb5cd-e102-4599-a18e-ee78058f6c26",
+            "identity": "pedestrian",
+            "x0": 838,
+            "y0": 557,
+            "x1": 849,
+            "y1": 583,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

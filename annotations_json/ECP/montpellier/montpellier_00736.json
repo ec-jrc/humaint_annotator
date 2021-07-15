@@ -1,0 +1,52 @@
+{
+    "im_name": "montpellier_00736.png",
+    "city_name": "montpellier",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "104568dc-c8b0-4c23-ab2f-14beaf6c377e",
+            "identity": "pedestrian",
+            "x0": 405,
+            "y0": 424,
+            "x1": 434,
+            "y1": 518,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "42e89d9b-68c4-4df0-a39b-edd293f621c3",
+            "identity": "pedestrian",
+            "x0": 636,
+            "y0": 436,
+            "x1": 650,
+            "y1": 474,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "fc45e57b-302e-472e-bc6e-3fa507c0dc8b",
+            "identity": "bicycle-group",
+            "x0": 1637,
+            "y0": 406,
+            "x1": 1761,
+            "y1": 533,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

@@ -1,0 +1,91 @@
+{
+    "im_name": "barcelona_01334.png",
+    "city_name": "barcelona",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "34eeffef-f413-406a-9968-b9829a2be644",
+            "identity": "motorbike-group",
+            "x0": 1357,
+            "y0": 428,
+            "x1": 1426,
+            "y1": 478,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "29e2141f-484c-4922-bca5-96a5be1499da",
+            "identity": "pedestrian",
+            "x0": 974,
+            "y0": 300,
+            "x1": 1239,
+            "y1": 796,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "a1c6baa1-8828-4c79-874c-aa5129b6f6e2",
+            "identity": "pedestrian",
+            "x0": 885,
+            "y0": 303,
+            "x1": 1091,
+            "y1": 798,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "580c3d0b-6dd2-4302-a0f8-2d13e0002180",
+            "identity": "person-group-far-away",
+            "x0": 679,
+            "y0": 425,
+            "x1": 697,
+            "y1": 446,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "44d29a72-7d36-411a-9c43-e60a002a0f06",
+            "identity": "person-group-far-away",
+            "x0": 718,
+            "y0": 427,
+            "x1": 735,
+            "y1": 447,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "74a9ff4d-ad7b-460d-98b9-ada1da71124e",
+            "identity": "pedestrian",
+            "x0": 737,
+            "y0": 425,
+            "x1": 747,
+            "y1": 452,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

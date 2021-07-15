@@ -1,0 +1,80 @@
+{
+    "im_name": "wuerzburg_00734.png",
+    "city_name": "wuerzburg",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "3f22912e-dbe0-413e-878a-74f1ec42ad81",
+            "identity": "pedestrian",
+            "x0": 231,
+            "y0": 479,
+            "x1": 296,
+            "y1": 665,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "4d5dec45-a159-44c4-a4fb-9af2db2dfbe2",
+            "identity": "pedestrian",
+            "x0": 519,
+            "y0": 516,
+            "x1": 556,
+            "y1": 617,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "7d609df7-a683-4666-842c-3a4ec9896d4f",
+            "identity": "pedestrian",
+            "x0": 843,
+            "y0": 538,
+            "x1": 855,
+            "y1": 571,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "783fbebc-dca0-4f9c-86b9-08a6ade56baf",
+            "identity": "pedestrian",
+            "x0": 854,
+            "y0": 538,
+            "x1": 867,
+            "y1": 572,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "ed2d03ee-f576-42d1-a663-9d2d2b3e5e88",
+            "identity": "person-group-far-away",
+            "x0": 1003,
+            "y0": 536,
+            "x1": 1038,
+            "y1": 555,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

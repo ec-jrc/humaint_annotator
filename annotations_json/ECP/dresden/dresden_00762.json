@@ -1,0 +1,85 @@
+{
+    "im_name": "dresden_00762.png",
+    "city_name": "dresden",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "6ee7c53d-9711-47f7-9743-f403616ff2a1",
+            "identity": "rider",
+            "x0": 1017,
+            "y0": 545,
+            "x1": 1031,
+            "y1": 577,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 1017,
+                    "y0": 557,
+                    "x1": 1031,
+                    "y1": 584,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "290b8d52-dda4-4ddd-b0e2-b76859c3ee2f",
+            "identity": "rider",
+            "x0": 1068,
+            "y0": 528,
+            "x1": 1102,
+            "y1": 612,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 1068,
+                    "y0": 561,
+                    "x1": 1102,
+                    "y1": 623,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "d15149ab-3fde-413b-ada8-d81edf5ad0c0",
+            "identity": "pedestrian",
+            "x0": 1309,
+            "y0": 525,
+            "x1": 1329,
+            "y1": 592,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "2c15910d-093b-4780-9cee-77db18684113",
+            "identity": "pedestrian",
+            "x0": 1295,
+            "y0": 532,
+            "x1": 1316,
+            "y1": 593,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

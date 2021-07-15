@@ -1,0 +1,50 @@
+{
+    "im_name": "marseille_01541.png",
+    "city_name": "marseille",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "9ecf8249-b700-47ec-bb11-51f57a286ff7",
+            "identity": "motorbike-group",
+            "x0": 0,
+            "y0": 417,
+            "x1": 160,
+            "y1": 684,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "0944abc5-4df0-48aa-9bb1-54c9af2dd1ef",
+            "identity": "pedestrian",
+            "x0": 1027,
+            "y0": 400,
+            "x1": 1044,
+            "y1": 441,
+            "attributes": {
+                "sandbox_tags": [
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "dc2a0765-d58e-4f65-964b-00f13845d4af",
+            "identity": "pedestrian",
+            "x0": 1010,
+            "y0": 403,
+            "x1": 1019,
+            "y1": 429,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

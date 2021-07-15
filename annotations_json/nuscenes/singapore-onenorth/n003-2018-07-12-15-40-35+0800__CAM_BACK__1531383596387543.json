@@ -1,0 +1,93 @@
+{
+    "im_name": "samples/CAM_BACK/n003-2018-07-12-15-40-35+0800__CAM_BACK__1531383596387543.jpg",
+    "city_name": "singapore-onenorth",
+    "im_width": 1600,
+    "im_height": 900,
+    "sandbox_tags": [
+        {
+            "original_img_token": "0d81428e393f4d4c90bba787ece0883f"
+        }
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "604df411-ac5c-496b-b7b1-ee9a4b0b218f",
+            "identity": "vehicle.car",
+            "x0": 640,
+            "y0": 424,
+            "x1": 704,
+            "y1": 467,
+            "attributes": {
+                "sandbox_tags": [
+                    "vehicle.moving"
+                ]
+            },
+            "sandbox_tags": [
+                {
+                    "original_agent_token": "2cd3ed4350974168ad3b10c736af04ff"
+                }
+            ],
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "50a3d527-b07d-4062-9b3b-b9b1b96494cf",
+            "identity": "vehicle.motorcycle",
+            "x0": 752,
+            "y0": 414,
+            "x1": 784,
+            "y1": 478,
+            "attributes": {
+                "sandbox_tags": [
+                    "cycle.with_rider"
+                ]
+            },
+            "sandbox_tags": [
+                {
+                    "original_agent_token": "46c278a923ee47beb7fe0572e4333cf5"
+                }
+            ],
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "f60b6053-c952-446f-865a-182a599cb412",
+            "identity": "human.pedestrian.adult",
+            "x0": 971,
+            "y0": 400,
+            "x1": 990,
+            "y1": 426,
+            "attributes": {
+                "sandbox_tags": [
+                    "pedestrian.moving"
+                ]
+            },
+            "sandbox_tags": [
+                {
+                    "original_agent_token": "929dafc3dc46415785d03c14073a4f5e"
+                }
+            ],
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "a37d4a82-5958-468c-956b-74131c0bf585",
+            "identity": "vehicle.car",
+            "x0": 777,
+            "y0": 411,
+            "x1": 860,
+            "y1": 497,
+            "attributes": {
+                "sandbox_tags": [
+                    "vehicle.moving"
+                ]
+            },
+            "sandbox_tags": [
+                {
+                    "original_agent_token": "d02397e5d8a2428c920360c95f37dcc6"
+                }
+            ],
+            "sub_entities": []
+        }
+    ]
+}

@@ -1,0 +1,78 @@
+{
+    "im_name": "marseille_01333.png",
+    "city_name": "marseille",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "d49f593c-884c-477c-909a-d7192daba1ed",
+            "identity": "rider",
+            "x0": 223,
+            "y0": 262,
+            "x1": 530,
+            "y1": 748,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "motorbike",
+                    "x0": 2,
+                    "y0": 401,
+                    "x1": 579,
+                    "y1": 919,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "42fccfd1-b07d-40c6-85f4-5e7f5d36801e",
+            "identity": "bicycle-group",
+            "x0": 819,
+            "y0": 443,
+            "x1": 854,
+            "y1": 471,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "c0a586c7-ddbf-4adf-9cc0-c09be2306dc1",
+            "identity": "pedestrian",
+            "x0": 780,
+            "y0": 437,
+            "x1": 792,
+            "y1": 462,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "9b0ccbd1-2582-4b76-bb86-4262b994bd31",
+            "identity": "pedestrian",
+            "x0": 1470,
+            "y0": 378,
+            "x1": 1531,
+            "y1": 524,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

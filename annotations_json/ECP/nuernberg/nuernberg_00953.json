@@ -1,0 +1,68 @@
+{
+    "im_name": "nuernberg_00953.png",
+    "city_name": "nuernberg",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "c20255bc-1d8f-41f1-8740-9bc889574ef8",
+            "identity": "pedestrian",
+            "x0": 7,
+            "y0": 488,
+            "x1": 186,
+            "y1": 841,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "f615f41b-47b2-4d23-8b77-1f453a854c82",
+            "identity": "pedestrian",
+            "x0": 674,
+            "y0": 501,
+            "x1": 727,
+            "y1": 646,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10",
+                    "behind-glass"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "960a4fb3-6c2d-4443-87e1-f151582a6434",
+            "identity": "person-group-far-away",
+            "x0": 790,
+            "y0": 511,
+            "x1": 820,
+            "y1": 619,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "75d33bc9-f588-425f-9423-59c8cd37e218",
+            "identity": "pedestrian",
+            "x0": 1389,
+            "y0": 475,
+            "x1": 1466,
+            "y1": 648,
+            "attributes": {
+                "sandbox_tags": [
+                    "unsure_orientation",
+                    "occluded>40",
+                    "behind-glass"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

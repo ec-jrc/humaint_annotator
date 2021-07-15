@@ -1,0 +1,165 @@
+{
+    "im_name": "amsterdam_01155.png",
+    "city_name": "amsterdam",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "7c8cbd8f-8fa6-4eaa-8fcd-81fbf708d44f",
+            "identity": "pedestrian",
+            "x0": 1444,
+            "y0": 513,
+            "x1": 1469,
+            "y1": 573,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "93b8e579-2028-47e8-b303-6b2b01ab112e",
+            "identity": "bicycle-group",
+            "x0": 1381,
+            "y0": 521,
+            "x1": 1919,
+            "y1": 686,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "d8795b57-ae43-4c78-b8b7-3acda7c04437",
+            "identity": "scooter-group",
+            "x0": 1693,
+            "y0": 519,
+            "x1": 1891,
+            "y1": 680,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "3d9845fb-32b9-42df-a50d-89419576655a",
+            "identity": "bicycle-group",
+            "x0": 1353,
+            "y0": 553,
+            "x1": 1396,
+            "y1": 580,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "3b70e8f2-9b53-44fc-a2bc-c8f5b1ddf489",
+            "identity": "rider",
+            "x0": 871,
+            "y0": 559,
+            "x1": 883,
+            "y1": 578,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "motorbike",
+                    "x0": 869,
+                    "y0": 564,
+                    "x1": 883,
+                    "y1": 581,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "61cd1177-5bdd-4e35-b12a-7c812f568002",
+            "identity": "pedestrian",
+            "x0": 673,
+            "y0": 548,
+            "x1": 690,
+            "y1": 587,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "4eed82c9-fd4f-4fc7-9ab0-12897220c6b4",
+            "identity": "scooter-group",
+            "x0": 234,
+            "y0": 548,
+            "x1": 278,
+            "y1": 615,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_8",
+            "uuid": "b570beb9-6706-406f-bb3d-f3776d00723f",
+            "identity": "bicycle-group",
+            "x0": 275,
+            "y0": 558,
+            "x1": 449,
+            "y1": 608,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_9",
+            "uuid": "e459778e-aee6-4005-9071-7fdaf8d4995f",
+            "identity": "person-group-far-away",
+            "x0": 0,
+            "y0": 584,
+            "x1": 63,
+            "y1": 634,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_10",
+            "uuid": "fc9e9d25-0dd0-44c9-b948-7ef04e741fa9",
+            "identity": "bicycle-group",
+            "x0": 56,
+            "y0": 590,
+            "x1": 113,
+            "y1": 630,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_11",
+            "uuid": "e91f9ad9-a5df-4b17-b4ee-15f4f8900de4",
+            "identity": "pedestrian",
+            "x0": 750,
+            "y0": 556,
+            "x1": 762,
+            "y1": 588,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

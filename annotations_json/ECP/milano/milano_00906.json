@@ -1,0 +1,52 @@
+{
+    "im_name": "milano_00906.png",
+    "city_name": "milano",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "a654d062-4b65-4b89-9431-cac08f99a37e",
+            "identity": "scooter-group",
+            "x0": 650,
+            "y0": 562,
+            "x1": 696,
+            "y1": 635,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "cc865191-f617-4747-99af-d27da7ab8af4",
+            "identity": "scooter-group",
+            "x0": 510,
+            "y0": 574,
+            "x1": 572,
+            "y1": 641,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "052bab0c-f30a-4408-bcdc-ed162d159193",
+            "identity": "motorbike-group",
+            "x0": 437,
+            "y0": 574,
+            "x1": 516,
+            "y1": 639,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

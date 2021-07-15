@@ -1,0 +1,77 @@
+{
+    "im_name": "basel_00646.png",
+    "city_name": "basel",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "7e69d087-7b7f-47ff-934e-943526cff8be",
+            "identity": "pedestrian",
+            "x0": 429,
+            "y0": 434,
+            "x1": 452,
+            "y1": 517,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "a85e0738-994b-4df9-9a8b-32353e9e6c2b",
+            "identity": "pedestrian",
+            "x0": 1713,
+            "y0": 329,
+            "x1": 1837,
+            "y1": 524,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "c216e124-e775-4447-ba8e-891d4c658ebf",
+            "identity": "pedestrian",
+            "x0": 1507,
+            "y0": 356,
+            "x1": 1587,
+            "y1": 541,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "0ffdb56f-b9ae-4051-b3f0-811b97a6cc66",
+            "identity": "bicycle-group",
+            "x0": 1033,
+            "y0": 438,
+            "x1": 1085,
+            "y1": 475,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "f71f8990-0f93-4b20-91dd-0a443228a8c7",
+            "identity": "scooter-group",
+            "x0": 1041,
+            "y0": 436,
+            "x1": 1091,
+            "y1": 478,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

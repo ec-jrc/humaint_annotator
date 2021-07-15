@@ -1,0 +1,80 @@
+{
+    "im_name": "torino_01151.png",
+    "city_name": "torino",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "0a2b7e28-ae25-47b7-91e6-6f29faf86e6e",
+            "identity": "pedestrian",
+            "x0": 1348,
+            "y0": 506,
+            "x1": 1384,
+            "y1": 627,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "1cbe9438-8322-44b5-970a-021465d86afa",
+            "identity": "pedestrian",
+            "x0": 1154,
+            "y0": 535,
+            "x1": 1171,
+            "y1": 592,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "d3f17260-ea6a-43d4-ba51-488a31e23341",
+            "identity": "pedestrian",
+            "x0": 1133,
+            "y0": 537,
+            "x1": 1150,
+            "y1": 592,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "fff37c5c-9eec-4653-9fdb-c62bc33f503d",
+            "identity": "pedestrian",
+            "x0": 1101,
+            "y0": 537,
+            "x1": 1115,
+            "y1": 574,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "9360c9f4-0336-4b80-909c-b7032ea1b023",
+            "identity": "pedestrian",
+            "x0": 1093,
+            "y0": 538,
+            "x1": 1103,
+            "y1": 574,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

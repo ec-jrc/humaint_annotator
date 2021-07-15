@@ -1,0 +1,48 @@
+{
+    "im_name": "hanover_000000_024441_leftImg8bit.png",
+    "city_name": "hanover",
+    "im_width": 2048,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "cc811d97-6b4c-4005-81ff-a619030beeeb",
+            "identity": "Pedestrian",
+            "x0": 468,
+            "y0": 358,
+            "x1": 516,
+            "y1": 475,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "6bf2d343-b7a0-48b0-96ec-c15c1c28f41e",
+            "identity": "Rider",
+            "x0": 396,
+            "y0": 291,
+            "x1": 492,
+            "y1": 526,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "9ca8a2bc-0324-406a-b252-22a3cb510326",
+            "identity": "Ignore",
+            "x0": 287,
+            "y0": 334,
+            "x1": 302,
+            "y1": 350,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

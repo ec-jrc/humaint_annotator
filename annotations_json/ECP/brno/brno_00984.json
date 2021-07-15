@@ -1,0 +1,74 @@
+{
+    "im_name": "brno_00984.png",
+    "city_name": "brno",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "54abbb8e-825d-4e1d-b798-9b48b97574c6",
+            "identity": "pedestrian",
+            "x0": 400,
+            "y0": 522,
+            "x1": 462,
+            "y1": 700,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "9904c5cc-5398-400c-9fd6-476c2c402b3d",
+            "identity": "pedestrian",
+            "x0": 1665,
+            "y0": 520,
+            "x1": 1732,
+            "y1": 750,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "b6594687-5c73-46ea-8dc7-f73f4ecd0ad2",
+            "identity": "person-group-far-away",
+            "x0": 1726,
+            "y0": 539,
+            "x1": 1787,
+            "y1": 699,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "d5b69a93-08f2-41e6-80b1-bd00bf12f480",
+            "identity": "rider",
+            "x0": 1033,
+            "y0": 549,
+            "x1": 1058,
+            "y1": 611,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 1032,
+                    "y0": 573,
+                    "x1": 1059,
+                    "y1": 616,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        }
+    ]
+}

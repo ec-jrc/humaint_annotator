@@ -1,0 +1,79 @@
+{
+    "im_name": "barcelona_01420.png",
+    "city_name": "barcelona",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "f2f7ed07-48e2-45bd-9329-c1f186e251eb",
+            "identity": "pedestrian",
+            "x0": 1093,
+            "y0": 435,
+            "x1": 1144,
+            "y1": 559,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "243bb589-3c53-48d2-9e9e-c4ee3e2104f2",
+            "identity": "bicycle-group",
+            "x0": 574,
+            "y0": 492,
+            "x1": 670,
+            "y1": 609,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "79cd5f47-38d6-42ee-8cbf-f56ab0fa54d2",
+            "identity": "scooter-group",
+            "x0": 373,
+            "y0": 476,
+            "x1": 560,
+            "y1": 597,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "2c1bae03-f988-48f7-845e-0f57d8e08f57",
+            "identity": "pedestrian",
+            "x0": 272,
+            "y0": 433,
+            "x1": 304,
+            "y1": 542,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "d32fc37f-89f1-4c9a-8b87-baf2db938c00",
+            "identity": "person-group-far-away",
+            "x0": 1131,
+            "y0": 429,
+            "x1": 1166,
+            "y1": 552,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

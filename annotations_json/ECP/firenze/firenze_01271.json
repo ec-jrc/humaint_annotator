@@ -1,0 +1,146 @@
+{
+    "im_name": "firenze_01271.png",
+    "city_name": "firenze",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "aa08f03f-4fd7-43b7-b9c4-38c3038b3c6d",
+            "identity": "bicycle-group",
+            "x0": 620,
+            "y0": 574,
+            "x1": 651,
+            "y1": 626,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "69d17ff8-9dba-46bd-841b-69e4a0a75df5",
+            "identity": "pedestrian",
+            "x0": 666,
+            "y0": 569,
+            "x1": 690,
+            "y1": 615,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10",
+                    "sitting-lying"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "52aefaa9-0157-46bf-b6c6-c067467b7551",
+            "identity": "pedestrian",
+            "x0": 1127,
+            "y0": 473,
+            "x1": 1293,
+            "y1": 745,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "bd6c44ab-32ed-430f-82e8-076e64afbeb8",
+            "identity": "pedestrian",
+            "x0": 1020,
+            "y0": 548,
+            "x1": 1044,
+            "y1": 624,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "38c89ed8-2f00-4837-b56e-11a9a416ab6e",
+            "identity": "scooter-group",
+            "x0": 751,
+            "y0": 551,
+            "x1": 829,
+            "y1": 617,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "d2389f2b-4020-40f0-bc24-dbf2f6b5cde1",
+            "identity": "scooter-group",
+            "x0": 788,
+            "y0": 555,
+            "x1": 861,
+            "y1": 610,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "2056351d-c460-4c81-af1b-9281ecb42ddd",
+            "identity": "motorbike-group",
+            "x0": 678,
+            "y0": 566,
+            "x1": 777,
+            "y1": 623,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_8",
+            "uuid": "b9893d2d-c0d8-4a88-8113-8adef6c9d068",
+            "identity": "rider",
+            "x0": 811,
+            "y0": 493,
+            "x1": 909,
+            "y1": 712,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 768,
+                    "y0": 577,
+                    "x1": 948,
+                    "y1": 735,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_9",
+            "uuid": "94d3e894-731a-4612-a6f6-62296dc026ea",
+            "identity": "pedestrian",
+            "x0": 1392,
+            "y0": 496,
+            "x1": 1474,
+            "y1": 666,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

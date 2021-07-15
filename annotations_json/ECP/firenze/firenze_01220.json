@@ -1,0 +1,40 @@
+{
+    "im_name": "firenze_01220.png",
+    "city_name": "firenze",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "cc1264e2-9ed5-472f-a854-b2da5bab0e6f",
+            "identity": "person-group-far-away",
+            "x0": 870,
+            "y0": 552,
+            "x1": 884,
+            "y1": 596,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "5ca75d38-e048-4532-b9ed-cf5ac0465645",
+            "identity": "pedestrian",
+            "x0": 1448,
+            "y0": 503,
+            "x1": 1539,
+            "y1": 788,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

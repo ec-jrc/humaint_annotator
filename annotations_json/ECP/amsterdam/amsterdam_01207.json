@@ -1,0 +1,93 @@
+{
+    "im_name": "amsterdam_01207.png",
+    "city_name": "amsterdam",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [
+        "rainy",
+        "wiper"
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "f3699f3c-19e2-4db4-b1c4-e9a910f6fd57",
+            "identity": "bicycle-group",
+            "x0": 0,
+            "y0": 522,
+            "x1": 128,
+            "y1": 572,
+            "attributes": {
+                "sandbox_tags": [
+                    "truncated>10",
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "530aea90-5635-4fd7-ae13-707cb98d5bfb",
+            "identity": "bicycle-group",
+            "x0": 48,
+            "y0": 555,
+            "x1": 172,
+            "y1": 820,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "27c841c8-8ca3-44f9-9408-3582b28344a5",
+            "identity": "bicycle-group",
+            "x0": 189,
+            "y0": 568,
+            "x1": 430,
+            "y1": 877,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "34ff82d5-1611-4873-8325-5d388b576472",
+            "identity": "bicycle-group",
+            "x0": 501,
+            "y0": 573,
+            "x1": 641,
+            "y1": 731,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "f9722306-2fba-489a-ad81-8831fef99c14",
+            "identity": "bicycle-group",
+            "x0": 715,
+            "y0": 558,
+            "x1": 781,
+            "y1": 683,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "9498f54c-64cb-4bc6-9504-87fd1e14e194",
+            "identity": "scooter-group",
+            "x0": 1470,
+            "y0": 504,
+            "x1": 1704,
+            "y1": 773,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

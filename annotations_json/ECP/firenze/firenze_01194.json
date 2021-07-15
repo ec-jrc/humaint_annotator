@@ -1,0 +1,65 @@
+{
+    "im_name": "firenze_01194.png",
+    "city_name": "firenze",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [
+        "lenseFlare"
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "2b7cc8ef-5529-4cb1-b3f9-fcf9a5c7464d",
+            "identity": "rider",
+            "x0": 280,
+            "y0": 543,
+            "x1": 337,
+            "y1": 624,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": [
+                {
+                    "identity": "scooter",
+                    "x0": 251,
+                    "y0": 550,
+                    "x1": 350,
+                    "y1": 641,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "occluded>80"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "0b3d793a-5c20-4df9-b66f-e5178ee5dda2",
+            "identity": "scooter-group",
+            "x0": 1195,
+            "y0": 483,
+            "x1": 1444,
+            "y1": 778,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "2a7fae9e-ba6b-422b-9f02-a91d127c42ae",
+            "identity": "scooter-group",
+            "x0": 1353,
+            "y0": 535,
+            "x1": 1551,
+            "y1": 693,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

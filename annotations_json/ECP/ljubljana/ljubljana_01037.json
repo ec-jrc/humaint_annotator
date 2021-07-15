@@ -1,0 +1,79 @@
+{
+    "im_name": "ljubljana_01037.png",
+    "city_name": "ljubljana",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "a1e0b6ed-9aa5-4e22-91de-2672660f9ab2",
+            "identity": "bicycle-group",
+            "x0": 1488,
+            "y0": 563,
+            "x1": 1565,
+            "y1": 616,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "351d5436-6e09-42d5-9cb2-6147943dee3c",
+            "identity": "pedestrian",
+            "x0": 1334,
+            "y0": 540,
+            "x1": 1364,
+            "y1": 621,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "c03848a7-01c3-4ac5-8e62-634eb3051eda",
+            "identity": "person-group-far-away",
+            "x0": 977,
+            "y0": 555,
+            "x1": 987,
+            "y1": 590,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "3a28f85f-f4f8-478c-a0bd-76795809263f",
+            "identity": "pedestrian",
+            "x0": 868,
+            "y0": 553,
+            "x1": 885,
+            "y1": 593,
+            "attributes": {
+                "sandbox_tags": [
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "040017ae-e7d4-4d95-b3d6-baa0349700ce",
+            "identity": "pedestrian",
+            "x0": 857,
+            "y0": 554,
+            "x1": 869,
+            "y1": 595,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

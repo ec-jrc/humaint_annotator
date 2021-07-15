@@ -1,0 +1,87 @@
+{
+    "im_name": "pisa_00734.png",
+    "city_name": "pisa",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [
+        "lenseFlare"
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "cae6981b-7951-4fb8-9b7d-0179a35511dd",
+            "identity": "bicycle-group",
+            "x0": 484,
+            "y0": 587,
+            "x1": 529,
+            "y1": 652,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "6ab62283-e1ff-4270-b43d-227540077076",
+            "identity": "pedestrian",
+            "x0": 1007,
+            "y0": 568,
+            "x1": 1024,
+            "y1": 611,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "491ce2af-89dc-40bf-902a-096d4e4a1901",
+            "identity": "person-group-far-away",
+            "x0": 969,
+            "y0": 569,
+            "x1": 979,
+            "y1": 598,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "f20c81c3-7223-436e-a06e-eef23cba8459",
+            "identity": "rider",
+            "x0": 914,
+            "y0": 561,
+            "x1": 935,
+            "y1": 615,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 913,
+                    "y0": 582,
+                    "x1": 934,
+                    "y1": 618,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "682737c1-3ec4-4290-917a-340caaf643c5",
+            "identity": "person-group-far-away",
+            "x0": 996,
+            "y0": 570,
+            "x1": 1000,
+            "y1": 581,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

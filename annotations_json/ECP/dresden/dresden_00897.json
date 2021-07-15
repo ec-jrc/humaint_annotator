@@ -1,0 +1,68 @@
+{
+    "im_name": "dresden_00897.png",
+    "city_name": "dresden",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "a566d6d4-862d-4429-b111-6b5e9da6d90c",
+            "identity": "rider",
+            "x0": 1561,
+            "y0": 543,
+            "x1": 1582,
+            "y1": 588,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10",
+                    "behind-glass"
+                ]
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 1561,
+                    "y0": 561,
+                    "x1": 1582,
+                    "y1": 600,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "behind-glass",
+                            "occluded>40",
+                            "unsure_orientation"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "ab1884b4-038d-421b-934d-e4a8373443b3",
+            "identity": "person-group-far-away",
+            "x0": 15,
+            "y0": 511,
+            "x1": 27,
+            "y1": 557,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "918b0b36-5b30-4de2-bf13-966341516f1d",
+            "identity": "person-group-far-away",
+            "x0": 1533,
+            "y0": 551,
+            "x1": 1555,
+            "y1": 599,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

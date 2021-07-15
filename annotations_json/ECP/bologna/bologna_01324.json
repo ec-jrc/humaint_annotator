@@ -1,0 +1,225 @@
+{
+    "im_name": "bologna_01324.png",
+    "city_name": "bologna",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [
+        "lenseFlare"
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "e50bccee-86b1-4599-9ccb-37ec62988848",
+            "identity": "pedestrian",
+            "x0": 1323,
+            "y0": 511,
+            "x1": 1376,
+            "y1": 662,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "4448c29b-1c45-455e-a0dd-6f16b27422fe",
+            "identity": "rider",
+            "x0": 839,
+            "y0": 524,
+            "x1": 879,
+            "y1": 622,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 840,
+                    "y0": 555,
+                    "x1": 881,
+                    "y1": 633,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "0c34b38b-3614-4aa6-929e-3933408fe998",
+            "identity": "rider",
+            "x0": 1083,
+            "y0": 530,
+            "x1": 1138,
+            "y1": 619,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "motorbike",
+                    "x0": 1084,
+                    "y0": 544,
+                    "x1": 1147,
+                    "y1": 642,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "5da41838-3bfd-4cba-96a8-9a9147db9c28",
+            "identity": "rider",
+            "x0": 1202,
+            "y0": 532,
+            "x1": 1242,
+            "y1": 599,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "motorbike",
+                    "x0": 1199,
+                    "y0": 551,
+                    "x1": 1244,
+                    "y1": 614,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "73d2bb18-6ac1-4e53-bda1-c0c6c209ff49",
+            "identity": "pedestrian",
+            "x0": 409,
+            "y0": 503,
+            "x1": 463,
+            "y1": 681,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "9254787d-f74b-4efc-8016-49883b88a411",
+            "identity": "pedestrian",
+            "x0": 1336,
+            "y0": 505,
+            "x1": 1420,
+            "y1": 694,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "b9aceb4f-1332-474d-92e2-bc6d6350cb20",
+            "identity": "pedestrian",
+            "x0": 1365,
+            "y0": 488,
+            "x1": 1435,
+            "y1": 683,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_8",
+            "uuid": "ed24f35a-b58e-4fc0-a89d-3ce18de30e2e",
+            "identity": "motorbike-group",
+            "x0": 1263,
+            "y0": 545,
+            "x1": 1290,
+            "y1": 577,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_9",
+            "uuid": "3395137b-7962-4c1d-af50-c1db31217391",
+            "identity": "pedestrian",
+            "x0": 1249,
+            "y0": 540,
+            "x1": 1260,
+            "y1": 580,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_10",
+            "uuid": "26d3862e-68e1-459c-8a1e-4bed8e420596",
+            "identity": "pedestrian",
+            "x0": 1282,
+            "y0": 526,
+            "x1": 1311,
+            "y1": 637,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_11",
+            "uuid": "f0adb3c0-053d-4de7-9b21-d1379c179179",
+            "identity": "bicycle-group",
+            "x0": 1277,
+            "y0": 582,
+            "x1": 1346,
+            "y1": 646,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_12",
+            "uuid": "3aa92a09-73cd-4c56-a110-1df00a497590",
+            "identity": "rider",
+            "x0": 821,
+            "y0": 526,
+            "x1": 849,
+            "y1": 585,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 819,
+                    "y0": 551,
+                    "x1": 858,
+                    "y1": 599,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "occluded>10"
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

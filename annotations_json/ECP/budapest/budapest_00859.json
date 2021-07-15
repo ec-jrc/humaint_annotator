@@ -1,0 +1,69 @@
+{
+    "im_name": "budapest_00859.png",
+    "city_name": "budapest",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "a65162be-160e-4944-a094-96e4ead14794",
+            "identity": "pedestrian",
+            "x0": 476,
+            "y0": 499,
+            "x1": 532,
+            "y1": 649,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "a4c2ecc0-d53b-416f-aed2-4b8a639811bc",
+            "identity": "pedestrian",
+            "x0": 224,
+            "y0": 443,
+            "x1": 445,
+            "y1": 932,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "c851e041-5d68-47eb-9417-8f27882d102c",
+            "identity": "pedestrian",
+            "x0": 0,
+            "y0": 383,
+            "x1": 262,
+            "y1": 1004,
+            "attributes": {
+                "sandbox_tags": [
+                    "truncated>10",
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "9a3b8422-7278-4675-9fc8-8a7cd7224905",
+            "identity": "pedestrian",
+            "x0": 0,
+            "y0": 401,
+            "x1": 99,
+            "y1": 1003,
+            "attributes": {
+                "sandbox_tags": [
+                    "truncated>10",
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

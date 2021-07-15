@@ -1,0 +1,67 @@
+{
+    "im_name": "torino_01133.png",
+    "city_name": "torino",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "8ad8f7a1-377d-4fa7-af63-3da61f54047c",
+            "identity": "pedestrian",
+            "x0": 1815,
+            "y0": 446,
+            "x1": 1920,
+            "y1": 792,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "aac4bf3f-0381-4399-8c9a-6abe28816851",
+            "identity": "motorbike-group",
+            "x0": 1077,
+            "y0": 553,
+            "x1": 1153,
+            "y1": 613,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "bc366330-b6fc-4fee-b5db-fae72d3e6585",
+            "identity": "pedestrian",
+            "x0": 1166,
+            "y0": 541,
+            "x1": 1185,
+            "y1": 608,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "1a5a8d8d-9f84-4827-bad2-5a4bf0682500",
+            "identity": "pedestrian",
+            "x0": 921,
+            "y0": 542,
+            "x1": 941,
+            "y1": 597,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

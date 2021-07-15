@@ -1,0 +1,80 @@
+{
+    "im_name": "dresden_00873.png",
+    "city_name": "dresden",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "92fbcb4a-e803-449f-86c6-e77144e70f08",
+            "identity": "motorbike-group",
+            "x0": 260,
+            "y0": 551,
+            "x1": 312,
+            "y1": 593,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "b43270f1-8ab9-4dd6-8858-d96ca49d4321",
+            "identity": "rider+vehicle-group-far-away",
+            "x0": 1068,
+            "y0": 552,
+            "x1": 1075,
+            "y1": 570,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "7e43a510-2b19-4211-a523-c5cc5d3418f2",
+            "identity": "person-group-far-away",
+            "x0": 1152,
+            "y0": 550,
+            "x1": 1165,
+            "y1": 579,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "56980e7e-620e-4e5f-a0df-6bb02420a9d0",
+            "identity": "pedestrian",
+            "x0": 86,
+            "y0": 519,
+            "x1": 123,
+            "y1": 605,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "6ddf3cc6-cc67-4c0c-9a98-f7eeaff7d1da",
+            "identity": "person-group-far-away",
+            "x0": 143,
+            "y0": 447,
+            "x1": 173,
+            "y1": 495,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

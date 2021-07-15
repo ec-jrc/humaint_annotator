@@ -1,0 +1,84 @@
+{
+    "im_name": "torino_01054.png",
+    "city_name": "torino",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "4cf4b446-667d-4934-bf59-346b1a9ad27c",
+            "identity": "pedestrian",
+            "x0": 1869,
+            "y0": 464,
+            "x1": 1920,
+            "y1": 828,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80",
+                    "truncated>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "23941885-829c-4a80-8006-4fceae4c5bef",
+            "identity": "pedestrian",
+            "x0": 1421,
+            "y0": 483,
+            "x1": 1460,
+            "y1": 632,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "7d930e07-fcf7-45c4-9926-506b881364d0",
+            "identity": "bicycle-group",
+            "x0": 861,
+            "y0": 559,
+            "x1": 908,
+            "y1": 619,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "82e800ac-d276-4258-ba30-8a504db18b49",
+            "identity": "pedestrian",
+            "x0": 747,
+            "y0": 520,
+            "x1": 775,
+            "y1": 615,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "12f4a4cd-5294-474f-bc88-df791193cf65",
+            "identity": "pedestrian",
+            "x0": 715,
+            "y0": 524,
+            "x1": 747,
+            "y1": 621,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

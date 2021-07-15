@@ -1,0 +1,68 @@
+{
+    "im_name": "torino_01012.png",
+    "city_name": "torino",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "239f9f20-663e-404a-aac0-b2ff454e1480",
+            "identity": "pedestrian",
+            "x0": 0,
+            "y0": 493,
+            "x1": 66,
+            "y1": 761,
+            "attributes": {
+                "sandbox_tags": [
+                    "truncated>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "473df3eb-4ece-4a66-9dff-6a929001ac2d",
+            "identity": "pedestrian",
+            "x0": 209,
+            "y0": 538,
+            "x1": 313,
+            "y1": 747,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "ad62ca0b-6c13-4143-8039-d950f7fbfb8d",
+            "identity": "pedestrian",
+            "x0": 1560,
+            "y0": 512,
+            "x1": 1611,
+            "y1": 677,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "c90c66cd-847a-4f36-b782-638cf2feb064",
+            "identity": "person-group-far-away",
+            "x0": 613,
+            "y0": 366,
+            "x1": 670,
+            "y1": 456,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

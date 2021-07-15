@@ -1,0 +1,63 @@
+{
+    "im_name": "zuerich_00373.png",
+    "city_name": "zuerich",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "5a9e22f9-fa05-4edc-9a0d-3f9794b2e5c4",
+            "identity": "person-group-far-away",
+            "x0": 681,
+            "y0": 386,
+            "x1": 706,
+            "y1": 443,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40",
+                    "sitting-lying",
+                    "behind-glass"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "f601f434-a432-4122-83a6-35ea63260436",
+            "identity": "rider",
+            "x0": 750,
+            "y0": 381,
+            "x1": 823,
+            "y1": 517,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "scooter",
+                    "x0": 747,
+                    "y0": 420,
+                    "x1": 827,
+                    "y1": 547,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "ab17720c-d657-4b04-ad2c-7c6468a014dc",
+            "identity": "scooter-group",
+            "x0": 1070,
+            "y0": 406,
+            "x1": 1085,
+            "y1": 439,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

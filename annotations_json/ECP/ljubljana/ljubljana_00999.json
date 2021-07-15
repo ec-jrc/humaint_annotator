@@ -1,0 +1,100 @@
+{
+    "im_name": "ljubljana_00999.png",
+    "city_name": "ljubljana",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "2c43c8e2-fdcd-4d69-b764-598ce8a353b4",
+            "identity": "rider",
+            "x0": 286,
+            "y0": 578,
+            "x1": 314,
+            "y1": 625,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 279,
+                    "y0": 603,
+                    "x1": 321,
+                    "y1": 632,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "occluded>10"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "68780aaf-aa2f-4a73-85aa-12dc2b27dc5e",
+            "identity": "person-group-far-away",
+            "x0": 1261,
+            "y0": 569,
+            "x1": 1270,
+            "y1": 594,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "8f51fa31-f5e1-47ea-abb7-8ed57d024fa2",
+            "identity": "person-group-far-away",
+            "x0": 848,
+            "y0": 576,
+            "x1": 863,
+            "y1": 594,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "b1ac3e3d-ada8-4702-85fb-835cc9c37e9a",
+            "identity": "person-group-far-away",
+            "x0": 1344,
+            "y0": 531,
+            "x1": 1355,
+            "y1": 554,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "019f3ab4-fd5c-4b4c-97d7-d087b7a738b3",
+            "identity": "person-group-far-away",
+            "x0": 1333,
+            "y0": 567,
+            "x1": 1345,
+            "y1": 597,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "ec05204c-4c3a-42d2-b4fd-57b0966e77ae",
+            "identity": "person-group-far-away",
+            "x0": 1299,
+            "y0": 570,
+            "x1": 1309,
+            "y1": 596,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

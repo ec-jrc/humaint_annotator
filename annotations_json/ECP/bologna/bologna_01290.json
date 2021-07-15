@@ -1,0 +1,81 @@
+{
+    "im_name": "bologna_01290.png",
+    "city_name": "bologna",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "9bbf402a-1850-4630-a873-acad83dc8454",
+            "identity": "pedestrian",
+            "x0": 841,
+            "y0": 543,
+            "x1": 868,
+            "y1": 588,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "bff666ce-3599-4e20-b1fe-a3721343089b",
+            "identity": "scooter-group",
+            "x0": 344,
+            "y0": 529,
+            "x1": 435,
+            "y1": 603,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "42362a3c-bb05-44b1-90f4-680b4118442c",
+            "identity": "scooter-group",
+            "x0": 1326,
+            "y0": 549,
+            "x1": 1694,
+            "y1": 604,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "09db4042-37d7-46da-99b9-efebbd3a570d",
+            "identity": "scooter-group",
+            "x0": 1800,
+            "y0": 567,
+            "x1": 1920,
+            "y1": 702,
+            "attributes": {
+                "sandbox_tags": [
+                    "truncated>40",
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "2da41e35-2ba1-4972-bd38-85b7cc21da80",
+            "identity": "bicycle-group",
+            "x0": 1686,
+            "y0": 577,
+            "x1": 1920,
+            "y1": 712,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

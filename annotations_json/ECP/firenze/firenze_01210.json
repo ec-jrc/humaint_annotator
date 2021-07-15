@@ -1,0 +1,144 @@
+{
+    "im_name": "firenze_01210.png",
+    "city_name": "firenze",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "75ba17f1-47b5-4d7a-b83f-b1b29a17dab3",
+            "identity": "rider",
+            "x0": 791,
+            "y0": 568,
+            "x1": 810,
+            "y1": 612,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 789,
+                    "y0": 586,
+                    "x1": 810,
+                    "y1": 618,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "99b7c8c7-c8cd-4d16-9ab9-c157b5eaf9e0",
+            "identity": "rider",
+            "x0": 770,
+            "y0": 564,
+            "x1": 790,
+            "y1": 623,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 770,
+                    "y0": 587,
+                    "x1": 791,
+                    "y1": 631,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "8e39ca8d-3aa3-45fd-b6dc-ba33abe4d496",
+            "identity": "rider",
+            "x0": 722,
+            "y0": 555,
+            "x1": 749,
+            "y1": 628,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 722,
+                    "y0": 588,
+                    "x1": 749,
+                    "y1": 636,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "32b5d935-bf0e-4f38-abfb-70f5e5979b08",
+            "identity": "rider",
+            "x0": 918,
+            "y0": 555,
+            "x1": 962,
+            "y1": 641,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "scooter",
+                    "x0": 914,
+                    "y0": 575,
+                    "x1": 963,
+                    "y1": 652,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "664344e5-545e-4da2-b2fc-76220d1358d5",
+            "identity": "person-group-far-away",
+            "x0": 1396,
+            "y0": 556,
+            "x1": 1419,
+            "y1": 633,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "f3d5ac2d-d322-47c8-b32c-9b8608fd0b75",
+            "identity": "person-group-far-away",
+            "x0": 1426,
+            "y0": 543,
+            "x1": 1461,
+            "y1": 627,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "8490f77b-87b3-4b7d-b996-b390b7b80e0c",
+            "identity": "scooter-group",
+            "x0": 1041,
+            "y0": 541,
+            "x1": 1551,
+            "y1": 714,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

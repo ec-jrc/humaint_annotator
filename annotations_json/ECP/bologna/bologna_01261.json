@@ -1,0 +1,65 @@
+{
+    "im_name": "bologna_01261.png",
+    "city_name": "bologna",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "8808627a-843e-42c7-a8e4-2e0c4c993d16",
+            "identity": "bicycle-group",
+            "x0": 543,
+            "y0": 574,
+            "x1": 728,
+            "y1": 647,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "da927362-1c3a-4b1d-bf73-5c7727c245e3",
+            "identity": "bicycle-group",
+            "x0": 798,
+            "y0": 579,
+            "x1": 885,
+            "y1": 650,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "1ccc2655-238d-4822-9472-2bdbf9cd7c02",
+            "identity": "pedestrian",
+            "x0": 843,
+            "y0": 530,
+            "x1": 890,
+            "y1": 672,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "79e5ee32-0ffa-4a9b-9c5a-19f0248b3bf3",
+            "identity": "person-group-far-away",
+            "x0": 842,
+            "y0": 545,
+            "x1": 885,
+            "y1": 666,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

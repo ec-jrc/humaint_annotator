@@ -1,0 +1,96 @@
+{
+    "im_name": "marseille_01421.png",
+    "city_name": "marseille",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "2df85141-f9cc-4d40-8f6c-fec85c34875d",
+            "identity": "pedestrian",
+            "x0": 1789,
+            "y0": 283,
+            "x1": 1919,
+            "y1": 741,
+            "attributes": {
+                "sandbox_tags": [
+                    "truncated>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "d1289dbd-3b9a-4587-8315-fc7ee0937c78",
+            "identity": "pedestrian",
+            "x0": 470,
+            "y0": 415,
+            "x1": 495,
+            "y1": 492,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "182977fd-2505-4804-b5ba-77f78a75ac88",
+            "identity": "pedestrian",
+            "x0": 358,
+            "y0": 426,
+            "x1": 397,
+            "y1": 531,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "c0379b8f-1dc9-4fd6-bfab-643cdd54d09a",
+            "identity": "pedestrian",
+            "x0": 397,
+            "y0": 410,
+            "x1": 439,
+            "y1": 544,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "d22e5336-99e3-44b5-9093-3b5346fcb561",
+            "identity": "pedestrian",
+            "x0": 711,
+            "y0": 432,
+            "x1": 719,
+            "y1": 457,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "7522e033-9703-4000-ae52-0c231e627929",
+            "identity": "person-group-far-away",
+            "x0": 594,
+            "y0": 413,
+            "x1": 612,
+            "y1": 455,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

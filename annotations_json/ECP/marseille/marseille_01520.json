@@ -1,0 +1,52 @@
+{
+    "im_name": "marseille_01520.png",
+    "city_name": "marseille",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "0e92526f-5aeb-4b62-a3a9-af7601ee5b3f",
+            "identity": "pedestrian",
+            "x0": 1131,
+            "y0": 395,
+            "x1": 1180,
+            "y1": 543,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "60cc766a-c519-49b3-959e-85ac2ce8dc97",
+            "identity": "pedestrian",
+            "x0": 178,
+            "y0": 380,
+            "x1": 262,
+            "y1": 639,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "0049433d-aff1-4b53-ac8e-e5ae2c25c81c",
+            "identity": "pedestrian",
+            "x0": 583,
+            "y0": 425,
+            "x1": 625,
+            "y1": 579,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

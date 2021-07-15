@@ -1,0 +1,48 @@
+{
+    "im_name": "firenze_01211.png",
+    "city_name": "firenze",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [
+        "lenseFlare"
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "9635aeb5-2df2-40d9-bee8-95d074d57e78",
+            "identity": "scooter-group",
+            "x0": 1840,
+            "y0": 520,
+            "x1": 1920,
+            "y1": 642,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "8f7bc1d0-f5dd-4919-b39c-aef579989736",
+            "identity": "rider",
+            "x0": 1764,
+            "y0": 522,
+            "x1": 1819,
+            "y1": 617,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "motorbike",
+                    "x0": 1753,
+                    "y0": 518,
+                    "x1": 1823,
+                    "y1": 629,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        }
+    ]
+}

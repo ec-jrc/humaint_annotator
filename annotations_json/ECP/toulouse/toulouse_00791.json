@@ -1,0 +1,63 @@
+{
+    "im_name": "toulouse_00791.png",
+    "city_name": "toulouse",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "ced6643b-ca85-44fe-aa9c-0ba71300fc8f",
+            "identity": "motorbike-group",
+            "x0": 1141,
+            "y0": 386,
+            "x1": 1258,
+            "y1": 541,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "b2fc1b22-b1d0-4e46-8ab7-a29395e43707",
+            "identity": "pedestrian",
+            "x0": 1120,
+            "y0": 403,
+            "x1": 1136,
+            "y1": 441,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "b360c9c2-e96b-40ff-8dbc-15c2abe9a3f4",
+            "identity": "motorbike-group",
+            "x0": 1065,
+            "y0": 411,
+            "x1": 1090,
+            "y1": 436,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "41cc6c7c-4bbd-4104-85d5-9299e0b563e3",
+            "identity": "bicycle-group",
+            "x0": 994,
+            "y0": 407,
+            "x1": 1016,
+            "y1": 448,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

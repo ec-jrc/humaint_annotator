@@ -1,0 +1,78 @@
+{
+    "im_name": "ljubljana_01014.png",
+    "city_name": "ljubljana",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "a7efc7d7-5af6-46f5-9a78-1770242abaab",
+            "identity": "pedestrian",
+            "x0": 63,
+            "y0": 546,
+            "x1": 114,
+            "y1": 674,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "0586df3b-faff-47cd-a547-02eefec5f017",
+            "identity": "pedestrian",
+            "x0": 160,
+            "y0": 561,
+            "x1": 186,
+            "y1": 624,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "63c51dc4-7fab-41dd-8839-80260a8da6ed",
+            "identity": "pedestrian",
+            "x0": 670,
+            "y0": 554,
+            "x1": 685,
+            "y1": 599,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "1d64979a-659b-4d78-ad81-984e5c8f99bd",
+            "identity": "pedestrian",
+            "x0": 677,
+            "y0": 558,
+            "x1": 690,
+            "y1": 601,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "45ad76c4-207e-4621-885a-e6d8ba592110",
+            "identity": "person-group-far-away",
+            "x0": 599,
+            "y0": 464,
+            "x1": 641,
+            "y1": 504,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

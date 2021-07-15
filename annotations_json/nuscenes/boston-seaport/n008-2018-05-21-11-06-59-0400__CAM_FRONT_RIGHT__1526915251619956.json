@@ -1,0 +1,93 @@
+{
+    "im_name": "samples/CAM_FRONT_RIGHT/n008-2018-05-21-11-06-59-0400__CAM_FRONT_RIGHT__1526915251619956.jpg",
+    "city_name": "boston-seaport",
+    "im_width": 1600,
+    "im_height": 900,
+    "sandbox_tags": [
+        {
+            "original_img_token": "9c981277934f4731b87d5d86a4d8a9b1"
+        }
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "56cd6855-1d72-4df6-b976-40752cbaa2a9",
+            "identity": "vehicle.car",
+            "x0": 292,
+            "y0": 429,
+            "x1": 1246,
+            "y1": 900,
+            "attributes": {
+                "sandbox_tags": [
+                    "vehicle.parked"
+                ]
+            },
+            "sandbox_tags": [
+                {
+                    "original_agent_token": "39e6d0887b184de0a36ea4a6a984b8e0"
+                }
+            ],
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "92450821-f73f-46c9-badf-7e3334241923",
+            "identity": "human.pedestrian.adult",
+            "x0": 1182,
+            "y0": 281,
+            "x1": 1247,
+            "y1": 434,
+            "attributes": {
+                "sandbox_tags": [
+                    "pedestrian.sitting_lying_down"
+                ]
+            },
+            "sandbox_tags": [
+                {
+                    "original_agent_token": "4ecb9f68c3254b448327fb0469576050"
+                }
+            ],
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "9110c3ea-3fbd-4153-9a9f-c80bc378034f",
+            "identity": "vehicle.car",
+            "x0": 0,
+            "y0": 275,
+            "x1": 827,
+            "y1": 839,
+            "attributes": {
+                "sandbox_tags": [
+                    "vehicle.parked"
+                ]
+            },
+            "sandbox_tags": [
+                {
+                    "original_agent_token": "7e8f5f8c9171456ca99f52a2622b1811"
+                }
+            ],
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "aa166c04-dad2-4a36-bd49-1bb3701138ec",
+            "identity": "vehicle.car",
+            "x0": 1168,
+            "y0": 421,
+            "x1": 1600,
+            "y1": 900,
+            "attributes": {
+                "sandbox_tags": [
+                    "vehicle.parked"
+                ]
+            },
+            "sandbox_tags": [
+                {
+                    "original_agent_token": "abb1578166004401a5df5981160b4c22"
+                }
+            ],
+            "sub_entities": []
+        }
+    ]
+}

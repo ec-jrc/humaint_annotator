@@ -1,0 +1,61 @@
+{
+    "im_name": "bologna_01378.png",
+    "city_name": "bologna",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "ecb8c6de-1b22-4e82-b87e-340d02ddb9de",
+            "identity": "rider",
+            "x0": 1182,
+            "y0": 481,
+            "x1": 1277,
+            "y1": 727,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 1182,
+                    "y0": 587,
+                    "x1": 1283,
+                    "y1": 760,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "5aab4fb2-2e19-4a08-8ae7-7dfda0320be8",
+            "identity": "pedestrian",
+            "x0": 947,
+            "y0": 546,
+            "x1": 954,
+            "y1": 582,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "56d86aea-5592-4881-86eb-e271d5879f96",
+            "identity": "pedestrian",
+            "x0": 1016,
+            "y0": 540,
+            "x1": 1034,
+            "y1": 580,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

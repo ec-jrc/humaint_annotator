@@ -1,0 +1,50 @@
+{
+    "im_name": "bratislava_00934.png",
+    "city_name": "bratislava",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "dc173776-7a34-491c-af1a-fac2fcde6761",
+            "identity": "pedestrian",
+            "x0": 614,
+            "y0": 568,
+            "x1": 632,
+            "y1": 601,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "d4477ca9-3c42-46e2-8d99-d98fc1fd9d22",
+            "identity": "person-group-far-away",
+            "x0": 662,
+            "y0": 571,
+            "x1": 670,
+            "y1": 590,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "0ec550c8-bcbb-4ac1-b718-6d212b0d2cc6",
+            "identity": "person-group-far-away",
+            "x0": 672,
+            "y0": 572,
+            "x1": 678,
+            "y1": 590,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

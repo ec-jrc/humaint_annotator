@@ -1,0 +1,88 @@
+{
+    "im_name": "barcelona_01482.png",
+    "city_name": "barcelona",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "96c5ae36-3ddd-4997-a916-8268bf1743be",
+            "identity": "scooter-group",
+            "x0": 294,
+            "y0": 411,
+            "x1": 536,
+            "y1": 586,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "c243882d-543d-463e-9ea2-acaf7cddc13f",
+            "identity": "scooter-group",
+            "x0": 606,
+            "y0": 437,
+            "x1": 699,
+            "y1": 505,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "c18cba64-41a3-4ff6-a4fe-4c1adbd60187",
+            "identity": "rider",
+            "x0": 928,
+            "y0": 381,
+            "x1": 1024,
+            "y1": 601,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": [
+                {
+                    "identity": "motorbike",
+                    "x0": 927,
+                    "y0": 468,
+                    "x1": 1024,
+                    "y1": 614,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "occluded>80",
+                            "unsure_orientation"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "637f92a7-9bf8-4822-b051-f2bab54cd76a",
+            "identity": "rider",
+            "x0": 807,
+            "y0": 335,
+            "x1": 1058,
+            "y1": 740,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "scooter",
+                    "x0": 811,
+                    "y0": 430,
+                    "x1": 1045,
+                    "y1": 771,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        }
+    ]
+}

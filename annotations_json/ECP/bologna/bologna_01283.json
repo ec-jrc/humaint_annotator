@@ -1,0 +1,210 @@
+{
+    "im_name": "bologna_01283.png",
+    "city_name": "bologna",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [
+        "lenseFlare"
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "e57b26ab-b461-45b7-99f8-345e42f2e7a5",
+            "identity": "rider",
+            "x0": 959,
+            "y0": 536,
+            "x1": 992,
+            "y1": 594,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "motorbike",
+                    "x0": 959,
+                    "y0": 559,
+                    "x1": 996,
+                    "y1": 613,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "372709ce-354f-4c58-b3f3-9ce9871b1619",
+            "identity": "rider",
+            "x0": 1056,
+            "y0": 541,
+            "x1": 1086,
+            "y1": 598,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "motorbike",
+                    "x0": 1055,
+                    "y0": 563,
+                    "x1": 1088,
+                    "y1": 613,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "a21cd2b9-d3cf-4408-8ded-4a7ceee46496",
+            "identity": "pedestrian",
+            "x0": 1089,
+            "y0": 547,
+            "x1": 1105,
+            "y1": 591,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "66a2e996-e5e7-494a-8a88-d9a128737289",
+            "identity": "bicycle-group",
+            "x0": 1720,
+            "y0": 634,
+            "x1": 1920,
+            "y1": 887,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "c5c1bcfc-941f-4279-8247-a875145a99de",
+            "identity": "motorbike-group",
+            "x0": 1102,
+            "y0": 551,
+            "x1": 1126,
+            "y1": 609,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "d4e4d547-5e97-4163-ba2d-4c45f2d1d4f7",
+            "identity": "motorbike-group",
+            "x0": 1114,
+            "y0": 546,
+            "x1": 1137,
+            "y1": 612,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "d099a7a3-a499-412a-a64e-dd9f22c9d91b",
+            "identity": "motorbike-group",
+            "x0": 1137,
+            "y0": 539,
+            "x1": 1197,
+            "y1": 625,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_8",
+            "uuid": "da567f12-e37d-4a14-b7bf-33f30cc9e901",
+            "identity": "motorbike-group",
+            "x0": 1149,
+            "y0": 542,
+            "x1": 1210,
+            "y1": 629,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_9",
+            "uuid": "aea5fa4d-61fc-4d2c-a903-9856ffedcc3f",
+            "identity": "motorbike-group",
+            "x0": 1175,
+            "y0": 544,
+            "x1": 1232,
+            "y1": 631,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_10",
+            "uuid": "ae0b1b26-25b6-4955-b5d3-f9579511df7b",
+            "identity": "motorbike-group",
+            "x0": 1198,
+            "y0": 532,
+            "x1": 1259,
+            "y1": 646,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_11",
+            "uuid": "d5355186-3be8-40c0-a684-c6776b843fcb",
+            "identity": "motorbike-group",
+            "x0": 1243,
+            "y0": 538,
+            "x1": 1292,
+            "y1": 666,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_12",
+            "uuid": "fa6e7de3-a139-418d-9a9f-6bb0314b76fb",
+            "identity": "motorbike-group",
+            "x0": 1276,
+            "y0": 555,
+            "x1": 1352,
+            "y1": 678,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_13",
+            "uuid": "7eb37a7b-7cc0-4ea5-8d72-c772e06b9d90",
+            "identity": "motorbike-group",
+            "x0": 1384,
+            "y0": 546,
+            "x1": 1515,
+            "y1": 730,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

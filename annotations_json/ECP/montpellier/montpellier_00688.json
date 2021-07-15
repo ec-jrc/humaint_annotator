@@ -1,0 +1,80 @@
+{
+    "im_name": "montpellier_00688.png",
+    "city_name": "montpellier",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "11a1da16-18c7-4e41-b79d-a6652616d153",
+            "identity": "pedestrian",
+            "x0": 1559,
+            "y0": 489,
+            "x1": 1602,
+            "y1": 643,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "18f41c73-94a1-4c81-900c-674444de945f",
+            "identity": "person-group-far-away",
+            "x0": 138,
+            "y0": 637,
+            "x1": 152,
+            "y1": 672,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "efa58962-283a-40d4-a09f-1e9b5c9495dc",
+            "identity": "person-group-far-away",
+            "x0": 855,
+            "y0": 532,
+            "x1": 899,
+            "y1": 647,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "cfaf3e13-5259-4e91-ac7d-1d8c4d4d97cf",
+            "identity": "pedestrian",
+            "x0": 988,
+            "y0": 496,
+            "x1": 1039,
+            "y1": 642,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "6c4a5b0a-f0ec-47a6-891d-016cc15d4aea",
+            "identity": "pedestrian",
+            "x0": 965,
+            "y0": 500,
+            "x1": 1029,
+            "y1": 648,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

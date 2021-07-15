@@ -1,0 +1,104 @@
+{
+    "im_name": "milano_00907.png",
+    "city_name": "milano",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "cd7175da-2e1d-4477-b3f6-6fe519805c9b",
+            "identity": "person-group-far-away",
+            "x0": 230,
+            "y0": 362,
+            "x1": 272,
+            "y1": 435,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "6f8bc7e2-7e0b-4370-bf9f-34e6082f2b0b",
+            "identity": "person-group-far-away",
+            "x0": 377,
+            "y0": 545,
+            "x1": 393,
+            "y1": 594,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "ca3c170f-b36c-4aca-bf0d-c5732539b4e6",
+            "identity": "pedestrian",
+            "x0": 380,
+            "y0": 535,
+            "x1": 402,
+            "y1": 601,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "5d297d2d-9449-44f5-bd0b-78151f642ee8",
+            "identity": "bicycle-group",
+            "x0": 355,
+            "y0": 553,
+            "x1": 402,
+            "y1": 604,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "5bc58dc8-b1b4-48dc-8af8-29bbb79a4591",
+            "identity": "rider",
+            "x0": 1363,
+            "y0": 530,
+            "x1": 1408,
+            "y1": 616,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "scooter",
+                    "x0": 1359,
+                    "y0": 553,
+                    "x1": 1410,
+                    "y1": 630,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "254bfcd8-dde7-4e35-b3c4-b9af67ea5b86",
+            "identity": "pedestrian",
+            "x0": 1697,
+            "y0": 521,
+            "x1": 1742,
+            "y1": 628,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

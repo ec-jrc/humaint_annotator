@@ -1,0 +1,93 @@
+{
+    "im_name": "bologna_01341.png",
+    "city_name": "bologna",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [
+        "lenseFlare"
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "dbcf92f3-0ac9-41f9-9f35-d178059c1ece",
+            "identity": "scooter-group",
+            "x0": 609,
+            "y0": 502,
+            "x1": 764,
+            "y1": 570,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "9129ab5f-c9ef-462d-b4fc-75856b6924ed",
+            "identity": "pedestrian",
+            "x0": 851,
+            "y0": 499,
+            "x1": 872,
+            "y1": 561,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "70d03cc5-fa1b-41c9-a97d-18ff62d020bf",
+            "identity": "pedestrian",
+            "x0": 879,
+            "y0": 480,
+            "x1": 913,
+            "y1": 612,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "1735ee07-471d-40f1-8484-deed6536a03f",
+            "identity": "pedestrian",
+            "x0": 1368,
+            "y0": 461,
+            "x1": 1438,
+            "y1": 659,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "79e6e4d3-7dd8-42de-96ea-860cb4333510",
+            "identity": "person-group-far-away",
+            "x0": 1192,
+            "y0": 473,
+            "x1": 1294,
+            "y1": 622,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "4c06b3cf-5603-4228-8e86-0db600dc11a5",
+            "identity": "rider+vehicle-group-far-away",
+            "x0": 773,
+            "y0": 507,
+            "x1": 810,
+            "y1": 551,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

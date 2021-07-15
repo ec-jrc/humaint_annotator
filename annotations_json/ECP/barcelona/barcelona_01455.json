@@ -1,0 +1,50 @@
+{
+    "im_name": "barcelona_01455.png",
+    "city_name": "barcelona",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "2aeda993-d428-4900-9b51-19f606d7aabc",
+            "identity": "scooter-group",
+            "x0": 1742,
+            "y0": 448,
+            "x1": 1872,
+            "y1": 503,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "621632b6-6b03-48fa-b2ef-6604fb6dda0c",
+            "identity": "scooter-group",
+            "x0": 0,
+            "y0": 422,
+            "x1": 127,
+            "y1": 516,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "55e6da9d-c77d-4ab8-92cb-324df5d5695d",
+            "identity": "pedestrian",
+            "x0": 16,
+            "y0": 392,
+            "x1": 49,
+            "y1": 494,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

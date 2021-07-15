@@ -1,0 +1,76 @@
+{
+    "im_name": "firenze_01304.png",
+    "city_name": "firenze",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "eb26df0c-85a7-437b-a07f-eae98c2dd023",
+            "identity": "bicycle-group",
+            "x0": 210,
+            "y0": 572,
+            "x1": 293,
+            "y1": 658,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "5506a34d-307a-4257-8bfa-13ee6afc69f3",
+            "identity": "pedestrian",
+            "x0": 402,
+            "y0": 542,
+            "x1": 433,
+            "y1": 648,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "77052a46-81c7-438a-8411-fbf1852e8e22",
+            "identity": "pedestrian",
+            "x0": 374,
+            "y0": 552,
+            "x1": 416,
+            "y1": 650,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "808b1115-f4d8-4374-a6e0-d937c844040b",
+            "identity": "bicycle-group",
+            "x0": 1282,
+            "y0": 541,
+            "x1": 1309,
+            "y1": 610,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "36c725eb-9a68-4043-a625-eab6545369f8",
+            "identity": "person-group-far-away",
+            "x0": 797,
+            "y0": 541,
+            "x1": 809,
+            "y1": 581,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

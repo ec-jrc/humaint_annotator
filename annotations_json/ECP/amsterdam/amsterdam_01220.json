@@ -1,0 +1,63 @@
+{
+    "im_name": "amsterdam_01220.png",
+    "city_name": "amsterdam",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [
+        "rainy"
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "15d3d29f-43b9-4afb-bd0e-e49a17412b6e",
+            "identity": "rider",
+            "x0": 954,
+            "y0": 529,
+            "x1": 974,
+            "y1": 577,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 939,
+                    "y0": 550,
+                    "x1": 989,
+                    "y1": 583,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "32235c4c-35cd-4511-a3dc-97a1549efc6b",
+            "identity": "pedestrian",
+            "x0": 1067,
+            "y0": 542,
+            "x1": 1094,
+            "y1": 610,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "c388e156-07cc-4c98-aaae-c60853c95e11",
+            "identity": "bicycle-group",
+            "x0": 1331,
+            "y0": 569,
+            "x1": 1506,
+            "y1": 782,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

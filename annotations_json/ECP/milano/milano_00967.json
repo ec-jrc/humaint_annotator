@@ -1,0 +1,76 @@
+{
+    "im_name": "milano_00967.png",
+    "city_name": "milano",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "39eb2035-d65e-44e3-835d-ab89822cafb3",
+            "identity": "rider",
+            "x0": 705,
+            "y0": 536,
+            "x1": 743,
+            "y1": 607,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": [
+                {
+                    "identity": "motorbike",
+                    "x0": 694,
+                    "y0": 538,
+                    "x1": 767,
+                    "y1": 612,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "occluded>40"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "f4d6fb6b-edfb-45ed-892e-452308058094",
+            "identity": "pedestrian",
+            "x0": 814,
+            "y0": 539,
+            "x1": 836,
+            "y1": 601,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "4640e624-36bc-4384-8006-806e0ba33217",
+            "identity": "pedestrian",
+            "x0": 840,
+            "y0": 542,
+            "x1": 873,
+            "y1": 600,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "7fe015a0-dc0a-44df-ae7e-14950a0896d5",
+            "identity": "rider+vehicle-group-far-away",
+            "x0": 271,
+            "y0": 546,
+            "x1": 303,
+            "y1": 614,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

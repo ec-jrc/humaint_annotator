@@ -1,0 +1,59 @@
+{
+    "im_name": "marseille_01318.png",
+    "city_name": "marseille",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [
+        "lenseFlare"
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "3902fbe4-db92-4f17-9e49-4a9cfdcc9f4e",
+            "identity": "rider",
+            "x0": 1014,
+            "y0": 433,
+            "x1": 1022,
+            "y1": 451,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "scooter",
+                    "x0": 1014,
+                    "y0": 441,
+                    "x1": 1023,
+                    "y1": 455,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "345bf73e-ed82-43cc-a563-e9c63cb38aab",
+            "identity": "rider",
+            "x0": 1030,
+            "y0": 429,
+            "x1": 1048,
+            "y1": 461,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "scooter",
+                    "x0": 1031,
+                    "y0": 441,
+                    "x1": 1047,
+                    "y1": 467,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        }
+    ]
+}

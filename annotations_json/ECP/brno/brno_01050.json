@@ -1,0 +1,80 @@
+{
+    "im_name": "brno_01050.png",
+    "city_name": "brno",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "7da20883-2e2d-46d8-a067-141b50ad2a20",
+            "identity": "pedestrian",
+            "x0": 1091,
+            "y0": 521,
+            "x1": 1128,
+            "y1": 616,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "233cf516-4971-4511-8573-da05d326b2e3",
+            "identity": "pedestrian",
+            "x0": 1038,
+            "y0": 557,
+            "x1": 1046,
+            "y1": 581,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "7b74f334-eb43-4e98-88a1-ea56232cac57",
+            "identity": "pedestrian",
+            "x0": 441,
+            "y0": 342,
+            "x1": 592,
+            "y1": 614,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80",
+                    "behind-glass"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "b4121d08-fcf6-481b-86b3-0fb67c8186fc",
+            "identity": "pedestrian",
+            "x0": 531,
+            "y0": 376,
+            "x1": 654,
+            "y1": 560,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80",
+                    "behind-glass"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "38781bc3-5aee-46a3-98c7-1e403f1a337c",
+            "identity": "pedestrian",
+            "x0": 1203,
+            "y0": 516,
+            "x1": 1241,
+            "y1": 629,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

@@ -1,0 +1,35 @@
+{
+    "im_name": "tubingen_000002_000019_leftImg8bit.png",
+    "city_name": "tubingen",
+    "im_width": 2048,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "2ca7c9b3-4345-44d6-aa40-e0515776c402",
+            "identity": "Pedestrian",
+            "x0": 1008,
+            "y0": 392,
+            "x1": 1054,
+            "y1": 504,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "a7c827bd-13e0-4f01-9b97-3c669340d3fa",
+            "identity": "Rider",
+            "x0": 1117,
+            "y0": 398,
+            "x1": 1149,
+            "y1": 475,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

@@ -1,0 +1,37 @@
+{
+    "im_name": "nuernberg_00983.png",
+    "city_name": "nuernberg",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "8f8e711f-eb6d-49af-9f02-09fae34ce522",
+            "identity": "pedestrian",
+            "x0": 1046,
+            "y0": 524,
+            "x1": 1074,
+            "y1": 604,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "8e2f1484-649f-403f-9cde-852cedb0111f",
+            "identity": "bicycle-group",
+            "x0": 1622,
+            "y0": 529,
+            "x1": 1696,
+            "y1": 649,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

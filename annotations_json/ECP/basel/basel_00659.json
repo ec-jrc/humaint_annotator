@@ -1,0 +1,37 @@
+{
+    "im_name": "basel_00659.png",
+    "city_name": "basel",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "bdcef173-73a6-4711-afa5-829b42a6c564",
+            "identity": "rider+vehicle-group-far-away",
+            "x0": 727,
+            "y0": 448,
+            "x1": 743,
+            "y1": 484,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "e7404aba-a5d8-4c91-9355-622cdd5e8484",
+            "identity": "person-group-far-away",
+            "x0": 857,
+            "y0": 429,
+            "x1": 869,
+            "y1": 478,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

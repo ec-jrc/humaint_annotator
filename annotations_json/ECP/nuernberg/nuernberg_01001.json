@@ -1,0 +1,166 @@
+{
+    "im_name": "nuernberg_01001.png",
+    "city_name": "nuernberg",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "147afb66-1ae2-4e34-9ea9-cdaf9e002c7a",
+            "identity": "person-group-far-away",
+            "x0": 194,
+            "y0": 323,
+            "x1": 246,
+            "y1": 472,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "e03fdbfc-de4e-42ee-b89e-9d357f72df7d",
+            "identity": "person-group-far-away",
+            "x0": 234,
+            "y0": 368,
+            "x1": 267,
+            "y1": 475,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "6bd9925a-d62b-4fa7-8d4a-31c8a6b185db",
+            "identity": "person-group-far-away",
+            "x0": 377,
+            "y0": 384,
+            "x1": 422,
+            "y1": 488,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "fbe6afdd-a274-4511-b4c6-4c66edcd537d",
+            "identity": "person-group-far-away",
+            "x0": 408,
+            "y0": 392,
+            "x1": 431,
+            "y1": 490,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "56370637-3638-4dca-81f6-480556c57a14",
+            "identity": "pedestrian",
+            "x0": 494,
+            "y0": 531,
+            "x1": 516,
+            "y1": 583,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "db056f3e-56c7-42d6-9931-33cc56893ee4",
+            "identity": "bicycle-group",
+            "x0": 696,
+            "y0": 549,
+            "x1": 746,
+            "y1": 586,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "3176a59b-f8d5-489a-b2e3-7761f7db9568",
+            "identity": "pedestrian",
+            "x0": 796,
+            "y0": 509,
+            "x1": 828,
+            "y1": 650,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_8",
+            "uuid": "916c981c-51ee-47c7-b0fd-a8ce7bef3da9",
+            "identity": "person-group-far-away",
+            "x0": 1726,
+            "y0": 531,
+            "x1": 1745,
+            "y1": 570,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_9",
+            "uuid": "f94f09f4-e73d-4480-accb-44c8eaa7199e",
+            "identity": "person-group-far-away",
+            "x0": 1811,
+            "y0": 534,
+            "x1": 1833,
+            "y1": 578,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_10",
+            "uuid": "5fd4ad14-8eee-446b-a5fe-ecbed8dcfae1",
+            "identity": "rider",
+            "x0": 1826,
+            "y0": 541,
+            "x1": 1873,
+            "y1": 641,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 1816,
+                    "y0": 578,
+                    "x1": 1899,
+                    "y1": 649,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "occluded>10"
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

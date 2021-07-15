@@ -1,0 +1,94 @@
+{
+    "im_name": "dresden_00848.png",
+    "city_name": "dresden",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [
+        "constructionSite"
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "38a56084-6152-47d0-a36a-326774b26058",
+            "identity": "pedestrian",
+            "x0": 124,
+            "y0": 565,
+            "x1": 148,
+            "y1": 643,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "8132dd7b-8c7f-4a3c-bcbb-ef90d199dc2d",
+            "identity": "pedestrian",
+            "x0": 548,
+            "y0": 507,
+            "x1": 611,
+            "y1": 671,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "a2e2cd0d-31e3-4140-8bd8-9268204445e4",
+            "identity": "rider",
+            "x0": 1139,
+            "y0": 497,
+            "x1": 1234,
+            "y1": 693,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 1138,
+                    "y0": 572,
+                    "x1": 1224,
+                    "y1": 732,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "e6cc6ed6-099d-4635-8412-c9680171b8c5",
+            "identity": "person-group-far-away",
+            "x0": 883,
+            "y0": 561,
+            "x1": 889,
+            "y1": 579,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "1ad23c9b-ce90-4177-a913-6cd70eb4a1a8",
+            "identity": "person-group-far-away",
+            "x0": 756,
+            "y0": 503,
+            "x1": 827,
+            "y1": 595,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

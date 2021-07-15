@@ -1,0 +1,96 @@
+{
+    "im_name": "szczecin_00396.png",
+    "city_name": "szczecin",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "d0dd1f9e-61f9-4b53-8467-5f4826360c29",
+            "identity": "pedestrian",
+            "x0": 253,
+            "y0": 535,
+            "x1": 269,
+            "y1": 574,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "e41ab26a-8fa9-49e7-b548-b363115f3045",
+            "identity": "pedestrian",
+            "x0": 944,
+            "y0": 573,
+            "x1": 972,
+            "y1": 616,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10",
+                    "sitting-lying"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "56ac80c7-76f0-4eca-9eaf-6b5d296fabe4",
+            "identity": "pedestrian",
+            "x0": 962,
+            "y0": 549,
+            "x1": 984,
+            "y1": 618,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "73b1fb86-31e5-4b94-9a61-05b08fb10672",
+            "identity": "pedestrian",
+            "x0": 1102,
+            "y0": 564,
+            "x1": 1129,
+            "y1": 635,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "c579c130-5673-4485-bf60-4553d9288bda",
+            "identity": "pedestrian",
+            "x0": 1276,
+            "y0": 551,
+            "x1": 1295,
+            "y1": 622,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "08206c9e-592a-4341-a0af-0a7189cf6990",
+            "identity": "pedestrian",
+            "x0": 1265,
+            "y0": 556,
+            "x1": 1282,
+            "y1": 621,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

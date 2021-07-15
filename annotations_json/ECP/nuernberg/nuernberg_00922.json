@@ -1,0 +1,76 @@
+{
+    "im_name": "nuernberg_00922.png",
+    "city_name": "nuernberg",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "dcf834b0-4344-48c1-835d-992d12ab0431",
+            "identity": "pedestrian",
+            "x0": 659,
+            "y0": 529,
+            "x1": 676,
+            "y1": 578,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "27ec129e-9625-4d80-a073-e895c3665707",
+            "identity": "pedestrian",
+            "x0": 784,
+            "y0": 530,
+            "x1": 827,
+            "y1": 598,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "f5dadda9-fb6a-40d6-814a-80148200856b",
+            "identity": "person-group-far-away",
+            "x0": 1055,
+            "y0": 550,
+            "x1": 1063,
+            "y1": 569,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "df6d291c-e713-4452-8b0e-229ef139135e",
+            "identity": "pedestrian",
+            "x0": 1003,
+            "y0": 539,
+            "x1": 1016,
+            "y1": 572,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "8bbc526e-c802-4214-b8c3-3ff14dde3e2c",
+            "identity": "pedestrian",
+            "x0": 991,
+            "y0": 546,
+            "x1": 1005,
+            "y1": 572,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

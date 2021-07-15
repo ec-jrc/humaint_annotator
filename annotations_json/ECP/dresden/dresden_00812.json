@@ -1,0 +1,65 @@
+{
+    "im_name": "dresden_00812.png",
+    "city_name": "dresden",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "095a7d38-06a3-48d7-bbf4-2fd54178df1b",
+            "identity": "pedestrian",
+            "x0": 1081,
+            "y0": 546,
+            "x1": 1093,
+            "y1": 574,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "a198a9a3-0dbb-4f1f-859a-e91c1f7ebfbb",
+            "identity": "pedestrian",
+            "x0": 1076,
+            "y0": 546,
+            "x1": 1086,
+            "y1": 574,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "73bbf75c-0c56-49e7-80ac-d8412d418a28",
+            "identity": "pedestrian",
+            "x0": 1600,
+            "y0": 530,
+            "x1": 1622,
+            "y1": 582,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "346999db-6e8b-468c-8ae0-81be19c6af87",
+            "identity": "person-group-far-away",
+            "x0": 197,
+            "y0": 556,
+            "x1": 221,
+            "y1": 590,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

@@ -1,0 +1,48 @@
+{
+    "im_name": "bremen_000273_000019_leftImg8bit.png",
+    "city_name": "bremen",
+    "im_width": 2048,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "ae0e207c-625d-443c-9b17-1bf74580c461",
+            "identity": "Pedestrian",
+            "x0": 1842,
+            "y0": 386,
+            "x1": 1891,
+            "y1": 504,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "2c968282-a704-4236-a564-7241b8892eed",
+            "identity": "Rider",
+            "x0": 1429,
+            "y0": 420,
+            "x1": 1448,
+            "y1": 466,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "18ac4b30-d2f4-4db8-927c-9af0191b698c",
+            "identity": "Ignore",
+            "x0": 1739,
+            "y0": 379,
+            "x1": 1747,
+            "y1": 393,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

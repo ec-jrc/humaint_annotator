@@ -1,0 +1,65 @@
+{
+    "im_name": "barcelona_01488.png",
+    "city_name": "barcelona",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "d09bef14-0c25-4dd1-b870-4d28c29a124d",
+            "identity": "bicycle-group",
+            "x0": 972,
+            "y0": 437,
+            "x1": 1024,
+            "y1": 466,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "ff289127-c9ab-4e50-a8a4-571b1068f075",
+            "identity": "rider",
+            "x0": 814,
+            "y0": 427,
+            "x1": 826,
+            "y1": 461,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 814,
+                    "y0": 445,
+                    "x1": 826,
+                    "y1": 465,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "unsure_orientation"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "60ccddfa-7e56-4693-9fd6-293ffb0e4a7d",
+            "identity": "pedestrian",
+            "x0": 1255,
+            "y0": 419,
+            "x1": 1270,
+            "y1": 468,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

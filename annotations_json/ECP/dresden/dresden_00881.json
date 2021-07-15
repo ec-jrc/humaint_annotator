@@ -1,0 +1,85 @@
+{
+    "im_name": "dresden_00881.png",
+    "city_name": "dresden",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "f0303ab3-9e23-46c4-bc1b-8b297c76224c",
+            "identity": "motorbike-group",
+            "x0": 461,
+            "y0": 573,
+            "x1": 503,
+            "y1": 612,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "1c97bcb7-05db-4d5a-a048-c943ceeb7cf6",
+            "identity": "pedestrian",
+            "x0": 581,
+            "y0": 533,
+            "x1": 620,
+            "y1": 645,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "340eaca1-5d94-43db-966d-33cd54cfcdea",
+            "identity": "rider",
+            "x0": 428,
+            "y0": 544,
+            "x1": 465,
+            "y1": 621,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 429,
+                    "y0": 574,
+                    "x1": 463,
+                    "y1": 629,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "d262eb22-3b17-4f9b-8f46-4a9b76d04086",
+            "identity": "bicycle-group",
+            "x0": 1079,
+            "y0": 553,
+            "x1": 1117,
+            "y1": 585,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "80f4ba8a-a4e3-4e06-9a8a-2484f044a148",
+            "identity": "person-group-far-away",
+            "x0": 1008,
+            "y0": 550,
+            "x1": 1018,
+            "y1": 578,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

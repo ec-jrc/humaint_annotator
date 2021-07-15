@@ -1,0 +1,82 @@
+{
+    "im_name": "torino_01006.png",
+    "city_name": "torino",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "05344d22-e56a-480e-925f-8bd38222e9b3",
+            "identity": "person-group-far-away",
+            "x0": 356,
+            "y0": 468,
+            "x1": 426,
+            "y1": 543,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "b4c8aa81-8588-4842-91f2-d044e784576f",
+            "identity": "bicycle-group",
+            "x0": 457,
+            "y0": 563,
+            "x1": 721,
+            "y1": 667,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "a2462c19-5b0a-4618-a804-785134972c70",
+            "identity": "pedestrian",
+            "x0": 1407,
+            "y0": 502,
+            "x1": 1455,
+            "y1": 665,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "a92c2fe2-ffae-466c-83d4-1588c45bc653",
+            "identity": "pedestrian",
+            "x0": 1219,
+            "y0": 517,
+            "x1": 1251,
+            "y1": 612,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "8160a1ad-ac46-480f-bbdb-a5afa52143b0",
+            "identity": "person-group-far-away",
+            "x0": 1114,
+            "y0": 535,
+            "x1": 1131,
+            "y1": 589,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

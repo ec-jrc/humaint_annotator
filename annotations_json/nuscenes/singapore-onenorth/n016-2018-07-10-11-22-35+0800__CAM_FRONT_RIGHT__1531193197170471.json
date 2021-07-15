@@ -1,0 +1,129 @@
+{
+    "im_name": "samples/CAM_FRONT_RIGHT/n016-2018-07-10-11-22-35+0800__CAM_FRONT_RIGHT__1531193197170471.jpg",
+    "city_name": "singapore-onenorth",
+    "im_width": 1600,
+    "im_height": 900,
+    "sandbox_tags": [
+        {
+            "original_img_token": "3983f3ae223b459187bbb1e522358045"
+        }
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "7d39369e-b4bd-4649-a771-f773756a0a5c",
+            "identity": "movable_object.trafficcone",
+            "x0": 255,
+            "y0": 488,
+            "x1": 269,
+            "y1": 512,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sandbox_tags": [
+                {
+                    "original_agent_token": "0e557fc85cea4a2bb2579be2a5fe690f"
+                }
+            ],
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "2fe33cb8-820a-4504-a1b2-67d589fbee25",
+            "identity": "movable_object.trafficcone",
+            "x0": 292,
+            "y0": 489,
+            "x1": 305,
+            "y1": 514,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sandbox_tags": [
+                {
+                    "original_agent_token": "75e5b2081bad4a32ab4ccd43259491c2"
+                }
+            ],
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "8692687e-c5d1-4ffa-ab9b-d02c75e49aa6",
+            "identity": "vehicle.car",
+            "x0": 137,
+            "y0": 472,
+            "x1": 197,
+            "y1": 511,
+            "attributes": {
+                "sandbox_tags": [
+                    "vehicle.parked"
+                ]
+            },
+            "sandbox_tags": [
+                {
+                    "original_agent_token": "79b565932fde45228b9f7c7bfb7567ac"
+                }
+            ],
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "2f2891ae-34a5-4b94-a62e-4699abb5129f",
+            "identity": "vehicle.car",
+            "x0": 290,
+            "y0": 462,
+            "x1": 366,
+            "y1": 508,
+            "attributes": {
+                "sandbox_tags": [
+                    "vehicle.parked"
+                ]
+            },
+            "sandbox_tags": [
+                {
+                    "original_agent_token": "7dd0c205d4e04c49b6e76082b6da2aad"
+                }
+            ],
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "957a9940-85ec-416c-ba17-e795db5002e7",
+            "identity": "vehicle.car",
+            "x0": 254,
+            "y0": 471,
+            "x1": 300,
+            "y1": 496,
+            "attributes": {
+                "sandbox_tags": [
+                    "vehicle.parked"
+                ]
+            },
+            "sandbox_tags": [
+                {
+                    "original_agent_token": "cf4a5efd2eb64c3b9ed202ee95e42e0a"
+                }
+            ],
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "ff9fc82e-26b2-4d65-ad06-671a97e24faf",
+            "identity": "vehicle.motorcycle",
+            "x0": 53,
+            "y0": 489,
+            "x1": 110,
+            "y1": 548,
+            "attributes": {
+                "sandbox_tags": [
+                    "cycle.without_rider"
+                ]
+            },
+            "sandbox_tags": [
+                {
+                    "original_agent_token": "d8c45021bd4247178f01124edd7567f4"
+                }
+            ],
+            "sub_entities": []
+        }
+    ]
+}

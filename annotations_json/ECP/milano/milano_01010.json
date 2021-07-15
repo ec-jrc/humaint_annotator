@@ -1,0 +1,66 @@
+{
+    "im_name": "milano_01010.png",
+    "city_name": "milano",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "0988a6e0-3103-4847-877d-0358d61778a2",
+            "identity": "pedestrian",
+            "x0": 916,
+            "y0": 510,
+            "x1": 947,
+            "y1": 636,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "c203528c-ec3f-44e9-beea-7d757c374d29",
+            "identity": "pedestrian",
+            "x0": 950,
+            "y0": 521,
+            "x1": 986,
+            "y1": 635,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "598835ae-84cf-4a9c-bac4-4f6b152f5ee8",
+            "identity": "pedestrian",
+            "x0": 570,
+            "y0": 538,
+            "x1": 611,
+            "y1": 653,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "427b9620-d10b-4289-8c75-c086eb1bbb34",
+            "identity": "rider+vehicle-group-far-away",
+            "x0": 773,
+            "y0": 534,
+            "x1": 795,
+            "y1": 583,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

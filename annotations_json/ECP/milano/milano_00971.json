@@ -1,0 +1,61 @@
+{
+    "im_name": "milano_00971.png",
+    "city_name": "milano",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "17efc205-2e7d-4e2f-a5b5-ab9d9f40d186",
+            "identity": "rider",
+            "x0": 1345,
+            "y0": 428,
+            "x1": 1601,
+            "y1": 879,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "motorbike",
+                    "x0": 1328,
+                    "y0": 548,
+                    "x1": 1682,
+                    "y1": 914,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "974f4d02-4290-4794-9b21-4b5b4cd6b6ef",
+            "identity": "pedestrian",
+            "x0": 250,
+            "y0": 530,
+            "x1": 294,
+            "y1": 659,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "adc882bc-f13e-4700-a6d3-ba075de66302",
+            "identity": "rider+vehicle-group-far-away",
+            "x0": 278,
+            "y0": 547,
+            "x1": 303,
+            "y1": 610,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

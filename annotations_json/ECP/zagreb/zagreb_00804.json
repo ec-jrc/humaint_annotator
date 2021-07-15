@@ -1,0 +1,78 @@
+{
+    "im_name": "zagreb_00804.png",
+    "city_name": "zagreb",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [
+        "rainy"
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "77a443d1-4c8a-4150-beb1-d5557603d0e6",
+            "identity": "pedestrian",
+            "x0": 278,
+            "y0": 550,
+            "x1": 308,
+            "y1": 664,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "8c560285-0dcc-4205-8ca3-40704ce6d37f",
+            "identity": "pedestrian",
+            "x0": 663,
+            "y0": 549,
+            "x1": 677,
+            "y1": 599,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "872938df-538a-41d1-a35a-88d9473cb7a4",
+            "identity": "pedestrian",
+            "x0": 654,
+            "y0": 554,
+            "x1": 670,
+            "y1": 601,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "26164585-72ee-41cd-9a35-71d104957435",
+            "identity": "person-group-far-away",
+            "x0": 697,
+            "y0": 561,
+            "x1": 712,
+            "y1": 586,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "12ebfbd5-f439-44f3-8f6b-55bf89513598",
+            "identity": "person-group-far-away",
+            "x0": 678,
+            "y0": 563,
+            "x1": 691,
+            "y1": 593,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

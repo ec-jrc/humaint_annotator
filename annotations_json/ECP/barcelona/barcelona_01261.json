@@ -1,0 +1,46 @@
+{
+    "im_name": "barcelona_01261.png",
+    "city_name": "barcelona",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "b73eabcf-4a40-4a8e-a389-5086fff614f5",
+            "identity": "rider",
+            "x0": 969,
+            "y0": 415,
+            "x1": 983,
+            "y1": 442,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "scooter",
+                    "x0": 969,
+                    "y0": 424,
+                    "x1": 983,
+                    "y1": 446,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "6978c51f-cba3-4da7-b675-bdc57c776f74",
+            "identity": "person-group-far-away",
+            "x0": 1354,
+            "y0": 396,
+            "x1": 1369,
+            "y1": 413,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

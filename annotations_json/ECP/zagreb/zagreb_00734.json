@@ -1,0 +1,93 @@
+{
+    "im_name": "zagreb_00734.png",
+    "city_name": "zagreb",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "3331346e-0ffa-496a-acd6-3725f5307859",
+            "identity": "pedestrian",
+            "x0": 355,
+            "y0": 515,
+            "x1": 386,
+            "y1": 600,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "58459e6d-cc29-424f-bdca-9cfcc0a28394",
+            "identity": "pedestrian",
+            "x0": 380,
+            "y0": 519,
+            "x1": 407,
+            "y1": 599,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "5b000ff3-fcc4-42d1-9dc9-51ea292befed",
+            "identity": "person-group-far-away",
+            "x0": 575,
+            "y0": 523,
+            "x1": 589,
+            "y1": 563,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "34ceffff-349a-452e-bc56-751a0783e16e",
+            "identity": "person-group-far-away",
+            "x0": 600,
+            "y0": 526,
+            "x1": 613,
+            "y1": 564,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "29683fb9-67ce-461b-ac8c-7e3491b31505",
+            "identity": "pedestrian",
+            "x0": 1735,
+            "y0": 472,
+            "x1": 1825,
+            "y1": 709,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "71d52b7c-a4c4-4197-a81e-cbfc9a700b40",
+            "identity": "person-group-far-away",
+            "x0": 698,
+            "y0": 525,
+            "x1": 712,
+            "y1": 571,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

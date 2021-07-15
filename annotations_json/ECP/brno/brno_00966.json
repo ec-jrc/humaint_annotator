@@ -1,0 +1,83 @@
+{
+    "im_name": "brno_00966.png",
+    "city_name": "brno",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "618eb44e-00d1-428a-b2f7-7ff2ba27889e",
+            "identity": "person-group-far-away",
+            "x0": 1357,
+            "y0": 364,
+            "x1": 1374,
+            "y1": 391,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "83b61b8c-d76b-4f1b-9169-790f67ff6718",
+            "identity": "pedestrian",
+            "x0": 392,
+            "y0": 526,
+            "x1": 425,
+            "y1": 638,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "4fa7581a-2d63-43a6-b1c3-684c20927da6",
+            "identity": "pedestrian",
+            "x0": 801,
+            "y0": 540,
+            "x1": 808,
+            "y1": 560,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "02595ba4-925a-4b23-adc5-7da491f856da",
+            "identity": "pedestrian",
+            "x0": 1081,
+            "y0": 547,
+            "x1": 1089,
+            "y1": 569,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "5be489d1-6d84-4da0-8653-3f5476423057",
+            "identity": "pedestrian",
+            "x0": 787,
+            "y0": 551,
+            "x1": 796,
+            "y1": 577,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

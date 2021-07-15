@@ -1,0 +1,80 @@
+{
+    "im_name": "hamburg_00769.png",
+    "city_name": "hamburg",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [
+        "wiper"
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "07f1a9b7-5275-4cec-9d24-065b4853216a",
+            "identity": "pedestrian",
+            "x0": 1231,
+            "y0": 500,
+            "x1": 1299,
+            "y1": 690,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "a125ec71-28a8-4cfc-936c-f77c21a6b288",
+            "identity": "pedestrian",
+            "x0": 1079,
+            "y0": 546,
+            "x1": 1098,
+            "y1": 597,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "c4707f5a-d050-45e7-91a7-8bdf9fc05dcc",
+            "identity": "person-group-far-away",
+            "x0": 1795,
+            "y0": 365,
+            "x1": 1860,
+            "y1": 652,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "dcd15ba7-bbe0-4a4d-943d-6a2edbe0c8a2",
+            "identity": "pedestrian",
+            "x0": 1121,
+            "y0": 536,
+            "x1": 1152,
+            "y1": 618,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "83814458-a72b-48b4-a61c-005bacfd4c7d",
+            "identity": "pedestrian",
+            "x0": 1123,
+            "y0": 535,
+            "x1": 1175,
+            "y1": 675,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

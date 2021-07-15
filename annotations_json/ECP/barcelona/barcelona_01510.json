@@ -1,0 +1,61 @@
+{
+    "im_name": "barcelona_01510.png",
+    "city_name": "barcelona",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "26a17fcc-1bce-4e1d-8ccc-cccf5143c50f",
+            "identity": "pedestrian",
+            "x0": 868,
+            "y0": 414,
+            "x1": 883,
+            "y1": 451,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "83e6322d-45bc-461e-a581-15962053928e",
+            "identity": "pedestrian",
+            "x0": 882,
+            "y0": 414,
+            "x1": 899,
+            "y1": 449,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "0214344a-74b5-4a88-93eb-eae6d127bca2",
+            "identity": "person-group-far-away",
+            "x0": 1016,
+            "y0": 423,
+            "x1": 1028,
+            "y1": 437,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "47414309-64da-4622-908c-9e79b83db276",
+            "identity": "rider+vehicle-group-far-away",
+            "x0": 959,
+            "y0": 420,
+            "x1": 971,
+            "y1": 442,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

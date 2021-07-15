@@ -1,0 +1,88 @@
+{
+    "im_name": "amsterdam_01167.png",
+    "city_name": "amsterdam",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "9906a966-3cea-48e1-a7ff-d039e016195d",
+            "identity": "bicycle-group",
+            "x0": 1248,
+            "y0": 522,
+            "x1": 1289,
+            "y1": 597,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "d3fe4f5c-6281-4b15-bf71-ae52a47b886f",
+            "identity": "pedestrian",
+            "x0": 1138,
+            "y0": 481,
+            "x1": 1160,
+            "y1": 569,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "462e9705-44c3-4a39-8a9f-9517ea7cef58",
+            "identity": "rider",
+            "x0": 1091,
+            "y0": 488,
+            "x1": 1123,
+            "y1": 572,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 1086,
+                    "y0": 520,
+                    "x1": 1123,
+                    "y1": 576,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "907bba5b-a6d8-4bd0-8814-d1d8d753c880",
+            "identity": "bicycle-group",
+            "x0": 738,
+            "y0": 481,
+            "x1": 771,
+            "y1": 506,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "4da7088a-3735-4995-9cdb-a95a67e6adb8",
+            "identity": "person-group-far-away",
+            "x0": 1091,
+            "y0": 483,
+            "x1": 1108,
+            "y1": 542,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

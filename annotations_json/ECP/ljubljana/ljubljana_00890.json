@@ -1,0 +1,80 @@
+{
+    "im_name": "ljubljana_00890.png",
+    "city_name": "ljubljana",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "6d6fecd3-98af-4269-b109-ffbd6cba636a",
+            "identity": "pedestrian",
+            "x0": 1772,
+            "y0": 532,
+            "x1": 1809,
+            "y1": 603,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "b4bab6a6-8a6a-485d-8a52-6a58824d4817",
+            "identity": "pedestrian",
+            "x0": 30,
+            "y0": 540,
+            "x1": 92,
+            "y1": 671,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "24adb53f-2ce5-4f45-bfb4-65d56113f5d9",
+            "identity": "pedestrian",
+            "x0": 92,
+            "y0": 542,
+            "x1": 126,
+            "y1": 669,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "40378779-4df0-40b1-a6d1-4f39891658fd",
+            "identity": "pedestrian",
+            "x0": 174,
+            "y0": 545,
+            "x1": 215,
+            "y1": 666,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "0552d563-e35a-444b-9d7f-2657625ce46e",
+            "identity": "pedestrian",
+            "x0": 289,
+            "y0": 538,
+            "x1": 337,
+            "y1": 656,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

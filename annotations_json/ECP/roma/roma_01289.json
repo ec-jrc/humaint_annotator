@@ -1,0 +1,77 @@
+{
+    "im_name": "roma_01289.png",
+    "city_name": "roma",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "6658158c-0a09-4c52-ba0d-fd9021434177",
+            "identity": "pedestrian",
+            "x0": 1195,
+            "y0": 494,
+            "x1": 1258,
+            "y1": 662,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "b3fa718c-9819-4dd7-907e-ee3ebbec188f",
+            "identity": "rider",
+            "x0": 461,
+            "y0": 444,
+            "x1": 717,
+            "y1": 852,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "scooter",
+                    "x0": 409,
+                    "y0": 465,
+                    "x1": 712,
+                    "y1": 951,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "3ab88ad4-3de0-4788-863d-74333288e93f",
+            "identity": "pedestrian",
+            "x0": 1535,
+            "y0": 445,
+            "x1": 1629,
+            "y1": 731,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "2ade5d16-6998-489e-8400-758b81167a3d",
+            "identity": "pedestrian",
+            "x0": 1615,
+            "y0": 440,
+            "x1": 1711,
+            "y1": 721,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

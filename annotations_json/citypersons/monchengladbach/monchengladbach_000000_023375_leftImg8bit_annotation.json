@@ -1,0 +1,48 @@
+{
+    "im_name": "monchengladbach_000000_023375_leftImg8bit.png",
+    "city_name": "monchengladbach",
+    "im_width": 2048,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "d449da3c-1f1c-46bb-9a02-ca00e126749e",
+            "identity": "Pedestrian",
+            "x0": 675,
+            "y0": 338,
+            "x1": 808,
+            "y1": 662,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "0642a841-5d14-42bc-b586-d3452cc16bee",
+            "identity": "Pedestrian",
+            "x0": 260,
+            "y0": 312,
+            "x1": 424,
+            "y1": 713,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "da4c406d-7204-4f36-a91b-ff90812167a8",
+            "identity": "Ignore",
+            "x0": 796,
+            "y0": 147,
+            "x1": 940,
+            "y1": 446,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

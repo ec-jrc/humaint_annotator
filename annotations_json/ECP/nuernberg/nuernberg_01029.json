@@ -1,0 +1,91 @@
+{
+    "im_name": "nuernberg_01029.png",
+    "city_name": "nuernberg",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "3d40c804-57b2-4167-979d-60b2e21085bc",
+            "identity": "person-group-far-away",
+            "x0": 754,
+            "y0": 558,
+            "x1": 804,
+            "y1": 598,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "d242fea3-21ea-4801-ac38-0371bb61f300",
+            "identity": "pedestrian",
+            "x0": 817,
+            "y0": 559,
+            "x1": 833,
+            "y1": 598,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "0f775337-747c-4a6d-8e5d-c97b11b811c3",
+            "identity": "pedestrian",
+            "x0": 835,
+            "y0": 561,
+            "x1": 846,
+            "y1": 598,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "517a36c8-69f7-4242-9871-0fe64e1ffbf6",
+            "identity": "person-group-far-away",
+            "x0": 927,
+            "y0": 564,
+            "x1": 941,
+            "y1": 585,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "07b83e6b-8905-493d-a9f0-272b71b8cab4",
+            "identity": "pedestrian",
+            "x0": 1324,
+            "y0": 522,
+            "x1": 1356,
+            "y1": 603,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "a03bbde0-46f7-4746-9994-92183fb94b62",
+            "identity": "pedestrian",
+            "x0": 1417,
+            "y0": 512,
+            "x1": 1458,
+            "y1": 615,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

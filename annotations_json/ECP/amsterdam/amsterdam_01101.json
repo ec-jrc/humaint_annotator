@@ -1,0 +1,109 @@
+{
+    "im_name": "amsterdam_01101.png",
+    "city_name": "amsterdam",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [
+        "rainy",
+        "wiper"
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "6844ddb3-4d30-4bf1-a688-7e2e15cd8afb",
+            "identity": "pedestrian",
+            "x0": 422,
+            "y0": 500,
+            "x1": 470,
+            "y1": 644,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "da9f091c-8678-4ec1-9869-f85461c3c57f",
+            "identity": "pedestrian",
+            "x0": 665,
+            "y0": 539,
+            "x1": 688,
+            "y1": 602,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "bc5969a6-ef20-46a4-a1bf-bab13eee100a",
+            "identity": "pedestrian",
+            "x0": 695,
+            "y0": 534,
+            "x1": 726,
+            "y1": 602,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "f1c8d826-54e1-40e1-9495-52f2bbbe8060",
+            "identity": "person-group-far-away",
+            "x0": 635,
+            "y0": 542,
+            "x1": 659,
+            "y1": 599,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "489341f5-9118-4fb2-9303-1d44606a425e",
+            "identity": "pedestrian",
+            "x0": 1706,
+            "y0": 531,
+            "x1": 1727,
+            "y1": 598,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "6e3d15ae-d5a2-4b24-a2ea-472f82270422",
+            "identity": "rider",
+            "x0": 1737,
+            "y0": 481,
+            "x1": 1829,
+            "y1": 683,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 1730,
+                    "y0": 563,
+                    "x1": 1869,
+                    "y1": 703,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "occluded>40"
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

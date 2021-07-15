@@ -1,0 +1,110 @@
+{
+    "im_name": "dresden_00837.png",
+    "city_name": "dresden",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [
+        "constructionSite"
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "bb567b09-40fd-4edb-94e8-02a948d559e1",
+            "identity": "pedestrian",
+            "x0": 472,
+            "y0": 548,
+            "x1": 492,
+            "y1": 605,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "ea1cf63a-b188-4229-83b7-512f8c62eecb",
+            "identity": "person-group-far-away",
+            "x0": 495,
+            "y0": 556,
+            "x1": 508,
+            "y1": 599,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction",
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "ba6cfc7e-9c90-4cd3-9b21-a5e13c98bcb2",
+            "identity": "person-group-far-away",
+            "x0": 576,
+            "y0": 551,
+            "x1": 585,
+            "y1": 588,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "eac9b238-e020-41ad-a768-5765d3114c1f",
+            "identity": "person-group-far-away",
+            "x0": 749,
+            "y0": 538,
+            "x1": 768,
+            "y1": 599,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction",
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "61b01e7d-70e5-432f-a10a-006c2f76bfcb",
+            "identity": "rider",
+            "x0": 1174,
+            "y0": 491,
+            "x1": 1261,
+            "y1": 693,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 1171,
+                    "y0": 569,
+                    "x1": 1273,
+                    "y1": 715,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "b169e820-4851-4f40-ad18-6af4df4c2de3",
+            "identity": "bicycle-group",
+            "x0": 1504,
+            "y0": 552,
+            "x1": 1569,
+            "y1": 609,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

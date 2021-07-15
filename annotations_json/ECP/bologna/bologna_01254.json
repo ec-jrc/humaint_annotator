@@ -1,0 +1,228 @@
+{
+    "im_name": "bologna_01254.png",
+    "city_name": "bologna",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [
+        "lenseFlare"
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "b0a57dd4-b743-4d1d-a049-4032a1761b77",
+            "identity": "pedestrian",
+            "x0": 1107,
+            "y0": 547,
+            "x1": 1125,
+            "y1": 603,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "0b0a645e-90c6-4f50-bf59-6354e452dd15",
+            "identity": "rider",
+            "x0": 1025,
+            "y0": 543,
+            "x1": 1046,
+            "y1": 590,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": [
+                {
+                    "identity": "motorbike",
+                    "x0": 1024,
+                    "y0": 562,
+                    "x1": 1047,
+                    "y1": 610,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "70b563f2-383d-416d-9cd5-29a2f3e5fb59",
+            "identity": "pedestrian",
+            "x0": 1416,
+            "y0": 501,
+            "x1": 1480,
+            "y1": 680,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "d58c88ee-be92-468f-8a97-856d701f9735",
+            "identity": "rider",
+            "x0": 1066,
+            "y0": 543,
+            "x1": 1099,
+            "y1": 613,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 1066,
+                    "y0": 572,
+                    "x1": 1100,
+                    "y1": 627,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "b68d9138-b360-43ba-9b51-8c0d3369045e",
+            "identity": "rider",
+            "x0": 959,
+            "y0": 542,
+            "x1": 984,
+            "y1": 590,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "motorbike",
+                    "x0": 960,
+                    "y0": 562,
+                    "x1": 985,
+                    "y1": 605,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "eff865ea-8954-45eb-8c34-3a6a5af1d3e1",
+            "identity": "pedestrian",
+            "x0": 881,
+            "y0": 537,
+            "x1": 899,
+            "y1": 603,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "07568f97-f054-4c06-a9db-038c15703dad",
+            "identity": "motorbike-group",
+            "x0": 1600,
+            "y0": 486,
+            "x1": 1920,
+            "y1": 915,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_8",
+            "uuid": "bcf8c256-4173-42e6-9f69-1ef3a87090d0",
+            "identity": "rider",
+            "x0": 1010,
+            "y0": 542,
+            "x1": 1043,
+            "y1": 603,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "motorbike",
+                    "x0": 1009,
+                    "y0": 563,
+                    "x1": 1044,
+                    "y1": 620,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_9",
+            "uuid": "e5259134-6751-406a-b752-db83295cccb4",
+            "identity": "pedestrian",
+            "x0": 1120,
+            "y0": 537,
+            "x1": 1140,
+            "y1": 603,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_10",
+            "uuid": "3181487f-01c8-4e08-9f2f-eaa1ec520faa",
+            "identity": "pedestrian",
+            "x0": 1208,
+            "y0": 528,
+            "x1": 1243,
+            "y1": 632,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_11",
+            "uuid": "04acde4e-1fdb-4ab8-a68b-9d22263fc29f",
+            "identity": "pedestrian",
+            "x0": 1248,
+            "y0": 521,
+            "x1": 1293,
+            "y1": 654,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_12",
+            "uuid": "93a02048-2794-4fe5-bfa7-dd49cd0104b5",
+            "identity": "pedestrian",
+            "x0": 1284,
+            "y0": 519,
+            "x1": 1344,
+            "y1": 652,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_13",
+            "uuid": "c4a5948a-d4ed-4f10-81d1-fc2d9070d3f8",
+            "identity": "pedestrian",
+            "x0": 915,
+            "y0": 543,
+            "x1": 932,
+            "y1": 604,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

@@ -1,0 +1,80 @@
+{
+    "im_name": "hamburg_00678.png",
+    "city_name": "hamburg",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "8e592e38-af82-4859-8c48-71ae33b58c86",
+            "identity": "pedestrian",
+            "x0": 186,
+            "y0": 487,
+            "x1": 270,
+            "y1": 754,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "eadfa9ef-95c1-4676-8d77-f25b69bea148",
+            "identity": "bicycle-group",
+            "x0": 1679,
+            "y0": 573,
+            "x1": 1920,
+            "y1": 847,
+            "attributes": {
+                "sandbox_tags": [
+                    "truncated>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "fce76e47-4cc7-431b-a96f-40b05324275b",
+            "identity": "bicycle-group",
+            "x0": 1444,
+            "y0": 592,
+            "x1": 1652,
+            "y1": 750,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "130d386c-559f-4a7a-b64b-dbe2f171223b",
+            "identity": "scooter-group",
+            "x0": 1366,
+            "y0": 579,
+            "x1": 1450,
+            "y1": 702,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "e066a022-deda-4d7a-8e02-3389f34673b2",
+            "identity": "pedestrian",
+            "x0": 752,
+            "y0": 555,
+            "x1": 770,
+            "y1": 606,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

@@ -1,0 +1,74 @@
+{
+    "im_name": "basel_00724.png",
+    "city_name": "basel",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "7344158d-323f-4a6d-821d-01df91a0a6f2",
+            "identity": "pedestrian",
+            "x0": 1263,
+            "y0": 392,
+            "x1": 1307,
+            "y1": 491,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "c68dd63b-5ef3-42e5-ad22-7f4b4f9e26ee",
+            "identity": "pedestrian",
+            "x0": 1084,
+            "y0": 409,
+            "x1": 1099,
+            "y1": 455,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "ac5b7aea-63ac-42bd-92e6-1e2fe5e4352e",
+            "identity": "rider",
+            "x0": 1092,
+            "y0": 428,
+            "x1": 1102,
+            "y1": 448,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "buggy",
+                    "x0": 1086,
+                    "y0": 425,
+                    "x1": 1107,
+                    "y1": 459,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "16eeae6e-ef7f-4836-bab1-0b8b20f7f8d5",
+            "identity": "bicycle-group",
+            "x0": 923,
+            "y0": 425,
+            "x1": 984,
+            "y1": 450,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

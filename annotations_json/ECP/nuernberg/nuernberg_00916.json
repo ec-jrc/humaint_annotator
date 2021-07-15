@@ -1,0 +1,37 @@
+{
+    "im_name": "nuernberg_00916.png",
+    "city_name": "nuernberg",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "fedf472d-a7f8-4c76-a8ca-5bc4367b61bb",
+            "identity": "pedestrian",
+            "x0": 1008,
+            "y0": 551,
+            "x1": 1015,
+            "y1": 574,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "08fc1598-cbbb-41de-9db9-1053f018618e",
+            "identity": "pedestrian",
+            "x0": 1138,
+            "y0": 537,
+            "x1": 1157,
+            "y1": 593,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

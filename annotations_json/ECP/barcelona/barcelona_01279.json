@@ -1,0 +1,78 @@
+{
+    "im_name": "barcelona_01279.png",
+    "city_name": "barcelona",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "1e181579-a4a9-4568-8733-d09de09747fb",
+            "identity": "person-group-far-away",
+            "x0": 731,
+            "y0": 401,
+            "x1": 757,
+            "y1": 505,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "2ad3a74a-f284-46fa-bd07-663bdd6e400e",
+            "identity": "rider",
+            "x0": 795,
+            "y0": 415,
+            "x1": 818,
+            "y1": 461,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 784,
+                    "y0": 429,
+                    "x1": 833,
+                    "y1": 465,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "occluded>10"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "46dc4b02-60b4-4fb0-91b3-119fbf8c3ad3",
+            "identity": "motorbike-group",
+            "x0": 1081,
+            "y0": 436,
+            "x1": 1166,
+            "y1": 506,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "fd21e0ca-5e2b-495d-abaf-e5916f36dba3",
+            "identity": "pedestrian",
+            "x0": 1686,
+            "y0": 372,
+            "x1": 1790,
+            "y1": 572,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40",
+                    "sitting-lying",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

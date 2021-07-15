@@ -1,0 +1,107 @@
+{
+    "im_name": "barcelona_01479.png",
+    "city_name": "barcelona",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "54e81467-84a4-4522-a7e8-24fc470b3238",
+            "identity": "rider",
+            "x0": 511,
+            "y0": 379,
+            "x1": 612,
+            "y1": 543,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 548,
+                    "y0": 452,
+                    "x1": 613,
+                    "y1": 568,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "ac52fc25-0b25-4661-9df6-3387c563bdc2",
+            "identity": "scooter-group",
+            "x0": 1691,
+            "y0": 403,
+            "x1": 1919,
+            "y1": 584,
+            "attributes": {
+                "sandbox_tags": [
+                    "truncated>10",
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "7085b43e-7ba4-4a13-a348-fcb599c94ae0",
+            "identity": "bicycle-group",
+            "x0": 1356,
+            "y0": 438,
+            "x1": 1790,
+            "y1": 616,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "d10e4195-cb4a-4402-9296-c7073fc79e81",
+            "identity": "bicycle-group",
+            "x0": 1748,
+            "y0": 457,
+            "x1": 1920,
+            "y1": 659,
+            "attributes": {
+                "sandbox_tags": [
+                    "truncated>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "16b1a879-1baa-4d73-ab07-32a6e170df7e",
+            "identity": "motorbike-group",
+            "x0": 1604,
+            "y0": 423,
+            "x1": 1661,
+            "y1": 500,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "0248eae3-1153-4bb0-9416-076feb23f89c",
+            "identity": "scooter-group",
+            "x0": 1578,
+            "y0": 433,
+            "x1": 1646,
+            "y1": 499,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

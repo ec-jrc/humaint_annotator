@@ -1,0 +1,91 @@
+{
+    "im_name": "stuttgart_00624.png",
+    "city_name": "stuttgart",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "1d8bd06b-2406-42c6-96f2-2766959bb523",
+            "identity": "person-group-far-away",
+            "x0": 1236,
+            "y0": 423,
+            "x1": 1259,
+            "y1": 475,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "542d96e5-8a23-4f7e-bbd2-402748fcd859",
+            "identity": "pedestrian",
+            "x0": 753,
+            "y0": 428,
+            "x1": 767,
+            "y1": 468,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "2480fdbb-daa8-4557-9234-19aaa63fd3ce",
+            "identity": "pedestrian",
+            "x0": 1327,
+            "y0": 348,
+            "x1": 1430,
+            "y1": 579,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "2ed18f4c-030c-4803-93ac-d4382e116579",
+            "identity": "pedestrian",
+            "x0": 883,
+            "y0": 421,
+            "x1": 897,
+            "y1": 466,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "fbb44f17-0249-4392-9214-d905afa29ac9",
+            "identity": "pedestrian",
+            "x0": 870,
+            "y0": 420,
+            "x1": 885,
+            "y1": 466,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "6e2f64ab-db59-491e-9342-71c7cdeb8deb",
+            "identity": "person-group-far-away",
+            "x0": 872,
+            "y0": 439,
+            "x1": 897,
+            "y1": 496,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

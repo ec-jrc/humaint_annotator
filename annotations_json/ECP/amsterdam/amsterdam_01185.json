@@ -1,0 +1,76 @@
+{
+    "im_name": "amsterdam_01185.png",
+    "city_name": "amsterdam",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [
+        "wiper"
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "3129bc5e-1f20-4fb2-8637-b3a5c228920d",
+            "identity": "bicycle-group",
+            "x0": 836,
+            "y0": 571,
+            "x1": 919,
+            "y1": 627,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "023dcc72-5270-4291-b106-3a848e01e135",
+            "identity": "bicycle-group",
+            "x0": 924,
+            "y0": 572,
+            "x1": 1027,
+            "y1": 608,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "0f4705cb-130c-4294-ae66-922cd4d5f231",
+            "identity": "pedestrian",
+            "x0": 1123,
+            "y0": 542,
+            "x1": 1140,
+            "y1": 604,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "7b1f7e0e-8a37-464f-9716-43859d3190b3",
+            "identity": "rider",
+            "x0": 1147,
+            "y0": 445,
+            "x1": 1294,
+            "y1": 818,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 1147,
+                    "y0": 598,
+                    "x1": 1295,
+                    "y1": 864,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        }
+    ]
+}

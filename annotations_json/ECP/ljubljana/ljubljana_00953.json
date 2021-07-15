@@ -1,0 +1,78 @@
+{
+    "im_name": "ljubljana_00953.png",
+    "city_name": "ljubljana",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "86027dee-0735-4c1c-a99b-b00cb63d9f1f",
+            "identity": "pedestrian",
+            "x0": 962,
+            "y0": 546,
+            "x1": 981,
+            "y1": 616,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "81bf7df0-c7c5-4b28-80fc-65438c654bd2",
+            "identity": "pedestrian",
+            "x0": 941,
+            "y0": 545,
+            "x1": 962,
+            "y1": 616,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "be80c06f-8aab-48e2-85de-b3c97f70ed19",
+            "identity": "pedestrian",
+            "x0": 917,
+            "y0": 538,
+            "x1": 940,
+            "y1": 616,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "d35ca549-2d11-4f85-9e1e-994bb41c0e90",
+            "identity": "pedestrian",
+            "x0": 632,
+            "y0": 537,
+            "x1": 655,
+            "y1": 576,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40",
+                    "sitting-lying",
+                    "behind-glass"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "2904fab2-d4a3-410f-a88f-6115ab524e54",
+            "identity": "person-group-far-away",
+            "x0": 914,
+            "y0": 553,
+            "x1": 927,
+            "y1": 588,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

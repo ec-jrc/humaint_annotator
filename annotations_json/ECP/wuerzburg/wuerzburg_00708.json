@@ -1,0 +1,145 @@
+{
+    "im_name": "wuerzburg_00708.png",
+    "city_name": "wuerzburg",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "fedb443f-73b9-42e9-9aba-1f5eb9782c4b",
+            "identity": "pedestrian",
+            "x0": 665,
+            "y0": 531,
+            "x1": 709,
+            "y1": 648,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "71b7ede1-1a28-4223-b791-056b7916dfb3",
+            "identity": "pedestrian",
+            "x0": 1243,
+            "y0": 543,
+            "x1": 1263,
+            "y1": 601,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "898d73ad-d26c-4321-868f-3f098c063a37",
+            "identity": "pedestrian",
+            "x0": 1267,
+            "y0": 545,
+            "x1": 1290,
+            "y1": 607,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "3e986d32-5590-4e56-8543-a7a6fef1211b",
+            "identity": "bicycle-group",
+            "x0": 1265,
+            "y0": 567,
+            "x1": 1296,
+            "y1": 616,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "ed406adc-79d1-4232-9b81-5f66a077ff8b",
+            "identity": "pedestrian",
+            "x0": 1466,
+            "y0": 548,
+            "x1": 1492,
+            "y1": 612,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "2fced078-4910-454b-86d9-d11e83afa79a",
+            "identity": "scooter-group",
+            "x0": 1626,
+            "y0": 508,
+            "x1": 1920,
+            "y1": 665,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "3079314d-9e91-4483-b729-6a4251a60001",
+            "identity": "pedestrian",
+            "x0": 1337,
+            "y0": 478,
+            "x1": 1538,
+            "y1": 889,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_8",
+            "uuid": "463289c4-35d3-4801-a6a6-09f5d764b009",
+            "identity": "bicycle-group",
+            "x0": 716,
+            "y0": 563,
+            "x1": 764,
+            "y1": 595,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_9",
+            "uuid": "6079eb56-7965-4a62-9cfe-a31c62c5bf01",
+            "identity": "bicycle-group",
+            "x0": 983,
+            "y0": 565,
+            "x1": 1002,
+            "y1": 593,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_10",
+            "uuid": "ab73b917-acee-42c2-9b5f-9051933e067f",
+            "identity": "bicycle-group",
+            "x0": 1049,
+            "y0": 572,
+            "x1": 1061,
+            "y1": 594,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

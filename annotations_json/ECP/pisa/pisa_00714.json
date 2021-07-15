@@ -1,0 +1,39 @@
+{
+    "im_name": "pisa_00714.png",
+    "city_name": "pisa",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "ecd19fac-5e7e-48aa-8cea-ddfcf0b4af42",
+            "identity": "pedestrian",
+            "x0": 650,
+            "y0": 549,
+            "x1": 666,
+            "y1": 590,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "e21e2b61-9383-4871-bfcc-392cf33c2211",
+            "identity": "bicycle-group",
+            "x0": 1217,
+            "y0": 567,
+            "x1": 1249,
+            "y1": 626,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

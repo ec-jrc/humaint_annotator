@@ -1,0 +1,96 @@
+{
+    "im_name": "marseille_01361.png",
+    "city_name": "marseille",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "a7ff8336-4f9e-423f-bccb-9b530e7c2a13",
+            "identity": "pedestrian",
+            "x0": 1302,
+            "y0": 381,
+            "x1": 1336,
+            "y1": 486,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "1644c725-9f0e-4da7-9fda-cc0d72c3f03b",
+            "identity": "pedestrian",
+            "x0": 1226,
+            "y0": 396,
+            "x1": 1255,
+            "y1": 488,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "2c0b5938-5fe2-4f38-9020-1d6950e79d78",
+            "identity": "pedestrian",
+            "x0": 1197,
+            "y0": 398,
+            "x1": 1226,
+            "y1": 489,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "fdb5d529-481b-481f-ab8b-c1e910d886cf",
+            "identity": "pedestrian",
+            "x0": 1168,
+            "y0": 400,
+            "x1": 1195,
+            "y1": 485,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "993acb55-9597-4f73-8531-3793509db576",
+            "identity": "person-group-far-away",
+            "x0": 1123,
+            "y0": 398,
+            "x1": 1143,
+            "y1": 457,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "dedb6958-62f7-401c-8ef5-d1e6e0e71dac",
+            "identity": "person-group-far-away",
+            "x0": 767,
+            "y0": 411,
+            "x1": 792,
+            "y1": 482,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

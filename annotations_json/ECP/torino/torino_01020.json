@@ -1,0 +1,76 @@
+{
+    "im_name": "torino_01020.png",
+    "city_name": "torino",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "bf6674e3-7d15-4a9a-be99-358a2405cf61",
+            "identity": "motorbike-group",
+            "x0": 874,
+            "y0": 577,
+            "x1": 904,
+            "y1": 650,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "0d48a5bc-5778-4605-96cd-de081a036377",
+            "identity": "pedestrian",
+            "x0": 1434,
+            "y0": 520,
+            "x1": 1473,
+            "y1": 683,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "93c4bc9e-2080-4067-8c0d-76cb446221f7",
+            "identity": "pedestrian",
+            "x0": 1016,
+            "y0": 561,
+            "x1": 1032,
+            "y1": 594,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "4825fd5a-4ea8-4cc3-b6bd-766ea577d97c",
+            "identity": "person-group-far-away",
+            "x0": 1134,
+            "y0": 546,
+            "x1": 1151,
+            "y1": 596,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "ca372cfc-7863-4ee8-b983-7b82028d2947",
+            "identity": "person-group-far-away",
+            "x0": 1177,
+            "y0": 544,
+            "x1": 1195,
+            "y1": 602,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

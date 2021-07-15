@@ -1,0 +1,46 @@
+{
+    "im_name": "bologna_01320.png",
+    "city_name": "bologna",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "06858dc2-38b4-4fe2-b7ad-4bae1d11d25e",
+            "identity": "pedestrian",
+            "x0": 466,
+            "y0": 554,
+            "x1": 485,
+            "y1": 608,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "652fff2d-4af7-43ff-ad52-0d3aa7c213ad",
+            "identity": "rider",
+            "x0": 447,
+            "y0": 558,
+            "x1": 466,
+            "y1": 604,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 445,
+                    "y0": 573,
+                    "x1": 473,
+                    "y1": 610,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        }
+    ]
+}

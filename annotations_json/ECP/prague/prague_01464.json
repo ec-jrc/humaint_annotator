@@ -1,0 +1,76 @@
+{
+    "im_name": "prague_01464.png",
+    "city_name": "prague",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "da6b149f-4011-414e-8abf-b12249d77cdd",
+            "identity": "pedestrian",
+            "x0": 1797,
+            "y0": 519,
+            "x1": 1854,
+            "y1": 693,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "e6fa0648-572a-49ab-a787-8ca69e2cd05a",
+            "identity": "pedestrian",
+            "x0": 1354,
+            "y0": 537,
+            "x1": 1379,
+            "y1": 597,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "8e054b0d-fd88-4034-9e26-07fc61cbc6f2",
+            "identity": "person-group-far-away",
+            "x0": 128,
+            "y0": 492,
+            "x1": 183,
+            "y1": 640,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "1606fa89-ab8f-4cf7-a632-b84a1550bc48",
+            "identity": "person-group-far-away",
+            "x0": 950,
+            "y0": 550,
+            "x1": 964,
+            "y1": 570,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "8f24dcd8-9b64-4458-a134-03df23d02405",
+            "identity": "person-group-far-away",
+            "x0": 927,
+            "y0": 547,
+            "x1": 947,
+            "y1": 565,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

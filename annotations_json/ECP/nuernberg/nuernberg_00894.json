@@ -1,0 +1,93 @@
+{
+    "im_name": "nuernberg_00894.png",
+    "city_name": "nuernberg",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "7dd3ab0f-afe4-4203-a994-2225b10404ed",
+            "identity": "bicycle-group",
+            "x0": 932,
+            "y0": 556,
+            "x1": 979,
+            "y1": 589,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "98405470-a052-4840-b101-306fed08ebf2",
+            "identity": "pedestrian",
+            "x0": 1294,
+            "y0": 515,
+            "x1": 1322,
+            "y1": 581,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "c3ba7226-21e9-4e3c-835a-c4e8f046a005",
+            "identity": "pedestrian",
+            "x0": 1321,
+            "y0": 506,
+            "x1": 1351,
+            "y1": 582,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "d776d61d-fe93-45d4-8ea9-1871265b2156",
+            "identity": "person-group-far-away",
+            "x0": 1319,
+            "y0": 509,
+            "x1": 1342,
+            "y1": 583,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "6d0086cc-773b-4f48-a649-8bae307ddd84",
+            "identity": "pedestrian",
+            "x0": 1349,
+            "y0": 513,
+            "x1": 1370,
+            "y1": 579,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "dacbe2aa-a3d9-456b-bb9f-fccef043771b",
+            "identity": "person-group-far-away",
+            "x0": 726,
+            "y0": 546,
+            "x1": 740,
+            "y1": 580,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

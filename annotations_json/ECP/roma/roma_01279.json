@@ -1,0 +1,70 @@
+{
+    "im_name": "roma_01279.png",
+    "city_name": "roma",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "d1254423-22b0-42a1-a96e-f6290ae94640",
+            "identity": "pedestrian",
+            "x0": 1163,
+            "y0": 521,
+            "x1": 1197,
+            "y1": 635,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "c2683b25-2cbc-47d3-995f-f82f048eba02",
+            "identity": "pedestrian",
+            "x0": 680,
+            "y0": 605,
+            "x1": 691,
+            "y1": 643,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "3a86d825-1abc-4a9b-a042-aaa3161b5f61",
+            "identity": "pedestrian",
+            "x0": 698,
+            "y0": 604,
+            "x1": 711,
+            "y1": 642,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "b0f17f9e-1d54-42f1-a76c-24cbbdc04816",
+            "identity": "pedestrian",
+            "x0": 721,
+            "y0": 603,
+            "x1": 736,
+            "y1": 644,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

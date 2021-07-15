@@ -1,0 +1,144 @@
+{
+    "im_name": "bologna_01256.png",
+    "city_name": "bologna",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "acd1473b-fdd2-4a80-b41c-92d3d4da7855",
+            "identity": "pedestrian",
+            "x0": 1053,
+            "y0": 548,
+            "x1": 1071,
+            "y1": 584,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "58b858c1-21fe-4d74-8e8f-167ca308ee68",
+            "identity": "rider+vehicle-group-far-away",
+            "x0": 1029,
+            "y0": 544,
+            "x1": 1039,
+            "y1": 572,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "6b73d956-14c6-4ed4-a0dc-130da57a9e95",
+            "identity": "rider",
+            "x0": 1131,
+            "y0": 534,
+            "x1": 1164,
+            "y1": 623,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 1131,
+                    "y0": 571,
+                    "x1": 1166,
+                    "y1": 637,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "occluded>40"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "935d7700-22c3-4756-9bed-a24ff49eedc3",
+            "identity": "scooter-group",
+            "x0": 1141,
+            "y0": 530,
+            "x1": 1221,
+            "y1": 651,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "6f717203-7dad-44b3-b998-637d7184e0ba",
+            "identity": "rider",
+            "x0": 1089,
+            "y0": 509,
+            "x1": 1147,
+            "y1": 671,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 1089,
+                    "y0": 568,
+                    "x1": 1148,
+                    "y1": 684,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "1029273a-43fb-4666-8394-e6c8d49d5acc",
+            "identity": "bicycle-group",
+            "x0": 1584,
+            "y0": 587,
+            "x1": 1839,
+            "y1": 907,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "8f2a388a-0cd0-44fa-b464-0933987f06f3",
+            "identity": "bicycle-group",
+            "x0": 1568,
+            "y0": 529,
+            "x1": 1618,
+            "y1": 622,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_8",
+            "uuid": "66e5e7b1-b3a8-4751-9231-886799ac4691",
+            "identity": "pedestrian",
+            "x0": 1587,
+            "y0": 449,
+            "x1": 1676,
+            "y1": 709,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

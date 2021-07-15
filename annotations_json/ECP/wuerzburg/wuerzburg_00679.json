@@ -1,0 +1,78 @@
+{
+    "im_name": "wuerzburg_00679.png",
+    "city_name": "wuerzburg",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "aa454c44-46ea-4021-9af3-f1624b29e99f",
+            "identity": "pedestrian",
+            "x0": 271,
+            "y0": 529,
+            "x1": 321,
+            "y1": 658,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "2473e93b-9640-4820-b4ab-4c6dca056ce3",
+            "identity": "bicycle-group",
+            "x0": 631,
+            "y0": 566,
+            "x1": 654,
+            "y1": 605,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "3cdf39cf-7be3-48d7-b25c-b890f903f4af",
+            "identity": "person-group-far-away",
+            "x0": 718,
+            "y0": 547,
+            "x1": 755,
+            "y1": 596,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "00bda257-eb43-4687-a43d-8bd85c37ce7b",
+            "identity": "person-group-far-away",
+            "x0": 772,
+            "y0": 554,
+            "x1": 790,
+            "y1": 587,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "3243b72b-47f9-41f4-9936-b33716ebae01",
+            "identity": "pedestrian",
+            "x0": 933,
+            "y0": 551,
+            "x1": 947,
+            "y1": 578,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

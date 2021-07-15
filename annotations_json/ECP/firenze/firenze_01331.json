@@ -1,0 +1,81 @@
+{
+    "im_name": "firenze_01331.png",
+    "city_name": "firenze",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "56520426-6672-4faa-bee3-5c4a2d746316",
+            "identity": "pedestrian",
+            "x0": 1637,
+            "y0": 526,
+            "x1": 1691,
+            "y1": 651,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "9c9f1884-f3e0-4f27-96a2-bbabd70786e5",
+            "identity": "pedestrian",
+            "x0": 1729,
+            "y0": 516,
+            "x1": 1766,
+            "y1": 645,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "b311459a-2d6f-45e1-8b27-3916388988ab",
+            "identity": "pedestrian",
+            "x0": 1832,
+            "y0": 520,
+            "x1": 1876,
+            "y1": 655,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "6853ef00-4bae-4abf-bcc5-c29f05151783",
+            "identity": "bicycle-group",
+            "x0": 1246,
+            "y0": 567,
+            "x1": 1350,
+            "y1": 623,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "4ea35872-50a2-45cc-9bff-23469303d228",
+            "identity": "pedestrian",
+            "x0": 1344,
+            "y0": 566,
+            "x1": 1364,
+            "y1": 619,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

@@ -1,0 +1,65 @@
+{
+    "im_name": "montpellier_00664.png",
+    "city_name": "montpellier",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "38e6d020-e0e2-489f-b414-de68460a1937",
+            "identity": "pedestrian",
+            "x0": 684,
+            "y0": 434,
+            "x1": 700,
+            "y1": 472,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "f09585f2-8c35-421e-a1b7-01e7cc37dfdf",
+            "identity": "pedestrian",
+            "x0": 521,
+            "y0": 428,
+            "x1": 542,
+            "y1": 495,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "8552f022-e8f3-4cb7-b717-e9a75eb28211",
+            "identity": "bicycle-group",
+            "x0": 1638,
+            "y0": 407,
+            "x1": 1763,
+            "y1": 532,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "f8e125cf-ba0e-43be-ae97-d6be4b3fad5c",
+            "identity": "person-group-far-away",
+            "x0": 758,
+            "y0": 441,
+            "x1": 764,
+            "y1": 455,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

@@ -1,0 +1,78 @@
+{
+    "im_name": "hamburg_00719.png",
+    "city_name": "hamburg",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "c52c0f3e-3900-46c8-b843-f3bbe3a73b12",
+            "identity": "pedestrian",
+            "x0": 1318,
+            "y0": 504,
+            "x1": 1343,
+            "y1": 580,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "2bf278c2-4d17-47cb-a6f3-42dab934337a",
+            "identity": "pedestrian",
+            "x0": 1563,
+            "y0": 495,
+            "x1": 1637,
+            "y1": 756,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "9452955d-d530-4517-b54b-75407b234134",
+            "identity": "bicycle-group",
+            "x0": 1696,
+            "y0": 534,
+            "x1": 1870,
+            "y1": 712,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "1fb2b2e6-2229-411e-8d92-d1d84f219fa9",
+            "identity": "bicycle-group",
+            "x0": 1751,
+            "y0": 644,
+            "x1": 1920,
+            "y1": 939,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "6420ecad-31df-45df-a920-54588fd071ad",
+            "identity": "bicycle-group",
+            "x0": 0,
+            "y0": 594,
+            "x1": 109,
+            "y1": 749,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

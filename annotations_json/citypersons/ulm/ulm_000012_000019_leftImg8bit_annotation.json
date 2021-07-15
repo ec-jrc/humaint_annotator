@@ -1,0 +1,61 @@
+{
+    "im_name": "ulm_000012_000019_leftImg8bit.png",
+    "city_name": "ulm",
+    "im_width": 2048,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "02f59671-dc67-489c-9369-0b16d6d7c0f3",
+            "identity": "Pedestrian",
+            "x0": 1340,
+            "y0": 407,
+            "x1": 1360,
+            "y1": 456,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "3e23ff16-41eb-43f3-a073-7ead987e053b",
+            "identity": "Rider",
+            "x0": 1116,
+            "y0": 332,
+            "x1": 1235,
+            "y1": 623,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "f2bb9230-9e40-4662-9412-3dc54d6b8f54",
+            "identity": "Ignore",
+            "x0": 1249,
+            "y0": 433,
+            "x1": 1264,
+            "y1": 451,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "489787cb-ef93-4d34-98b5-71b1d9be4896",
+            "identity": "Ignore",
+            "x0": 810,
+            "y0": 402,
+            "x1": 847,
+            "y1": 459,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

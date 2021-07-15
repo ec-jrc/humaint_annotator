@@ -1,0 +1,115 @@
+{
+    "im_name": "dresden_00794.png",
+    "city_name": "dresden",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "e1a23091-23d5-4bae-8a2b-8850ae4dbd51",
+            "identity": "pedestrian",
+            "x0": 138,
+            "y0": 467,
+            "x1": 234,
+            "y1": 721,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "065548d9-66f1-4abf-a811-50a3d7922b9d",
+            "identity": "buggy-group",
+            "x0": 162,
+            "y0": 548,
+            "x1": 290,
+            "y1": 713,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "1aa28528-2635-48be-854f-eb3fa41bb274",
+            "identity": "pedestrian",
+            "x0": 448,
+            "y0": 490,
+            "x1": 491,
+            "y1": 630,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "9ab3d2c3-2749-4666-8218-2e71fefd7282",
+            "identity": "bicycle-group",
+            "x0": 951,
+            "y0": 552,
+            "x1": 996,
+            "y1": 576,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "ac0b86b5-91b7-474e-9c8b-3c1ad1c512d4",
+            "identity": "pedestrian",
+            "x0": 1044,
+            "y0": 527,
+            "x1": 1083,
+            "y1": 586,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "60d61330-552b-4907-9110-fcb98e4ab23b",
+            "identity": "buggy-group",
+            "x0": 1071,
+            "y0": 547,
+            "x1": 1112,
+            "y1": 585,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "25f650ac-28cb-4c1a-b642-408f0689f946",
+            "identity": "bicycle-group",
+            "x0": 1038,
+            "y0": 547,
+            "x1": 1094,
+            "y1": 583,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_8",
+            "uuid": "e3083b56-bfee-4f3e-8334-a614ce701148",
+            "identity": "bicycle-group",
+            "x0": 1135,
+            "y0": 539,
+            "x1": 1263,
+            "y1": 602,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

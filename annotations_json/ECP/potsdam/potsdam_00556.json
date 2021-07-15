@@ -1,0 +1,50 @@
+{
+    "im_name": "potsdam_00556.png",
+    "city_name": "potsdam",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "9bae950f-0437-4a41-b977-ba99ab220e0f",
+            "identity": "pedestrian",
+            "x0": 323,
+            "y0": 531,
+            "x1": 339,
+            "y1": 569,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "8e3e66d6-3246-46c0-b097-44b87008d7cf",
+            "identity": "pedestrian",
+            "x0": 362,
+            "y0": 534,
+            "x1": 377,
+            "y1": 568,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "928d5be1-3270-4370-8415-a7524aa84a2f",
+            "identity": "person-group-far-away",
+            "x0": 720,
+            "y0": 532,
+            "x1": 729,
+            "y1": 553,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

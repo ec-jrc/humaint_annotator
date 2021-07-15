@@ -1,0 +1,43 @@
+{
+    "im_name": "montpellier_00679.png",
+    "city_name": "montpellier",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "1174b6ec-6309-4ebf-abe7-6b17c3f2cbd2",
+            "identity": "pedestrian",
+            "x0": 1199,
+            "y0": 408,
+            "x1": 1238,
+            "y1": 464,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80",
+                    "sitting-lying",
+                    "behind-glass"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "7a9a3246-a4eb-4345-97ad-ceb81b1f41be",
+            "identity": "pedestrian",
+            "x0": 1216,
+            "y0": 403,
+            "x1": 1241,
+            "y1": 473,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40",
+                    "sitting-lying",
+                    "behind-glass"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

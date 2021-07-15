@@ -1,0 +1,93 @@
+{
+    "im_name": "amsterdam_01201.png",
+    "city_name": "amsterdam",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [
+        "wiper"
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "fc51c462-5701-411f-a0f9-eaa984a1d0fc",
+            "identity": "bicycle-group",
+            "x0": 1886,
+            "y0": 595,
+            "x1": 1920,
+            "y1": 709,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "ce1a7e1d-af63-4e06-8d61-644bd0b0d677",
+            "identity": "pedestrian",
+            "x0": 648,
+            "y0": 533,
+            "x1": 665,
+            "y1": 596,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "343d6e52-4b1c-4899-bb12-9dcdc32ed8e2",
+            "identity": "pedestrian",
+            "x0": 673,
+            "y0": 531,
+            "x1": 698,
+            "y1": 594,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "17af57f9-15f9-4bcc-acf0-b6745e35083a",
+            "identity": "pedestrian",
+            "x0": 693,
+            "y0": 529,
+            "x1": 720,
+            "y1": 594,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "11ac854d-d9d6-45e1-8e1e-a4fba437543b",
+            "identity": "person-group-far-away",
+            "x0": 716,
+            "y0": 542,
+            "x1": 732,
+            "y1": 584,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "11e801c0-7495-442a-b8e5-2422c77c292c",
+            "identity": "person-group-far-away",
+            "x0": 1306,
+            "y0": 528,
+            "x1": 1371,
+            "y1": 573,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

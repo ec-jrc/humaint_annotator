@@ -1,0 +1,99 @@
+{
+    "im_name": "hamburg_00730.png",
+    "city_name": "hamburg",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [
+        "wiper"
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "6f5c9c75-e6b9-49db-82e3-11fccf8b64f8",
+            "identity": "person-group-far-away",
+            "x0": 1740,
+            "y0": 426,
+            "x1": 1779,
+            "y1": 601,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "b9ec6b23-8e44-439b-b2bb-f98bc9d00572",
+            "identity": "pedestrian",
+            "x0": 1344,
+            "y0": 423,
+            "x1": 1392,
+            "y1": 578,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "b58e43aa-9df2-41ff-94af-bbb60819ad42",
+            "identity": "pedestrian",
+            "x0": 1639,
+            "y0": 475,
+            "x1": 1695,
+            "y1": 644,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "6ffeaa1e-a5f1-48fa-a876-fa95c5ff3485",
+            "identity": "pedestrian",
+            "x0": 108,
+            "y0": 516,
+            "x1": 181,
+            "y1": 687,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "8929abc9-bef3-4711-983f-fecdda89cc84",
+            "identity": "pedestrian",
+            "x0": 242,
+            "y0": 486,
+            "x1": 294,
+            "y1": 663,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "16f58bfa-d789-4284-9e75-8979127df831",
+            "identity": "bicycle-group",
+            "x0": 823,
+            "y0": 527,
+            "x1": 865,
+            "y1": 578,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

@@ -1,0 +1,61 @@
+{
+    "im_name": "zurich_000118_000019_leftImg8bit.png",
+    "city_name": "zurich",
+    "im_width": 2048,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "6a9654d4-cebd-4284-ad3c-c711e71bbf01",
+            "identity": "Pedestrian",
+            "x0": 1301,
+            "y0": 384,
+            "x1": 1322,
+            "y1": 436,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "1ff6024b-8fc9-4add-b9ab-a5d7f97a9fe7",
+            "identity": "Pedestrian",
+            "x0": 1339,
+            "y0": 387,
+            "x1": 1357,
+            "y1": 432,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "5a7e5404-5b8e-40ad-8dc0-101e4cccacc0",
+            "identity": "Rider",
+            "x0": 1085,
+            "y0": 400,
+            "x1": 1095,
+            "y1": 424,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "e2c75950-5586-4c09-be87-9ff750a988f5",
+            "identity": "Ignore",
+            "x0": 710,
+            "y0": 418,
+            "x1": 728,
+            "y1": 437,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

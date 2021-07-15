@@ -1,0 +1,89 @@
+{
+    "im_name": "torino_01071.png",
+    "city_name": "torino",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "067c0dc6-2ea7-4075-9236-7e4da68be6fd",
+            "identity": "pedestrian",
+            "x0": 896,
+            "y0": 532,
+            "x1": 916,
+            "y1": 597,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "37868bc9-5569-4d92-ad0f-46af5e100301",
+            "identity": "pedestrian",
+            "x0": 830,
+            "y0": 547,
+            "x1": 857,
+            "y1": 587,
+            "attributes": {
+                "sandbox_tags": [
+                    "sitting-lying"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "a81ef261-d01b-4316-a9f7-c189e56bacc7",
+            "identity": "pedestrian",
+            "x0": 1120,
+            "y0": 534,
+            "x1": 1135,
+            "y1": 580,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "5c8401ac-1811-4609-ad9a-123e80b6337f",
+            "identity": "person-group-far-away",
+            "x0": 1256,
+            "y0": 520,
+            "x1": 1297,
+            "y1": 617,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "9e9b5290-407c-45fc-bbd7-8a9c8c1bef76",
+            "identity": "person-group-far-away",
+            "x0": 1209,
+            "y0": 526,
+            "x1": 1229,
+            "y1": 609,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "7f33c734-a4db-4af0-bc7f-dde9a7e69188",
+            "identity": "person-group-far-away",
+            "x0": 1144,
+            "y0": 529,
+            "x1": 1165,
+            "y1": 586,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

@@ -1,0 +1,72 @@
+{
+    "im_name": "bologna_01385.png",
+    "city_name": "bologna",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "103a7397-50e5-4e81-ac24-83bac25f79f1",
+            "identity": "rider",
+            "x0": 889,
+            "y0": 555,
+            "x1": 905,
+            "y1": 590,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "motorbike",
+                    "x0": 889,
+                    "y0": 570,
+                    "x1": 909,
+                    "y1": 608,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "60c59b86-25fe-4a5c-8457-6a148b83995c",
+            "identity": "pedestrian",
+            "x0": 543,
+            "y0": 565,
+            "x1": 552,
+            "y1": 586,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "b0bca7ef-f969-43d8-ba1b-fb52f382cedb",
+            "identity": "pedestrian",
+            "x0": 561,
+            "y0": 560,
+            "x1": 570,
+            "y1": 588,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "d171e4e4-8436-434e-a836-00a8f6bea9a1",
+            "identity": "rider+vehicle-group-far-away",
+            "x0": 818,
+            "y0": 564,
+            "x1": 830,
+            "y1": 591,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

@@ -1,0 +1,97 @@
+{
+    "im_name": "hamburg_00679.png",
+    "city_name": "hamburg",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "e059eb2c-c467-4f63-8784-082e6606f280",
+            "identity": "pedestrian",
+            "x0": 793,
+            "y0": 538,
+            "x1": 832,
+            "y1": 630,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "04cb846c-af5b-4d7e-8734-3171eb13a5a8",
+            "identity": "person-group-far-away",
+            "x0": 1138,
+            "y0": 495,
+            "x1": 1184,
+            "y1": 619,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "ae3aa158-65c3-4f6d-9afe-ea870fcfa744",
+            "identity": "person-group-far-away",
+            "x0": 1412,
+            "y0": 480,
+            "x1": 1447,
+            "y1": 573,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "31977691-70e9-4d55-914d-d1ebab84a9c4",
+            "identity": "person-group-far-away",
+            "x0": 1679,
+            "y0": 341,
+            "x1": 1729,
+            "y1": 380,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "1d818bb3-b80e-497d-bef9-dfb65f60d544",
+            "identity": "person-group-far-away",
+            "x0": 1384,
+            "y0": 491,
+            "x1": 1414,
+            "y1": 586,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "60d9a99e-03fd-40f3-bfbb-6ca35e076e15",
+            "identity": "motorbike-group",
+            "x0": 657,
+            "y0": 542,
+            "x1": 770,
+            "y1": 654,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

@@ -1,0 +1,104 @@
+{
+    "im_name": "nuernberg_00968.png",
+    "city_name": "nuernberg",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "8761564b-5c36-4e2d-a368-edc3674f988b",
+            "identity": "pedestrian",
+            "x0": 384,
+            "y0": 522,
+            "x1": 440,
+            "y1": 662,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "2f646675-01ca-4099-bb0a-4afe2df1773d",
+            "identity": "pedestrian",
+            "x0": 614,
+            "y0": 548,
+            "x1": 643,
+            "y1": 623,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "ec12dd5c-570f-4497-994d-25bf6c8c4ddc",
+            "identity": "person-group-far-away",
+            "x0": 663,
+            "y0": 551,
+            "x1": 683,
+            "y1": 595,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "9ccf6993-d63a-49fa-9de9-92f435bf4b46",
+            "identity": "pedestrian",
+            "x0": 636,
+            "y0": 548,
+            "x1": 653,
+            "y1": 619,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "911facaa-535c-45ce-9a39-ef6796db1bea",
+            "identity": "pedestrian",
+            "x0": 648,
+            "y0": 552,
+            "x1": 665,
+            "y1": 618,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "4a422067-3d17-4744-a087-ff8ceeed6e2f",
+            "identity": "person-group-far-away",
+            "x0": 588,
+            "y0": 547,
+            "x1": 608,
+            "y1": 617,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "b6419486-246a-4907-9e08-a6dc90849ea4",
+            "identity": "pedestrian",
+            "x0": 592,
+            "y0": 546,
+            "x1": 615,
+            "y1": 617,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

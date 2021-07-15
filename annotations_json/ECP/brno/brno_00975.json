@@ -1,0 +1,154 @@
+{
+    "im_name": "brno_00975.png",
+    "city_name": "brno",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "ed0b796f-f1c7-4f90-bcf4-9b1d8a218a74",
+            "identity": "pedestrian",
+            "x0": 1368,
+            "y0": 459,
+            "x1": 1416,
+            "y1": 676,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "5caeb440-c1fd-44d2-b364-716af6c26bb6",
+            "identity": "pedestrian",
+            "x0": 1470,
+            "y0": 476,
+            "x1": 1524,
+            "y1": 681,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "989932ec-5a54-4073-a4b1-2808f1f6d486",
+            "identity": "pedestrian",
+            "x0": 140,
+            "y0": 509,
+            "x1": 233,
+            "y1": 739,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "b80cbc0d-fbb1-4993-8aa2-317a067228df",
+            "identity": "pedestrian",
+            "x0": 108,
+            "y0": 500,
+            "x1": 170,
+            "y1": 738,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "a2cc895d-89b3-4b7b-b8f6-64eb763459f2",
+            "identity": "pedestrian",
+            "x0": 201,
+            "y0": 570,
+            "x1": 279,
+            "y1": 730,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "c98ad4c6-e1b6-42d4-8795-968ee68d65fe",
+            "identity": "pedestrian",
+            "x0": 571,
+            "y0": 577,
+            "x1": 595,
+            "y1": 622,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "245d7c78-3d89-4778-a4dc-d6edcc1b1342",
+            "identity": "pedestrian",
+            "x0": 661,
+            "y0": 570,
+            "x1": 672,
+            "y1": 609,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_8",
+            "uuid": "79ef243a-5caf-4ce9-a798-fdd2815e2be0",
+            "identity": "pedestrian",
+            "x0": 531,
+            "y0": 571,
+            "x1": 546,
+            "y1": 620,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_9",
+            "uuid": "66d57651-8540-40c1-a239-b631412623be",
+            "identity": "pedestrian",
+            "x0": 182,
+            "y0": 506,
+            "x1": 243,
+            "y1": 717,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_10",
+            "uuid": "8f51f75b-df9f-4442-9293-2a009e199a94",
+            "identity": "pedestrian",
+            "x0": 0,
+            "y0": 503,
+            "x1": 26,
+            "y1": 761,
+            "attributes": {
+                "sandbox_tags": [
+                    "truncated>80"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

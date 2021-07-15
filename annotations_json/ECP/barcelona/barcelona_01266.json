@@ -1,0 +1,88 @@
+{
+    "im_name": "barcelona_01266.png",
+    "city_name": "barcelona",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "690f2bf1-50a1-4b1b-85cd-e9136d369811",
+            "identity": "pedestrian",
+            "x0": 867,
+            "y0": 415,
+            "x1": 877,
+            "y1": 448,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "ca4161cf-d53f-40a3-9d8d-f83a0a9db391",
+            "identity": "person-group-far-away",
+            "x0": 899,
+            "y0": 430,
+            "x1": 905,
+            "y1": 443,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "ae7e2069-92f1-4b9e-a387-a651fa52265a",
+            "identity": "rider",
+            "x0": 1063,
+            "y0": 282,
+            "x1": 1361,
+            "y1": 801,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": [
+                {
+                    "identity": "scooter",
+                    "x0": 1094,
+                    "y0": 417,
+                    "x1": 1401,
+                    "y1": 822,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "occluded>10"
+                        ]
+                    }
+                },
+                {
+                    "identity": "co-rider",
+                    "x0": 1126,
+                    "y0": 313,
+                    "x1": 1355,
+                    "y1": 755,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "b96ef0fe-2d3d-47fb-99c7-ef4b802bd7cd",
+            "identity": "rider+vehicle-group-far-away",
+            "x0": 1035,
+            "y0": 427,
+            "x1": 1044,
+            "y1": 448,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

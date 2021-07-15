@@ -1,0 +1,64 @@
+{
+    "im_name": "amsterdam_01141.png",
+    "city_name": "amsterdam",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [
+        "rainy",
+        "wiper"
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "a85c3281-5bd4-49d6-b93e-8e55e3c96a3d",
+            "identity": "rider",
+            "x0": 519,
+            "y0": 543,
+            "x1": 564,
+            "y1": 651,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 519,
+                    "y0": 581,
+                    "x1": 560,
+                    "y1": 659,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "0a7e14e6-74ce-4928-9290-1cc801832fae",
+            "identity": "pedestrian",
+            "x0": 429,
+            "y0": 548,
+            "x1": 467,
+            "y1": 639,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "657daf9c-3497-43c0-9805-ca30d4e5a9a6",
+            "identity": "person-group-far-away",
+            "x0": 655,
+            "y0": 543,
+            "x1": 673,
+            "y1": 601,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

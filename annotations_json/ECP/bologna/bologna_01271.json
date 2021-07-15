@@ -1,0 +1,146 @@
+{
+    "im_name": "bologna_01271.png",
+    "city_name": "bologna",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "763df093-b9ed-4de1-a51f-859fe73df492",
+            "identity": "scooter-group",
+            "x0": 771,
+            "y0": 581,
+            "x1": 866,
+            "y1": 644,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "a8d718ab-bd01-4e92-9a64-16d83bc5a283",
+            "identity": "pedestrian",
+            "x0": 797,
+            "y0": 559,
+            "x1": 817,
+            "y1": 627,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "54e41a92-aad4-49d5-9728-55fc72c909f3",
+            "identity": "pedestrian",
+            "x0": 970,
+            "y0": 564,
+            "x1": 991,
+            "y1": 613,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "5a8ab434-e7c6-4301-9b14-5d0dd0f645cb",
+            "identity": "scooter-group",
+            "x0": 1014,
+            "y0": 575,
+            "x1": 1038,
+            "y1": 602,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "43215b7a-95f9-4ba4-afc1-ed76b6623e6c",
+            "identity": "bicycle-group",
+            "x0": 1043,
+            "y0": 581,
+            "x1": 1075,
+            "y1": 629,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "e207497b-a3c1-40a6-9edb-19f3a9edc76b",
+            "identity": "pedestrian",
+            "x0": 1134,
+            "y0": 543,
+            "x1": 1168,
+            "y1": 632,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "0b9c63e7-8abd-4af7-8a52-c40185e16dbd",
+            "identity": "pedestrian",
+            "x0": 1904,
+            "y0": 413,
+            "x1": 1920,
+            "y1": 810,
+            "attributes": {
+                "sandbox_tags": [
+                    "truncated>80",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_8",
+            "uuid": "f9389b65-56fc-4416-b3ee-96f7a52a51e7",
+            "identity": "scooter-group",
+            "x0": 0,
+            "y0": 573,
+            "x1": 156,
+            "y1": 1024,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_9",
+            "uuid": "932541a0-8091-44b2-a38c-212ff0257a76",
+            "identity": "pedestrian",
+            "x0": 945,
+            "y0": 564,
+            "x1": 969,
+            "y1": 614,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_10",
+            "uuid": "fbbe5e29-8302-407b-b2a5-46d5a2e7c09f",
+            "identity": "bicycle-group",
+            "x0": 962,
+            "y0": 579,
+            "x1": 973,
+            "y1": 614,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

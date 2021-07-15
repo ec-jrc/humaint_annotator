@@ -1,0 +1,93 @@
+{
+    "im_name": "milano_01036.png",
+    "city_name": "milano",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "521e8264-7313-446f-9a2d-e07aba4075b7",
+            "identity": "pedestrian",
+            "x0": 231,
+            "y0": 511,
+            "x1": 301,
+            "y1": 675,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "074bc2d2-ff47-47ea-98fa-492536abfb4f",
+            "identity": "bicycle-group",
+            "x0": 827,
+            "y0": 567,
+            "x1": 860,
+            "y1": 593,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "395c3241-e88e-4b05-9f30-35cba12118ec",
+            "identity": "person-group-far-away",
+            "x0": 1101,
+            "y0": 554,
+            "x1": 1113,
+            "y1": 595,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "da5917f0-a31f-438c-9f11-85d251f3395b",
+            "identity": "pedestrian",
+            "x0": 1100,
+            "y0": 547,
+            "x1": 1127,
+            "y1": 610,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "49482be3-755b-428c-8d07-416d2bf2984a",
+            "identity": "pedestrian",
+            "x0": 1156,
+            "y0": 549,
+            "x1": 1175,
+            "y1": 610,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "b439e9d2-62dd-4c02-9cca-fc97e3c4f1b1",
+            "identity": "pedestrian",
+            "x0": 1162,
+            "y0": 546,
+            "x1": 1188,
+            "y1": 610,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

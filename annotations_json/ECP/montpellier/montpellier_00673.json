@@ -1,0 +1,92 @@
+{
+    "im_name": "montpellier_00673.png",
+    "city_name": "montpellier",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "19c0f7f1-fdf5-4969-a54b-357ca273ba20",
+            "identity": "pedestrian",
+            "x0": 818,
+            "y0": 345,
+            "x1": 848,
+            "y1": 402,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "e4cf42e9-d41a-4635-b6d6-723e0d84cee6",
+            "identity": "pedestrian",
+            "x0": 1774,
+            "y0": 356,
+            "x1": 1785,
+            "y1": 386,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "b3a90824-a83e-4348-aa6f-a404c02971a7",
+            "identity": "pedestrian",
+            "x0": 1780,
+            "y0": 352,
+            "x1": 1794,
+            "y1": 388,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "279ed9c5-d686-4ad1-a90d-d2191121334a",
+            "identity": "pedestrian",
+            "x0": 692,
+            "y0": 341,
+            "x1": 705,
+            "y1": 387,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "16a4d38c-66da-441c-9b29-647f09de9173",
+            "identity": "person-group-far-away",
+            "x0": 207,
+            "y0": 262,
+            "x1": 224,
+            "y1": 279,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40",
+                    "sitting-lying"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "4ed2ce1c-dc3f-4120-a38c-e15b4bc0adfb",
+            "identity": "pedestrian",
+            "x0": 1780,
+            "y0": 360,
+            "x1": 1788,
+            "y1": 386,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

@@ -1,0 +1,78 @@
+{
+    "im_name": "barcelona_01317.png",
+    "city_name": "barcelona",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "d86543f9-390f-4b0c-9732-6d029584d863",
+            "identity": "pedestrian",
+            "x0": 922,
+            "y0": 412,
+            "x1": 937,
+            "y1": 460,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "04b42b35-6251-4030-981e-49e0fa5d5636",
+            "identity": "motorbike-group",
+            "x0": 1358,
+            "y0": 431,
+            "x1": 1425,
+            "y1": 474,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "6f007092-b9f1-48e9-9351-73983fb7163b",
+            "identity": "pedestrian",
+            "x0": 1825,
+            "y0": 414,
+            "x1": 1848,
+            "y1": 483,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "9cd0ce1d-2a44-4737-b8cc-3c805dd6b0e0",
+            "identity": "pedestrian",
+            "x0": 739,
+            "y0": 424,
+            "x1": 748,
+            "y1": 451,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "f663d2a5-48cb-4060-b695-4c77d0e9ba67",
+            "identity": "pedestrian",
+            "x0": 658,
+            "y0": 423,
+            "x1": 668,
+            "y1": 449,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

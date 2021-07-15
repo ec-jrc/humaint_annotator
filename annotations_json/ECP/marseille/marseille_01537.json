@@ -1,0 +1,128 @@
+{
+    "im_name": "marseille_01537.png",
+    "city_name": "marseille",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "d5d51901-cc44-4e2c-8102-2da4f7495231",
+            "identity": "pedestrian",
+            "x0": 304,
+            "y0": 475,
+            "x1": 347,
+            "y1": 550,
+            "attributes": {
+                "sandbox_tags": [
+                    "sitting-lying"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "3ca97a6f-192c-4976-a5c5-531c2e675f9c",
+            "identity": "motorbike-group",
+            "x0": 2,
+            "y0": 461,
+            "x1": 102,
+            "y1": 544,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "b05785d7-ed44-4446-8c01-490ecb5aa901",
+            "identity": "bicycle-group",
+            "x0": 136,
+            "y0": 476,
+            "x1": 237,
+            "y1": 533,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "6fd99ec6-07e6-4afe-bb41-1bddf9b06d52",
+            "identity": "motorbike-group",
+            "x0": 794,
+            "y0": 418,
+            "x1": 850,
+            "y1": 469,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "3701897a-d7f3-4866-8b05-f19227863e81",
+            "identity": "rider",
+            "x0": 910,
+            "y0": 389,
+            "x1": 965,
+            "y1": 483,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "motorbike",
+                    "x0": 909,
+                    "y0": 419,
+                    "x1": 965,
+                    "y1": 500,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "c91ac886-7212-4e8e-9702-7b7f18b7f777",
+            "identity": "pedestrian",
+            "x0": 1018,
+            "y0": 396,
+            "x1": 1051,
+            "y1": 486,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "8b35f089-3847-43a4-8124-ed7c9996e2d9",
+            "identity": "pedestrian",
+            "x0": 1037,
+            "y0": 392,
+            "x1": 1077,
+            "y1": 484,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_8",
+            "uuid": "1480f1ff-275c-4c52-a9e8-3e77fe4ddbd2",
+            "identity": "motorbike-group",
+            "x0": 189,
+            "y0": 434,
+            "x1": 395,
+            "y1": 525,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

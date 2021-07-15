@@ -1,0 +1,76 @@
+{
+    "im_name": "bratislava_00989.png",
+    "city_name": "bratislava",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "e7c31574-95a1-4fd5-930f-4932c30312d5",
+            "identity": "pedestrian",
+            "x0": 812,
+            "y0": 547,
+            "x1": 842,
+            "y1": 614,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "14e64868-29f6-41d3-aa4b-60a21c707614",
+            "identity": "person-group-far-away",
+            "x0": 990,
+            "y0": 561,
+            "x1": 995,
+            "y1": 578,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "c0fa7693-68bf-46bf-b381-a1d270eb7089",
+            "identity": "person-group-far-away",
+            "x0": 996,
+            "y0": 560,
+            "x1": 1003,
+            "y1": 577,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "81c45524-2961-43b5-bd02-4f47fa817748",
+            "identity": "person-group-far-away",
+            "x0": 1005,
+            "y0": 560,
+            "x1": 1011,
+            "y1": 573,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "f00655e5-e7e4-46fc-b38e-a7b043443c59",
+            "identity": "pedestrian",
+            "x0": 1224,
+            "y0": 524,
+            "x1": 1261,
+            "y1": 662,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

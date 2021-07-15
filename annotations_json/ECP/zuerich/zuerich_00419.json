@@ -1,0 +1,76 @@
+{
+    "im_name": "zuerich_00419.png",
+    "city_name": "zuerich",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "5eb678d2-9a44-4894-88df-26a6b9c9598c",
+            "identity": "pedestrian",
+            "x0": 716,
+            "y0": 424,
+            "x1": 743,
+            "y1": 503,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "29810776-e5cb-4e91-81f0-4bdde47f2b8c",
+            "identity": "pedestrian",
+            "x0": 748,
+            "y0": 424,
+            "x1": 773,
+            "y1": 496,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "97cabbc1-f062-45fb-b4bd-e33c21ce7877",
+            "identity": "person-group-far-away",
+            "x0": 970,
+            "y0": 413,
+            "x1": 979,
+            "y1": 445,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "a900c7bf-a5d5-4fd0-99b8-a29abe69d723",
+            "identity": "person-group-far-away",
+            "x0": 994,
+            "y0": 417,
+            "x1": 1018,
+            "y1": 444,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "f6d70543-917e-4ce9-bbcc-a208615c8632",
+            "identity": "pedestrian",
+            "x0": 1185,
+            "y0": 389,
+            "x1": 1225,
+            "y1": 495,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

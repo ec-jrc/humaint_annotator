@@ -1,0 +1,201 @@
+{
+    "im_name": "torino_01077.png",
+    "city_name": "torino",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "a89bde6b-fb8c-4824-8de3-6a2eff02d38f",
+            "identity": "pedestrian",
+            "x0": 1762,
+            "y0": 536,
+            "x1": 1920,
+            "y1": 878,
+            "attributes": {
+                "sandbox_tags": [
+                    "truncated>40",
+                    "sitting-lying",
+                    "behind-glass"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "e095b4f2-bf98-478c-b049-a642f5a06a79",
+            "identity": "pedestrian",
+            "x0": 1665,
+            "y0": 535,
+            "x1": 1842,
+            "y1": 846,
+            "attributes": {
+                "sandbox_tags": [
+                    "sitting-lying",
+                    "behind-glass"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "80eeec66-485e-4da6-af38-1955fd0af1a3",
+            "identity": "scooter-group",
+            "x0": 1535,
+            "y0": 481,
+            "x1": 1722,
+            "y1": 810,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "c333b706-62f5-4bc7-a04c-33c319f3c5c9",
+            "identity": "rider",
+            "x0": 1009,
+            "y0": 528,
+            "x1": 1046,
+            "y1": 615,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 1010,
+                    "y0": 561,
+                    "x1": 1046,
+                    "y1": 625,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "22de315f-a6f1-465d-8a73-5df2a0db5063",
+            "identity": "bicycle-group",
+            "x0": 511,
+            "y0": 552,
+            "x1": 696,
+            "y1": 671,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "b50dc300-5d1a-4dab-b555-a1300c273ed5",
+            "identity": "bicycle-group",
+            "x0": 552,
+            "y0": 550,
+            "x1": 722,
+            "y1": 659,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "b27b06a8-22fd-4ce2-b2b3-52fc5ac7fa56",
+            "identity": "bicycle-group",
+            "x0": 568,
+            "y0": 554,
+            "x1": 738,
+            "y1": 654,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_8",
+            "uuid": "d023f57d-ff4d-4a5c-9e68-ed184a5d39e2",
+            "identity": "bicycle-group",
+            "x0": 591,
+            "y0": 558,
+            "x1": 751,
+            "y1": 650,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_9",
+            "uuid": "34c65669-db7c-4ef8-b00d-2df4e3c8e06d",
+            "identity": "scooter-group",
+            "x0": 636,
+            "y0": 521,
+            "x1": 787,
+            "y1": 611,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_10",
+            "uuid": "d5bf9184-62f6-4992-9612-f13a1113a1da",
+            "identity": "scooter-group",
+            "x0": 703,
+            "y0": 527,
+            "x1": 820,
+            "y1": 599,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_11",
+            "uuid": "52465105-e79f-4515-8d79-b1a13eacc490",
+            "identity": "person-group-far-away",
+            "x0": 302,
+            "y0": 407,
+            "x1": 344,
+            "y1": 489,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_12",
+            "uuid": "ac858119-f102-4c03-8342-9f581632a95e",
+            "identity": "person-group-far-away",
+            "x0": 854,
+            "y0": 513,
+            "x1": 882,
+            "y1": 542,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

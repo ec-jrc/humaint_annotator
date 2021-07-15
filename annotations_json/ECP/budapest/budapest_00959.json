@@ -1,0 +1,79 @@
+{
+    "im_name": "budapest_00959.png",
+    "city_name": "budapest",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "8c2dc99f-e72f-4f52-957a-931ac099ed6c",
+            "identity": "person-group-far-away",
+            "x0": 993,
+            "y0": 543,
+            "x1": 1001,
+            "y1": 563,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "57c53421-f2b2-439d-9541-7132b42d8c66",
+            "identity": "pedestrian",
+            "x0": 1047,
+            "y0": 521,
+            "x1": 1088,
+            "y1": 632,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "e7892faf-840e-4245-8084-bf7d7b0da214",
+            "identity": "pedestrian",
+            "x0": 1120,
+            "y0": 509,
+            "x1": 1198,
+            "y1": 629,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "ee5101ff-e608-4787-b24b-16ed591b1175",
+            "identity": "pedestrian",
+            "x0": 1853,
+            "y0": 414,
+            "x1": 1920,
+            "y1": 792,
+            "attributes": {
+                "sandbox_tags": [
+                    "truncated>10",
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "4fe5b44e-079b-4427-a86b-e5b41059d45d",
+            "identity": "pedestrian",
+            "x0": 1667,
+            "y0": 438,
+            "x1": 1827,
+            "y1": 842,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

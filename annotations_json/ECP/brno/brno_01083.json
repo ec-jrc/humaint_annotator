@@ -1,0 +1,93 @@
+{
+    "im_name": "brno_01083.png",
+    "city_name": "brno",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "6a0e66a8-0234-4af3-b667-d264628273d7",
+            "identity": "pedestrian",
+            "x0": 1459,
+            "y0": 476,
+            "x1": 1540,
+            "y1": 678,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "342ba5b2-f51d-4c5e-bf9a-3e5235734d8c",
+            "identity": "pedestrian",
+            "x0": 0,
+            "y0": 497,
+            "x1": 76,
+            "y1": 761,
+            "attributes": {
+                "sandbox_tags": [
+                    "truncated>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "d91fba2d-9c1b-4b45-bf75-3d3cd409e23f",
+            "identity": "pedestrian",
+            "x0": 539,
+            "y0": 566,
+            "x1": 561,
+            "y1": 624,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "eae848e2-796f-46c3-95ac-a74ded85d142",
+            "identity": "pedestrian",
+            "x0": 570,
+            "y0": 569,
+            "x1": 584,
+            "y1": 625,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "8a837ad1-f1d5-45f7-82c6-75230585a0e0",
+            "identity": "pedestrian",
+            "x0": 1415,
+            "y0": 453,
+            "x1": 1476,
+            "y1": 678,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "c3270c17-6d79-4a0e-a731-6b02d422e04d",
+            "identity": "pedestrian",
+            "x0": 546,
+            "y0": 568,
+            "x1": 562,
+            "y1": 624,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

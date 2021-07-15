@@ -1,0 +1,74 @@
+{
+    "im_name": "roma_01266.png",
+    "city_name": "roma",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "59b0b856-6923-45e5-92f6-789eabecad10",
+            "identity": "rider",
+            "x0": 1758,
+            "y0": 505,
+            "x1": 1797,
+            "y1": 592,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 1758,
+                    "y0": 539,
+                    "x1": 1804,
+                    "y1": 598,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "7594d77d-1fc0-43c5-b551-a6e68cb96605",
+            "identity": "rider",
+            "x0": 1306,
+            "y0": 549,
+            "x1": 1325,
+            "y1": 586,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": [
+                {
+                    "identity": "scooter",
+                    "x0": 1305,
+                    "y0": 554,
+                    "x1": 1330,
+                    "y1": 595,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "c1768f45-e03e-444a-9408-a71679ecdb07",
+            "identity": "pedestrian",
+            "x0": 674,
+            "y0": 559,
+            "x1": 692,
+            "y1": 612,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

@@ -1,0 +1,78 @@
+{
+    "im_name": "pisa_00739.png",
+    "city_name": "pisa",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "15f90a94-aa52-450e-b974-9e4dec9c13b6",
+            "identity": "person-group-far-away",
+            "x0": 1260,
+            "y0": 541,
+            "x1": 1270,
+            "y1": 575,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "2b804584-6160-4584-be3c-56e451ed0689",
+            "identity": "person-group-far-away",
+            "x0": 1581,
+            "y0": 538,
+            "x1": 1594,
+            "y1": 575,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "1525e01e-5bbc-4db0-89aa-0ba1bb2b9970",
+            "identity": "pedestrian",
+            "x0": 1652,
+            "y0": 542,
+            "x1": 1679,
+            "y1": 582,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10",
+                    "sitting-lying",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "28d1dc78-6138-4bc9-8678-f1b4237f6c08",
+            "identity": "scooter-group",
+            "x0": 442,
+            "y0": 542,
+            "x1": 563,
+            "y1": 612,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "82396cfc-a5df-478e-b5c4-2d373ebf6ffe",
+            "identity": "person-group-far-away",
+            "x0": 1646,
+            "y0": 533,
+            "x1": 1657,
+            "y1": 563,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

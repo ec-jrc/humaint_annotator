@@ -1,0 +1,96 @@
+{
+    "im_name": "prague_01401.png",
+    "city_name": "prague",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "3b3844fc-fc2c-4d0d-a0b1-adba0580caec",
+            "identity": "pedestrian",
+            "x0": 734,
+            "y0": 470,
+            "x1": 947,
+            "y1": 864,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "669c74a9-6842-4161-a5d0-834eb75a1149",
+            "identity": "pedestrian",
+            "x0": 1737,
+            "y0": 495,
+            "x1": 1831,
+            "y1": 714,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "efe77dd7-53c7-4073-b5b2-e52cbcdc68e9",
+            "identity": "pedestrian",
+            "x0": 1317,
+            "y0": 509,
+            "x1": 1359,
+            "y1": 636,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "ca7fc888-eedc-41c1-94e8-78572d3f34ee",
+            "identity": "pedestrian",
+            "x0": 1828,
+            "y0": 498,
+            "x1": 1920,
+            "y1": 708,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "935d3b7b-3f24-41f2-af22-e91522631418",
+            "identity": "person-group-far-away",
+            "x0": 1673,
+            "y0": 460,
+            "x1": 1706,
+            "y1": 523,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "f2861400-f84a-4fd9-8789-a22c71911c6a",
+            "identity": "pedestrian",
+            "x0": 1195,
+            "y0": 529,
+            "x1": 1226,
+            "y1": 622,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

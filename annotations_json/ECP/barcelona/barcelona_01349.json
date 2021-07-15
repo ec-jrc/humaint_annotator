@@ -1,0 +1,67 @@
+{
+    "im_name": "barcelona_01349.png",
+    "city_name": "barcelona",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "bb234d96-3203-4369-88b7-c14cdcdd50c1",
+            "identity": "bicycle-group",
+            "x0": 172,
+            "y0": 439,
+            "x1": 476,
+            "y1": 489,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "87c6cdde-9fbe-47f4-b287-2ac474aa4346",
+            "identity": "pedestrian",
+            "x0": 1552,
+            "y0": 419,
+            "x1": 1575,
+            "y1": 464,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "772e8117-d99f-4132-9cf2-dd9a49c0400e",
+            "identity": "pedestrian",
+            "x0": 1559,
+            "y0": 422,
+            "x1": 1580,
+            "y1": 470,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40",
+                    "sitting-lying"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "ffe67e18-fbb1-42db-9f65-efc840246cc0",
+            "identity": "person-group-far-away",
+            "x0": 886,
+            "y0": 432,
+            "x1": 900,
+            "y1": 453,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

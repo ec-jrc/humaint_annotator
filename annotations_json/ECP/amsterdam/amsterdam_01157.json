@@ -1,0 +1,63 @@
+{
+    "im_name": "amsterdam_01157.png",
+    "city_name": "amsterdam",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [
+        "wiper"
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "c069b4f9-c447-4f9e-8de6-047e58943048",
+            "identity": "bicycle-group",
+            "x0": 1142,
+            "y0": 553,
+            "x1": 1234,
+            "y1": 650,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "c505dca1-c427-4232-ad46-585f9a9238e1",
+            "identity": "scooter-group",
+            "x0": 1045,
+            "y0": 551,
+            "x1": 1056,
+            "y1": 572,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "68973ebd-b7ad-438a-874a-07a986495679",
+            "identity": "person-group-far-away",
+            "x0": 1018,
+            "y0": 546,
+            "x1": 1026,
+            "y1": 568,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "c0da207b-be5d-4645-9352-9c7dd6892bbf",
+            "identity": "rider+vehicle-group-far-away",
+            "x0": 1007,
+            "y0": 550,
+            "x1": 1011,
+            "y1": 560,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

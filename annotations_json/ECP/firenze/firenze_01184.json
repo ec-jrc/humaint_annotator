@@ -1,0 +1,115 @@
+{
+    "im_name": "firenze_01184.png",
+    "city_name": "firenze",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "0242f56d-6dbb-4f16-981e-8aa41284a435",
+            "identity": "rider",
+            "x0": 1218,
+            "y0": 537,
+            "x1": 1248,
+            "y1": 592,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "scooter",
+                    "x0": 1199,
+                    "y0": 541,
+                    "x1": 1271,
+                    "y1": 603,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "5c58e879-b92a-4f47-adee-378226ca2486",
+            "identity": "rider",
+            "x0": 731,
+            "y0": 538,
+            "x1": 770,
+            "y1": 610,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 714,
+                    "y0": 570,
+                    "x1": 795,
+                    "y1": 620,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "67666657-8427-49ed-b5fc-a6a427c723cc",
+            "identity": "pedestrian",
+            "x0": 679,
+            "y0": 551,
+            "x1": 695,
+            "y1": 601,
+            "attributes": {
+                "sandbox_tags": [
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "d47a711d-1a9d-450c-bbf5-25d07bf02b9c",
+            "identity": "pedestrian",
+            "x0": 120,
+            "y0": 545,
+            "x1": 157,
+            "y1": 637,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "0511cd4e-b05d-423b-8576-30851cf84ba3",
+            "identity": "bicycle-group",
+            "x0": 640,
+            "y0": 561,
+            "x1": 670,
+            "y1": 601,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "da2e4029-3af7-45ac-be29-87e0582c0bb0",
+            "identity": "pedestrian",
+            "x0": 198,
+            "y0": 549,
+            "x1": 224,
+            "y1": 616,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

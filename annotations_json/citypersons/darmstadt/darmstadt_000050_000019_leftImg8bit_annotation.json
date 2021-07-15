@@ -1,0 +1,74 @@
+{
+    "im_name": "darmstadt_000050_000019_leftImg8bit.png",
+    "city_name": "darmstadt",
+    "im_width": 2048,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "be256ee1-6a5e-41e4-bcbd-a0e1e6580a9a",
+            "identity": "Pedestrian",
+            "x0": 1582,
+            "y0": 408,
+            "x1": 1604,
+            "y1": 461,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "a5ba8653-9425-4cdf-a565-2f7085113eaf",
+            "identity": "Pedestrian",
+            "x0": 1617,
+            "y0": 414,
+            "x1": 1637,
+            "y1": 461,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "b4af17f2-c181-40f1-b23d-a6492607c3a9",
+            "identity": "Rider",
+            "x0": 726,
+            "y0": 373,
+            "x1": 776,
+            "y1": 494,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "bd81c52e-d209-4be1-bf2f-1441f76cb07b",
+            "identity": "Ignore",
+            "x0": 201,
+            "y0": 249,
+            "x1": 224,
+            "y1": 284,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "3380c354-99a8-4ca6-99e5-4d9bdeb794f7",
+            "identity": "Ignore",
+            "x0": 1016,
+            "y0": 399,
+            "x1": 1027,
+            "y1": 414,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

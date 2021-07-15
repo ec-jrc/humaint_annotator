@@ -1,0 +1,54 @@
+{
+    "im_name": "barcelona_01509.png",
+    "city_name": "barcelona",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [
+        "constructionSite"
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "25b958d8-c37d-479f-8d40-e531ac844e7a",
+            "identity": "pedestrian",
+            "x0": 275,
+            "y0": 380,
+            "x1": 348,
+            "y1": 623,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "a82c94f9-37bf-4950-b70b-0384b6fac572",
+            "identity": "pedestrian",
+            "x0": 215,
+            "y0": 387,
+            "x1": 289,
+            "y1": 629,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "8fd77b8f-9118-4db7-bf75-f1754a464bbf",
+            "identity": "bicycle-group",
+            "x0": 1526,
+            "y0": 406,
+            "x1": 1772,
+            "y1": 505,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

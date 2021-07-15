@@ -1,0 +1,76 @@
+{
+    "im_name": "brno_01045.png",
+    "city_name": "brno",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "45bb10de-ef52-4e83-9a7c-1642ad76ae6c",
+            "identity": "pedestrian",
+            "x0": 1650,
+            "y0": 497,
+            "x1": 1703,
+            "y1": 637,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "3e6931b4-c607-4308-98dd-a835ea38bbb7",
+            "identity": "pedestrian",
+            "x0": 1405,
+            "y0": 527,
+            "x1": 1425,
+            "y1": 589,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "ad98ba7f-bce9-458c-bca2-15ed533fff07",
+            "identity": "pedestrian",
+            "x0": 1377,
+            "y0": 537,
+            "x1": 1396,
+            "y1": 585,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "20ee8423-da0c-4db7-b577-e8990ecfd63f",
+            "identity": "pedestrian",
+            "x0": 320,
+            "y0": 535,
+            "x1": 342,
+            "y1": 604,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "a9aef1a5-89ae-4613-a04a-cf87bb9d98c3",
+            "identity": "person-group-far-away",
+            "x0": 669,
+            "y0": 542,
+            "x1": 698,
+            "y1": 589,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

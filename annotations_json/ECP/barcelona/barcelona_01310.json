@@ -1,0 +1,99 @@
+{
+    "im_name": "barcelona_01310.png",
+    "city_name": "barcelona",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "b39ea058-a8e4-4f4d-9494-c53e8d29c622",
+            "identity": "scooter-group",
+            "x0": 194,
+            "y0": 400,
+            "x1": 467,
+            "y1": 612,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "04fb4b20-75a6-4b96-a588-e14dd48bff46",
+            "identity": "pedestrian",
+            "x0": 1176,
+            "y0": 433,
+            "x1": 1194,
+            "y1": 478,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "4130fb1d-88fe-472e-a1fd-602dd16041b4",
+            "identity": "bicycle-group",
+            "x0": 1761,
+            "y0": 265,
+            "x1": 1843,
+            "y1": 303,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "c0d3aacd-ffbd-4b92-b6f5-fe3f256dcf23",
+            "identity": "scooter-group",
+            "x0": 1193,
+            "y0": 440,
+            "x1": 1219,
+            "y1": 482,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "6460967b-ec9c-473c-b9b3-a0f74d52166b",
+            "identity": "pedestrian",
+            "x0": 1515,
+            "y0": 434,
+            "x1": 1572,
+            "y1": 539,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80",
+                    "behind-glass",
+                    "sitting-lying",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "023e17ac-aa0f-4d92-bb40-4661dbdbd604",
+            "identity": "pedestrian",
+            "x0": 1341,
+            "y0": 424,
+            "x1": 1355,
+            "y1": 474,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

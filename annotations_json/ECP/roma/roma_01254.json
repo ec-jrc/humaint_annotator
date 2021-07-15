@@ -1,0 +1,132 @@
+{
+    "im_name": "roma_01254.png",
+    "city_name": "roma",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "50991e26-1b88-46b3-b9db-41f9bc170685",
+            "identity": "pedestrian",
+            "x0": 407,
+            "y0": 544,
+            "x1": 440,
+            "y1": 621,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "ea5e8bed-c705-44bc-9746-f6dd872e483b",
+            "identity": "pedestrian",
+            "x0": 353,
+            "y0": 551,
+            "x1": 387,
+            "y1": 624,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "9cc1e626-6d6d-47f3-ba87-7e7b2cdf5ce6",
+            "identity": "pedestrian",
+            "x0": 253,
+            "y0": 538,
+            "x1": 291,
+            "y1": 633,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "e65aca16-e222-4c86-bbd8-c43e24c38a68",
+            "identity": "pedestrian",
+            "x0": 215,
+            "y0": 536,
+            "x1": 268,
+            "y1": 657,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "ea63de53-3d56-4384-9492-cf9fec171abd",
+            "identity": "rider",
+            "x0": 0,
+            "y0": 407,
+            "x1": 190,
+            "y1": 1004,
+            "attributes": {
+                "sandbox_tags": [
+                    "truncated>40"
+                ]
+            },
+            "sub_entities": [
+                {
+                    "identity": "motorbike",
+                    "x0": 0,
+                    "y0": 511,
+                    "x1": 287,
+                    "y1": 1024,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "truncated>40"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "acf1ba1e-a4c0-4f11-abfc-942e084bd3fd",
+            "identity": "pedestrian",
+            "x0": 697,
+            "y0": 549,
+            "x1": 716,
+            "y1": 606,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "b00209fa-0d6f-478e-9669-a19ad0ecc25a",
+            "identity": "pedestrian",
+            "x0": 1682,
+            "y0": 513,
+            "x1": 1726,
+            "y1": 654,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_8",
+            "uuid": "42814c13-b042-4f79-afc0-b844465dd28d",
+            "identity": "person-group-far-away",
+            "x0": 1872,
+            "y0": 502,
+            "x1": 1912,
+            "y1": 657,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

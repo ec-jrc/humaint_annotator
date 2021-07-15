@@ -1,0 +1,161 @@
+{
+    "im_name": "firenze_01215.png",
+    "city_name": "firenze",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "f242eddb-e35c-4fe4-89b5-3de4746e8f3a",
+            "identity": "rider",
+            "x0": 884,
+            "y0": 544,
+            "x1": 901,
+            "y1": 588,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": [
+                {
+                    "identity": "scooter",
+                    "x0": 877,
+                    "y0": 546,
+                    "x1": 906,
+                    "y1": 594,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "occluded>40",
+                            "unsure_orientation"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "515668d1-fc54-4ba2-b67c-3ab7d2202cc6",
+            "identity": "pedestrian",
+            "x0": 1041,
+            "y0": 537,
+            "x1": 1063,
+            "y1": 596,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "38f71309-5839-4555-ba3f-6257a71182b6",
+            "identity": "pedestrian",
+            "x0": 1058,
+            "y0": 522,
+            "x1": 1100,
+            "y1": 617,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "ae6f92c2-e85b-4dba-973f-5b7585d861fd",
+            "identity": "pedestrian",
+            "x0": 1090,
+            "y0": 521,
+            "x1": 1128,
+            "y1": 617,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "ee807cdc-3089-4d61-bdb2-eb082afd2613",
+            "identity": "scooter-group",
+            "x0": 561,
+            "y0": 528,
+            "x1": 762,
+            "y1": 698,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "b5f1b3f1-2336-4d6a-a64e-cfc11fdf077c",
+            "identity": "motorbike-group",
+            "x0": 0,
+            "y0": 606,
+            "x1": 458,
+            "y1": 937,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "91ff827c-70e1-4cec-8a17-eba4f979ec65",
+            "identity": "scooter-group",
+            "x0": 0,
+            "y0": 503,
+            "x1": 357,
+            "y1": 983,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_8",
+            "uuid": "ee7d23dc-cfc1-4cee-8a07-1cfd515a5de1",
+            "identity": "pedestrian",
+            "x0": 1760,
+            "y0": 479,
+            "x1": 1819,
+            "y1": 688,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_9",
+            "uuid": "eae2c383-57bd-4fa1-9900-15de3ea67d2b",
+            "identity": "person-group-far-away",
+            "x0": 1695,
+            "y0": 460,
+            "x1": 1778,
+            "y1": 609,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_10",
+            "uuid": "32ce9dd8-9651-4aa2-929e-a166d1429cbe",
+            "identity": "person-group-far-away",
+            "x0": 902,
+            "y0": 538,
+            "x1": 923,
+            "y1": 607,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

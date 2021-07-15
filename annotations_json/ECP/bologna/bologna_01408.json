@@ -1,0 +1,123 @@
+{
+    "im_name": "bologna_01408.png",
+    "city_name": "bologna",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "54038440-d773-4038-abfd-0610a6d223e1",
+            "identity": "person-group-far-away",
+            "x0": 609,
+            "y0": 557,
+            "x1": 627,
+            "y1": 596,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "4b7a6bfe-144f-4d69-9898-5e80b750ff67",
+            "identity": "pedestrian",
+            "x0": 707,
+            "y0": 554,
+            "x1": 728,
+            "y1": 592,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "6442d453-a8b9-41ad-b82a-598984cfb334",
+            "identity": "pedestrian",
+            "x0": 687,
+            "y0": 558,
+            "x1": 703,
+            "y1": 602,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "8c7a43e3-7c61-4c15-8b3e-b0eaf31c273e",
+            "identity": "person-group-far-away",
+            "x0": 649,
+            "y0": 557,
+            "x1": 664,
+            "y1": 599,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "a0cd348e-7025-4470-8c5b-68da20cd7d45",
+            "identity": "pedestrian",
+            "x0": 622,
+            "y0": 561,
+            "x1": 639,
+            "y1": 601,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "2f9307d1-76cf-48bf-a803-a480f2961d8c",
+            "identity": "pedestrian",
+            "x0": 672,
+            "y0": 557,
+            "x1": 685,
+            "y1": 596,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "9d867130-31d7-4eac-b587-61fd27babb80",
+            "identity": "rider",
+            "x0": 1400,
+            "y0": 489,
+            "x1": 1531,
+            "y1": 834,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 1401,
+                    "y0": 599,
+                    "x1": 1586,
+                    "y1": 857,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        }
+    ]
+}

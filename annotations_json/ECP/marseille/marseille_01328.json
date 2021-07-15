@@ -1,0 +1,95 @@
+{
+    "im_name": "marseille_01328.png",
+    "city_name": "marseille",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "8af92700-e2da-4d31-9e8b-f351a6b378f6",
+            "identity": "pedestrian",
+            "x0": 1039,
+            "y0": 429,
+            "x1": 1055,
+            "y1": 478,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "5299bb3a-5401-4807-8268-682593f92d57",
+            "identity": "pedestrian",
+            "x0": 1058,
+            "y0": 433,
+            "x1": 1076,
+            "y1": 482,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "cecb89ee-b07c-48db-9121-ab453da64848",
+            "identity": "pedestrian",
+            "x0": 1069,
+            "y0": 432,
+            "x1": 1083,
+            "y1": 476,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "d0a7a5bc-469b-4646-9146-929ed7b3b322",
+            "identity": "bicycle-group",
+            "x0": 1071,
+            "y0": 443,
+            "x1": 1155,
+            "y1": 514,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "6d931059-8192-4aa9-8efd-8db27e4d864c",
+            "identity": "pedestrian",
+            "x0": 1530,
+            "y0": 407,
+            "x1": 1606,
+            "y1": 602,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "af5f3b97-8a05-45e4-95e7-9debf01c1804",
+            "identity": "scooter-group",
+            "x0": 941,
+            "y0": 456,
+            "x1": 972,
+            "y1": 478,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

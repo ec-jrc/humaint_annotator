@@ -1,0 +1,152 @@
+{
+    "im_name": "prague_01399.png",
+    "city_name": "prague",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "f484789a-7b48-49a0-9a41-f7d2315b21a8",
+            "identity": "pedestrian",
+            "x0": 1305,
+            "y0": 529,
+            "x1": 1321,
+            "y1": 587,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "3fe303b9-c8ac-4644-8574-bd1fc3c5c7bf",
+            "identity": "pedestrian",
+            "x0": 751,
+            "y0": 535,
+            "x1": 788,
+            "y1": 614,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "3ad14267-b129-4158-ba0c-fb073d9e9750",
+            "identity": "pedestrian",
+            "x0": 812,
+            "y0": 535,
+            "x1": 850,
+            "y1": 614,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "dd3cf744-020a-4aa3-b3fa-47bb853717d3",
+            "identity": "pedestrian",
+            "x0": 298,
+            "y0": 509,
+            "x1": 337,
+            "y1": 613,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "42b0781e-7955-4d0d-a7d1-759aa2919016",
+            "identity": "pedestrian",
+            "x0": 430,
+            "y0": 523,
+            "x1": 454,
+            "y1": 597,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "424a9a9e-3615-4b72-9819-3bb4a67a8dbe",
+            "identity": "pedestrian",
+            "x0": 442,
+            "y0": 522,
+            "x1": 467,
+            "y1": 600,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "676f7ae5-6718-4b65-b76f-f62931a2788e",
+            "identity": "pedestrian",
+            "x0": 571,
+            "y0": 529,
+            "x1": 592,
+            "y1": 590,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_8",
+            "uuid": "005978b9-4930-4a7e-933c-10625b3ac18b",
+            "identity": "pedestrian",
+            "x0": 1660,
+            "y0": 483,
+            "x1": 1754,
+            "y1": 678,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_9",
+            "uuid": "35e3a9a3-c9b5-47c8-a2c8-7ee153c3d3f0",
+            "identity": "person-group-far-away",
+            "x0": 1839,
+            "y0": 537,
+            "x1": 1865,
+            "y1": 590,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_10",
+            "uuid": "8e96fccd-543f-4355-ab40-53a7fb308236",
+            "identity": "person-group-far-away",
+            "x0": 1805,
+            "y0": 531,
+            "x1": 1830,
+            "y1": 585,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

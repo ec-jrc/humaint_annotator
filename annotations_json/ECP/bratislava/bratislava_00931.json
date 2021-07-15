@@ -1,0 +1,125 @@
+{
+    "im_name": "bratislava_00931.png",
+    "city_name": "bratislava",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "1c94a5c7-e512-4621-ad8d-d17df208e750",
+            "identity": "pedestrian",
+            "x0": 290,
+            "y0": 499,
+            "x1": 350,
+            "y1": 677,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "1cd70782-edcd-414b-979c-15606e933e26",
+            "identity": "pedestrian",
+            "x0": 278,
+            "y0": 473,
+            "x1": 333,
+            "y1": 669,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "2fa648d2-7386-41a8-a85c-beef892e8f32",
+            "identity": "pedestrian",
+            "x0": 364,
+            "y0": 505,
+            "x1": 416,
+            "y1": 687,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "8c2cc1ed-91fd-4463-8a8b-bc9adaf05355",
+            "identity": "pedestrian",
+            "x0": 399,
+            "y0": 532,
+            "x1": 444,
+            "y1": 684,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "a98df5c7-bad2-4b77-8262-381fe272314b",
+            "identity": "pedestrian",
+            "x0": 1366,
+            "y0": 542,
+            "x1": 1388,
+            "y1": 586,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "d9656ed2-fb41-4fad-9b2d-3b4f2a33cf52",
+            "identity": "pedestrian",
+            "x0": 1727,
+            "y0": 521,
+            "x1": 1789,
+            "y1": 723,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "848efae7-a9f0-4795-8411-d2ea8279cd0a",
+            "identity": "pedestrian",
+            "x0": 1836,
+            "y0": 513,
+            "x1": 1920,
+            "y1": 707,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_8",
+            "uuid": "e8054703-ace8-4ffc-bd33-6e498ace1395",
+            "identity": "pedestrian",
+            "x0": 1876,
+            "y0": 509,
+            "x1": 1920,
+            "y1": 703,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80",
+                    "truncated>10",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

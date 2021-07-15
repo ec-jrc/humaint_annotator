@@ -1,0 +1,79 @@
+{
+    "im_name": "zuerich_00374.png",
+    "city_name": "zuerich",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "e3e7b14b-655f-4916-b421-11252f711a9d",
+            "identity": "pedestrian",
+            "x0": 470,
+            "y0": 431,
+            "x1": 501,
+            "y1": 481,
+            "attributes": {
+                "sandbox_tags": [
+                    "sitting-lying"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "8e3fecf8-c719-476a-8a34-f213ae49a0e0",
+            "identity": "pedestrian",
+            "x0": 596,
+            "y0": 417,
+            "x1": 615,
+            "y1": 464,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "c588e629-1d6d-438b-9974-8a1b156dc053",
+            "identity": "pedestrian",
+            "x0": 1082,
+            "y0": 387,
+            "x1": 1127,
+            "y1": 461,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "4da064aa-35b4-4997-a0af-01172a44f871",
+            "identity": "pedestrian",
+            "x0": 144,
+            "y0": 434,
+            "x1": 172,
+            "y1": 488,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10",
+                    "sitting-lying"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "e727489a-bd5b-47a3-abab-12472aa24b16",
+            "identity": "person-group-far-away",
+            "x0": 855,
+            "y0": 411,
+            "x1": 865,
+            "y1": 435,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

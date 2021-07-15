@@ -1,0 +1,82 @@
+{
+    "im_name": "zagreb_00830.png",
+    "city_name": "zagreb",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [
+        "rainy"
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "75dd6786-0d32-4a95-81c4-8430f580c69d",
+            "identity": "person-group-far-away",
+            "x0": 1115,
+            "y0": 550,
+            "x1": 1136,
+            "y1": 576,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "11e3f171-cbe1-416e-98e6-64fb1f97559e",
+            "identity": "pedestrian",
+            "x0": 1233,
+            "y0": 534,
+            "x1": 1255,
+            "y1": 591,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "575f4279-e741-4543-88a2-d381a8f1c99e",
+            "identity": "pedestrian",
+            "x0": 1881,
+            "y0": 478,
+            "x1": 1920,
+            "y1": 667,
+            "attributes": {
+                "sandbox_tags": [
+                    "truncated>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "9c334001-4498-439e-b1e2-f4003a37f693",
+            "identity": "person-group-far-away",
+            "x0": 448,
+            "y0": 554,
+            "x1": 473,
+            "y1": 629,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "60ec7271-7593-4be0-8311-cd178f5a8a87",
+            "identity": "person-group-far-away",
+            "x0": 1213,
+            "y0": 552,
+            "x1": 1235,
+            "y1": 590,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

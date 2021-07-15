@@ -1,0 +1,161 @@
+{
+    "im_name": "amsterdam_01170.png",
+    "city_name": "amsterdam",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [
+        "rainy"
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "55183d40-81cf-4cd1-a667-8109fc87d140",
+            "identity": "scooter-group",
+            "x0": 1757,
+            "y0": 435,
+            "x1": 1920,
+            "y1": 808,
+            "attributes": {
+                "sandbox_tags": [
+                    "truncated>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "fab4932f-ef82-442d-96d7-65c8cc78816f",
+            "identity": "bicycle-group",
+            "x0": 1280,
+            "y0": 497,
+            "x1": 1919,
+            "y1": 852,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "7c33cd50-d4db-4bea-a9ca-62fba9aeb045",
+            "identity": "pedestrian",
+            "x0": 1668,
+            "y0": 475,
+            "x1": 1725,
+            "y1": 643,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "7758f114-fb9f-4c0f-ac9f-16ae30823e1b",
+            "identity": "pedestrian",
+            "x0": 1724,
+            "y0": 479,
+            "x1": 1774,
+            "y1": 633,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "205c47bd-8aad-4966-a960-349a698f212b",
+            "identity": "rider",
+            "x0": 1215,
+            "y0": 526,
+            "x1": 1256,
+            "y1": 628,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "scooter",
+                    "x0": 1193,
+                    "y0": 551,
+                    "x1": 1285,
+                    "y1": 631,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "896be802-f589-4049-a53d-ff1a59eaf325",
+            "identity": "pedestrian",
+            "x0": 744,
+            "y0": 530,
+            "x1": 768,
+            "y1": 585,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80",
+                    "sitting-lying",
+                    "behind-glass"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "ab222c4e-9fc3-443f-999e-fa6ce7c60f62",
+            "identity": "pedestrian",
+            "x0": 695,
+            "y0": 476,
+            "x1": 712,
+            "y1": 515,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40",
+                    "sitting-lying",
+                    "behind-glass"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_8",
+            "uuid": "f15617cc-bfd9-4f29-a28f-926bba0547c2",
+            "identity": "pedestrian",
+            "x0": 715,
+            "y0": 471,
+            "x1": 731,
+            "y1": 515,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80",
+                    "sitting-lying",
+                    "behind-glass"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_9",
+            "uuid": "a08c8c3a-e022-4da3-acc5-f8ffda1003ce",
+            "identity": "pedestrian",
+            "x0": 751,
+            "y0": 475,
+            "x1": 769,
+            "y1": 512,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40",
+                    "sitting-lying",
+                    "behind-glass"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

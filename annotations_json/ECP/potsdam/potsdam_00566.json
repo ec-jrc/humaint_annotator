@@ -1,0 +1,83 @@
+{
+    "im_name": "potsdam_00566.png",
+    "city_name": "potsdam",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "89846f2d-55af-4a4d-92a0-d21cd41e2382",
+            "identity": "pedestrian",
+            "x0": 1849,
+            "y0": 501,
+            "x1": 1920,
+            "y1": 697,
+            "attributes": {
+                "sandbox_tags": [
+                    "truncated>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "b619c3ce-9751-40bf-bcd1-969ad99b6129",
+            "identity": "pedestrian",
+            "x0": 816,
+            "y0": 511,
+            "x1": 841,
+            "y1": 583,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "8a917e0d-9494-430f-b81a-274bc13ec2c1",
+            "identity": "pedestrian",
+            "x0": 840,
+            "y0": 520,
+            "x1": 858,
+            "y1": 584,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "e74a1a08-cc28-45b1-8e9d-7efa7a2915e7",
+            "identity": "rider",
+            "x0": 1456,
+            "y0": 503,
+            "x1": 1522,
+            "y1": 620,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 1449,
+                    "y0": 550,
+                    "x1": 1531,
+                    "y1": 640,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "occluded>80",
+                            "unsure_orientation"
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

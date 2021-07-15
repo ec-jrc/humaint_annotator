@@ -1,0 +1,51 @@
+{
+    "im_name": "hamburg_00701.png",
+    "city_name": "hamburg",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [
+        "rainy",
+        "wiper"
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "7a6eb2ee-9e47-4bcc-95fd-e59d27c211cb",
+            "identity": "pedestrian",
+            "x0": 1057,
+            "y0": 561,
+            "x1": 1073,
+            "y1": 606,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "89899308-0bfd-480f-9434-0ba94f704338",
+            "identity": "person-group-far-away",
+            "x0": 781,
+            "y0": 579,
+            "x1": 790,
+            "y1": 607,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "f43296c0-312e-495d-b7c5-877c53089055",
+            "identity": "pedestrian",
+            "x0": 799,
+            "y0": 578,
+            "x1": 810,
+            "y1": 607,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

@@ -1,0 +1,100 @@
+{
+    "im_name": "torino_01075.png",
+    "city_name": "torino",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "f5ad0e32-6237-4a4f-8f5a-e0cb8be3dd8c",
+            "identity": "pedestrian",
+            "x0": 1290,
+            "y0": 519,
+            "x1": 1324,
+            "y1": 608,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "774ab7a2-2917-4834-bb00-aa5f71bc277b",
+            "identity": "pedestrian",
+            "x0": 1205,
+            "y0": 523,
+            "x1": 1231,
+            "y1": 595,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "64fcad30-6aa3-4346-b2b2-974c46b2954e",
+            "identity": "pedestrian",
+            "x0": 659,
+            "y0": 559,
+            "x1": 675,
+            "y1": 609,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "54f2d0e5-dd38-4cc3-a484-59bb3f598630",
+            "identity": "rider",
+            "x0": 721,
+            "y0": 562,
+            "x1": 739,
+            "y1": 597,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "motorbike",
+                    "x0": 721,
+                    "y0": 577,
+                    "x1": 740,
+                    "y1": 609,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "70cbe2d5-e398-4780-89df-39e20436de4f",
+            "identity": "rider+vehicle-group-far-away",
+            "x0": 950,
+            "y0": 552,
+            "x1": 961,
+            "y1": 578,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "4b06e2f1-0771-4a1d-ad84-8da30afad562",
+            "identity": "motorbike-group",
+            "x0": 743,
+            "y0": 555,
+            "x1": 856,
+            "y1": 589,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

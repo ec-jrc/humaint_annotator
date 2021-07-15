@@ -1,0 +1,59 @@
+{
+    "im_name": "roma_01181.png",
+    "city_name": "roma",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "2af587e5-79ab-4a4f-865c-abb0d01568f5",
+            "identity": "pedestrian",
+            "x0": 1055,
+            "y0": 531,
+            "x1": 1079,
+            "y1": 593,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "83ddc7de-751c-480f-bfb0-57d48a3a7b09",
+            "identity": "pedestrian",
+            "x0": 1033,
+            "y0": 541,
+            "x1": 1046,
+            "y1": 584,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "4daa8e63-a3ab-4fb9-abf3-1fbb78140de8",
+            "identity": "rider",
+            "x0": 976,
+            "y0": 540,
+            "x1": 994,
+            "y1": 581,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "scooter",
+                    "x0": 974,
+                    "y0": 547,
+                    "x1": 997,
+                    "y1": 586,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,144 @@
+{
+    "im_name": "milano_00918.png",
+    "city_name": "milano",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "faa75c43-12af-4908-9e45-6a4e326a08b1",
+            "identity": "motorbike-group",
+            "x0": 215,
+            "y0": 568,
+            "x1": 295,
+            "y1": 617,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "22489b7c-8864-4adb-a1d5-cd7169d17fa8",
+            "identity": "motorbike-group",
+            "x0": 486,
+            "y0": 561,
+            "x1": 558,
+            "y1": 602,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "27dc58a7-fce0-4b3d-8d5f-e3595c79b27d",
+            "identity": "pedestrian",
+            "x0": 439,
+            "y0": 550,
+            "x1": 454,
+            "y1": 599,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "dcc1f3b8-961b-42a4-adbe-5fa83441d1bd",
+            "identity": "pedestrian",
+            "x0": 546,
+            "y0": 537,
+            "x1": 577,
+            "y1": 603,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "8b13910a-fe14-4862-8dc5-ace5c81f55c8",
+            "identity": "rider",
+            "x0": 1259,
+            "y0": 532,
+            "x1": 1290,
+            "y1": 604,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": [
+                {
+                    "identity": "motorbike",
+                    "x0": 1253,
+                    "y0": 533,
+                    "x1": 1304,
+                    "y1": 618,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "occluded>80",
+                            "unsure_orientation"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "38c5168c-ff77-4482-9071-b3dc79fd9ff1",
+            "identity": "pedestrian",
+            "x0": 1650,
+            "y0": 508,
+            "x1": 1698,
+            "y1": 624,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "616d2414-74e8-416c-b1f5-6cebc539eeeb",
+            "identity": "person-group-far-away",
+            "x0": 1487,
+            "y0": 526,
+            "x1": 1533,
+            "y1": 655,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_8",
+            "uuid": "387ff01c-7856-456d-92ac-7fea1da8ce66",
+            "identity": "pedestrian",
+            "x0": 448,
+            "y0": 555,
+            "x1": 467,
+            "y1": 599,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_9",
+            "uuid": "2c0a4a16-2a88-4e8a-8477-553755d7bc7d",
+            "identity": "motorbike-group",
+            "x0": 436,
+            "y0": 560,
+            "x1": 479,
+            "y1": 604,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

@@ -1,0 +1,61 @@
+{
+    "im_name": "strasbourg_000001_011775_leftImg8bit.png",
+    "city_name": "strasbourg",
+    "im_width": 2048,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "e5640fd1-6ce5-4ad4-bf8d-9d8701e8fe2f",
+            "identity": "Pedestrian",
+            "x0": 661,
+            "y0": 280,
+            "x1": 857,
+            "y1": 760,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "1568de68-ff99-4614-a705-ceb2d345976d",
+            "identity": "Rider",
+            "x0": 1110,
+            "y0": 367,
+            "x1": 1130,
+            "y1": 417,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "dba097ab-6e3f-4bc8-837e-8d10689a1423",
+            "identity": "Rider",
+            "x0": 1143,
+            "y0": 366,
+            "x1": 1163,
+            "y1": 416,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "18494666-d949-419f-8056-30dc1c11e7f7",
+            "identity": "Ignore",
+            "x0": 331,
+            "y0": 349,
+            "x1": 366,
+            "y1": 383,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

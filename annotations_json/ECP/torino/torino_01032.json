@@ -1,0 +1,83 @@
+{
+    "im_name": "torino_01032.png",
+    "city_name": "torino",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "e81d2897-f19b-49a5-91b2-c0a693b603fa",
+            "identity": "pedestrian",
+            "x0": 259,
+            "y0": 539,
+            "x1": 284,
+            "y1": 627,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "8e884fb1-eebd-4328-a5ef-248f45f654e1",
+            "identity": "pedestrian",
+            "x0": 384,
+            "y0": 551,
+            "x1": 404,
+            "y1": 608,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "9286b423-72d8-41f9-b6fa-ac5261bf4ac1",
+            "identity": "pedestrian",
+            "x0": 371,
+            "y0": 555,
+            "x1": 389,
+            "y1": 621,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "74573aa4-1739-4152-9756-0a6057a099ef",
+            "identity": "pedestrian",
+            "x0": 380,
+            "y0": 550,
+            "x1": 405,
+            "y1": 628,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "04212b0e-f5db-40f9-8ccc-3007273e58ae",
+            "identity": "pedestrian",
+            "x0": 781,
+            "y0": 494,
+            "x1": 816,
+            "y1": 611,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

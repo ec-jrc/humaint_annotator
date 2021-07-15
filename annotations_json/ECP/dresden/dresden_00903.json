@@ -1,0 +1,91 @@
+{
+    "im_name": "dresden_00903.png",
+    "city_name": "dresden",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "cc03eb59-7c8f-48c1-b863-7e0c220dfa22",
+            "identity": "pedestrian",
+            "x0": 1145,
+            "y0": 533,
+            "x1": 1159,
+            "y1": 588,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "3709994c-e61f-46ff-9b6f-5cbd2ca95680",
+            "identity": "pedestrian",
+            "x0": 1148,
+            "y0": 532,
+            "x1": 1164,
+            "y1": 590,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "0946befb-1682-4d7b-a130-359f5c193364",
+            "identity": "person-group-far-away",
+            "x0": 426,
+            "y0": 527,
+            "x1": 455,
+            "y1": 584,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "a9fe4612-13e0-4375-b5cb-9ee4a6a4e7c7",
+            "identity": "pedestrian",
+            "x0": 178,
+            "y0": 571,
+            "x1": 192,
+            "y1": 610,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "a17dc63a-7205-4cbe-a654-30c8a1e9c8e1",
+            "identity": "pedestrian",
+            "x0": 1263,
+            "y0": 480,
+            "x1": 1314,
+            "y1": 686,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "9f80a618-c10e-415d-b433-d403bbf5c25d",
+            "identity": "bicycle-group",
+            "x0": 272,
+            "y0": 586,
+            "x1": 315,
+            "y1": 613,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

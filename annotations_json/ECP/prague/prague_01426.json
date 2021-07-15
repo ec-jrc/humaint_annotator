@@ -1,0 +1,27 @@
+{
+    "im_name": "prague_01426.png",
+    "city_name": "prague",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [
+        "motionBlur"
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "23f10ce7-ab31-4a43-9e5a-8488cc3e69f5",
+            "identity": "pedestrian",
+            "x0": 1873,
+            "y0": 410,
+            "x1": 1904,
+            "y1": 497,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

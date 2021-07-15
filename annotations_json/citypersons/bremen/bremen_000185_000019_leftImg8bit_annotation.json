@@ -1,0 +1,74 @@
+{
+    "im_name": "bremen_000185_000019_leftImg8bit.png",
+    "city_name": "bremen",
+    "im_width": 2048,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "8a43c2d3-dec3-440b-82d3-20b2ae320b4a",
+            "identity": "Pedestrian",
+            "x0": 1596,
+            "y0": 392,
+            "x1": 1634,
+            "y1": 483,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "a9d89edc-408d-439c-90ab-df77ed9992f5",
+            "identity": "Pedestrian",
+            "x0": 1994,
+            "y0": 384,
+            "x1": 2061,
+            "y1": 548,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "73bc4151-cb93-4687-8fb4-8f3f2a6318b2",
+            "identity": "Rider",
+            "x0": 1637,
+            "y0": 382,
+            "x1": 1684,
+            "y1": 497,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "fb5e18cb-1086-4341-b2df-b56a5a370fe5",
+            "identity": "Ignore",
+            "x0": 861,
+            "y0": 430,
+            "x1": 871,
+            "y1": 445,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "f563f174-d3f4-4b29-95f7-90b0fe73536f",
+            "identity": "Ignore",
+            "x0": 1018,
+            "y0": 426,
+            "x1": 1025,
+            "y1": 432,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

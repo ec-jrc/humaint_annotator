@@ -1,0 +1,76 @@
+{
+    "im_name": "leipzig_00436.png",
+    "city_name": "leipzig",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [
+        "rainy"
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "233fcfd2-9479-40bb-a0ca-3ed6987c510e",
+            "identity": "rider",
+            "x0": 586,
+            "y0": 564,
+            "x1": 658,
+            "y1": 679,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 550,
+                    "y0": 608,
+                    "x1": 693,
+                    "y1": 694,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "201fd07d-1965-4e73-b50b-f55460d4855d",
+            "identity": "pedestrian",
+            "x0": 1493,
+            "y0": 531,
+            "x1": 1550,
+            "y1": 704,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "20c26a30-bda2-4f1b-9829-e5f659f2b16d",
+            "identity": "bicycle-group",
+            "x0": 1840,
+            "y0": 599,
+            "x1": 1905,
+            "y1": 641,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "b9c3ab1e-101a-4230-a130-bc89256d939d",
+            "identity": "person-group-far-away",
+            "x0": 711,
+            "y0": 563,
+            "x1": 727,
+            "y1": 616,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

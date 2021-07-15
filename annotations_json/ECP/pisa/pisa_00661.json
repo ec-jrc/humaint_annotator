@@ -1,0 +1,95 @@
+{
+    "im_name": "pisa_00661.png",
+    "city_name": "pisa",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "e6b3f579-63e2-4916-b8d9-ede72845bca6",
+            "identity": "pedestrian",
+            "x0": 366,
+            "y0": 531,
+            "x1": 443,
+            "y1": 704,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "f101f97e-700b-46ad-bdde-131b24afcfab",
+            "identity": "pedestrian",
+            "x0": 1078,
+            "y0": 530,
+            "x1": 1110,
+            "y1": 643,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "a5113073-f72d-4540-b0a1-5f111f92a164",
+            "identity": "pedestrian",
+            "x0": 1058,
+            "y0": 555,
+            "x1": 1104,
+            "y1": 654,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10",
+                    "sitting-lying"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "bf0b5a2f-6fd6-4b58-a336-be19a4ed910f",
+            "identity": "rider",
+            "x0": 1277,
+            "y0": 521,
+            "x1": 1319,
+            "y1": 636,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 1275,
+                    "y0": 573,
+                    "x1": 1307,
+                    "y1": 638,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "occluded>80",
+                            "unsure_orientation"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "8a65fae0-1229-4def-9654-7ba20f474536",
+            "identity": "rider+vehicle-group-far-away",
+            "x0": 877,
+            "y0": 544,
+            "x1": 891,
+            "y1": 578,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

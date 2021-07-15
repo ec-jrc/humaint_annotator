@@ -1,0 +1,65 @@
+{
+    "im_name": "toulouse_00771.png",
+    "city_name": "toulouse",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "22fc9606-7c32-40d3-bb42-4321d060c2f6",
+            "identity": "pedestrian",
+            "x0": 465,
+            "y0": 428,
+            "x1": 484,
+            "y1": 494,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "d2b0d7d5-392a-43f0-a0c3-124b104714c0",
+            "identity": "pedestrian",
+            "x0": 497,
+            "y0": 429,
+            "x1": 520,
+            "y1": 493,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "971985db-bf24-4767-abd8-4c85782a1c6c",
+            "identity": "pedestrian",
+            "x0": 646,
+            "y0": 433,
+            "x1": 675,
+            "y1": 489,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "83a50586-2f40-4b38-82ad-b61c551912d5",
+            "identity": "rider+vehicle-group-far-away",
+            "x0": 597,
+            "y0": 427,
+            "x1": 621,
+            "y1": 494,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

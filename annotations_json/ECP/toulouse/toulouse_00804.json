@@ -1,0 +1,39 @@
+{
+    "im_name": "toulouse_00804.png",
+    "city_name": "toulouse",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "dbe4c821-e9dc-457b-be54-7aee388c9eb9",
+            "identity": "pedestrian",
+            "x0": 1213,
+            "y0": 339,
+            "x1": 1266,
+            "y1": 533,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "58010bc9-21bb-4ba3-aaf3-add30fe535d7",
+            "identity": "pedestrian",
+            "x0": 1156,
+            "y0": 335,
+            "x1": 1238,
+            "y1": 549,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

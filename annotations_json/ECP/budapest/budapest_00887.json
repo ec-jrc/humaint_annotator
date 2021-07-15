@@ -1,0 +1,78 @@
+{
+    "im_name": "budapest_00887.png",
+    "city_name": "budapest",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "5a4fbddb-2337-4b30-a2bb-6ac8985e1377",
+            "identity": "pedestrian",
+            "x0": 523,
+            "y0": 514,
+            "x1": 567,
+            "y1": 632,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "438dd56f-eaeb-4c8e-b866-122183378fea",
+            "identity": "pedestrian",
+            "x0": 1585,
+            "y0": 586,
+            "x1": 1674,
+            "y1": 799,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "2c96775e-7690-4a5b-9888-e0ae966c0a47",
+            "identity": "pedestrian",
+            "x0": 1521,
+            "y0": 448,
+            "x1": 1625,
+            "y1": 788,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "4fa389f8-8174-4799-82d0-9c02a29826ad",
+            "identity": "person-group-far-away",
+            "x0": 1522,
+            "y0": 498,
+            "x1": 1569,
+            "y1": 634,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "ce59996e-3951-49bc-b8a7-be841fa0aea1",
+            "identity": "pedestrian",
+            "x0": 1620,
+            "y0": 492,
+            "x1": 1670,
+            "y1": 638,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

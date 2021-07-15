@@ -1,0 +1,39 @@
+{
+    "im_name": "berlin_00387.png",
+    "city_name": "berlin",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [
+        "lenseFlare"
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "8868b25b-6fe9-4e45-a7ab-c9495aa97c4c",
+            "identity": "pedestrian",
+            "x0": 1291,
+            "y0": 502,
+            "x1": 1346,
+            "y1": 654,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "8c6a4d84-7ad3-4a46-9626-b8252b370d5c",
+            "identity": "pedestrian",
+            "x0": 1310,
+            "y0": 511,
+            "x1": 1356,
+            "y1": 656,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

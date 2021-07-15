@@ -1,0 +1,78 @@
+{
+    "im_name": "marseille_01455.png",
+    "city_name": "marseille",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "19ba9c21-0d04-4f05-9bfe-2bf172b800b5",
+            "identity": "scooter-group",
+            "x0": 938,
+            "y0": 451,
+            "x1": 982,
+            "y1": 484,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "656659ba-00d0-4cf3-a123-9121f4dba67b",
+            "identity": "pedestrian",
+            "x0": 1029,
+            "y0": 436,
+            "x1": 1043,
+            "y1": 478,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "617b7b09-1e83-465c-a64a-4168f34f4835",
+            "identity": "pedestrian",
+            "x0": 1103,
+            "y0": 414,
+            "x1": 1128,
+            "y1": 478,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "7dfbf8f4-ed3d-4cd9-9de8-8386f3940c0d",
+            "identity": "pedestrian",
+            "x0": 1138,
+            "y0": 412,
+            "x1": 1161,
+            "y1": 470,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "4e151692-400a-4ae2-96e4-02e5de2be159",
+            "identity": "bicycle-group",
+            "x0": 1336,
+            "y0": 474,
+            "x1": 1614,
+            "y1": 689,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

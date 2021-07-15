@@ -1,0 +1,78 @@
+{
+    "im_name": "barcelona_01517.png",
+    "city_name": "barcelona",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "4c0fd6bb-7399-4635-862b-ad7829c8183a",
+            "identity": "bicycle-group",
+            "x0": 1499,
+            "y0": 443,
+            "x1": 1743,
+            "y1": 598,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "74c161de-5e73-4e9d-808b-5b56e65a483b",
+            "identity": "motorbike-group",
+            "x0": 1128,
+            "y0": 437,
+            "x1": 1230,
+            "y1": 516,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "5b509927-a95e-4034-9c90-68cd287233ce",
+            "identity": "pedestrian",
+            "x0": 329,
+            "y0": 400,
+            "x1": 364,
+            "y1": 511,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "6181af3f-01db-4979-8384-5e112d6affa7",
+            "identity": "motorbike-group",
+            "x0": 257,
+            "y0": 401,
+            "x1": 470,
+            "y1": 577,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "75dbe261-0b71-4ab6-8796-5f022d397aac",
+            "identity": "person-group-far-away",
+            "x0": 1825,
+            "y0": 468,
+            "x1": 1857,
+            "y1": 516,
+            "attributes": {
+                "sandbox_tags": [
+                    "depiction"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

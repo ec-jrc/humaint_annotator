@@ -1,0 +1,76 @@
+{
+    "im_name": "milano_00962.png",
+    "city_name": "milano",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "eb8fd397-a6b4-47dc-8a9a-af4216c6fdb1",
+            "identity": "pedestrian",
+            "x0": 693,
+            "y0": 556,
+            "x1": 714,
+            "y1": 616,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "299f9cd1-990e-440f-b8c2-d482f21756e3",
+            "identity": "pedestrian",
+            "x0": 1193,
+            "y0": 528,
+            "x1": 1219,
+            "y1": 596,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "9622bd99-4f44-476d-9b15-6e6e69d30f9b",
+            "identity": "scooter-group",
+            "x0": 1219,
+            "y0": 545,
+            "x1": 1241,
+            "y1": 594,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "453fff5a-9b98-4a93-bf15-26d6e58c8daa",
+            "identity": "bicycle-group",
+            "x0": 1238,
+            "y0": 556,
+            "x1": 1257,
+            "y1": 597,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "2843836e-e01d-46c4-8cdc-1771a9d298e3",
+            "identity": "scooter-group",
+            "x0": 1629,
+            "y0": 440,
+            "x1": 1920,
+            "y1": 762,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

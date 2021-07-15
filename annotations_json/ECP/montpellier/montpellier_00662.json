@@ -1,0 +1,78 @@
+{
+    "im_name": "montpellier_00662.png",
+    "city_name": "montpellier",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "6837dafa-69e3-43c9-8e20-0cddb052c1d0",
+            "identity": "pedestrian",
+            "x0": 880,
+            "y0": 339,
+            "x1": 907,
+            "y1": 387,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "f1c10a6e-e2e5-42b9-a1d0-44cb70fb657c",
+            "identity": "pedestrian",
+            "x0": 1137,
+            "y0": 351,
+            "x1": 1159,
+            "y1": 408,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "a55e219b-15ac-4283-b51b-bb8bb5ff736b",
+            "identity": "pedestrian",
+            "x0": 1152,
+            "y0": 345,
+            "x1": 1173,
+            "y1": 408,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "9947bfbd-eb27-4188-bfe7-3b850f22cc60",
+            "identity": "person-group-far-away",
+            "x0": 1781,
+            "y0": 355,
+            "x1": 1793,
+            "y1": 389,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "dd5fc1ba-490d-41a2-a14f-fe41679a240a",
+            "identity": "person-group-far-away",
+            "x0": 1834,
+            "y0": 354,
+            "x1": 1842,
+            "y1": 380,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

@@ -1,0 +1,83 @@
+{
+    "im_name": "bologna_01422.png",
+    "city_name": "bologna",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "a510a10d-d4dc-43f6-a5bb-bb663546c39a",
+            "identity": "rider",
+            "x0": 696,
+            "y0": 486,
+            "x1": 766,
+            "y1": 686,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 700,
+                    "y0": 572,
+                    "x1": 767,
+                    "y1": 701,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "86397c1f-4e80-454b-9148-a339e9d23fee",
+            "identity": "pedestrian",
+            "x0": 51,
+            "y0": 408,
+            "x1": 255,
+            "y1": 818,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "59752b5d-32a8-40cf-9dbc-f0be39114f36",
+            "identity": "pedestrian",
+            "x0": 1028,
+            "y0": 540,
+            "x1": 1037,
+            "y1": 573,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "89bc6288-c681-4d45-b49f-523537db7166",
+            "identity": "rider",
+            "x0": 1072,
+            "y0": 510,
+            "x1": 1134,
+            "y1": 642,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 1043,
+                    "y0": 571,
+                    "x1": 1135,
+                    "y1": 644,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        }
+    ]
+}

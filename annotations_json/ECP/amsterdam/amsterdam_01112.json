@@ -1,0 +1,83 @@
+{
+    "im_name": "amsterdam_01112.png",
+    "city_name": "amsterdam",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [
+        "rainy",
+        "wiper"
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "b0b04351-38dd-46a4-8451-630c2d534b28",
+            "identity": "bicycle-group",
+            "x0": 0,
+            "y0": 564,
+            "x1": 411,
+            "y1": 1003,
+            "attributes": {
+                "sandbox_tags": [
+                    "truncated>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "110eba6a-0a6c-47d9-b8ee-7336817f1495",
+            "identity": "bicycle-group",
+            "x0": 1008,
+            "y0": 581,
+            "x1": 1029,
+            "y1": 616,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "2980bf7b-a3d7-470c-925f-7e8ac91eafb6",
+            "identity": "bicycle-group",
+            "x0": 1122,
+            "y0": 607,
+            "x1": 1147,
+            "y1": 668,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "954ee9b1-b709-47f4-8193-e43117dd1cc9",
+            "identity": "bicycle-group",
+            "x0": 1221,
+            "y0": 596,
+            "x1": 1283,
+            "y1": 712,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "f2dfc02f-645a-412d-a2a0-356b9869f42c",
+            "identity": "bicycle-group",
+            "x0": 726,
+            "y0": 594,
+            "x1": 870,
+            "y1": 681,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

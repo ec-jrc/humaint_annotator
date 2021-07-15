@@ -1,0 +1,93 @@
+{
+    "im_name": "toulouse_00759.png",
+    "city_name": "toulouse",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "452486ea-ecc1-4b0d-8c77-b4ebe6540e2f",
+            "identity": "scooter-group",
+            "x0": 1550,
+            "y0": 347,
+            "x1": 1920,
+            "y1": 809,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "ce180869-a574-42cd-bc41-b0661ee54aa9",
+            "identity": "scooter-group",
+            "x0": 1165,
+            "y0": 393,
+            "x1": 1523,
+            "y1": 654,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "b74ee12a-da04-42eb-aa9b-288056b970e2",
+            "identity": "bicycle-group",
+            "x0": 906,
+            "y0": 430,
+            "x1": 976,
+            "y1": 480,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "a49f681f-54dc-4d13-9aad-3c804767a365",
+            "identity": "pedestrian",
+            "x0": 976,
+            "y0": 415,
+            "x1": 996,
+            "y1": 467,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "e16cd08d-e14c-47d9-b5bf-b0866e6469ea",
+            "identity": "pedestrian",
+            "x0": 987,
+            "y0": 417,
+            "x1": 1011,
+            "y1": 475,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "9a9516ef-b89c-4aa3-ba46-c31a1cffcdf7",
+            "identity": "pedestrian",
+            "x0": 919,
+            "y0": 418,
+            "x1": 934,
+            "y1": 454,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

@@ -1,0 +1,53 @@
+{
+    "im_name": "samples/CAM_BACK_LEFT/n016-2018-07-10-16-55-57+0800__CAM_BACK_LEFT__1531214187897243.jpg",
+    "city_name": "singapore-onenorth",
+    "im_width": 1600,
+    "im_height": 900,
+    "sandbox_tags": [
+        {
+            "original_img_token": "41e5cf5a1e0e42a893b2309ba1c269c4"
+        }
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "3c1bf99d-6e29-4aab-8bfe-214da3c77f41",
+            "identity": "human.pedestrian.adult",
+            "x0": 75,
+            "y0": 392,
+            "x1": 123,
+            "y1": 517,
+            "attributes": {
+                "sandbox_tags": [
+                    "pedestrian.moving"
+                ]
+            },
+            "sandbox_tags": [
+                {
+                    "original_agent_token": "b1184e8752a64b00a3f5035c4596170b"
+                }
+            ],
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "aa6c9f3a-f2f2-4d92-a2df-9dc3bcb5a48c",
+            "identity": "human.pedestrian.personal_mobility",
+            "x0": 1328,
+            "y0": 386,
+            "x1": 1434,
+            "y1": 547,
+            "attributes": {
+                "sandbox_tags": [
+                    "cycle.with_rider"
+                ]
+            },
+            "sandbox_tags": [
+                {
+                    "original_agent_token": "bf8d7d4a93b74b6f85197f251e9b08fa"
+                }
+            ],
+            "sub_entities": []
+        }
+    ]
+}

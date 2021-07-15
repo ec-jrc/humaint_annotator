@@ -1,0 +1,40 @@
+{
+    "im_name": "amsterdam_01148.png",
+    "city_name": "amsterdam",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [
+        "rainy"
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "7d8a9778-7644-455d-b6f3-57c169df687e",
+            "identity": "pedestrian",
+            "x0": 422,
+            "y0": 500,
+            "x1": 467,
+            "y1": 646,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "16f3b32d-b2f6-4b52-a666-0717bf007ea1",
+            "identity": "pedestrian",
+            "x0": 1679,
+            "y0": 538,
+            "x1": 1700,
+            "y1": 603,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>40",
+                    "unsure_orientation"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

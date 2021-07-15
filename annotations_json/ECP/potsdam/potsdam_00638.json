@@ -1,0 +1,65 @@
+{
+    "im_name": "potsdam_00638.png",
+    "city_name": "potsdam",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "66932fce-65fc-47a3-9b7a-f1085aca2447",
+            "identity": "bicycle-group",
+            "x0": 1098,
+            "y0": 563,
+            "x1": 1148,
+            "y1": 625,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "4a894858-5cac-4128-8239-9d807e5fbd35",
+            "identity": "pedestrian",
+            "x0": 1159,
+            "y0": 544,
+            "x1": 1181,
+            "y1": 608,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "5b7f6dcd-4ddd-4602-b173-7f9172fa4367",
+            "identity": "person-group-far-away",
+            "x0": 880,
+            "y0": 548,
+            "x1": 907,
+            "y1": 582,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "9865fd88-dce6-4f9e-b4fa-1eaa298219ca",
+            "identity": "pedestrian",
+            "x0": 1168,
+            "y0": 565,
+            "x1": 1184,
+            "y1": 607,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

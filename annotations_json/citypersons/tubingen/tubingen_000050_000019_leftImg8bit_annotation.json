@@ -1,0 +1,87 @@
+{
+    "im_name": "tubingen_000050_000019_leftImg8bit.png",
+    "city_name": "tubingen",
+    "im_width": 2048,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "81a74e9d-81e1-4762-8e31-e4359dcf9a81",
+            "identity": "Pedestrian",
+            "x0": 601,
+            "y0": 436,
+            "x1": 650,
+            "y1": 556,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "29842d05-caae-4ba1-b4e0-ededc28b94d4",
+            "identity": "Pedestrian",
+            "x0": 654,
+            "y0": 387,
+            "x1": 726,
+            "y1": 563,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "cfe07c11-b2d1-4183-9c49-2259f1b48dc1",
+            "identity": "Rider",
+            "x0": 1406,
+            "y0": 353,
+            "x1": 1487,
+            "y1": 549,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "541e1d9c-41e6-43ab-91b2-5b38e2595e98",
+            "identity": "Rider",
+            "x0": 1409,
+            "y0": 323,
+            "x1": 1530,
+            "y1": 618,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "d47592a3-8b66-487d-b21c-abaee81dd98d",
+            "identity": "Ignore",
+            "x0": 1539,
+            "y0": 394,
+            "x1": 1543,
+            "y1": 402,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "cd8eb06c-ecb7-428a-b84d-0e13b1922ee6",
+            "identity": "Ignore",
+            "x0": 1354,
+            "y0": 383,
+            "x1": 1357,
+            "y1": 389,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

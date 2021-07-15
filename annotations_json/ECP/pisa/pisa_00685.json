@@ -1,0 +1,52 @@
+{
+    "im_name": "pisa_00685.png",
+    "city_name": "pisa",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "d214e921-f673-421c-a257-5d25b678e756",
+            "identity": "pedestrian",
+            "x0": 471,
+            "y0": 537,
+            "x1": 494,
+            "y1": 608,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>80"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "726e1cdc-faf1-4e3e-bfa9-ddcf1e66297f",
+            "identity": "scooter-group",
+            "x0": 541,
+            "y0": 566,
+            "x1": 567,
+            "y1": 606,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "e3e6df82-fc74-41c0-b1a3-fa0ff2577a39",
+            "identity": "pedestrian",
+            "x0": 1292,
+            "y0": 528,
+            "x1": 1328,
+            "y1": 625,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

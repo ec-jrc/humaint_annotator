@@ -1,0 +1,87 @@
+{
+    "im_name": "basel_00654.png",
+    "city_name": "basel",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "ee086630-e000-4282-9f19-da79d238f7e5",
+            "identity": "pedestrian",
+            "x0": 1132,
+            "y0": 403,
+            "x1": 1159,
+            "y1": 461,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "8dc045e3-6b5b-4a48-9aec-4ea2f6074c76",
+            "identity": "pedestrian",
+            "x0": 913,
+            "y0": 418,
+            "x1": 922,
+            "y1": 442,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "6e1ca411-205d-4497-9793-5fd6598e85a8",
+            "identity": "rider",
+            "x0": 805,
+            "y0": 421,
+            "x1": 818,
+            "y1": 450,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": [
+                {
+                    "identity": "bicycle",
+                    "x0": 802,
+                    "y0": 434,
+                    "x1": 819,
+                    "y1": 459,
+                    "attributes": {
+                        "sandbox_tags": []
+                    }
+                }
+            ]
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "1406c615-39f7-48e4-a27f-9872b528e785",
+            "identity": "pedestrian",
+            "x0": 769,
+            "y0": 419,
+            "x1": 781,
+            "y1": 449,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "84ba707c-a5d2-4318-95a7-b74ff2c5329f",
+            "identity": "person-group-far-away",
+            "x0": 647,
+            "y0": 421,
+            "x1": 658,
+            "y1": 446,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

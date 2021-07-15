@@ -1,0 +1,35 @@
+{
+    "im_name": "strasbourg_000001_003676_leftImg8bit.png",
+    "city_name": "strasbourg",
+    "im_width": 2048,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "79287303-381e-4522-8b1a-bfb428561983",
+            "identity": "Pedestrian",
+            "x0": 1046,
+            "y0": 330,
+            "x1": 1062,
+            "y1": 369,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "4b51a47b-a09f-4ce1-8a85-e5709e480654",
+            "identity": "Ignore",
+            "x0": 1154,
+            "y0": 303,
+            "x1": 1161,
+            "y1": 312,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

@@ -1,0 +1,35 @@
+{
+    "im_name": "bochum_000000_018195_leftImg8bit.png",
+    "city_name": "bochum",
+    "im_width": 2048,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "0ea148e4-8c8c-4cb8-9b0f-ca0323dce3d2",
+            "identity": "Pedestrian",
+            "x0": 804,
+            "y0": 397,
+            "x1": 814,
+            "y1": 423,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "31abeef2-2ca2-45d4-b177-43fb7475c2db",
+            "identity": "Ignore",
+            "x0": 1157,
+            "y0": 334,
+            "x1": 1174,
+            "y1": 359,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        }
+    ]
+}

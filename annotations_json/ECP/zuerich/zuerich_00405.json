@@ -1,0 +1,76 @@
+{
+    "im_name": "zuerich_00405.png",
+    "city_name": "zuerich",
+    "im_width": 1920,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "9b27ef8e-dd1e-46e1-b44d-32f920f617a4",
+            "identity": "scooter-group",
+            "x0": 1161,
+            "y0": 415,
+            "x1": 1188,
+            "y1": 470,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "772ce00e-4f7f-4130-b599-0966afb7979f",
+            "identity": "pedestrian",
+            "x0": 1125,
+            "y0": 411,
+            "x1": 1151,
+            "y1": 470,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "7b32f59f-7bc3-411f-9bcc-282d70b62156",
+            "identity": "bicycle-group",
+            "x0": 1095,
+            "y0": 438,
+            "x1": 1108,
+            "y1": 455,
+            "attributes": {
+                "sandbox_tags": []
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "210d4db2-2e81-4cdc-be17-b0a5e8ef399a",
+            "identity": "rider",
+            "x0": 839,
+            "y0": 397,
+            "x1": 894,
+            "y1": 499,
+            "attributes": {
+                "sandbox_tags": [
+                    "occluded>10"
+                ]
+            },
+            "sub_entities": [
+                {
+                    "identity": "scooter",
+                    "x0": 840,
+                    "y0": 429,
+                    "x1": 895,
+                    "y1": 520,
+                    "attributes": {
+                        "sandbox_tags": [
+                            "occluded>40"
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}
