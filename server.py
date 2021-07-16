@@ -35,9 +35,11 @@ def open_DB_connection(rqst, variables, db_name):
         if(variables[1] == "discarded-by-user"):
             cursor.execute("UPDATE imgs_info SET discarded_by_user=1 WHERE file_name=%(img_name)s",
                        {'img_name': variables[0]})
+            conn.commit()
         else:
             cursor.execute("UPDATE imgs_info SET auto_discarded=1 WHERE file_name=%(img_name)s",
                            {'img_name': variables[0]})
+            conn.commit()
 
         cursor.execute("SELECT discarded_by_user, auto_discarded FROM imgs_info WHERE file_name=%(img_name)s",
                        {'img_name': variables[0]})
