@@ -3,6 +3,7 @@ import json
 import logging
 import random
 import boto3
+import boto3.session
 import hashlib
 from botocore.exceptions import ClientError
 import pymysql
@@ -12,10 +13,12 @@ app = Flask(__name__)
 
 def open_DB_connection(rqst, variables, db_name):
     #Database connection
+    DB_USER = os.getenv('HUMAINT_ANNOTATOR_DB_USER')
+    DB_PWD = os.getenv('HUMAINT_ANNOTATOR_DB_PWD')
     conn = pymysql.connect(
-        host='localhost',
-        user='whatever',
-        password='whatever',
+        host='database-1.cefjjcummrpw.eu-west-3.rds.amazonaws.com',
+        user=DB_USER,
+        password=DB_PWD,
         database='humaint_annotator'
     )
 
@@ -30,10 +33,10 @@ def open_DB_connection(rqst, variables, db_name):
         cursor.execute("SELECT associated_json FROM imgs_info WHERE file_name=%(json_file)s", {'json_file': variables[0]})
     elif rqst == "discard_img":
         if(variables[1] == "discarded-by-user"):
-            cursor.execute("UPDATE imgs_info SET discarded_by_user=true WHERE file_name=%(img_name)s",
+            cursor.execute("UPDATE imgs_info SET discarded_by_user=1 WHERE file_name=%(img_name)s",
                        {'img_name': variables[0]})
         else:
-            cursor.execute("UPDATE imgs_info SET auto_discarded=true WHERE file_name=%(img_name)s",
+            cursor.execute("UPDATE imgs_info SET auto_discarded=1 WHERE file_name=%(img_name)s",
                            {'img_name': variables[0]})
 
         cursor.execute("SELECT discarded_by_user, auto_discarded FROM imgs_info WHERE file_name=%(img_name)s",
@@ -69,7 +72,15 @@ def get_img_url(dataset):
     # Creating the low level functional client
     # Credentials can be specified but it is safer to keep them in environment variables. boto3 will look for
     # AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY
-    client = boto3.client('s3')
+    ACCESS_KEY = os.getenv('AWS_ACCESS_KEY_ID')
+    SECRET_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
+
+    session = boto3.session.Session(region_name='eu-west-3')
+    client = session.client(
+                        's3',
+                        config=boto3.session.Config(signature_version='s3v4'),
+                        aws_access_key_id=ACCESS_KEY,
+                        aws_secret_access_key=SECRET_KEY)
 
     try:
         img = get_img(dataset)
