@@ -474,6 +474,11 @@ background-color: #ddd;
     position: relative;
 }
 
+.floating-window-container{
+    overflow-y: scroll;
+    height: 617px;
+}
+
 @media screen and (max-width: 1030px) {
     .ptg-circle{
         right: -55.8vw;

@@ -13,6 +13,23 @@ var correctionIndex = 0;
 var canvasWidth = 1296;
 var canvasHeight = 654;
 var minbBoxArea = 3000;
+var pedestrianHTML = `<div class="mb-0 mt-2"><span>Age</span><br/> 
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Adult</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Kid</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>
+<div class="mb-0 mt-2"><span>Sex</span><br/>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Male</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Female</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>
+<div class="mb-0 mt-2"><span>Skin tone</span><br/>
+<button type="button" class="btn btn-dark-skin btn-dark-skin-tone rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Dark Skin</span></button>
+<button type="button" class="btn btn-light-skin btn-light-skin-tone rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Light Skin</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>
+<div class="mb-0 mt-2"><span>Mean of transport</span><br/>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Walking</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Bicycle</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Others</span></button></div>
+<div class="mb-0 mt-4">`
 
 const divisionThresholdsX = {
     "firstDivision" : 1,
@@ -159,7 +176,9 @@ function drawImgCanvas(context, img, canvasElem){
 
             //Agents might be riders, and their vehicle bounding box is provided as subchild (Only for Eurocity Persons dataset)
             if(datasetSpecificFeatures.agents[agent].sub_entities.length != 0){
-                drawRect(context, datasetSpecificFeatures.agents[agent].sub_entities[0], "green", 10);
+                for(k = 0; k < datasetSpecificFeatures.agents[agent].sub_entities.length; k++){
+                    drawRect(context, datasetSpecificFeatures.agents[agent].sub_entities[k], "green", 10);
+                }
             }
         }
     }
@@ -210,23 +229,30 @@ function loadAgentsInfo(agents){
             agentBody.className = "agent-body";
             agentBody.innerHTML = getAgentInnerHTML(agentIndex, identity, group);
 
-            if(datasetSpecificFeatures.agents[agent].sub_entities.length != 0){
-                identity = datasetSpecificFeatures.agents[agent].sub_entities[0].identity;
-                agentBody.innerHTML += `<div class="mb-0 mt-3"><span>Sub-entities</span><br/>
-                <div id="subentity" class="border border-primary rounded" style="padding:10px;">
+            for(k = 0; k < datasetSpecificFeatures.agents[agent].sub_entities.length; k++){
+                identity = datasetSpecificFeatures.agents[agent].sub_entities[k].identity;
+                if(k == 0){
+                    agentBody.innerHTML += '<div class="mb-0 mt-3"><span>Sub-entities</span><br/>';
+                }
+                agentBody.innerHTML += `<div id="subentity" class="border border-primary rounded" style="padding:10px;">
                 <div class="mb-0"><span>Current label</span><br/>
-                <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">` + identity + `</span></button></div>
-                <div id="subentity-color" class="mb-0 mt-3"><span>Color</span><br/> 
-                <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Black</span></button>
-                <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">White</span></button>
-                <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Grey</span></button>
-                <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Blue</span></button>
-                <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Red</span></button>
-                <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Yellow</span></button>
-                <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Green</span></button>
-                <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Other</span></button>
-                <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>
-                </div>`;
+                <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">` + identity + `</span></button>`
+                if(identity == "co-rider"){
+                    agentBody.innerHTML += pedestrianHTML;
+                }
+                else{
+                    agentBody.innerHTML += `<div id="subentity-color" class="mb-0 mt-3"><span>Color</span><br/> 
+                    <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Black</span></button>
+                    <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">White</span></button>
+                    <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Grey</span></button>
+                    <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Blue</span></button>
+                    <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Red</span></button>
+                    <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Yellow</span></button>
+                    <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Green</span></button>
+                    <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Other</span></button>
+                    <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>
+                    </div>`;
+                }
             }
 
             agentsBodies.push(agentBody);
@@ -301,30 +327,14 @@ function getAgentsInGroup(group){
 
 function getAgentInnerHTML(i, currentClass){
     var innerHTML = `<div id="current-labels-` + i + `" class="mb-0"><span>Current label</span><br/>
-    <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">` + currentClass + `</span></button></div>
-    <div class="mb-0 mt-2"><span>Age</span><br/> 
-    <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Adult</span></button>
-    <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Kid</span></button>
-    <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>
-    <div class="mb-0 mt-2"><span>Sex</span><br/>
-    <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Male</span></button>
-    <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Female</span></button>
-    <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>
-    <div class="mb-0 mt-2"><span>Skin tone</span><br/>
-    <button type="button" class="btn btn-dark-skin btn-dark-skin-tone rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Dark Skin</span></button>
-    <button type="button" class="btn btn-light-skin btn-light-skin-tone rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Light Skin</span></button>
-    <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>
-    <div class="mb-0 mt-2"><span>Mean of transport</span><br/>
-    <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Walking</span></button>
-    <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Bicycle</span></button>
-    <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Others</span></button></div>
-    <div class="mb-0 mt-4">`+/*<span>Custom labels</span><br/>
+    <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">` + currentClass + `</span></button></div>`+
+    pedestrianHTML + /*<span>Custom labels</span><br/>
     <div class="row col-lg-7">
     <div class="col"><input type="text" class="form-control labelclass-input" placeholder="Label class"></div>
     <div class="col"><input type="text" class="form-control label-input" placeholder="Label"></div>
     <div class="col col-lg-1"><button type="button" class="btn btn-primary rounded btn-sm" data-bs-toggle="button" title="Click to add the label">
-    <span class="font-weight-bold">Add</span></button></div>*/`
-    <div class="col col-lg-6 join-agent"><button id="join-agent-btn-` + i + `" type="button" class="btn btn-primary rounded btn-sm" data-toggle="modal" onClick="showGroupAssignationPopup(` + i + `)" data-target="#assignGroupPopup" title="Click to assign a group">
+    <span class="font-weight-bold">Add</span></button></div>*/
+    `<div class="col col-lg-6 join-agent"><button id="join-agent-btn-` + i + `" type="button" class="btn btn-primary rounded btn-sm" data-toggle="modal" onClick="showGroupAssignationPopup(` + i + `)" data-target="#assignGroupPopup" title="Click to assign a group">
     <span class="font-weight-bold">Join to agent</span></button></div></div>`;
 
     return innerHTML;
@@ -968,7 +978,7 @@ function createFloatingWindow(innerHTML, agent, agentIndex){
     closeButton.className = "btn btn-primary rounded float-end"
     closeButton.setAttribute("onclick", "closeFloatingWindow(this)");
     floatingWindow.id = "floating-window-" + agentIndex;
-    floatingWindowContainer.className = "container";
+    floatingWindowContainer.className = "container floating-window-container";
     floatingWindowContainer.innerHTML = innerHTML;
     floatingWindow.style.left = left + 'px';
     floatingWindow.style.top ='0px';
