@@ -654,9 +654,9 @@ function selectAgentInCanvas(visibleAgentsIndex){
 }
 
 function highlightRect(context, x, y, w, h){
-    context.globalAlpha = 0.5;
-    context.fillStyle = "#6acadd";//Light blue
-    context.fillRect(x, y, w, h);
+    context.strokeStyle = 'yellow';
+    context.linewidth = 10;
+    context.strokeRect(x, y, w, h);
 }
 
 function getbBoxArea(agentFeatures){
