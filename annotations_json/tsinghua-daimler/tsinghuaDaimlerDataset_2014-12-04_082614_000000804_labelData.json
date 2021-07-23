@@ -1,0 +1,60 @@
+{
+    "im_name": "tsinghuaDaimlerDataset_2014-12-04_082614_000000804_leftImg8bit.png",
+    "city_name": "N/A",
+    "im_width": 2048,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "4e2c601e-30c0-41d6-a975-a2e118aaba11",
+            "identity": "cyclist",
+            "x0": 846,
+            "y0": 395,
+            "x1": 959,
+            "y1": 510,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "original_agent_trackid": "cyclist_200004"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "ef33b766-f7f0-4025-8bb3-a4f066a101ba",
+            "identity": "mopedrider",
+            "x0": 1613,
+            "y0": 389,
+            "x1": 1742,
+            "y1": 507,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "original_agent_trackid": "mopedrider_200001"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "cf915097-d7e9-4bff-a3ba-c8a5e37a70d5",
+            "identity": "pedestrian",
+            "x0": 598,
+            "y0": 400,
+            "x1": 636,
+            "y1": 493,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "original_agent_trackid": "pedestrian_200006"
+                    }
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

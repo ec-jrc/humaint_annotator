@@ -1,0 +1,77 @@
+{
+    "im_name": "tsinghuaDaimlerDataset_2015-03-24_041424_000035291_leftImg8bit.png",
+    "city_name": "N/A",
+    "im_width": 2048,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "acc79d22-6d6f-40b1-9802-b908ef1d4ed9",
+            "identity": "pedestrian",
+            "x0": 1583,
+            "y0": 397,
+            "x1": 1625,
+            "y1": 557,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "original_agent_trackid": "pedestrian_700002"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "1c119e31-a3bd-4047-b5a6-2387a32d2249",
+            "identity": "mopedrider",
+            "x0": 1262,
+            "y0": 477,
+            "x1": 1270,
+            "y1": 501,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "original_agent_trackid": "mopedrider_700001"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "bfd94ac6-7eb1-4e6c-9898-37dc4456036a",
+            "identity": "cyclist",
+            "x0": 1181,
+            "y0": 471,
+            "x1": 1188,
+            "y1": 493,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "original_agent_trackid": "cyclist_700005"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "b4c2dc7c-36ae-4bca-8a81-c69849bd0243",
+            "identity": "tricyclist",
+            "x0": 1202,
+            "y0": 474,
+            "x1": 1226,
+            "y1": 499,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "original_agent_trackid": "tricyclist_700003"
+                    }
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

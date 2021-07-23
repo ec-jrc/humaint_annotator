@@ -1,0 +1,77 @@
+{
+    "im_name": "tsinghuaDaimlerDataset_2014-12-04_082614_000001714_leftImg8bit.png",
+    "city_name": "N/A",
+    "im_width": 2048,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "af7cd25a-7c1b-44c6-924b-0c668fa6c5ef",
+            "identity": "cyclist",
+            "x0": 1041,
+            "y0": 416,
+            "x1": 1083,
+            "y1": 485,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "original_agent_trackid": "cyclist_200008"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "58db8158-3370-493c-a513-97d006660a7b",
+            "identity": "pedestrian",
+            "x0": 1069,
+            "y0": 406,
+            "x1": 1091,
+            "y1": 481,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "original_agent_trackid": "pedestrian_200009"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "78dac67c-91ff-4c65-92a7-2fecf3b80183",
+            "identity": "cyclist",
+            "x0": 1098,
+            "y0": 416,
+            "x1": 1113,
+            "y1": 456,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "original_agent_trackid": "cyclist_200011"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "f26fbf5b-f8af-420a-911c-c8034cfcb2ad",
+            "identity": "cyclist",
+            "x0": 1212,
+            "y0": 415,
+            "x1": 1225,
+            "y1": 448,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "original_agent_trackid": "cyclist_200013"
+                    }
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}
