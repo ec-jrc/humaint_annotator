@@ -1,0 +1,77 @@
+{
+    "im_name": "tsinghuaDaimlerDataset_2014-12-04_082614_000000704_leftImg8bit.png",
+    "city_name": "N/A",
+    "im_width": 2048,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "a9675df6-44a3-4663-866a-ab8ff3b6e24b",
+            "identity": "cyclist",
+            "x0": 292,
+            "y0": 374,
+            "x1": 382,
+            "y1": 587,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "original_agent_trackid": "cyclist_200001"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "eaae3cf5-880b-43b9-ba1b-d1e5e18a4faa",
+            "identity": "cyclist",
+            "x0": 449,
+            "y0": 386,
+            "x1": 517,
+            "y1": 565,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "original_agent_trackid": "cyclist_200002"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "ef33b766-f7f0-4025-8bb3-a4f066a101ba",
+            "identity": "mopedrider",
+            "x0": 687,
+            "y0": 417,
+            "x1": 723,
+            "y1": 457,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "original_agent_trackid": "mopedrider_200001"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "cf915097-d7e9-4bff-a3ba-c8a5e37a70d5",
+            "identity": "pedestrian",
+            "x0": 643,
+            "y0": 412,
+            "x1": 655,
+            "y1": 451,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "original_agent_trackid": "pedestrian_200006"
+                    }
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

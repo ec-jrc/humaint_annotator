@@ -1,0 +1,77 @@
+{
+    "im_name": "tsinghuaDaimlerDataset_2015-03-24_041424_000032171_leftImg8bit.png",
+    "city_name": "N/A",
+    "im_width": 2048,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "9454423b-9650-41ad-b0b4-c2817d66fb1c",
+            "identity": "pedestrian",
+            "x0": 1776,
+            "y0": 388,
+            "x1": 1812,
+            "y1": 500,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "original_agent_trackid": "pedestrian_1300003"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "f85e6ac5-a0e1-4d6a-b85a-2220c9ea9c51",
+            "identity": "pedestrian",
+            "x0": 1817,
+            "y0": 385,
+            "x1": 1857,
+            "y1": 499,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "original_agent_trackid": "pedestrian_1300004"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "52dd6765-5959-4c3e-ae0a-94a9896975de",
+            "identity": "pedestrian",
+            "x0": 1872,
+            "y0": 377,
+            "x1": 1899,
+            "y1": 467,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "original_agent_trackid": "pedestrian_1300005"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "b96d2250-4ff2-406a-b8bb-d8a102927136",
+            "identity": "cyclist",
+            "x0": 1999,
+            "y0": 375,
+            "x1": 2053,
+            "y1": 550,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "original_agent_trackid": "cyclist_1300001"
+                    }
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

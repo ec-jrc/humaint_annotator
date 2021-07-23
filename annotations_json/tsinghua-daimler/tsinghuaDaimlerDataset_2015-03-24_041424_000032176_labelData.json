@@ -1,0 +1,43 @@
+{
+    "im_name": "tsinghuaDaimlerDataset_2015-03-24_041424_000032176_leftImg8bit.png",
+    "city_name": "N/A",
+    "im_width": 2048,
+    "im_height": 1024,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "9454423b-9650-41ad-b0b4-c2817d66fb1c",
+            "identity": "pedestrian",
+            "x0": 1976,
+            "y0": 400,
+            "x1": 2016,
+            "y1": 516,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "original_agent_trackid": "pedestrian_1300003"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "f85e6ac5-a0e1-4d6a-b85a-2220c9ea9c51",
+            "identity": "pedestrian",
+            "x0": 2016,
+            "y0": 396,
+            "x1": 2054,
+            "y1": 515,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "original_agent_trackid": "pedestrian_1300004"
+                    }
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}
