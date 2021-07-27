@@ -1,0 +1,63 @@
+{
+    "im_name": "000644.png",
+    "city_name": "N/A",
+    "im_width": 1224,
+    "im_height": 370,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "08c08f67-b5f8-481e-968d-31b02e8fb20d",
+            "identity": "Car",
+            "x0": 526.27,
+            "y0": 176.52,
+            "x1": 575.79,
+            "y1": 214.4,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "original_agent_height": "1.45",
+                        "original_agent_width": "1.62"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "a12ab822-7853-41b8-ae79-6d029e2c9f88",
+            "identity": "Car",
+            "x0": 575.39,
+            "y0": 174.31,
+            "x1": 603.05,
+            "y1": 198.28,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "original_agent_height": "1.43",
+                        "original_agent_width": "1.66"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "5afdfc50-2a22-414d-a4ce-b150aa0d5055",
+            "identity": "Pedestrian",
+            "x0": 779.13,
+            "y0": 167.3,
+            "x1": 788.26,
+            "y1": 199.78,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "original_agent_height": "1.74",
+                        "original_agent_width": "0.47"
+                    }
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

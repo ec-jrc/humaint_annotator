@@ -112,6 +112,8 @@ def get_img_json(dataset, file_name):
         jsons_path += "nuscenes/"
     elif dataset == "tsinghua-daimler":
         jsons_path += "tsinghua-daimler"
+    elif dataset == "kitti":
+        jsons_path += "kitti"
 
     for subdir, dirs, files in os.walk(jsons_path, onerror=walk_error_handler):
         if os.path.exists(subdir + '/' + json_file):

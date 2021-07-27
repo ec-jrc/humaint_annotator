@@ -1,0 +1,81 @@
+{
+    "im_name": "000200.png",
+    "city_name": "N/A",
+    "im_width": 1224,
+    "im_height": 370,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "d92ab2c9-af24-435e-9406-2f116b2e1512",
+            "identity": "Car",
+            "x0": 602.62,
+            "y0": 178.85,
+            "x1": 663.95,
+            "y1": 238.07,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "original_agent_height": "1.61",
+                        "original_agent_width": "1.66"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "68fab19a-8131-4e20-9952-b0d947e6c940",
+            "identity": "Car",
+            "x0": 797.21,
+            "y0": 186.52,
+            "x1": 1018.27,
+            "y1": 325.26,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "original_agent_height": "1.43",
+                        "original_agent_width": "1.50"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "dc61a634-3c9b-4a29-827a-eaf1d74f26d2",
+            "identity": "Misc",
+            "x0": 1039.53,
+            "y0": 140.69,
+            "x1": 1095.45,
+            "y1": 193.5,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "original_agent_height": "2.18",
+                        "original_agent_width": "1.30"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "80ca863b-0010-47c6-98a8-aa29b2078d00",
+            "identity": "Pedestrian",
+            "x0": 880.69,
+            "y0": 173.34,
+            "x1": 929.34,
+            "y1": 335.38,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "original_agent_height": "1.63",
+                        "original_agent_width": "0.41"
+                    }
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}
