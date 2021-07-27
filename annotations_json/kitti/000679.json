@@ -1,0 +1,99 @@
+{
+    "im_name": "000679.png",
+    "city_name": "N/A",
+    "im_width": 1224,
+    "im_height": 370,
+    "sandbox_tags": [],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "3bda7e23-70fb-4a31-8619-f6420fefd4b9",
+            "identity": "Pedestrian",
+            "x0": 1089.44,
+            "y0": 138.94,
+            "x1": 1199.64,
+            "y1": 372.56,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "original_agent_height": "1.61",
+                        "original_agent_width": "0.91"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "a3ecc529-1afd-4823-bff0-0ce254e4407f",
+            "identity": "Car",
+            "x0": 512.69,
+            "y0": 171.35,
+            "x1": 596.43,
+            "y1": 240.26,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "original_agent_height": "1.49",
+                        "original_agent_width": "1.68"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "753c27fa-36e7-4833-a57b-a42bcb2d303f",
+            "identity": "Pedestrian",
+            "x0": 787.2,
+            "y0": 154.37,
+            "x1": 817.33,
+            "y1": 247.58,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "original_agent_height": "1.65",
+                        "original_agent_width": "0.88"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "1e0ab289-6f14-4fbf-869e-857400f053a3",
+            "identity": "Van",
+            "x0": 634.6,
+            "y0": 127.36,
+            "x1": 715.75,
+            "y1": 218.07,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "original_agent_height": "2.56",
+                        "original_agent_width": "2.06"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "e5f47340-52b4-4801-84c2-0ae1b7507afa",
+            "identity": "DontCare",
+            "x0": 603.44,
+            "y0": 162.09,
+            "x1": 621.14,
+            "y1": 192.26,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "original_agent_height": "-1",
+                        "original_agent_width": "-1"
+                    }
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}
