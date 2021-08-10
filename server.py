@@ -7,9 +7,16 @@ import boto3.session
 import hashlib
 from botocore.exceptions import ClientError
 import pymysql
-from flask import Flask, render_template, jsonify, abort, request
+from flask import Flask, render_template, jsonify, abort, request, redirect
+from flask_login import LoginManager, login_user, logout_user, login_required
+from models import User, users
+from werkzeug.urls import url_parse
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = '8BUgFTZ-352QRSxa7Jq30yyaFWeIk2mOhOSsL3v1GB4gCHnyu0xzH2JPopp4bBuRxH0'
+
+login_manager = LoginManager(app)
+login_manager.login_view = "/login"
 
 def open_DB_connection(rqst, variables, db_name):
     #Database connection
@@ -24,7 +31,7 @@ def open_DB_connection(rqst, variables, db_name):
 
     cursor = conn.cursor()
     if rqst == "login":
-        cursor.execute("SELECT username, pwd FROM user_info WHERE user_email=%(user_email)s", {'user_email': variables[0]})
+        cursor.execute("SELECT user_id, username, pwd, role FROM user_info WHERE user_email=%(user_email)s", {'user_email': variables[0]})
     elif rqst == "get_img":
         cursor.execute("SELECT img_id, dataset, city, file_name FROM imgs_info WHERE dataset=%(dataset)s AND annotated IS NOT TRUE AND "
                        "discarded_by_user IS NOT TRUE AND auto_discarded IS NOT TRUE",
@@ -137,19 +144,34 @@ def save_edited_json(img_name):
     return 'OK', 200
 
 @app.route('/user_credentials/<user_email>/<user_pwd>', methods=['GET'])
-def login_user(user_email, user_pwd):
+def login(user_email, user_pwd):
     variables = [user_email]
     db_result = open_DB_connection("login", variables, 'users')
     db_pwd = ""
     if db_result:
-        db_pwd = db_result[0][1]
+        db_pwd = db_result[0][2]
     encoded_pwd = user_pwd.encode()
     hashed_pwd = hashlib.sha256(encoded_pwd)
+    user = User(db_result[0][0], db_result[0][1], user_email, db_pwd, db_result[0][3] == 'admin')
+    users.append(user)
 
     if(hashed_pwd.hexdigest() == db_pwd):
-        return 'OK', 200
+        login_user(user, remember=True)
+        return render_page("index.html")
     else:
-        return 'KO', 403
+        return render_page('login.html')
+
+@login_manager.user_loader
+def load_user(user_id):
+    for user in users:
+        if user.id == int(user_id):
+            return user
+    return None
+
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect('index.html')
 
 @app.route('/discard-img/<discard_author>/<img_name>', methods=['GET'])
 def discard_img(img_name, discard_author):
@@ -157,7 +179,6 @@ def discard_img(img_name, discard_author):
     db_result = open_DB_connection("discard_img", variables, 'img_info')
 
     return 'OK', 200
-
 
 @app.route('/')
 def index():
@@ -167,8 +188,19 @@ def index():
 def render_page(page):
     return render_template(page)
 
+@app.route('/login', methods=['GET'])
+def render_login():
+    next_page = request.args.get('next', None)#Pending solution of redirection to next_page
+    return render_template("login.html")
+
+@app.route('/annotation.html')
+@login_required
+def render_annotator():
+    return render_template("annotation.html")
+
 def walk_error_handler(exception_instance):
     print("The specified path is incorrect or permission is needed")
 
 if __name__ == '__main__':
     app.run(debug=False, host='0.0.0.0', port='80')
+

@@ -30,6 +30,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-light" href="#">Contact</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link active text-light" href="#">{{current_user.name}}</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -114,7 +117,7 @@
         </div>
         <div class="text-center">
           <button id="loadimage-btn" type="button" class="btn btn-primary btn-lg rounded mt-3" onclick="loadData()"><span class="font-weight-bold">Load image</span></button>
-          <button id="discardimage-btn" type="button" class="btn btn-primary btn-lg rounded mt-3" onclick="discardImage('discarded-by-user')"><span class="font-weight-bold">Discard image</span></button>
+    <button id="discardimage-btn" type="button" class="btn btn-primary btn-lg rounded mt-3" onclick="discardImage('discarded-by-user');cleanAndDrawNew()"><span class="font-weight-bold">Discard image</span></button>
         </div>
         <div class="modal fade" id="assignGroupPopup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
