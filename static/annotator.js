@@ -89,7 +89,13 @@ const identitiesToAvoid = [
     "vehicle.trailer",
     "vehicle.truck",
     "flat.drivable_surface",
-    "flat.ego"
+    "flat.ego",
+    "Car", 
+    "Van", 
+    "Truck",
+    "Tram",
+    "Misc", 
+    "DontCare"
 ]
 
 function collapseAllButThis(element){
@@ -949,7 +955,6 @@ function discardImage(discardAuthor){
         .then(function (response){
             console.log(response.text());
         })
-    cleanAndDrawNew();
 }
 
 async function getRandomImageDataFromDataset(){

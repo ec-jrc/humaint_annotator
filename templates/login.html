@@ -27,6 +27,15 @@
                         <li class="nav-item">
                             <a class="nav-link text-light" href="#">Contact</a>
                         </li>
+                        {% if current_user.is_anonymous %}
+                        <li class="nav-item">
+                            <a class="nav-link active text-light" href="/login">Login</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link active text-light" href="#">{{current_user.name}}</a>
+                        </li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>

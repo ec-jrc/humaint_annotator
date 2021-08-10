@@ -105,6 +105,10 @@ body{
     color: #fff; 
 }
 
+.navbar{
+    border-radius: 0px;
+}
+
 .form-control {
     height: 48px;
     background: rgba(0, 0, 0, 0.05);
@@ -263,9 +267,9 @@ body{
 
 .form-group .submit {
     position: absolute;
-    top: 20px;
-    left: 0;
-    right: 0;
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
     margin: 0 auto; 
 }
 

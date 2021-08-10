@@ -30,15 +30,14 @@ function displayEmailVerificationIcon(iconType){
 async function loginUser(){
   var userEmail = document.getElementById('userEmail').value;
   var userPwd = document.getElementById('userPwd').value;
-  var autenticationIsValid = false;
 
   await fetch('/user_credentials/' + userEmail + '/' + userPwd)
     .then(function (response) {
           if(response.ok){
-            alert("Autentication is valid!");
+            alert("OK")
           }
           else{
-            alert("Autentication is not valid!");
+            alert("KO")
           }
         })
 }

@@ -17,7 +17,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a href="/annotation.html" class="nav-link active text-light" aria-current="page" href="#">Annotate</a>
+                            <a class="nav-link active text-light" aria-current="page" href="/annotation.html">Annotate</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active text-light" aria-current="page" href="#">About</a>
@@ -25,9 +25,15 @@
                         <li class="nav-item">
                             <a class="nav-link text-light" href="#">Contact</a>
                         </li>
+                        {% if current_user.is_anonymous %}
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="/login.html">Login</a>
+                            <a class="nav-link active text-light" href="/login">Login</a>
                         </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link active text-light" href="#">{{current_user.name}}</a>
+                        </li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>
@@ -52,7 +58,7 @@
                 <li>Once you are finished click the "Next image" button to step forward to the next image.</li>
             </ul>
             <div class="text-center mt-5">
-                <button onclick="window.location='annotation.html'" type="button" class="btn btn-primary btn-lg rounded"><span class="font-weight-bold">Annotate!</span></button>
+                <button onclick="window.location='/annotation.html'" type="button" class="btn btn-primary btn-lg rounded"><span class="font-weight-bold">Annotate!</span></button>
             </div>
         </div>
         <div class="container line mt-5"></div>
