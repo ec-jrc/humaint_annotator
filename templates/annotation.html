@@ -42,15 +42,17 @@
                 <select id="selectBox" class="rounded" onchange="selectDataset('')">
                   <option value="none">Select a dataset</option>
                   <option value="citypersons">CityPersons</option>
-                  <option value="eurocity">Eurocity</option>
-                  <option value="nuscenes">NuScenes</option>
+                  <option value="eurocity-persons">Eurocity</option>
+                  <option value="nuscenes-persons">NuScenes Persons</option>
+                  <option value="nuscenes-vehicles">NuScenes Vehicles</option>
                   <option value="tsinghua-daimler">Tsinghua-Daimler</option>
-                  <option value="kitti">Kitti</option>
+                  <option value="kitti-persons">Kitti Persons</option>
+                  <option value="kitti-vehicles">Kitti Vehicles</option>
                 </select>
             </div>
             <div id="ds-buttons" class="container">
                 <span style="font-size: 1.5em; padding: 6px;">Select a dataset</span>
-                <button class="dataset-btn btn-primary mt-3" onclick="selectDataset('citypersons')">
+                <button class="dataset-btn btn-primary mt-3" onclick="selectDataset('citypersons', 'persons')">
                     <div class="ds-name">CityPersons</div>
                     <span class="ptg-labelled-title">Images labelled: </span>
                     <span id="ptg-citypersons" class="percentage-completed">&nbsp;&nbsp;5%&nbsp;&nbsp;</span>
@@ -61,29 +63,40 @@
                         </circle>
                     </svg>
                 </button>
-                <button class="dataset-btn btn-primary mt-3" onclick="selectDataset('eurocity')">
-                    <div class="ds-name">Eurocity</div>
+                <button class="dataset-btn btn-primary mt-3" onclick="selectDataset('eurocity', 'persons')">
+                    <div class="ds-name">Eurocity Persons</div>
                     <span class="ptg-labelled-title">Images labelled: </span>
-                    <span id="ptg-eurocity" class="percentage-completed">&nbsp;80%&nbsp;</span>
+                    <span id="ptg-eurocity-persons" class="percentage-completed">&nbsp;80%&nbsp;</span>
                     <svg class="ptg-circle">
                         <circle r="35" cx="50%" cy="50%" stroke="#aeaaaa" fill="none" stroke-width="7" stroke-linecap="round" stroke-dasharray="165, 165">
                         </circle>
-                        <circle id="success-value-eurocity" r="35" cx="50%" cy="50%" stroke="#6dd0ff" fill="none" stroke-width="7" stroke-linecap="round" stroke-dasharray="0, 220">
+                        <circle id="success-value-eurocity-persons" r="35" cx="50%" cy="50%" stroke="#6dd0ff" fill="none" stroke-width="7" stroke-linecap="round" stroke-dasharray="0, 220">
                         </circle>
                     </svg>
                 </button>
-                <button class="dataset-btn btn-primary mt-3" onclick="selectDataset('nuscenes')">
-                    <div class="ds-name">NuScenes</div>
+                <button class="dataset-btn btn-primary mt-3" onclick="selectDataset('nuscenes', 'persons')">
+                    <div class="ds-name">NuScenes Persons</div>
                     <span class="ptg-labelled-title">Images labelled: </span>
-                    <span id="ptg-nuscenes" class="percentage-completed">100%</span>
+                    <span id="ptg-nuscenes-persons" class="percentage-completed">100%</span>
                     <svg class="ptg-circle">
                         <circle r="35" cx="50%" cy="50%" stroke="#aeaaaa" fill="none" stroke-width="7" stroke-linecap="round" stroke-dasharray="165, 165">
                         </circle>
-                        <circle id="success-value-nuscenes" r="35" cx="50%" cy="50%" stroke="#6dd0ff" fill="none" stroke-width="7" stroke-linecap="round" stroke-dasharray="0, 220">
+                        <circle id="success-value-nuscenes-persons" r="35" cx="50%" cy="50%" stroke="#6dd0ff" fill="none" stroke-width="7" stroke-linecap="round" stroke-dasharray="0, 220">
                         </circle>
                     </svg>
                 </button>
-                <button class="dataset-btn btn-primary mt-3" onclick="selectDataset('tsinghua-daimler')">
+                <button class="dataset-btn btn-primary mt-3" onclick="selectDataset('nuscenes', 'vehicles')">
+                    <div class="ds-name">NuScenes Vehicles</div>
+                    <span class="ptg-labelled-title">Images labelled: </span>
+                    <span id="ptg-nuscenes-vehicles" class="percentage-completed">100%</span>
+                    <svg class="ptg-circle">
+                        <circle r="35" cx="50%" cy="50%" stroke="#aeaaaa" fill="none" stroke-width="7" stroke-linecap="round" stroke-dasharray="165, 165">
+                        </circle>
+                        <circle id="success-value-nuscenes-vehicles" r="35" cx="50%" cy="50%" stroke="#6dd0ff" fill="none" stroke-width="7" stroke-linecap="round" stroke-dasharray="0, 220">
+                        </circle>
+                    </svg>
+                </button>
+                <button class="dataset-btn btn-primary mt-3" onclick="selectDataset('tsinghua-daimler', 'persons')">
                     <div class="ds-name">Tsinghua-Daimler</div>
                     <span class="ptg-labelled-title">Images labelled: </span>
                     <span id="ptg-tsinghua" class="percentage-completed">100%</span>
@@ -94,14 +107,25 @@
                         </circle>
                     </svg>
                 </button>
-                <button class="dataset-btn btn-primary mt-3" onclick="selectDataset('kitti')">
-                    <div class="ds-name">Kitti</div>
+                <button class="dataset-btn btn-primary mt-3" onclick="selectDataset('kitti', 'persons')">
+                    <div class="ds-name">Kitti Persons</div>
                     <span class="ptg-labelled-title">Images labelled: </span>
-                    <span id="ptg-kitti" class="percentage-completed">100%</span>
+                    <span id="ptg-kitti-persons" class="percentage-completed">100%</span>
                     <svg class="ptg-circle">
                         <circle r="35" cx="50%" cy="50%" stroke="#aeaaaa" fill="none" stroke-width="7" stroke-linecap="round" stroke-dasharray="165, 165">
                         </circle>
-                        <circle id="success-value-kitti" r="35" cx="50%" cy="50%" stroke="#6dd0ff" fill="none" stroke-width="7" stroke-linecap="round" stroke-dasharray="0, 220">
+                        <circle id="success-value-kitti-persons" r="35" cx="50%" cy="50%" stroke="#6dd0ff" fill="none" stroke-width="7" stroke-linecap="round" stroke-dasharray="0, 220">
+                        </circle>
+                    </svg>
+                </button>
+                <button class="dataset-btn btn-primary mt-3" onclick="selectDataset('kitti', 'vehicles')">
+                    <div class="ds-name">Kitti Vehicles</div>
+                    <span class="ptg-labelled-title">Images labelled: </span>
+                    <span id="ptg-kitti-vehicles" class="percentage-completed">100%</span>
+                    <svg class="ptg-circle">
+                        <circle r="35" cx="50%" cy="50%" stroke="#aeaaaa" fill="none" stroke-width="7" stroke-linecap="round" stroke-dasharray="165, 165">
+                        </circle>
+                        <circle id="success-value-kitti-vehicles" r="35" cx="50%" cy="50%" stroke="#6dd0ff" fill="none" stroke-width="7" stroke-linecap="round" stroke-dasharray="0, 220">
                         </circle>
                     </svg>
                 </button>
