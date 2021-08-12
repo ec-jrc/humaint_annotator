@@ -2,6 +2,7 @@
 var listOfFiles = [];
 var currentImageIndex = 0;
 var selectedDataset = "";
+var selectedDatasetType = "";
 var canvasElem, zoom, zoomCtx;
 var imgData = new Object();
 var datasetSpecificFeatures = new Object();
@@ -13,7 +14,7 @@ var correctionIndex = 0;
 var canvasWidth = 1296;
 var canvasHeight = 654;
 var minbBoxArea = 3000;
-var pedestrianHTML = `<div class="mb-0 mt-2"><span>Age</span><br/> 
+const pedestrianHTML = `<div class="mb-0 mt-2"><span>Age</span><br/> 
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Adult</span></button>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Kid</span></button>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>
@@ -32,6 +33,32 @@ var pedestrianHTML = `<div class="mb-0 mt-2"><span>Age</span><br/>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Electric scooter</span></button>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Others</span></button></div>`
 
+const vehicleHTML = `<div class="mb-0 mt-2"><span>Vehicle Type</span><br/> 
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Bicycle</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Car</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Motorcycle</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Truck</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Bus</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Van</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Ambulance</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Fire truck</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Police car</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Police van</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">other</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>
+<div class="mb-0 mt-2"><span>Color</span><br/>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Black</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">White</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Grey</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Blue</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Red</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Yellow</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Green</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Other</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>`
+
+var agentHTML = ""
+
 const divisionThresholdsX = {
     "firstDivision" : 1,
     "secondDivision" : 20,
@@ -48,36 +75,17 @@ const divisionThresholdsY = {
     "fifthDivision" : 100
 }
 
-const identitiesToAvoid = [
-    "Ignore",
-    "bicycle ", 
+const avoidVehicles = [
     "buggy ",
     "motorbike ",
     "scooter ", 
-    "tricycle ", 
-    "wheelchair ",
-    "bicycle-group",
-    "buggy-group", 
-    "motorbike-group", 
-    "scooter-group", 
-    "tricycle-group", 
-    "wheelchair-group",
-    "person-group-far-away",
-    "cycle.with_rider",
+    "tricycle ",
     "cycle.without_rider",
-    "animal",
     "vehicle.moving",
     "vehicle.parked",
     "vehicle.stopped",
     "vehicle_light.emergency.flashing",
     "vehicle_light.emergency.not_flashing",
-    "vertical_position.off_ground",
-    "vertical_position.on_ground",
-    "movable_object.barrier",
-    "movable_object.debris",
-    "movable_object.pushable_pullable",
-    "movable_object.trafficcone",
-    "static_object.bicycle_rack",
     "vehicle.bicycle",
     "vehicle.bus.bendy",
     "vehicle.bus.rigid",
@@ -88,15 +96,54 @@ const identitiesToAvoid = [
     "vehicle.motorcycle",
     "vehicle.trailer",
     "vehicle.truck",
-    "flat.drivable_surface",
-    "flat.ego",
     "Car", 
     "Van", 
     "Truck",
-    "Tram",
+    "Tram"
+]
+
+const avoidPersons = [
+    "pedestrian",
+    "rider",
+    "sitting person",
+    "bicycle ",
+    "wheelchair ",
+    "cycle.with_rider",
+    "human.pedestrian.adult",
+    "human.pedestrian.child",
+    "human.pedestrian.construction_worker",
+    "human.pedestrian.personal_mobility",
+    "human.pedestrian.police_officer",
+    "human.pedestrian.stroller",
+    "human.pedestrian.wheelchair",
+    "cyclist",
+    "person_sitting"
+]
+
+const commonToAvoid = [
+    "Ignore",
+    "bicycle-group",
+    "buggy-group", 
+    "motorbike-group", 
+    "scooter-group", 
+    "tricycle-group", 
+    "wheelchair-group",
+    "person-group-far-away",
+    "animal",
+    "vertical_position.off_ground",
+    "vertical_position.on_ground",
+    "movable_object.barrier",
+    "movable_object.debris",
+    "movable_object.pushable_pullable",
+    "movable_object.trafficcone",
+    "static_object.bicycle_rack",
+    "flat.drivable_surface",
+    "flat.ego",
     "Misc", 
     "DontCare"
 ]
+
+var identitiesToAvoid = []
 
 function collapseAllButThis(element){
     var listOfCollapsableElems = [];
@@ -337,15 +384,14 @@ function getAgentsInGroup(group){
 function getAgentInnerHTML(i, currentClass){
     var innerHTML = `<div id="current-labels-` + i + `" class="mb-0"><span>Current label</span><br/>
     <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button"><span class="font-weight-bold">` + currentClass + `</span></button></div>`+
-    pedestrianHTML + /*<span>Custom labels</span><br/>
-    <div class="row col-lg-7">
-    <div class="col"><input type="text" class="form-control labelclass-input" placeholder="Label class"></div>
-    <div class="col"><input type="text" class="form-control label-input" placeholder="Label"></div>
-    <div class="col col-lg-1"><button type="button" class="btn btn-primary rounded btn-sm" data-bs-toggle="button" title="Click to add the label">
-    <span class="font-weight-bold">Add</span></button></div>*/
-    `<div class="mb-0 mt-4"><div class="col col-lg-6 join-agent"><button id="join-agent-btn-` + i + `" type="button" class="btn btn-primary rounded btn-sm" data-toggle="modal" onClick="showGroupAssignationPopup(` + i + `)" data-target="#assignGroupPopup" title="Click to assign a group">
-    <span class="font-weight-bold">Join to agent</span></button></div></div>`;
-
+    agentHTML;
+    
+    if(selectedDatasetType == "persons"){
+        innerHTML += `<div class="mb-0 mt-4"><div class="col col-lg-6 join-agent"><button id="join-agent-btn-` + i + `" type="button" class="btn btn-primary rounded btn-sm" data-toggle="modal" onClick="showGroupAssignationPopup(` + i + `)" data-target="#assignGroupPopup" title="Click to assign a group">
+        <span class="font-weight-bold">Join to agent</span></button></div></div>`;
+    
+    }
+    
     return innerHTML;
 }
 
@@ -470,7 +516,7 @@ function getPeopleGroup(agentNumber, xInit, yInit, xRight, yBottom){//x1 and x2 
         }
     }
 
-    if(createNewGroup || groupsKeys.length == 0){
+    if((createNewGroup || groupsKeys.length == 0) && selectedDatasetType == "persons"){
         groupsInPicture[groupsKeys.length] = new Object();
         groupsInPicture[groupsKeys.length][currentAgent] = new Object();
         groupsInPicture[groupsKeys.length][currentAgent].xInit = adaptedXs.xInit;//First agent in group defines group position
@@ -930,21 +976,46 @@ function assignDatasetSpecificFeatures(jsonData){
     datasetSpecificFeatures.agentsBodies = loadAgentsInfo(jsonData.agents);
 }
 
-async function selectDataset(ds){
+async function selectDataset(ds, type){
     var selectBox = document.getElementById("selectBox");
     groupsInPicture = new Object();
     if(ds == ""){
-        selectedDataset = selectBox.options[selectBox.selectedIndex].value;
+        if(selectBox.options[selectBox.selectedIndex].value.indexOf("-persons") != -1){
+            selectedDataset = selectBox.options[selectBox.selectedIndex].value.replace("-persons", "");
+            type = "persons";
+        }
+        else if(selectBox.options[selectBox.selectedIndex].value.indexOf("-vehicles") != -1){
+            selectedDataset = selectBox.options[selectBox.selectedIndex].value.replace("-vehicles", "");
+            type = "vehicles";
+        }
+        else{
+            selectedDataset = selectBox.options[selectBox.selectedIndex].value;
+        }
     }
     else{
         selectedDataset = ds;
     }
+
+    identitiesToAvoid = [];
+    identitiesToAvoid = identitiesToAvoid.concat(commonToAvoid);
+    selectedDatasetType = type;
+    if(type == "persons"){
+        identitiesToAvoid = identitiesToAvoid.concat(avoidVehicles);
+        agentHTML = pedestrianHTML;
+    }
+    else if(type == "vehicles"){
+        identitiesToAvoid = identitiesToAvoid.concat(avoidPersons);
+        agentHTML = vehicleHTML;
+    }
+
     await cleanAndDrawNew();
 
     $('#canvasContainer').css("visibility", "visible");
     $('#loadimage-btn').css("visibility", "visible");
     $('#discardimage-btn').css("visibility", "visible");
-    $('#groupsList').css("visibility", "visible");
+    if(selectedDatasetType == "persons"){
+        $('#groupsList').css("visibility", "visible");
+    }
     $('#agentsTabs').css("visibility", "visible");
     $('.custom-select').css("visibility", "visible");
     $('#ds-buttons').css("visibility", "hidden");
