@@ -162,6 +162,7 @@ def login(user_email, user_pwd, remember_user):
 
     if hashed_pwd.hexdigest() == db_pwd:
         login_user(user, remember=remember_me)
+        print("USER LOGGED IN:" + user.name)
         return "OK", 200
     else:
         return "KO", 403
