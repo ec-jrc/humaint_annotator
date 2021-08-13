@@ -143,8 +143,8 @@ def save_edited_json(img_name):
         json.dump(edited_json, f, ensure_ascii=False, indent=4)
     return 'OK', 200
 
-@app.route('/user_credentials/<user_email>/<user_pwd>', methods=['GET'])
-def login(user_email, user_pwd):
+@app.route('/user_credentials/<user_email>/<user_pwd>/<remember_user>', methods=['GET'])
+def login(user_email, user_pwd, remember_user):
     variables = [user_email]
     db_result = open_DB_connection("login", variables, 'users')
     db_pwd = ""
@@ -155,11 +155,16 @@ def login(user_email, user_pwd):
     user = User(db_result[0][0], db_result[0][1], user_email, db_pwd, db_result[0][3] == 'admin')
     users.append(user)
 
-    if(hashed_pwd.hexdigest() == db_pwd):
-        login_user(user, remember=True)
-        return render_page("index.html")
+    if remember_user == "true":
+        remember_me = True
     else:
-        return render_page('login.html')
+        remember_me = False
+
+    if hashed_pwd.hexdigest() == db_pwd:
+        login_user(user, remember=remember_me)
+        return "OK", 200
+    else:
+        return "KO", 403
 
 @login_manager.user_loader
 def load_user(user_id):
