@@ -282,7 +282,7 @@ function loadAgentsInfo(agents){
             agentIndex += 1;
             var group = getPeopleGroup(agentIndex, agents[agent].x0, agents[agent].y0, agents[agent].x1, agents[agent].y1);
             agentBody.className = "agent-body";
-            agentBody.innerHTML = getAgentInnerHTML(agentIndex, identity, group);
+            agentBody.innerHTML = getAgentInnerHTML(agentIndex, identity);
 
             for(k = 0; k < datasetSpecificFeatures.agents[agent].sub_entities.length; k++){
                 identity = datasetSpecificFeatures.agents[agent].sub_entities[k].identity;
@@ -389,7 +389,17 @@ function getAgentInnerHTML(i, currentClass){
     if(selectedDatasetType == "persons"){
         innerHTML += `<div class="mb-0 mt-4"><div class="col col-lg-6 join-agent"><button id="join-agent-btn-` + i + `" type="button" class="btn btn-primary rounded btn-sm" data-toggle="modal" onClick="showGroupAssignationPopup(` + i + `)" data-target="#assignGroupPopup" title="Click to assign a group">
         <span class="font-weight-bold">Join to agent</span></button></div></div>`;
-    
+    }
+    else{
+        if(currentClass.toLowerCase().indexOf("car") != -1){
+            innerHTML += `<div class="mb-0 mt-2"><span>Car type</span><br/>
+            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Sedan</span></button>
+            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Wagon</span></button>
+            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Minivan</span></button>
+            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">SUV</span></button>
+            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Compact</span></button>
+            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Others</span></button></div>`
+        }
     }
     
     return innerHTML;

@@ -30,14 +30,21 @@ function displayEmailVerificationIcon(iconType){
 async function loginUser(){
   var userEmail = document.getElementById('userEmail').value;
   var userPwd = document.getElementById('userPwd').value;
+  var currentPage = window.location.href;
+  var rememberUser = document.getElementById('rememberUser').checked;
 
-  await fetch('/user_credentials/' + userEmail + '/' + userPwd)
+  await fetch('/user_credentials/' + userEmail + '/' + userPwd + '/' + rememberUser)
     .then(function (response) {
           if(response.ok){
-            alert("OK")
+            if(currentPage.indexOf("annotation.html") != -1){
+              window.location = "annotation.html";
+            }
+            else{
+              window.location = "index.html";
+            }
           }
           else{
-            alert("KO")
+            alert("Login credentials are incorrect, please try again")
           }
         })
 }
