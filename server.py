@@ -157,6 +157,7 @@ def login(user_email, user_pwd):
 
     if(hashed_pwd.hexdigest() == db_pwd):
         login_user(user, remember=True)
+        print("USER LOGGED IN:" + user.name)
         return render_page("index.html")
     else:
         return render_page('login.html')
