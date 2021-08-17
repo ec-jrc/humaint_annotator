@@ -901,7 +901,7 @@ function isAgentCorrectlyLabelled(numberOfAgents){
 }
 
 function saveEditedJson(json){
-    fetch('/save_edited_json/' + imgData.imgName, {//Request to flask server to save new json 
+    fetch('/save_edited_json/' + imgData.imgName + '/' + selectedDatasetType, {//Request to flask server to save new json 
         headers: {
           'Content-Type': 'application/json'
         },
@@ -1040,7 +1040,7 @@ function discardImage(discardAuthor){
 
 async function getRandomImageDataFromDataset(){
     var imgName, imgSrc;
-    await fetch('/img_url/' + selectedDataset)//Request to flask server to retrieve a random image from storage
+    await fetch('/img_url/' + selectedDataset + '/' + selectedDatasetType)//Request to flask server to retrieve a random image from storage
         .then(function (response) {
             return response.json();
             }).then(function (elem) {

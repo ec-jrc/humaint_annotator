@@ -33,9 +33,15 @@ def open_DB_connection(rqst, variables, db_name):
     if rqst == "login":
         cursor.execute("SELECT user_id, username, pwd, role FROM user_info WHERE user_email=%(user_email)s", {'user_email': variables[0]})
     elif rqst == "get_img":
-        cursor.execute("SELECT img_id, dataset, city, file_name FROM imgs_info WHERE dataset=%(dataset)s AND annotated IS NOT TRUE AND "
-                       "discarded_by_user IS NOT TRUE AND auto_discarded IS NOT TRUE",
-                       {'dataset': variables[0]})
+        if variables[1] == 'persons':
+            cursor.execute("SELECT img_id, dataset, city, file_name FROM imgs_info WHERE dataset=%(dataset)s AND persons_annotated IS NOT TRUE AND "
+                           "annotated IS NOT TRUE AND discarded_by_user IS NOT TRUE AND auto_discarded IS NOT TRUE",
+                           {'dataset': variables[0]})
+        elif variables[1] == 'vehicles':
+            cursor.execute("SELECT img_id, dataset, city, file_name FROM imgs_info WHERE dataset=%(dataset)s AND vehicles_annotated IS NOT TRUE AND "
+                           "annotated IS NOT TRUE AND discarded_by_user IS NOT TRUE AND auto_discarded IS NOT TRUE",
+                           {'dataset': variables[0]})
+
     elif rqst == "get_json":
         cursor.execute("SELECT associated_json FROM imgs_info WHERE file_name=%(json_file)s", {'json_file': variables[0]})
     elif rqst == "discard_img":
@@ -58,9 +64,9 @@ def open_DB_connection(rqst, variables, db_name):
 
     return result
 
-def get_img(dataset):
+def get_img(dataset, dataset_type):
     ds = "ECP" if dataset == "eurocity" else dataset
-    variables = [ds]
+    variables = [ds, dataset_type]
     images = open_DB_connection("get_img", variables, 'img_info')
     rand_index = random.randint(0, len(images))
     img_uuid = images[rand_index][0]
@@ -76,8 +82,8 @@ def get_img(dataset):
 
     return img
 
-@app.route('/img_url/<dataset>', methods=['GET'])
-def get_img_url(dataset):
+@app.route('/img_url/<dataset>/<dataset_type>', methods=['GET'])
+def get_img_url(dataset, dataset_type):
     # Creating the low level functional client
     # Credentials can be specified but it is safer to keep them in environment variables. boto3 will look for
     # AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY
@@ -92,7 +98,7 @@ def get_img_url(dataset):
                         aws_secret_access_key=SECRET_KEY)
 
     try:
-        img = get_img(dataset)
+        img = get_img(dataset, dataset_type)
         img_path = img["dataset"] + "/" + img["city"] + "/" + img["file_name"]
         img_url = client.generate_presigned_url('get_object', Params={'Bucket': 'datasets-humaint',
                                                                        'Key': img_path}, ExpiresIn=3600)
@@ -132,11 +138,11 @@ def get_img_json(dataset, file_name):
 
     return json_data
 
-@app.route('/save_edited_json/<img_name>', methods=['POST'])
-def save_edited_json(img_name):
+@app.route('/save_edited_json/<img_name>/<dataset_type>', methods=['POST'])
+def save_edited_json(img_name, dataset_type):
     # POST request
     edited_json = request.get_json()
-    variables = [img_name]
+    variables = [img_name, dataset_type]
     json_file = str(open_DB_connection("get_json", variables, 'img_info')[0][0])
     json_file_path = "edited_jsons/" + json_file
     with open(json_file_path, 'w', encoding='utf-8') as f:
