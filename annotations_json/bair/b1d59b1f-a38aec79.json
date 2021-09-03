@@ -1,0 +1,91 @@
+{
+    "im_name": "b1d59b1f-a38aec79.jpg",
+    "city_name": "N/A",
+    "im_width": 1280,
+    "im_height": 720,
+    "sandbox_tags": [
+        {
+            "weather": "clear",
+            "scene": "city street",
+            "timeofday": "dawn/dusk"
+        }
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "c7539e6d-cac0-4c24-9051-499659e6ebfc",
+            "identity": "car",
+            "x0": 500.849824,
+            "y0": 327.085602,
+            "x1": 526.499815,
+            "y1": 350.035594,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "occluded": "false",
+                        "truncated": "false",
+                        "trafficLightColor": "none"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "e210c61b-4452-4296-8ebc-4658f83f31b2",
+            "identity": "car",
+            "x0": 159.299944,
+            "y0": 331.762384,
+            "x1": 215.999924,
+            "y1": 364.885589,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "occluded": "false",
+                        "truncated": "false",
+                        "trafficLightColor": "none"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "65bbba67-b15f-4b1b-a8e4-c86eadb7755f",
+            "identity": "car",
+            "x0": 133.649953,
+            "y0": 331.424884,
+            "x1": 161.999942,
+            "y1": 353.024875,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "occluded": "true",
+                        "truncated": "false",
+                        "trafficLightColor": "none"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "e8327f72-0a44-4dd3-9d84-4af6f7cc76e4",
+            "identity": "traffic sign",
+            "x0": 544.751672,
+            "y0": 303.032706,
+            "x1": 556.901666,
+            "y1": 320.582699,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "occluded": "false",
+                        "truncated": "false",
+                        "trafficLightColor": "none"
+                    }
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}

@@ -96,10 +96,13 @@ const avoidVehicles = [
     "vehicle.motorcycle",
     "vehicle.trailer",
     "vehicle.truck",
-    "Car", 
-    "Van", 
-    "Truck",
-    "Tram"
+    "car", 
+    "van", 
+    "truck",
+    "tram",
+    "bus",
+    "train",
+    "motorcycle"
 ]
 
 const avoidPersons = [
@@ -140,7 +143,9 @@ const commonToAvoid = [
     "flat.drivable_surface",
     "flat.ego",
     "Misc", 
-    "DontCare"
+    "DontCare",
+    "traffic light",
+    "traffic sign"
 ]
 
 var identitiesToAvoid = []
@@ -278,7 +283,7 @@ function loadAgentsInfo(agents){
         var bBoxArea = getbBoxArea(agents[agent]);
         var subentitiesText = "";
 
-        if(!identitiesToAvoid.includes(identity) && bBoxArea >= minbBoxArea){//Identities to avoid are scooters, bikes,...
+        if(!identitiesToAvoid.includes(identity.toLowerCase()) && bBoxArea >= minbBoxArea){//Identities to avoid are scooters, bikes,...
             agentIndex += 1;
             var group = getPeopleGroup(agentIndex, agents[agent].x0, agents[agent].y0, agents[agent].x1, agents[agent].y1);
             agentBody.className = "agent-body";
@@ -732,7 +737,7 @@ function getbBoxArea(agentFeatures){
 function getAgentAutenticity(agent, updateCorrectionIndex){
     var isRealAgent = true;
     var bBoxArea = getbBoxArea(datasetSpecificFeatures.agents[agent]);
-    if(identitiesToAvoid.includes(datasetSpecificFeatures.agents[agent].identity) || bBoxArea < minbBoxArea){
+    if(identitiesToAvoid.includes(datasetSpecificFeatures.agents[agent].identity.toLowerCase()) || bBoxArea < minbBoxArea){
         isRealAgent = false;
         correctionIndex = updateCorrectionIndex ? correctionIndex + 1 : correctionIndex;//If an agent is skipped, it must be taken into account
     }

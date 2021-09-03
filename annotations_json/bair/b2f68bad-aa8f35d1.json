@@ -1,0 +1,148 @@
+{
+    "im_name": "b2f68bad-aa8f35d1.jpg",
+    "city_name": "N/A",
+    "im_width": 1280,
+    "im_height": 720,
+    "sandbox_tags": [
+        {
+            "weather": "clear",
+            "scene": "city street",
+            "timeofday": "night"
+        }
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "89692374-b026-423f-b7b6-3b01e0802016",
+            "identity": "traffic sign",
+            "x0": 444.8119,
+            "y0": 221.118337,
+            "x1": 659.78806,
+            "y1": 347.032944,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "occluded": "false",
+                        "truncated": "false",
+                        "trafficLightColor": "none"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "c46364a2-78db-4e30-b19a-f2e6c9889f69",
+            "identity": "traffic sign",
+            "x0": 859.408782,
+            "y0": 202.691808,
+            "x1": 917.759454,
+            "y1": 238.009321,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "occluded": "false",
+                        "truncated": "false",
+                        "trafficLightColor": "none"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "1600d2f7-7d8c-4c99-94e6-aab10a146082",
+            "identity": "traffic light",
+            "x0": 1243.294783,
+            "y0": 113.630256,
+            "x1": 1274.005664,
+            "y1": 132.056784,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "occluded": "false",
+                        "truncated": "false",
+                        "trafficLightColor": "green"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "40de07f2-108b-4b35-bf0c-9e036f2f32b8",
+            "identity": "traffic light",
+            "x0": 1181.873024,
+            "y0": 116.701344,
+            "x1": 1232.545976,
+            "y1": 135.127872,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "occluded": "false",
+                        "truncated": "false",
+                        "trafficLightColor": "green"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "79f6be8a-217c-4d8d-8ade-3f5a82c32ef3",
+            "identity": "car",
+            "x0": 739.63635,
+            "y0": 297.895537,
+            "x1": 1277.076752,
+            "y1": 710.956874,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "occluded": "false",
+                        "truncated": "true",
+                        "trafficLightColor": "none"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "639ef063-b3c1-4bcb-9e2d-c0ed8264f6a6",
+            "identity": "car",
+            "x0": 0,
+            "y0": 385.421545,
+            "x1": 136.167555,
+            "y1": 666.426098,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "occluded": "false",
+                        "truncated": "true",
+                        "trafficLightColor": "none"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "bcafb915-f410-48e6-88ba-6a63223193c7",
+            "identity": "traffic sign",
+            "x0": 1234.028748,
+            "y0": 190.906369,
+            "x1": 1262.727091,
+            "y1": 207.127171,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "occluded": "false",
+                        "truncated": "false",
+                        "trafficLightColor": "none"
+                    }
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}
