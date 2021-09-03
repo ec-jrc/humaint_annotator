@@ -1,0 +1,357 @@
+{
+    "im_name": "b4b4b979-a64f258c.jpg",
+    "city_name": "N/A",
+    "im_width": 1280,
+    "im_height": 720,
+    "sandbox_tags": [
+        {
+            "weather": "clear",
+            "scene": "city street",
+            "timeofday": "daytime"
+        }
+    ],
+    "agents": [
+        {
+            "agent_img_id": "agent_1",
+            "uuid": "1a85241a-87d0-4863-acc8-288b7da2412f",
+            "identity": "truck",
+            "x0": 0,
+            "y0": 222.542009,
+            "x1": 480.012134,
+            "y1": 437.100447,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "occluded": "false",
+                        "truncated": "true",
+                        "trafficLightColor": "none"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_2",
+            "uuid": "e8d705ec-b421-4610-a21b-293465b06f95",
+            "identity": "car",
+            "x0": 1048.841484,
+            "y0": 278.426997,
+            "x1": 1278.369116,
+            "y1": 541.884801,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "occluded": "false",
+                        "truncated": "true",
+                        "trafficLightColor": "none"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_3",
+            "uuid": "048986e5-4e64-4e81-80e4-672fe40ec4ff",
+            "identity": "person",
+            "x0": 957.030431,
+            "y0": 338.303771,
+            "x1": 985.970873,
+            "y1": 409.157954,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "occluded": "false",
+                        "truncated": "false",
+                        "trafficLightColor": "none"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_4",
+            "uuid": "72e15d3e-969d-44bc-8f72-a6e0e41da402",
+            "identity": "person",
+            "x0": 834.283045,
+            "y0": 353.272964,
+            "x1": 848.254295,
+            "y1": 376.277297,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "occluded": "true",
+                        "truncated": "false",
+                        "trafficLightColor": "none"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_5",
+            "uuid": "82842183-ab31-4a72-9395-3ee76fea9aca",
+            "identity": "person",
+            "x0": 1048.841484,
+            "y0": 337.305824,
+            "x1": 1064.808624,
+            "y1": 403.170275,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "occluded": "true",
+                        "truncated": "false",
+                        "trafficLightColor": "none"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_6",
+            "uuid": "2a624ff1-90ea-4983-b74f-bbb9533b296e",
+            "identity": "truck",
+            "x0": 484.003919,
+            "y0": 313.355115,
+            "x1": 594.775951,
+            "y1": 415.14563,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "occluded": "true",
+                        "truncated": "false",
+                        "trafficLightColor": "none"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_7",
+            "uuid": "eae2f1b3-304c-4d6d-ad7f-8af20d55cf66",
+            "identity": "car",
+            "x0": 466.040888,
+            "y0": 371.235996,
+            "x1": 487.995705,
+            "y1": 412.151795,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "occluded": "true",
+                        "truncated": "false",
+                        "trafficLightColor": "none"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_8",
+            "uuid": "41132f6c-49e1-4a76-9b8c-b2d40dada3eb",
+            "identity": "car",
+            "x0": 583.798543,
+            "y0": 332.316093,
+            "x1": 743.469939,
+            "y1": 454.065535,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "occluded": "false",
+                        "truncated": "false",
+                        "trafficLightColor": "none"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_9",
+            "uuid": "94d7674c-bbde-4d9d-ae4a-ad8ffa61d0f8",
+            "identity": "bus",
+            "x0": 608.747198,
+            "y0": 296.390028,
+            "x1": 716.525393,
+            "y1": 334.311983,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "occluded": "true",
+                        "truncated": "false",
+                        "trafficLightColor": "none"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_10",
+            "uuid": "ef41e2d4-1669-405c-809d-76daad0037ef",
+            "identity": "car",
+            "x0": 739.478154,
+            "y0": 368.242158,
+            "x1": 765.424755,
+            "y1": 431.11277,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "occluded": "true",
+                        "truncated": "false",
+                        "trafficLightColor": "none"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_11",
+            "uuid": "62fb75be-48ee-4577-877b-ce7e9cbb0971",
+            "identity": "car",
+            "x0": 758.439132,
+            "y0": 353.272964,
+            "x1": 838.274831,
+            "y1": 412.151793,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "occluded": "true",
+                        "truncated": "false",
+                        "trafficLightColor": "none"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_12",
+            "uuid": "34c7a60a-b5cb-4f5e-a92e-237feb04330d",
+            "identity": "traffic sign",
+            "x0": 170.648805,
+            "y0": 167.654966,
+            "x1": 284.414675,
+            "y1": 197.593355,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "occluded": "false",
+                        "truncated": "false",
+                        "trafficLightColor": "none"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_13",
+            "uuid": "8be4f883-9eb5-47a1-9d1e-4b56a51d1584",
+            "identity": "traffic sign",
+            "x0": 1124.685397,
+            "y0": 198.591299,
+            "x1": 1163.605301,
+            "y1": 212.562546,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "occluded": "false",
+                        "truncated": "false",
+                        "trafficLightColor": "none"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_14",
+            "uuid": "c8605838-48d9-41a4-93b3-80cc6bdc5dd6",
+            "identity": "traffic sign",
+            "x0": 1106.722365,
+            "y0": 215.556386,
+            "x1": 1117.699776,
+            "y1": 226.533793,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "occluded": "false",
+                        "truncated": "false",
+                        "trafficLightColor": "none"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_15",
+            "uuid": "fe2c4898-c433-4346-8a85-30daa0dd1161",
+            "identity": "traffic light",
+            "x0": 1075.786032,
+            "y0": 271.441372,
+            "x1": 1110.71415,
+            "y1": 296.390027,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "occluded": "false",
+                        "truncated": "false",
+                        "trafficLightColor": "red"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_16",
+            "uuid": "3769bfd7-4929-453b-b920-5e10464d6443",
+            "identity": "traffic light",
+            "x0": 306.369492,
+            "y0": 103.786408,
+            "x1": 327.326359,
+            "y1": 155.679609,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "occluded": "false",
+                        "truncated": "false",
+                        "trafficLightColor": "red"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_17",
+            "uuid": "3318b49f-4c27-421b-807f-b267e3920fce",
+            "identity": "traffic light",
+            "x0": 330.320201,
+            "y0": 103.786408,
+            "x1": 354.27091,
+            "y1": 156.677557,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "occluded": "false",
+                        "truncated": "false",
+                        "trafficLightColor": "none"
+                    }
+                ]
+            },
+            "sub_entities": []
+        },
+        {
+            "agent_img_id": "agent_18",
+            "uuid": "5cb9ad7e-5180-4a4b-8def-c35c7449d171",
+            "identity": "car",
+            "x0": 733.806736,
+            "y0": 353.7773,
+            "x1": 759.681733,
+            "y1": 371.777297,
+            "attributes": {
+                "sandbox_tags": [
+                    {
+                        "occluded": "true",
+                        "truncated": "false",
+                        "trafficLightColor": "none"
+                    }
+                ]
+            },
+            "sub_entities": []
+        }
+    ]
+}
