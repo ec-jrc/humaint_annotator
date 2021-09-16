@@ -14,6 +14,7 @@ var correctionIndex = 0;
 var canvasWidth = 1296;
 var canvasHeight = 654;
 var minbBoxArea = 3000;
+var magnifyingGlassZoomFactor = 2;
 const pedestrianHTML = `<div class="mb-0 mt-2"><span>Age</span><br/> 
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Adult</span></button>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Kid</span></button>
@@ -47,13 +48,13 @@ const vehicleHTML = `<div class="mb-0 mt-2"><span>Vehicle Type</span><br/>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">other</span></button>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>
 <div class="mb-0 mt-2"><span>Color</span><br/>
-<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Black</span></button>
-<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">White</span></button>
-<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Grey</span></button>
+<button type="button" class="btn btn-dark rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Black</span></button>
+<button type="button" class="btn btn-light rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">White</span></button>
+<button type="button" class="btn btn-secondary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Grey</span></button>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Blue</span></button>
-<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Red</span></button>
-<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Yellow</span></button>
-<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Green</span></button>
+<button type="button" class="btn btn-danger rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Red</span></button>
+<button type="button" class="btn btn-warning rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Yellow</span></button>
+<button type="button" class="btn btn-success rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Green</span></button>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Other</span></button>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>`
 
@@ -102,7 +103,9 @@ const avoidVehicles = [
     "tram",
     "bus",
     "train",
-    "motorcycle"
+    "motorcycle",
+    "bike",
+    "motor"
 ]
 
 const avoidPersons = [
@@ -142,8 +145,8 @@ const commonToAvoid = [
     "static_object.bicycle_rack",
     "flat.drivable_surface",
     "flat.ego",
-    "Misc", 
-    "DontCare",
+    "misc", 
+    "dontcare",
     "traffic light",
     "traffic sign"
 ]
@@ -201,7 +204,7 @@ function drawRect(context, agent, rectColor, linewidth){
     var bBoxWidth = bBoxValues.w/datasetSpecificFeatures.imgWidth*canvasWidth;
     var bBoxHeight = bBoxValues.h/datasetSpecificFeatures.imgHeight*canvasHeight;
     context.strokeStyle = rectColor;
-    context.linewidth = linewidth;
+    context.lineWidth = linewidth;
     context.strokeRect(x, y, bBoxWidth, bBoxHeight);
 }
 
@@ -231,12 +234,12 @@ function drawImgCanvas(context, img, canvasElem){
         var isRealAgent = getAgentAutenticity(agent, false);
 
         if(isRealAgent){
-            drawRect(context, datasetSpecificFeatures.agents[agent], "red", 5);
+            drawRect(context, datasetSpecificFeatures.agents[agent], "red", 2);
 
             //Agents might be riders, and their vehicle bounding box is provided as subchild (Only for Eurocity Persons dataset)
             if(datasetSpecificFeatures.agents[agent].sub_entities.length != 0){
                 for(k = 0; k < datasetSpecificFeatures.agents[agent].sub_entities.length; k++){
-                    drawRect(context, datasetSpecificFeatures.agents[agent].sub_entities[k], "green", 10);
+                    drawRect(context, datasetSpecificFeatures.agents[agent].sub_entities[k], "green", 2);
                 }
             }
         }
@@ -255,7 +258,7 @@ function drawImgCanvas(context, img, canvasElem){
             }
             agents.forEach(agent => minMax = getMinMax(agent, minMax));
             context.strokeStyle = "blue";
-            context.linewidth = 5;
+            context.lineWidth = 2;
             context.strokeRect(minMax.minX, minMax.minY, minMax.maxX - minMax.minX, minMax.maxY - minMax.minY);
         }
     }
@@ -303,13 +306,13 @@ function loadAgentsInfo(agents){
                 }
                 else{
                     subentitiesText += `<div id="subentity-color" class="mb-0 mt-3"><span>Color</span><br/> 
-                    <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Black</span></button>
-                    <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">White</span></button>
-                    <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Grey</span></button>
+                    <button type="button" class="btn btn-dark rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Black</span></button>
+                    <button type="button" class="btn btn-light rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">White</span></button>
+                    <button type="button" class="btn btn-secondary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Grey</span></button>
                     <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Blue</span></button>
-                    <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Red</span></button>
-                    <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Yellow</span></button>
-                    <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Green</span></button>
+                    <button type="button" class="btn btn-danger rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Red</span></button>
+                    <button type="button" class="btn btn-warning rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Yellow</span></button>
+                    <button type="button" class="btn btn-success rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Green</span></button>
                     <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Other</span></button>
                     <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>
                     </div></div>`;
@@ -721,8 +724,8 @@ function selectAgentInCanvas(visibleAgentsIndex){
 }
 
 function highlightRect(context, x, y, w, h){
+    context.lineWidth = 5;
     context.strokeStyle = 'yellow';
-    context.linewidth = 10;
     context.strokeRect(x, y, w, h);
 }
 
@@ -969,12 +972,12 @@ function loadData(){
 function displayMagnifyingGlass(currentElem, e, canvasElem, zoom, zoomCtx){
     var cursorX = e.pageX - $(currentElem).offset().left;//Page coordinates minus the offset of the canvas container
     var cursorY = e.pageY - $(currentElem).offset().top;
-    var zoomFactor = 2;
-    var w = zoom.offsetWidth / zoomFactor;
-    var h = zoom.offsetHeight / zoomFactor;
+    var zoomFactor = magnifyingGlassZoomFactor;
+    var w = zoom.offsetWidth / 2;
+    var h = zoom.offsetHeight / 2;
     zoomCtx.fillStyle = "transparent";
     var glassDim = 150; //Square dimensions of the magnifying glass
-    var glassCursorRepositioningFactor = glassDim/4;
+    var glassCursorRepositioningFactor = glassDim/(2*zoomFactor);
     var glassCanvasWidth = canvasElem.height/zoomFactor;//current width of canvasElem divided by zoomFactor*canvas width/canvas height);
     var glassCanvasHeight = glassCanvasWidth;//Since the glass is a square canvas we use glassCanvasWidth
     zoomCtx.drawImage(canvasElem, cursorX-glassCursorRepositioningFactor, cursorY-glassCursorRepositioningFactor, glassCanvasWidth, glassCanvasHeight, 0, 0, canvasElem.width, canvasElem.height);
@@ -1121,12 +1124,29 @@ function displayPtgLabelled(){
     }
 }
 
+function changeZoomFactor(e) {
+    var evtobj = window.event? event : e
+    if (evtobj.keyCode == 90 && evtobj.ctrlKey) {
+        magnifyingGlassZoomFactor += 1;
+        if(magnifyingGlassZoomFactor >= 10){
+            magnifyingGlassZoomFactor = 10;
+        }
+    }
+    else if (evtobj.keyCode == 88 && evtobj.ctrlKey){
+        magnifyingGlassZoomFactor -= 1;
+        if(magnifyingGlassZoomFactor <= 2){
+            magnifyingGlassZoomFactor = 2;
+        }
+    }
+}
+
 $(document).ready(function() {
     displayPtgLabelled();
 
     $('#canvasContainer').mousemove(function(e){
         if(selectedDataset != ""){
             displayMagnifyingGlass(this, e, canvasElem, zoom, zoomCtx);
+            document.onkeydown = changeZoomFactor;
         }
     });
 
@@ -1146,5 +1166,5 @@ $(document).ready(function() {
             collapseAllButThis(collapsableElement);
             displayFloatingInfo(agentNumber);
         }
-    });    
+    });   
 });

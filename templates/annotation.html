@@ -56,20 +56,24 @@
         <div id="contentObject" class="container mt-5">
             <div class="custom-select" style="visibility: hidden;">
                 <select id="selectBox" class="rounded" onchange="selectDataset('')">
-                  <option value="none">Select a dataset</option>
-                  <option value="citypersons">CityPersons</option>
-                  <option value="eurocity-persons">Eurocity</option>
-                  <option value="nuscenes-persons">NuScenes Persons</option>
-                  <option value="nuscenes-vehicles">NuScenes Vehicles</option>
-                  <option value="tsinghua-daimler">Tsinghua-Daimler</option>
-                  <option value="kitti-persons">Kitti Persons</option>
-                  <option value="kitti-vehicles">Kitti Vehicles</option>
-                  <option value="bair-persons">BAIR Persons</option>
-                  <option value="bair-vehicles">BAIR Vehicles</option>
+                    <option value="none" selected disabled style="color:lightgray;">Select a dataset</option>
+                    <optgroup label="Persons">
+                        <option value="citypersons">CityPersons</option>
+                        <option value="eurocity-persons">Eurocity</option>
+                        <option value="nuscenes-persons">NuScenes Persons</option>
+                        <option value="tsinghua-daimler">Tsinghua-Daimler</option>
+                        <option value="kitti-persons">Kitti Persons</option>
+                        <option value="bair-persons">BAIR Persons</option>
+                    </optgroup>
+                    <optgroup label="Vehicles">
+                        <option value="nuscenes-vehicles">NuScenes Vehicles</option>
+                        <option value="kitti-vehicles">Kitti Vehicles</option>
+                        <option value="bair-vehicles">BAIR Vehicles</option>
+                    </optgroup>
                 </select>
             </div>
             <div id="ds-buttons" class="container">
-                <span style="font-size: 1.5em; padding: 6px;">Select a dataset</span>
+                <span style="font-size: 1.5em; padding: 6px;">Select a <span style="font-weight: bold;">Persons</span> dataset</span>
                 <button class="dataset-btn btn-primary mt-3" onclick="selectDataset('citypersons', 'persons')">
                     <div class="ds-name">CityPersons</div>
                     <span class="ptg-labelled-title">Images labelled: </span>
@@ -103,17 +107,6 @@
                         </circle>
                     </svg>
                 </button>
-                <button class="dataset-btn btn-primary mt-3" onclick="selectDataset('nuscenes', 'vehicles')">
-                    <div class="ds-name">NuScenes Vehicles</div>
-                    <span class="ptg-labelled-title">Images labelled: </span>
-                    <span id="ptg-nuscenes-vehicles" class="percentage-completed">100%</span>
-                    <svg class="ptg-circle">
-                        <circle r="35" cx="50%" cy="50%" stroke="#aeaaaa" fill="none" stroke-width="7" stroke-linecap="round" stroke-dasharray="165, 165">
-                        </circle>
-                        <circle id="success-value-nuscenes-vehicles" r="35" cx="50%" cy="50%" stroke="#6dd0ff" fill="none" stroke-width="7" stroke-linecap="round" stroke-dasharray="0, 220">
-                        </circle>
-                    </svg>
-                </button>
                 <button class="dataset-btn btn-primary mt-3" onclick="selectDataset('tsinghua-daimler', 'persons')">
                     <div class="ds-name">Tsinghua-Daimler</div>
                     <span class="ptg-labelled-title">Images labelled: </span>
@@ -136,6 +129,29 @@
                         </circle>
                     </svg>
                 </button>
+                <button class="dataset-btn btn-primary mt-3 mb-5" onclick="selectDataset('bair', 'persons')">
+                    <div class="ds-name">BAIR Persons</div>
+                    <span class="ptg-labelled-title">Images labelled: </span>
+                    <span id="ptg-bair-persons" class="percentage-completed">100%</span>
+                    <svg class="ptg-circle">
+                        <circle r="35" cx="50%" cy="50%" stroke="#aeaaaa" fill="none" stroke-width="7" stroke-linecap="round" stroke-dasharray="165, 165">
+                        </circle>
+                        <circle id="success-value-bair-persons" r="35" cx="50%" cy="50%" stroke="#6dd0ff" fill="none" stroke-width="7" stroke-linecap="round" stroke-dasharray="0, 220">
+                        </circle>
+                    </svg>
+                </button>
+                <span style="font-size: 1.5em; padding: 6px;">Select a <span style="font-weight: bold;">Vehicles</span> dataset</span>
+                <button class="dataset-btn btn-primary mt-3" onclick="selectDataset('nuscenes', 'vehicles')">
+                    <div class="ds-name">NuScenes Vehicles</div>
+                    <span class="ptg-labelled-title">Images labelled: </span>
+                    <span id="ptg-nuscenes-vehicles" class="percentage-completed">100%</span>
+                    <svg class="ptg-circle">
+                        <circle r="35" cx="50%" cy="50%" stroke="#aeaaaa" fill="none" stroke-width="7" stroke-linecap="round" stroke-dasharray="165, 165">
+                        </circle>
+                        <circle id="success-value-nuscenes-vehicles" r="35" cx="50%" cy="50%" stroke="#6dd0ff" fill="none" stroke-width="7" stroke-linecap="round" stroke-dasharray="0, 220">
+                        </circle>
+                    </svg>
+                </button>
                 <button class="dataset-btn btn-primary mt-3" onclick="selectDataset('kitti', 'vehicles')">
                     <div class="ds-name">Kitti Vehicles</div>
                     <span class="ptg-labelled-title">Images labelled: </span>
@@ -144,17 +160,6 @@
                         <circle r="35" cx="50%" cy="50%" stroke="#aeaaaa" fill="none" stroke-width="7" stroke-linecap="round" stroke-dasharray="165, 165">
                         </circle>
                         <circle id="success-value-kitti-vehicles" r="35" cx="50%" cy="50%" stroke="#6dd0ff" fill="none" stroke-width="7" stroke-linecap="round" stroke-dasharray="0, 220">
-                        </circle>
-                    </svg>
-                </button>
-                <button class="dataset-btn btn-primary mt-3" onclick="selectDataset('bair', 'persons')">
-                    <div class="ds-name">BAIR Persons</div>
-                    <span class="ptg-labelled-title">Images labelled: </span>
-                    <span id="ptg-bair-persons" class="percentage-completed">100%</span>
-                    <svg class="ptg-circle">
-                        <circle r="35" cx="50%" cy="50%" stroke="#aeaaaa" fill="none" stroke-width="7" stroke-linecap="round" stroke-dasharray="165, 165">
-                        </circle>
-                        <circle id="success-value-bair-persons" r="35" cx="50%" cy="50%" stroke="#6dd0ff" fill="none" stroke-width="7" stroke-linecap="round" stroke-dasharray="0, 220">
                         </circle>
                     </svg>
                 </button>
@@ -179,11 +184,11 @@
                 Available groups:&nbsp;&nbsp;
             </div>   
             <div class="text-center">
-                <button id="loadimage-btn" type="button" class="btn btn-primary btn-lg rounded mt-3" onclick="loadData()"><span class="font-weight-bold">Load image</span></button>
+                <button id="loadimage-btn" type="button" class="btn btn-primary btn-lg rounded mt-3" onclick="loadData()"><span class="font-weight-bold">Save and load image</span></button>
                 <button id="discardimage-btn" type="button" class="btn btn-primary btn-lg rounded mt-3" onclick="discardImage('discarded-by-user');cleanAndDrawNew()"><span class="font-weight-bold">Discard image</span></button>
             </div>  
         </div>
-        <div class="copyright py-4 text-center text-white" style="background-color: #0b5ed7; margin-top: 20vw;">
+        <div class="copyright py-4 text-center text-white" style="background-color: #0b5ed7; margin-top: 25vw;">
             <div class="container"><small>Copyright © HUMAINT group, European Commision, 2021</small></div>
         </div>
         <script src="/static/annotator.js"></script>
