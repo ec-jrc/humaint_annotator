@@ -1036,6 +1036,8 @@ async function selectDataset(ds, type){
     }
     $('#agentsTabs').css("visibility", "visible");
     $('.custom-select').css("visibility", "visible");
+    $('.w3-container').css("visibility", "visible");
+    $('#ptg-annotated-text').css("visibility", "visible");
     $('#ds-buttons').css("visibility", "hidden");
 }
 
