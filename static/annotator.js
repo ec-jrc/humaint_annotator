@@ -363,6 +363,8 @@ function removeGroup(groupNumber){
     var agents = Object.keys(groupsInPicture[groupNumber]);
     for(j = 0; j < agents.length; j++){
         var agent = agents[j];
+        var joinButton = document.getElementById('join-agent-btn-' + agent.replace('agent_', ''));
+        joinButton.classList.remove('disabled');
         var currentTagToRemove = $(agent.replace('agent_', '#current-labels-')).find("button")[1];//Group tag is element 1
         if(Object.keys(groupsInPicture[groupNumber]).length > 1){
             removeAutomaticTag(currentTagToRemove, true);
@@ -395,8 +397,8 @@ function getAgentInnerHTML(i, currentClass){
     agentHTML;
     
     if(selectedDatasetType == "persons"){
-        innerHTML += `<div class="mb-0 mt-4"><div class="col col-lg-6 join-agent"><button id="join-agent-btn-` + i + `" type="button" class="btn btn-primary rounded btn-sm" data-toggle="modal" onClick="showGroupAssignationPopup(` + i + `)" data-target="#assignGroupPopup" title="Click to assign a group">
-        <span class="font-weight-bold">Join to agent</span></button></div></div>`;
+        innerHTML += `<div class="mb-0 mt-4"><div class="col col-lg-6 join-agent"><button id="join-agent-btn-` + i + `" type="button" class="btn btn-primary rounded btn-sm" style="width:10vw;" data-toggle="modal" onClick="showGroupAssignationPopup(` + i + `)" data-target="#assignGroupPopup" title="Click to assign a group">
+        <span class="font-weight-bold">Join to agent/group</span></button></div></div>`;
     }
     else{
         if(currentClass.toLowerCase().indexOf("car") != -1){
@@ -433,13 +435,16 @@ function showGroupAssignationPopup(agentNumber){
     for(i = 0; i < groupsKeys.length; i++){
         var key = groupsKeys[i]
         for(j = 0; j < Object.keys(groupsInPicture[key]).length; j++){
-            var newOption = document.createElement('option');
-            newOption.value = Object.keys(groupsInPicture[key])[j].replace("agent_", "Agent ");
-            newOption.innerText = Object.keys(groupsInPicture[key])[j].replace("agent_", "Agent ");
-            if(Object.keys(groupsInPicture[key]).length > 1){
-                newOption.innerText += " (Group " + key + ")";
+            var agNum = parseInt(Object.keys(groupsInPicture[key])[j].replace("agent_", ""));
+            if(agentNumber != agNum){
+                var newOption = document.createElement('option');
+                newOption.value = Object.keys(groupsInPicture[key])[j].replace("agent_", "Agent ");
+                newOption.innerText = Object.keys(groupsInPicture[key])[j].replace("agent_", "Agent ");
+                if(Object.keys(groupsInPicture[key]).length > 1){
+                    newOption.innerText += " (Group " + key + ")";
+                }
+                selectObject.appendChild(newOption);
             }
-            selectObject.appendChild(newOption);
         }
     }
     saveChangesButton.setAttribute("onclick", "addAgentToGroup('agentsSelect', " + agentNumber + ")")
@@ -659,7 +664,7 @@ function addGroupButtonToAgent(){
                     var button = document.createElement("button");
                     button.type = "button";
                     button.className = "btn btn-primary rounded-pill btn-sm group-btn";
-                    button.innerHTML = "<span class='font-weight-bold'>Group " + j + "</span>";
+                    button.innerHTML = "<span class='font-weight-bold'>Group " + groupsKeys[j] + "</span>";
                     button.setAttribute("onclick", "removeAutomaticTag(this, false)");
                     cardBody.appendChild(button);
                 }
@@ -693,7 +698,8 @@ function removeAutomaticTag(element, removeGroup){
             }
 
             //Assign the agent to a new group
-            groupsInPicture[groupsKeys.length] = new Object();
+            groupsInPicture[groupsKeys.length + 1] = new Object();
+            groupsKeys = Object.keys(groupsInPicture);
             groupsInPicture[groupsKeys.length][agent] = new Object();
             groupsInPicture[groupsKeys.length][agent].xInit = xInit;
             groupsInPicture[groupsKeys.length][agent].yInit = yInit;
