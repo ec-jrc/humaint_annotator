@@ -909,7 +909,7 @@ function isAgentCorrectlyLabelled(numberOfAgents){
 }
 
 function saveEditedJson(json){
-    fetch('/save_edited_json/' + imgData.imgName + '/' + selectedDatasetType, {//Request to flask server to save new json 
+    fetch('/save_edited_json/' + imgData.imgName + '/' + selectedDatasetType + '/' + imgData.json["annotator"], {//Request to flask server to save new json 
         headers: {
           'Content-Type': 'application/json'
         },
@@ -934,6 +934,7 @@ async function cleanAndDrawNew(){
         canvasElem = document.getElementById('imgToAnnotate');
         zoom = document.getElementById("zoomed-canvas");
         zoomCtx = zoom.getContext("2d");
+        imgData.json["annotator"] = $("#userInfo").data('user')
         assignDatasetSpecificFeatures(imgData.json);
         autoDiscardImg = isDiscardableImg();
     }
