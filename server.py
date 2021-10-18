@@ -56,6 +56,13 @@ def open_DB_connection(rqst, variables, db_name):
 
         cursor.execute("SELECT discarded_by_user, auto_discarded FROM imgs_info WHERE file_name=%(img_name)s",
                        {'img_name': variables[0]})
+    elif rqst == "get_num_annotated_imgs":
+        if(variables[0] == "persons"):
+            cursor.execute("SELECT COUNT(*) FROM imgs_info WHERE dataset=%(ds)s and persons_annotated=1",
+                           {'ds': variables[1]})
+        else:
+            cursor.execute("SELECT COUNT(*) FROM imgs_info WHERE dataset=%(ds)s and vehicles_annotated=1",
+                           {'ds': variables[1]})
 
     result = cursor.fetchall()
 
@@ -193,6 +200,23 @@ def discard_img(img_name, discard_author):
     db_result = open_DB_connection("discard_img", variables, 'img_info')
 
     return 'OK', 200
+
+@app.route('/get_annotation_percentages', methods=['GET'])
+def get_annotation_percentages():
+    annotation_ptgs = {}
+    annotation_ptgs['persons'] = {}
+    annotation_ptgs['vehicles'] = {}
+    with open('config.json') as config_file:
+        config = json.load(config_file)
+        for agents_type in config['images_to_annotate']:
+            for ds in config['images_to_annotate'][agents_type]:
+                variables = [agents_type, ds]
+                num_annotated_imgs = open_DB_connection("get_num_annotated_imgs", variables, 'img_info')
+                annotation_ptgs[agents_type][ds] = num_annotated_imgs[0][0]/config['images_to_annotate'][agents_type][ds] * 100
+                print(annotation_ptgs[agents_type][ds])
+
+    return jsonify(annotation_ptgs)
+
 
 @app.route('/')
 def index():
