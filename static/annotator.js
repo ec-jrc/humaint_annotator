@@ -127,7 +127,7 @@ const avoidPersons = [
 ]
 
 const commonToAvoid = [
-    "Ignore",
+    "ignore",
     "bicycle-group",
     "buggy-group", 
     "motorbike-group", 
