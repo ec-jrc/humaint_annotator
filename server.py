@@ -140,13 +140,13 @@ def get_img_json(dataset, file_name):
 
     return json_data
 
-@app.route('/save_edited_json/<img_name>/<dataset_type>', methods=['POST'])
-def save_edited_json(img_name, dataset_type):
+@app.route('/save_edited_json/<img_name>/<dataset_type>/<annotator>', methods=['POST'])
+def save_edited_json(img_name, dataset_type, annotator):
     # POST request
     edited_json = request.get_json()
     variables = [img_name, dataset_type]
     json_file = str(open_DB_connection("get_json", variables, 'img_info')[0][0])
-    json_file_path = "edited_jsons/" + json_file
+    json_file_path = "edited_jsons/" + json_file.replace('.json', '_' + annotator + '.json')
     with open(json_file_path, 'w', encoding='utf-8') as f:
         json.dump(edited_json, f, ensure_ascii=False, indent=4)
     return 'OK', 200
