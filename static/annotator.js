@@ -127,7 +127,7 @@ const avoidPersons = [
 ]
 
 const commonToAvoid = [
-    "Ignore",
+    "ignore",
     "bicycle-group",
     "buggy-group", 
     "motorbike-group", 
@@ -1141,7 +1141,67 @@ function changeZoomFactor(e) {
     }
 }
 
+async function getNumImgsAnnotated(){
+    await fetch('/get_imgs_annotated/' + selectedDataset + '/' + selectedDatasetType)//Request to flask server to retrieve a random image from storage
+    .then(function (response) {
+        return response.json();
+        }).then(function (elem) {
+            imgs
+        });
+}
+
+async function getPercentageAnnotated(){
+    var percentagesDict = await getAnnotationPercentages()
+    updatePercentages(percentagesDict);
+}
+
+function updatePercentages(percentagesDict){
+    var percentages = $('.percentage-completed');
+    var personsDs = Object.keys(percentagesDict["persons"]);
+    var vehiclesDs = Object.keys(percentagesDict["vehicles"])
+    var datasetElements = $(".ds-name");
+
+    for(i=0; i < personsDs.length; i++){
+        var dataSet = personsDs[i]
+        for(k = 0; k < datasetElements.length; k++){
+            if(datasetElements[k].dataset.dsType == "persons" && datasetElements[k].dataset.dsName == dataSet){
+                var ptgElement = document.getElementById('ptg-' + dataSet + '-persons');
+                var ptg = percentagesDict["persons"][dataSet].toString();
+                if(ptg.length == 1){
+                    ptg = "&nbsp;&nbsp;" + ptg + "%&nbsp;&nbsp;"
+                }
+                else if(ptg.length == 2){
+                    ptg = "&nbsp;" + ptg + "%&nbsp;"
+                }
+
+                ptgElement.innerHTML = ptg;
+                break;
+            }
+        }
+    }
+
+    for(i=0; i < vehiclesDs.length; i++){
+        var dataSet = vehiclesDs[i]
+        for(k = 0; k < datasetElements.length; k++){
+            if(datasetElements[k].dataset.dsType == "vehicles" && datasetElements[k].dataset.dsName == dataSet){
+                var ptgElement = document.getElementById('ptg-' + dataSet + '-vehicles');
+                var ptg = percentagesDict["vehicles"][dataSet].toString();
+                if(ptg.length == 1){
+                    ptg = "&nbsp;&nbsp;" + ptg + "%&nbsp;&nbsp;"
+                }
+                else if(ptg.length == 2){
+                    ptg = "&nbsp;" + ptg + "%&nbsp;"
+                }
+
+                ptgElement.innerHTML = ptg;
+                break;
+            }
+        }
+    }
+}
+
 $(document).ready(function() {
+    getPercentageAnnotated();
     displayPtgLabelled();
 
     $('#canvasContainer').mousemove(function(e){

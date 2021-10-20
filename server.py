@@ -43,6 +43,15 @@ def open_DB_connection(rqst, variables, db_name):
                            {'dataset': variables[0]})
 
     elif rqst == "get_json":
+        edit_db_entry = variables[2]
+        if edit_db_entry:
+            if variables[1] == 'persons':
+                cursor.execute("UPDATE imgs_info SET persons_annotated=1 WHERE file_name=%(img_name)s", {'img_name': variables[0]})
+                conn.commit()
+            elif variables[1] == 'vehicles':
+                cursor.execute("UPDATE imgs_info SET vehicles_annotated=1 WHERE file_name=%(img_name)s", {'img_name': variables[0]})
+                conn.commit()
+
         cursor.execute("SELECT associated_json FROM imgs_info WHERE file_name=%(json_file)s", {'json_file': variables[0]})
     elif rqst == "discard_img":
         if(variables[1] == "discarded-by-user"):
@@ -56,6 +65,13 @@ def open_DB_connection(rqst, variables, db_name):
 
         cursor.execute("SELECT discarded_by_user, auto_discarded FROM imgs_info WHERE file_name=%(img_name)s",
                        {'img_name': variables[0]})
+    elif rqst == "get_num_annotated_imgs":
+        if(variables[0] == "persons"):
+            cursor.execute("SELECT COUNT(*) FROM imgs_info WHERE dataset=%(ds)s and persons_annotated=1",
+                           {'ds': variables[1]})
+        else:
+            cursor.execute("SELECT COUNT(*) FROM imgs_info WHERE dataset=%(ds)s and vehicles_annotated=1",
+                           {'ds': variables[1]})
 
     result = cursor.fetchall()
 
@@ -112,7 +128,8 @@ def get_img_url(dataset, dataset_type):
 
 @app.route('/img_json/<dataset>/<file_name>', methods=['GET'])
 def get_img_json(dataset, file_name):
-    variables = [file_name]
+    edit_db_entry = False
+    variables = [file_name, "", edit_db_entry]
     json_file = str(open_DB_connection("get_json", variables, 'img_info')[0][0])
 
     #TEMPORARY TILL JSONS ARE IN STORAGE
@@ -144,7 +161,8 @@ def get_img_json(dataset, file_name):
 def save_edited_json(img_name, dataset_type, annotator):
     # POST request
     edited_json = request.get_json()
-    variables = [img_name, dataset_type]
+    edit_db_entry = True
+    variables = [img_name, dataset_type, edit_db_entry]
     json_file = str(open_DB_connection("get_json", variables, 'img_info')[0][0])
     json_file_path = "edited_jsons/" + json_file.replace('.json', '_' + annotator + '.json')
     with open(json_file_path, 'w', encoding='utf-8') as f:
@@ -193,6 +211,22 @@ def discard_img(img_name, discard_author):
     db_result = open_DB_connection("discard_img", variables, 'img_info')
 
     return 'OK', 200
+
+@app.route('/get_annotation_percentages', methods=['GET'])
+def get_annotation_percentages():
+    annotation_ptgs = {}
+    annotation_ptgs['persons'] = {}
+    annotation_ptgs['vehicles'] = {}
+    with open('config.json') as config_file:
+        config = json.load(config_file)
+        for agents_type in config['images_to_annotate']:
+            for ds in config['images_to_annotate'][agents_type]:
+                variables = [agents_type, ds]
+                num_annotated_imgs = open_DB_connection("get_num_annotated_imgs", variables, 'img_info')
+                annotation_ptgs[agents_type][ds] = num_annotated_imgs[0][0]/config['images_to_annotate'][agents_type][ds] * 100
+
+    return jsonify(annotation_ptgs)
+
 
 @app.route('/')
 def index():
