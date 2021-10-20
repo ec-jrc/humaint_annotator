@@ -15,6 +15,9 @@ var canvasWidth = 1296;
 var canvasHeight = 654;
 var minbBoxArea = 3000;
 var magnifyingGlassZoomFactor = 2;
+var percentageImageAnnotated = 0;
+var numberOfTagsToPressInImage = 0;
+var globalNumberOfTagsPressed = 0;
 const pedestrianHTML = `<div class="mb-0 mt-2"><span>Age</span><br/> 
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Adult</span></button>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Kid</span></button>
@@ -571,7 +574,16 @@ function getPictureDivision(y){
     return pictureDivision;
 }
 
+function changeImagePtgAnnotated(){
+    var percentageElem = document.getElementById('ptg-annotated');
+    percentageElem.innerHTML = percentageImageAnnotated + "%";
+    percentageElem.parentElement.style.width = percentageImageAnnotated + "%";
+}
+
 function toggleTag(element){
+    globalNumberOfTagsPressed += 1
+    percentageImageAnnotated = ((globalNumberOfTagsPressed/numberOfTagsToPressInImage) * 100).toFixed();
+    changeImagePtgAnnotated();
     var elementParentChildren = element.parentElement.children;
     for(i = 2; i < elementParentChildren.length; i++){//first two elements are not buttons
         elementParentChildren[i].classList.remove("tag-pressed");
@@ -638,6 +650,11 @@ function loadAgents(){
             newAgentsLabels["Agent " + agentIndex]["sub_entities"] = new Object();
         }
     }
+
+    numberOfTagsToPressInImage = getNumberOfTagsTopress(datasetSpecificFeatures.agents.length);
+    percentageImageAnnotated = 0;
+    globalNumberOfTagsPressed = 0;
+    changeImagePtgAnnotated();
 
     addGroupButtonToAgent();
 }
@@ -863,6 +880,25 @@ function datasetJSONParse(agentIndex, agentNewKeysIndex, agent, currentAgentNewI
     return parserInfo;
 }
 
+function getNumberOfTagsTopress(numberOfAgents){
+    var numberOfTagsTopress = 0;
+    var index = 1;
+    for (i = 0; i < numberOfAgents; i++){
+        var numberOfTagsTopressPerAgent = 0;
+        var isRealAgent = getAgentAutenticity(i, false);
+        if(isRealAgent){
+            var query = $("#floating-window-" + index + " >> div");
+            if(query.length > 0){
+                numberOfTagsTopressPerAgent = query.length - 2;//We don't take into account "join to agent" button and current labels
+            }
+            index += 1;
+        }
+        numberOfTagsTopress += numberOfTagsTopressPerAgent;
+    }
+    
+    return numberOfTagsTopress;
+}
+
 function isAgentCorrectlyLabelled(numberOfAgents){
     var agentsCorrectlyLabelled = 0;
     for (i = 0; i < numberOfAgents; i++){
@@ -1037,6 +1073,8 @@ async function selectDataset(ds, type){
     }
     $('#agentsTabs').css("visibility", "visible");
     $('.custom-select').css("visibility", "visible");
+    $('.w3-container').css("visibility", "visible");
+    $('#ptg-annotated-text').css("visibility", "visible");
     $('#ds-buttons').css("visibility", "hidden");
 }
 

@@ -8,6 +8,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
         <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
@@ -54,23 +55,31 @@
             </div>
         </div>
         <div id="contentObject" class="container mt-5">
-            <div class="custom-select" style="visibility: hidden;">
-                <select id="selectBox" class="rounded" onchange="selectDataset('')">
-                    <option value="none" selected disabled style="color:lightgray;">Select a dataset</option>
-                    <optgroup label="Persons">
-                        <option value="citypersons">CityPersons</option>
-                        <option value="eurocity-persons">Eurocity</option>
-                        <option value="nuscenes-persons">NuScenes Persons</option>
-                        <option value="tsinghua-daimler">Tsinghua-Daimler</option>
-                        <option value="kitti-persons">Kitti Persons</option>
-                        <option value="bair-persons">BAIR Persons</option>
-                    </optgroup>
-                    <optgroup label="Vehicles">
-                        <option value="nuscenes-vehicles">NuScenes Vehicles</option>
-                        <option value="kitti-vehicles">Kitti Vehicles</option>
-                        <option value="bair-vehicles">BAIR Vehicles</option>
-                    </optgroup>
-                </select>
+            <div class="row">
+                <div class="custom-select col-lg-3" style="visibility: hidden;">
+                    <select id="selectBox" class="rounded" onchange="selectDataset('')">
+                        <option value="none" selected disabled style="color:lightgray;">Select a dataset</option>
+                        <optgroup label="Persons">
+                            <option value="citypersons">CityPersons</option>
+                            <option value="eurocity-persons">Eurocity</option>
+                            <option value="nuscenes-persons">NuScenes Persons</option>
+                            <option value="tsinghua-daimler">Tsinghua-Daimler</option>
+                            <option value="kitti-persons">Kitti Persons</option>
+                            <option value="bair-persons">BAIR Persons</option>
+                        </optgroup>
+                        <optgroup label="Vehicles">
+                            <option value="nuscenes-vehicles">NuScenes Vehicles</option>
+                            <option value="kitti-vehicles">Kitti Vehicles</option>
+                            <option value="bair-vehicles">BAIR Vehicles</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div id="ptg-annotated-text" class="col-lg-3" style="text-align: right; padding-right: 0; padding-top: 0.3vw; visibility:hidden">Percentage annotated</div>
+                <div class="w3-container col-lg-6" style="visibility: hidden; padding-left: 0.3vw;">
+                    <div class="w3-border w3-light-gray rounded">
+                        <div class="rounded" style="height:2em;width:90%;background-color:#0b5ed7; text-align:right; padding-top:0.3vw; padding-right:0.5vw;"><span id="ptg-annotated" style="color:white">90%</span></div>
+                    </div>
+                </div>
             </div>
             <div id="ds-buttons" class="container">
                 <span style="font-size: 1.5em; padding: 6px;">Select a <span style="font-weight: bold;">Persons</span> dataset</span>
