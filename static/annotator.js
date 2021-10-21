@@ -819,7 +819,7 @@ function getAgentToDeploy(relX, relY){
     return agentToDeploy;
 }
 
-function saveCurrent(){
+async function saveCurrent(){
     var numberOfAgents = datasetSpecificFeatures.numberOfAgents;
     var index = 0;
 
@@ -859,7 +859,7 @@ function saveCurrent(){
     }
     else{
         imageLabelled = true;
-        saveEditedJson(imgData.json);
+        await saveEditedJson(imgData.json);
     }
 }
 
@@ -950,7 +950,7 @@ function isAgentCorrectlyLabelled(numberOfAgents){
     return agentsCorrectlyLabelled;
 }
 
-function saveEditedJson(json){
+async function saveEditedJson(json){
     fetch('/save_edited_json/' + imgData.imgName + '/' + selectedDatasetType + '/' + imgData.json["annotator"], {//Request to flask server to save new json 
         headers: {
           'Content-Type': 'application/json'
@@ -1004,8 +1004,8 @@ function isDiscardableImg(){
     }
 }
 
-function loadData(){
-    saveCurrent();
+async function loadData(){
+    await saveCurrent();
     if(imageLabelled){
         cleanAndDrawNew();
         imageLabelled = false;
