@@ -8,9 +8,8 @@ import hashlib
 from botocore.exceptions import ClientError
 import pymysql
 from flask import Flask, render_template, jsonify, abort, request, redirect
-from flask_login import LoginManager, login_user, logout_user, login_required
+from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 from models import User, users
-from werkzeug.urls import url_parse
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '8BUgFTZ-352QRSxa7Jq30yyaFWeIk2mOhOSsL3v1GB4gCHnyu0xzH2JPopp4bBuRxH0'
@@ -30,55 +29,121 @@ def open_DB_connection(rqst, variables, db_name):
     )
 
     cursor = conn.cursor()
+    result = ()
     if rqst == "login":
         cursor.execute("SELECT user_id, username, pwd, role FROM user_info WHERE user_email=%(user_email)s", {'user_email': variables[0]})
     elif rqst == "get_img":
+        inter_agreement = int(get_inter_agreement())
         if variables[1] == 'persons':
-            cursor.execute("SELECT img_id, dataset, city, file_name FROM imgs_info WHERE dataset=%(dataset)s AND persons_annotated IS NOT TRUE AND "
-                           "annotated IS NOT TRUE AND discarded_by_user IS NOT TRUE AND auto_discarded IS NOT TRUE",
-                           {'dataset': variables[0]})
+            cursor.execute("SELECT img_id, dataset, city, file_name FROM imgs_info WHERE dataset=%(dataset)s AND persons_annotated=%(inter_agreement)s"
+                           " AND discarded_by_user IS NOT TRUE AND auto_discarded IS NOT TRUE",
+                           {'dataset': variables[0], 'inter_agreement': inter_agreement}) #Number of images that have been annotated by the number
+            # of inter_agreement annotators (default 3)
+            result = cursor.fetchall()
+            inter_agreement_quota_acquired = is_inter_agreement_quota_acquired(result, variables[0], 'persons')
+            if len(result) == 0 or not inter_agreement_quota_acquired:
+                aux_inter_agreement = inter_agreement - 1
+                while(aux_inter_agreement >= 0):
+                    cursor.execute("SELECT img_id, dataset, city, file_name FROM imgs_info WHERE dataset=%(dataset)s AND persons_annotated=%("
+                                   "aux_inter_agreement)s AND NOT (SELECT COUNT(*) FROM img_annotator_relation WHERE "
+                                   "img_annotator_relation.img_name=imgs_info.file_name AND user_name=%(user_name)s AND ds_type='persons')>0 AND "
+                                   "discarded_by_user IS NOT TRUE AND auto_discarded IS NOT TRUE", {'dataset': variables[0], 'aux_inter_agreement':
+                                    aux_inter_agreement, 'user_name': current_user.name}) #We select the images with less than 3 annotators and for
+                    # which the
+                    # current user has not
+                    # participated (i.e. image of a given name in imgs_info table is not found in img_annotator_relation table)
+                    result = cursor.fetchall()
+                    aux_inter_agreement -= 1
+                    if len(result) != 0:
+                        break
+            else:
+                cursor.execute("SELECT img_id, dataset, city, file_name FROM imgs_info WHERE dataset=%(dataset)s AND persons_annotated=0"
+                       " AND discarded_by_user IS NOT TRUE AND auto_discarded IS NOT TRUE",
+                       {'dataset': variables[0]})
+
         elif variables[1] == 'vehicles':
-            cursor.execute("SELECT img_id, dataset, city, file_name FROM imgs_info WHERE dataset=%(dataset)s AND vehicles_annotated IS NOT TRUE AND "
-                           "annotated IS NOT TRUE AND discarded_by_user IS NOT TRUE AND auto_discarded IS NOT TRUE",
-                           {'dataset': variables[0]})
+            cursor.execute(
+                "SELECT img_id, dataset, city, file_name FROM imgs_info WHERE dataset=%(dataset)s AND vehicles_annotated=%(inter_agreement)s"
+                " AND discarded_by_user IS NOT TRUE AND auto_discarded IS NOT TRUE",
+                {'dataset': variables[0], 'inter_agreement': inter_agreement})  # Number of images that have been annotated by the number
+            # of inter_agreement annotators (default 3)
+            result = cursor.fetchall()
+            inter_agreement_quota_acquired = is_inter_agreement_quota_acquired(result, variables[0], 'vehicles')
+            if len(result) == 0 or not inter_agreement_quota_acquired:
+                aux_inter_agreement = inter_agreement - 1
+                while (aux_inter_agreement >= 0):
+                    cursor.execute("SELECT img_id, dataset, city, file_name FROM imgs_info WHERE dataset=%(dataset)s AND vehicles_annotated=%("
+                                   "aux_inter_agreement)s AND NOT (SELECT COUNT(*) FROM img_annotator_relation WHERE "
+                                   "img_annotator_relation.img_name=imgs_info.file_name AND user_name=%(user_name)s AND ds_type='vehicles')>0 AND"
+                                   "discarded_by_user IS NOT TRUE AND auto_discarded IS NOT TRUE", {'dataset': variables[0], 'aux_inter_agreement':
+                                   aux_inter_agreement, 'user_name': current_user.name})
+                    result = cursor.fetchall()
+                    aux_inter_agreement -= 1
+                    if len(result) != 0:
+                        break
+            else:
+                cursor.execute("SELECT img_id, dataset, city, file_name FROM imgs_info WHERE dataset=%(dataset)s AND vehicles_annotated=0 AND"
+                           "discarded_by_user IS NOT TRUE AND auto_discarded IS NOT TRUE", {'dataset': variables[0]})
 
     elif rqst == "get_json":
         edit_db_entry = variables[2]
         if edit_db_entry:
             if variables[1] == 'persons':
-                cursor.execute("UPDATE imgs_info SET persons_annotated=1 WHERE file_name=%(img_name)s", {'img_name': variables[0]})
-                conn.commit()
+                cursor.execute("UPDATE imgs_info SET persons_annotated=persons_annotated+1 WHERE file_name=%(img_name)s", {'img_name': variables[0]})
             elif variables[1] == 'vehicles':
-                cursor.execute("UPDATE imgs_info SET vehicles_annotated=1 WHERE file_name=%(img_name)s", {'img_name': variables[0]})
-                conn.commit()
+                cursor.execute("UPDATE imgs_info SET vehicles_annotated=vehicles_annotated+1 WHERE file_name=%(img_name)s", {'img_name': variables[0]})
+            conn.commit()
 
         cursor.execute("SELECT associated_json FROM imgs_info WHERE file_name=%(json_file)s", {'json_file': variables[0]})
     elif rqst == "discard_img":
         if(variables[1] == "discarded-by-user"):
             cursor.execute("UPDATE imgs_info SET discarded_by_user=1 WHERE file_name=%(img_name)s",
                        {'img_name': variables[0]})
-            conn.commit()
         else:
             cursor.execute("UPDATE imgs_info SET auto_discarded=1 WHERE file_name=%(img_name)s",
                            {'img_name': variables[0]})
-            conn.commit()
+        conn.commit()
 
         cursor.execute("SELECT discarded_by_user, auto_discarded FROM imgs_info WHERE file_name=%(img_name)s",
                        {'img_name': variables[0]})
     elif rqst == "get_num_annotated_imgs":
         if(variables[0] == "persons"):
-            cursor.execute("SELECT COUNT(*) FROM imgs_info WHERE dataset=%(ds)s and persons_annotated=1",
+            cursor.execute("SELECT COUNT(*) FROM imgs_info WHERE dataset=%(ds)s and persons_annotated!=0",
                            {'ds': variables[1]})
         else:
-            cursor.execute("SELECT COUNT(*) FROM imgs_info WHERE dataset=%(ds)s and vehicles_annotated=1",
+            cursor.execute("SELECT COUNT(*) FROM imgs_info WHERE dataset=%(ds)s and vehicles_annotated!=0",
                            {'ds': variables[1]})
+    elif rqst == "new_annotation_entry":
+        cursor.execute("INSERT INTO img_annotator_relation (img_name, user_name, ds_type) VALUES (%(img_name)s, %(user_name)s, %(ds_type)s);",
+                       {'img_name': variables[0], 'user_name': variables[1], 'ds_type': variables[2]})
+        conn.commit()
 
-    result = cursor.fetchall()
+    if len(result) == 0:
+        result = cursor.fetchall()
 
     conn.close()
     # Database connection closed
 
     return result
+
+def create_new_annotation_entry(img_name, ds_type):
+    variables = [img_name, current_user.name, ds_type]
+    result = open_DB_connection('new_annotation_entry', variables, 'img_annotator_relation')
+
+def get_inter_agreement():
+    with open('config.json') as config_file:
+        config = json.load(config_file)
+        inter_agreement = config["inter_agreement"]
+        return inter_agreement
+
+def is_inter_agreement_quota_acquired(query_result, dataset, ds_type):
+    with open('config.json') as config_file:
+        config = json.load(config_file)
+        inter_agreement_quota = config['num_imgs_several_annotators'][ds_type][dataset]
+        if len(query_result) >= inter_agreement_quota:
+            return True
+        else:
+            return False
 
 def get_img(dataset, dataset_type):
     ds = "ECP" if dataset == "eurocity" else dataset
@@ -163,6 +228,7 @@ def save_edited_json(img_name, dataset_type, annotator):
     edited_json = request.get_json()
     edit_db_entry = True
     variables = [img_name, dataset_type, edit_db_entry]
+    create_new_annotation_entry(img_name, dataset_type)
     json_file = str(open_DB_connection("get_json", variables, 'img_info')[0][0])
     json_file_path = "edited_jsons/" + json_file.replace('.json', '_' + annotator + '.json')
     with open(json_file_path, 'w', encoding='utf-8') as f:
