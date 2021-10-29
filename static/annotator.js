@@ -1244,8 +1244,8 @@ function updatePercentages(percentagesDict){
     }
 }
 
-$(document).ready(function() {
-    getPercentageAnnotated();
+$(document).ready(async function() {
+    await getPercentageAnnotated();
     displayPtgLabelled();
 
     $('#canvasContainer').mousemove(function(e){

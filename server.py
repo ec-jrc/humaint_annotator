@@ -5,6 +5,7 @@ import random
 import boto3
 import boto3.session
 import hashlib
+import math
 from botocore.exceptions import ClientError
 import pymysql
 from flask import Flask, render_template, jsonify, abort, request, redirect
@@ -289,7 +290,7 @@ def get_annotation_percentages():
             for ds in config['images_to_annotate'][agents_type]:
                 variables = [agents_type, ds]
                 num_annotated_imgs = open_DB_connection("get_num_annotated_imgs", variables, 'img_info')
-                annotation_ptgs[agents_type][ds] = num_annotated_imgs[0][0]/config['images_to_annotate'][agents_type][ds] * 100
+                annotation_ptgs[agents_type][ds] = math.trunc(num_annotated_imgs[0][0]/config['images_to_annotate'][agents_type][ds] * 100)
 
     return jsonify(annotation_ptgs)
 
