@@ -14,6 +14,10 @@ var correctionIndex = 0;
 var canvasWidth = 1296;
 var canvasHeight = 654;
 var minbBoxArea = 3000;
+var magnifyingGlassZoomFactor = 2;
+var percentageImageAnnotated = 0;
+var numberOfTagsToPressInImage = 0;
+var globalNumberOfTagsPressed = 0;
 const pedestrianHTML = `<div class="mb-0 mt-2"><span>Age</span><br/> 
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Adult</span></button>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Kid</span></button>
@@ -47,13 +51,13 @@ const vehicleHTML = `<div class="mb-0 mt-2"><span>Vehicle Type</span><br/>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">other</span></button>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>
 <div class="mb-0 mt-2"><span>Color</span><br/>
-<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Black</span></button>
-<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">White</span></button>
-<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Grey</span></button>
+<button type="button" class="btn btn-dark rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Black</span></button>
+<button type="button" class="btn btn-light rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">White</span></button>
+<button type="button" class="btn btn-secondary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Grey</span></button>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Blue</span></button>
-<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Red</span></button>
-<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Yellow</span></button>
-<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Green</span></button>
+<button type="button" class="btn btn-danger rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Red</span></button>
+<button type="button" class="btn btn-warning rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Yellow</span></button>
+<button type="button" class="btn btn-success rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Green</span></button>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Other</span></button>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>`
 
@@ -102,7 +106,9 @@ const avoidVehicles = [
     "tram",
     "bus",
     "train",
-    "motorcycle"
+    "motorcycle",
+    "bike",
+    "motor"
 ]
 
 const avoidPersons = [
@@ -124,7 +130,7 @@ const avoidPersons = [
 ]
 
 const commonToAvoid = [
-    "Ignore",
+    "ignore",
     "bicycle-group",
     "buggy-group", 
     "motorbike-group", 
@@ -142,8 +148,8 @@ const commonToAvoid = [
     "static_object.bicycle_rack",
     "flat.drivable_surface",
     "flat.ego",
-    "Misc", 
-    "DontCare",
+    "misc", 
+    "dontcare",
     "traffic light",
     "traffic sign"
 ]
@@ -201,7 +207,7 @@ function drawRect(context, agent, rectColor, linewidth){
     var bBoxWidth = bBoxValues.w/datasetSpecificFeatures.imgWidth*canvasWidth;
     var bBoxHeight = bBoxValues.h/datasetSpecificFeatures.imgHeight*canvasHeight;
     context.strokeStyle = rectColor;
-    context.linewidth = linewidth;
+    context.lineWidth = linewidth;
     context.strokeRect(x, y, bBoxWidth, bBoxHeight);
 }
 
@@ -231,12 +237,12 @@ function drawImgCanvas(context, img, canvasElem){
         var isRealAgent = getAgentAutenticity(agent, false);
 
         if(isRealAgent){
-            drawRect(context, datasetSpecificFeatures.agents[agent], "red", 5);
+            drawRect(context, datasetSpecificFeatures.agents[agent], "red", 2);
 
             //Agents might be riders, and their vehicle bounding box is provided as subchild (Only for Eurocity Persons dataset)
             if(datasetSpecificFeatures.agents[agent].sub_entities.length != 0){
                 for(k = 0; k < datasetSpecificFeatures.agents[agent].sub_entities.length; k++){
-                    drawRect(context, datasetSpecificFeatures.agents[agent].sub_entities[k], "green", 10);
+                    drawRect(context, datasetSpecificFeatures.agents[agent].sub_entities[k], "green", 2);
                 }
             }
         }
@@ -255,7 +261,7 @@ function drawImgCanvas(context, img, canvasElem){
             }
             agents.forEach(agent => minMax = getMinMax(agent, minMax));
             context.strokeStyle = "blue";
-            context.linewidth = 5;
+            context.lineWidth = 2;
             context.strokeRect(minMax.minX, minMax.minY, minMax.maxX - minMax.minX, minMax.maxY - minMax.minY);
         }
     }
@@ -303,13 +309,13 @@ function loadAgentsInfo(agents){
                 }
                 else{
                     subentitiesText += `<div id="subentity-color" class="mb-0 mt-3"><span>Color</span><br/> 
-                    <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Black</span></button>
-                    <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">White</span></button>
-                    <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Grey</span></button>
+                    <button type="button" class="btn btn-dark rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Black</span></button>
+                    <button type="button" class="btn btn-light rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">White</span></button>
+                    <button type="button" class="btn btn-secondary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Grey</span></button>
                     <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Blue</span></button>
-                    <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Red</span></button>
-                    <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Yellow</span></button>
-                    <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Green</span></button>
+                    <button type="button" class="btn btn-danger rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Red</span></button>
+                    <button type="button" class="btn btn-warning rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Yellow</span></button>
+                    <button type="button" class="btn btn-success rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Green</span></button>
                     <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Other</span></button>
                     <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>
                     </div></div>`;
@@ -360,6 +366,8 @@ function removeGroup(groupNumber){
     var agents = Object.keys(groupsInPicture[groupNumber]);
     for(j = 0; j < agents.length; j++){
         var agent = agents[j];
+        var joinButton = document.getElementById('join-agent-btn-' + agent.replace('agent_', ''));
+        joinButton.classList.remove('disabled');
         var currentTagToRemove = $(agent.replace('agent_', '#current-labels-')).find("button")[1];//Group tag is element 1
         if(Object.keys(groupsInPicture[groupNumber]).length > 1){
             removeAutomaticTag(currentTagToRemove, true);
@@ -392,8 +400,8 @@ function getAgentInnerHTML(i, currentClass){
     agentHTML;
     
     if(selectedDatasetType == "persons"){
-        innerHTML += `<div class="mb-0 mt-4"><div class="col col-lg-6 join-agent"><button id="join-agent-btn-` + i + `" type="button" class="btn btn-primary rounded btn-sm" data-toggle="modal" onClick="showGroupAssignationPopup(` + i + `)" data-target="#assignGroupPopup" title="Click to assign a group">
-        <span class="font-weight-bold">Join to agent</span></button></div></div>`;
+        innerHTML += `<div class="mb-0 mt-4"><div class="col col-lg-6 join-agent"><button id="join-agent-btn-` + i + `" type="button" class="btn btn-primary rounded btn-sm" style="width:10vw;" data-toggle="modal" onClick="showGroupAssignationPopup(` + i + `)" data-target="#assignGroupPopup" title="Click to assign a group">
+        <span class="font-weight-bold">Join to agent/group</span></button></div></div>`;
     }
     else{
         if(currentClass.toLowerCase().indexOf("car") != -1){
@@ -430,13 +438,16 @@ function showGroupAssignationPopup(agentNumber){
     for(i = 0; i < groupsKeys.length; i++){
         var key = groupsKeys[i]
         for(j = 0; j < Object.keys(groupsInPicture[key]).length; j++){
-            var newOption = document.createElement('option');
-            newOption.value = Object.keys(groupsInPicture[key])[j].replace("agent_", "Agent ");
-            newOption.innerText = Object.keys(groupsInPicture[key])[j].replace("agent_", "Agent ");
-            if(Object.keys(groupsInPicture[key]).length > 1){
-                newOption.innerText += " (Group " + key + ")";
+            var agNum = parseInt(Object.keys(groupsInPicture[key])[j].replace("agent_", ""));
+            if(agentNumber != agNum){
+                var newOption = document.createElement('option');
+                newOption.value = Object.keys(groupsInPicture[key])[j].replace("agent_", "Agent ");
+                newOption.innerText = Object.keys(groupsInPicture[key])[j].replace("agent_", "Agent ");
+                if(Object.keys(groupsInPicture[key]).length > 1){
+                    newOption.innerText += " (Group " + key + ")";
+                }
+                selectObject.appendChild(newOption);
             }
-            selectObject.appendChild(newOption);
         }
     }
     saveChangesButton.setAttribute("onclick", "addAgentToGroup('agentsSelect', " + agentNumber + ")")
@@ -568,7 +579,16 @@ function getPictureDivision(y){
     return pictureDivision;
 }
 
+function changeImagePtgAnnotated(){
+    var percentageElem = document.getElementById('ptg-annotated');
+    percentageElem.innerHTML = percentageImageAnnotated + "%";
+    percentageElem.parentElement.style.width = percentageImageAnnotated + "%";
+}
+
 function toggleTag(element){
+    globalNumberOfTagsPressed += 1
+    percentageImageAnnotated = ((globalNumberOfTagsPressed/numberOfTagsToPressInImage) * 100).toFixed();
+    changeImagePtgAnnotated();
     var elementParentChildren = element.parentElement.children;
     for(i = 2; i < elementParentChildren.length; i++){//first two elements are not buttons
         elementParentChildren[i].classList.remove("tag-pressed");
@@ -636,6 +656,11 @@ function loadAgents(){
         }
     }
 
+    numberOfTagsToPressInImage = getNumberOfTagsTopress(datasetSpecificFeatures.agents.length);
+    percentageImageAnnotated = 0;
+    globalNumberOfTagsPressed = 0;
+    changeImagePtgAnnotated();
+
     addGroupButtonToAgent();
 }
 
@@ -656,7 +681,7 @@ function addGroupButtonToAgent(){
                     var button = document.createElement("button");
                     button.type = "button";
                     button.className = "btn btn-primary rounded-pill btn-sm group-btn";
-                    button.innerHTML = "<span class='font-weight-bold'>Group " + j + "</span>";
+                    button.innerHTML = "<span class='font-weight-bold'>Group " + groupsKeys[j] + "</span>";
                     button.setAttribute("onclick", "removeAutomaticTag(this, false)");
                     cardBody.appendChild(button);
                 }
@@ -690,7 +715,8 @@ function removeAutomaticTag(element, removeGroup){
             }
 
             //Assign the agent to a new group
-            groupsInPicture[groupsKeys.length] = new Object();
+            groupsInPicture[groupsKeys.length + 1] = new Object();
+            groupsKeys = Object.keys(groupsInPicture);
             groupsInPicture[groupsKeys.length][agent] = new Object();
             groupsInPicture[groupsKeys.length][agent].xInit = xInit;
             groupsInPicture[groupsKeys.length][agent].yInit = yInit;
@@ -721,8 +747,8 @@ function selectAgentInCanvas(visibleAgentsIndex){
 }
 
 function highlightRect(context, x, y, w, h){
+    context.lineWidth = 5;
     context.strokeStyle = 'yellow';
-    context.linewidth = 10;
     context.strokeRect(x, y, w, h);
 }
 
@@ -793,7 +819,7 @@ function getAgentToDeploy(relX, relY){
     return agentToDeploy;
 }
 
-function saveCurrent(){
+async function saveCurrent(){
     var numberOfAgents = datasetSpecificFeatures.numberOfAgents;
     var index = 0;
 
@@ -833,7 +859,7 @@ function saveCurrent(){
     }
     else{
         imageLabelled = true;
-        saveEditedJson(imgData.json);
+        await saveEditedJson(imgData.json);
     }
 }
 
@@ -858,6 +884,25 @@ function datasetJSONParse(agentIndex, agentNewKeysIndex, agent, currentAgentNewI
     parserInfo.agent = agent;
 
     return parserInfo;
+}
+
+function getNumberOfTagsTopress(numberOfAgents){
+    var numberOfTagsTopress = 0;
+    var index = 1;
+    for (i = 0; i < numberOfAgents; i++){
+        var numberOfTagsTopressPerAgent = 0;
+        var isRealAgent = getAgentAutenticity(i, false);
+        if(isRealAgent){
+            var query = $("#floating-window-" + index + " >> div");
+            if(query.length > 0){
+                numberOfTagsTopressPerAgent = query.length - 2;//We don't take into account "join to agent" button and current labels
+            }
+            index += 1;
+        }
+        numberOfTagsTopress += numberOfTagsTopressPerAgent;
+    }
+    
+    return numberOfTagsTopress;
 }
 
 function isAgentCorrectlyLabelled(numberOfAgents){
@@ -905,8 +950,8 @@ function isAgentCorrectlyLabelled(numberOfAgents){
     return agentsCorrectlyLabelled;
 }
 
-function saveEditedJson(json){
-    fetch('/save_edited_json/' + imgData.imgName + '/' + selectedDatasetType, {//Request to flask server to save new json 
+async function saveEditedJson(json){
+    fetch('/save_edited_json/' + imgData.imgName + '/' + selectedDatasetType + '/' + imgData.json["annotator"] + '/' + selectDataset, {//Request to flask server to save new json 
         headers: {
           'Content-Type': 'application/json'
         },
@@ -931,6 +976,7 @@ async function cleanAndDrawNew(){
         canvasElem = document.getElementById('imgToAnnotate');
         zoom = document.getElementById("zoomed-canvas");
         zoomCtx = zoom.getContext("2d");
+        imgData.json["annotator"] = $("#userInfo").data('user')
         assignDatasetSpecificFeatures(imgData.json);
         autoDiscardImg = isDiscardableImg();
     }
@@ -958,8 +1004,8 @@ function isDiscardableImg(){
     }
 }
 
-function loadData(){
-    saveCurrent();
+async function loadData(){
+    await saveCurrent();
     if(imageLabelled){
         cleanAndDrawNew();
         imageLabelled = false;
@@ -969,12 +1015,12 @@ function loadData(){
 function displayMagnifyingGlass(currentElem, e, canvasElem, zoom, zoomCtx){
     var cursorX = e.pageX - $(currentElem).offset().left;//Page coordinates minus the offset of the canvas container
     var cursorY = e.pageY - $(currentElem).offset().top;
-    var zoomFactor = 2;
-    var w = zoom.offsetWidth / zoomFactor;
-    var h = zoom.offsetHeight / zoomFactor;
+    var zoomFactor = magnifyingGlassZoomFactor;
+    var w = zoom.offsetWidth / 2;
+    var h = zoom.offsetHeight / 2;
     zoomCtx.fillStyle = "transparent";
     var glassDim = 150; //Square dimensions of the magnifying glass
-    var glassCursorRepositioningFactor = glassDim/4;
+    var glassCursorRepositioningFactor = glassDim/(2*zoomFactor);
     var glassCanvasWidth = canvasElem.height/zoomFactor;//current width of canvasElem divided by zoomFactor*canvas width/canvas height);
     var glassCanvasHeight = glassCanvasWidth;//Since the glass is a square canvas we use glassCanvasWidth
     zoomCtx.drawImage(canvasElem, cursorX-glassCursorRepositioningFactor, cursorY-glassCursorRepositioningFactor, glassCanvasWidth, glassCanvasHeight, 0, 0, canvasElem.width, canvasElem.height);
@@ -1033,6 +1079,8 @@ async function selectDataset(ds, type){
     }
     $('#agentsTabs').css("visibility", "visible");
     $('.custom-select').css("visibility", "visible");
+    $('.w3-container').css("visibility", "visible");
+    $('#ptg-annotated-text').css("visibility", "visible");
     $('#ds-buttons').css("visibility", "hidden");
 }
 
@@ -1121,12 +1169,89 @@ function displayPtgLabelled(){
     }
 }
 
-$(document).ready(function() {
+function changeZoomFactor(e) {
+    var evtobj = window.event? event : e
+    if (evtobj.keyCode == 90 && evtobj.ctrlKey) {
+        magnifyingGlassZoomFactor += 1;
+        if(magnifyingGlassZoomFactor >= 10){
+            magnifyingGlassZoomFactor = 10;
+        }
+    }
+    else if (evtobj.keyCode == 88 && evtobj.ctrlKey){
+        magnifyingGlassZoomFactor -= 1;
+        if(magnifyingGlassZoomFactor <= 2){
+            magnifyingGlassZoomFactor = 2;
+        }
+    }
+}
+
+async function getNumImgsAnnotated(){
+    await fetch('/get_imgs_annotated/' + selectedDataset + '/' + selectedDatasetType)//Request to flask server to retrieve a random image from storage
+    .then(function (response) {
+        return response.json();
+        }).then(function (elem) {
+            imgs
+        });
+}
+
+async function getPercentageAnnotated(){
+    var percentagesDict = await getAnnotationPercentages()
+    updatePercentages(percentagesDict);
+}
+
+function updatePercentages(percentagesDict){
+    var percentages = $('.percentage-completed');
+    var personsDs = Object.keys(percentagesDict["persons"]);
+    var vehiclesDs = Object.keys(percentagesDict["vehicles"])
+    var datasetElements = $(".ds-name");
+
+    for(i=0; i < personsDs.length; i++){
+        var dataSet = personsDs[i]
+        for(k = 0; k < datasetElements.length; k++){
+            if(datasetElements[k].dataset.dsType == "persons" && datasetElements[k].dataset.dsName == dataSet){
+                var ptgElement = document.getElementById('ptg-' + dataSet + '-persons');
+                var ptg = percentagesDict["persons"][dataSet].toString();
+                if(ptg.length == 1){
+                    ptg = "&nbsp;&nbsp;" + ptg + "%&nbsp;&nbsp;"
+                }
+                else if(ptg.length == 2){
+                    ptg = "&nbsp;" + ptg + "%&nbsp;"
+                }
+
+                ptgElement.innerHTML = ptg;
+                break;
+            }
+        }
+    }
+
+    for(i=0; i < vehiclesDs.length; i++){
+        var dataSet = vehiclesDs[i]
+        for(k = 0; k < datasetElements.length; k++){
+            if(datasetElements[k].dataset.dsType == "vehicles" && datasetElements[k].dataset.dsName == dataSet){
+                var ptgElement = document.getElementById('ptg-' + dataSet + '-vehicles');
+                var ptg = percentagesDict["vehicles"][dataSet].toString();
+                if(ptg.length == 1){
+                    ptg = "&nbsp;&nbsp;" + ptg + "%&nbsp;&nbsp;"
+                }
+                else if(ptg.length == 2){
+                    ptg = "&nbsp;" + ptg + "%&nbsp;"
+                }
+
+                ptgElement.innerHTML = ptg;
+                break;
+            }
+        }
+    }
+}
+
+$(document).ready(async function() {
+    await getPercentageAnnotated();
     displayPtgLabelled();
 
     $('#canvasContainer').mousemove(function(e){
         if(selectedDataset != ""){
             displayMagnifyingGlass(this, e, canvasElem, zoom, zoomCtx);
+            document.onkeydown = changeZoomFactor;
         }
     });
 
@@ -1146,5 +1271,5 @@ $(document).ready(function() {
             collapseAllButThis(collapsableElement);
             displayFloatingInfo(agentNumber);
         }
-    });    
+    });   
 });

@@ -375,7 +375,7 @@ canvas#imgToAnnotate { border: 1px solid white; width: auto; height: auto; posit
 }
 
 .tag-pressed{
-    background: #3f6995;
+    background: #243d57;
     color: white;
 }
 
@@ -469,7 +469,8 @@ background-color: #ddd;
 .percentage-completed{
     position: relative;
     top: -2.1vw; 
-    right: -64.1vw;
+    right: -64.3vw;
+    font-size: 1.3vw;
 }
 
 .ptg-labelled-title{
