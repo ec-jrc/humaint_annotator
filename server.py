@@ -37,7 +37,7 @@ def open_DB_connection(rqst, variables, db_name):
         inter_agreement = int(get_inter_agreement())
         if variables[1] == 'persons':
             cursor.execute("SELECT img_id, dataset, city, file_name FROM imgs_info WHERE dataset=%(dataset)s AND persons_annotated=%(inter_agreement)s"
-                           " AND discarded_by_user IS NOT TRUE AND auto_discarded IS NOT TRUE",
+                           " AND discarded_by_user IS NOT TRUE AND auto_discarded IS NOT TRUE AND is_key_frame=1",
                            {'dataset': variables[0], 'inter_agreement': inter_agreement}) #Number of images that have been annotated by the number
             # of inter_agreement annotators (default 3)
             result = cursor.fetchall()
@@ -48,18 +48,17 @@ def open_DB_connection(rqst, variables, db_name):
                     cursor.execute("SELECT img_id, dataset, city, file_name FROM imgs_info WHERE dataset=%(dataset)s AND persons_annotated=%("
                                    "aux_inter_agreement)s AND NOT (SELECT COUNT(*) FROM img_annotator_relation WHERE "
                                    "img_annotator_relation.img_name=imgs_info.file_name AND user_name=%(user_name)s AND ds_type='persons')>0 AND "
-                                   "discarded_by_user IS NOT TRUE AND auto_discarded IS NOT TRUE", {'dataset': variables[0], 'aux_inter_agreement':
-                                    aux_inter_agreement, 'user_name': current_user.name}) #We select the images with less than 3 annotators and for
-                    # which the
-                    # current user has not
-                    # participated (i.e. image of a given name in imgs_info table is not found in img_annotator_relation table)
+                                   "discarded_by_user IS NOT TRUE AND auto_discarded IS NOT TRUE AND is_key_frame=1", {'dataset': variables[0],
+                                   'aux_inter_agreement': aux_inter_agreement, 'user_name': current_user.name}) #We select the images with less
+                    # than 3 annotators and for which the current user has not participated (i.e. image of a given name in imgs_info table is not
+                    # found in img_annotator_relation table)
                     result = cursor.fetchall()
                     aux_inter_agreement -= 1
                     if len(result) != 0:
                         break
             else:
                 cursor.execute("SELECT img_id, dataset, city, file_name FROM imgs_info WHERE dataset=%(dataset)s AND persons_annotated=0"
-                       " AND discarded_by_user IS NOT TRUE AND auto_discarded IS NOT TRUE",
+                       " AND discarded_by_user IS NOT TRUE AND auto_discarded IS NOT TRUE AND is_key_frame=1",
                        {'dataset': variables[0]})
 
         elif variables[1] == 'vehicles':
@@ -76,15 +75,15 @@ def open_DB_connection(rqst, variables, db_name):
                     cursor.execute("SELECT img_id, dataset, city, file_name FROM imgs_info WHERE dataset=%(dataset)s AND vehicles_annotated=%("
                                    "aux_inter_agreement)s AND NOT (SELECT COUNT(*) FROM img_annotator_relation WHERE "
                                    "img_annotator_relation.img_name=imgs_info.file_name AND user_name=%(user_name)s AND ds_type='vehicles')>0 AND"
-                                   "discarded_by_user IS NOT TRUE AND auto_discarded IS NOT TRUE", {'dataset': variables[0], 'aux_inter_agreement':
-                                   aux_inter_agreement, 'user_name': current_user.name})
+                                   "discarded_by_user IS NOT TRUE AND auto_discarded IS NOT TRUE AND is_key_frame=1", {'dataset': variables[0],
+                                   'aux_inter_agreement': aux_inter_agreement, 'user_name': current_user.name})
                     result = cursor.fetchall()
                     aux_inter_agreement -= 1
                     if len(result) != 0:
                         break
             else:
                 cursor.execute("SELECT img_id, dataset, city, file_name FROM imgs_info WHERE dataset=%(dataset)s AND vehicles_annotated=0 AND"
-                           "discarded_by_user IS NOT TRUE AND auto_discarded IS NOT TRUE", {'dataset': variables[0]})
+                           "discarded_by_user IS NOT TRUE AND auto_discarded IS NOT TRUE AND is_key_frame=1", {'dataset': variables[0]})
 
     elif rqst == "get_json":
         edit_db_entry = variables[2]
@@ -118,6 +117,17 @@ def open_DB_connection(rqst, variables, db_name):
         cursor.execute("INSERT INTO img_annotator_relation (img_name, user_name, ds_type) VALUES (%(img_name)s, %(user_name)s, %(ds_type)s);",
                        {'img_name': variables[0], 'user_name': variables[1], 'ds_type': variables[2]})
         conn.commit()
+    elif rqst == "get_sweeps_jsons":
+        cursor.execute("SELECT associated_json FROM imgs_info WHERE key_frame_name=%(kf_name)s AND is_key_frame=0;", {'kf_name': variables[0]})
+    elif rqst == "update_sweeps":
+        if variables[1] == "persons":
+            cursor.execute("UPDATE imgs_info SET persons_annotated=persons_annotated+1 WHERE key_frame_name=%(kf_name)s AND is_key_frame=0;",
+                           {'kf_name': variables[0]})
+        elif variables[1] == "vehicles":
+            cursor.execute("UPDATE imgs_info SET vehicles_annotated=vehicles_annotated+1 WHERE key_frame_name=%(kf_name)s AND is_key_frame=0;",
+                           {'kf_name': variables[0]})
+        conn.commit()
+
 
     if len(result) == 0:
         result = cursor.fetchall()
@@ -197,11 +207,15 @@ def get_img_json(dataset, file_name):
     edit_db_entry = False
     variables = [file_name, "", edit_db_entry]
     json_file = str(open_DB_connection("get_json", variables, 'img_info')[0][0])
+    json_data = search_json_in_datasets(json_file, dataset)
 
-    #TEMPORARY TILL JSONS ARE IN STORAGE
+    return json_data
+
+def search_json_in_datasets(json_file, dataset):
+    # TEMPORARY TILL JSONS ARE IN STORAGE
     jsons_path = "annotations_json/"
     if dataset == "eurocity":
-        jsons_path += "ECP/barcelona/" # Barcelona for test purposes
+        jsons_path += "ECP/barcelona/"  # Barcelona for test purposes
     elif dataset == "citypersons":
         jsons_path += "citypersons/strasbourg/"
     elif dataset == "nuscenes":
@@ -223,18 +237,61 @@ def get_img_json(dataset, file_name):
 
     return json_data
 
-@app.route('/save_edited_json/<img_name>/<dataset_type>/<annotator>', methods=['POST'])
-def save_edited_json(img_name, dataset_type, annotator):
+@app.route('/save_edited_json/<img_name>/<dataset_type>/<annotator>/<selected_dataset>', methods=['POST'])
+def save_edited_json(img_name, dataset_type, annotator, selected_dataset):
     # POST request
     edited_json = request.get_json()
+    dict_of_agents = create_edited_agents(edited_json)
     edit_db_entry = True
     variables = [img_name, dataset_type, edit_db_entry]
     create_new_annotation_entry(img_name, dataset_type)
     json_file = str(open_DB_connection("get_json", variables, 'img_info')[0][0])
-    json_file_path = "edited_jsons/" + json_file.replace('.json', '_' + annotator + '.json')
-    with open(json_file_path, 'w', encoding='utf-8') as f:
-        json.dump(edited_json, f, ensure_ascii=False, indent=4)
+    list_of_sweeps_jsons = get_list_of_sweeps_jsons(img_name)
+
+    edit_json_files(json_file, edited_json, dict_of_agents, list_of_sweeps_jsons, annotator, selected_dataset)
+    update_sweeps_in_db(img_name, dataset_type)
+
     return 'OK', 200
+
+def update_sweeps_in_db(key_frame_name, ds_type):
+    variables = [key_frame_name, ds_type]
+    updated = open_DB_connection("update_sweeps", variables, "imgs_info")
+
+def edit_json_files(json_file, edited_json, dict_of_agents, list_of_sweeps_jsons, annotator, selected_dataset):
+    #First edit the key frame json
+    key_frame_json_path = "edited_jsons/" + json_file.replace('.json', '_' + annotator + '.json')
+    with open(key_frame_json_path, 'w', encoding='utf-8') as f:
+        json.dump(edited_json, f, ensure_ascii=False, indent=4)
+
+    #Then edit sweeps' jsons
+    for sweep in list_of_sweeps_jsons:
+        sweep_json = search_json_in_datasets(sweep[0], selected_dataset)
+        edited_sweep_json_path = "edited_jsons/" + sweep[0].replace('.json', '_' + annotator + '.json')
+        #current_json = json.dumps(sweep_json, indent=4)
+        for agent in dict_of_agents:
+            k = 0
+            while k < len(sweep_json["agents"]):
+                if sweep_json["agents"][k]['uuid'] == agent:
+                    sweep_json["agents"][k] = dict_of_agents[agent]
+                    break
+                k += 1
+
+        with open(edited_sweep_json_path, 'w', encoding='utf-8') as ef:
+            json.dump(sweep_json, ef, ensure_ascii=False, indent=4)
+
+
+def create_edited_agents(edited_json):
+    dict_of_agents = {}
+    for agent in edited_json["json"]["agents"]:
+        dict_of_agents[agent["uuid"]] = agent
+
+    return dict_of_agents
+
+def get_list_of_sweeps_jsons(key_frame_name):
+    variables = [key_frame_name]
+    list_of_sweeps_jsons = open_DB_connection("get_sweeps_jsons", variables, 'imgs_info')
+    return list_of_sweeps_jsons
+
 
 @app.route('/user_credentials/<user_email>/<user_pwd>/<remember_user>', methods=['GET'])
 def login(user_email, user_pwd, remember_user):
