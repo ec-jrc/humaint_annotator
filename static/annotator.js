@@ -951,7 +951,7 @@ function isAgentCorrectlyLabelled(numberOfAgents){
 }
 
 async function saveEditedJson(json){
-    fetch('/save_edited_json/' + imgData.imgName + '/' + selectedDatasetType + '/' + imgData.json["annotator"], {//Request to flask server to save new json 
+    fetch('/save_edited_json/' + imgData.imgName + '/' + selectedDatasetType + '/' + imgData.json["annotator"] + '/' + selectDataset, {//Request to flask server to save new json 
         headers: {
           'Content-Type': 'application/json'
         },
@@ -1244,8 +1244,8 @@ function updatePercentages(percentagesDict){
     }
 }
 
-$(document).ready(function() {
-    getPercentageAnnotated();
+$(document).ready(async function() {
+    await getPercentageAnnotated();
     displayPtgLabelled();
 
     $('#canvasContainer').mousemove(function(e){
