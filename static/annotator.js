@@ -586,12 +586,12 @@ function changeImagePtgAnnotated(){
 }
 
 function toggleTag(element){
-    globalNumberOfTagsPressed += 1
-    percentageImageAnnotated = ((globalNumberOfTagsPressed/numberOfTagsToPressInImage) * 100).toFixed();
-    changeImagePtgAnnotated();
     var elementParentChildren = element.parentElement.children;
     for(i = 2; i < elementParentChildren.length; i++){//first two elements are not buttons
-        elementParentChildren[i].classList.remove("tag-pressed");
+        if(elementParentChildren[i].classList.contains("tag-pressed")){
+            globalNumberOfTagsPressed -= 1;
+            elementParentChildren[i].classList.remove("tag-pressed");
+        }
         if(elementParentChildren[i].classList.contains("btn-dark-skin")){
             elementParentChildren[i].classList.add("btn-dark-skin-tone");
         }
@@ -612,6 +612,9 @@ function toggleTag(element){
         element.classList.remove("btn-primary");
     }
     element.classList.add("tag-pressed");
+    globalNumberOfTagsPressed += 1;
+    percentageImageAnnotated = ((globalNumberOfTagsPressed/numberOfTagsToPressInImage) * 100).toFixed();
+    changeImagePtgAnnotated();
 
     var currentAgent = element.closest(".container").firstElementChild.id.replace("current-labels-", "Agent ");//Get agent name
     var category = element.parentElement.firstElementChild.innerText;//Get label category
