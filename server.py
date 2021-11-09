@@ -150,7 +150,7 @@ def get_inter_agreement():
 def is_inter_agreement_quota_acquired(query_result, dataset, ds_type):
     with open('config.json') as config_file:
         config = json.load(config_file)
-        inter_agreement_quota = config['num_imgs_several_annotators'][ds_type][dataset]
+        inter_agreement_quota = config['num_imgs_several_annotators'][ds_type][dataset.lower()]
         if len(query_result) >= inter_agreement_quota:
             return True
         else:
