@@ -74,7 +74,7 @@ def open_DB_connection(rqst, variables, db_name):
                 while (aux_inter_agreement >= 0):
                     cursor.execute("SELECT img_id, dataset, city, file_name FROM imgs_info WHERE dataset=%(dataset)s AND vehicles_annotated=%("
                                    "aux_inter_agreement)s AND NOT (SELECT COUNT(*) FROM img_annotator_relation WHERE "
-                                   "img_annotator_relation.img_name=imgs_info.file_name AND user_name=%(user_name)s AND ds_type='vehicles')>0 AND"
+                                   "img_annotator_relation.img_name=imgs_info.file_name AND user_name=%(user_name)s AND ds_type='vehicles')>0 AND "
                                    "discarded_by_user IS NOT TRUE AND auto_discarded IS NOT TRUE AND is_key_frame=1", {'dataset': variables[0],
                                    'aux_inter_agreement': aux_inter_agreement, 'user_name': current_user.name})
                     result = cursor.fetchall()
@@ -150,7 +150,7 @@ def get_inter_agreement():
 def is_inter_agreement_quota_acquired(query_result, dataset, ds_type):
     with open('config.json') as config_file:
         config = json.load(config_file)
-        inter_agreement_quota = config['num_imgs_several_annotators'][ds_type][dataset]
+        inter_agreement_quota = config['num_imgs_several_annotators'][ds_type][dataset.lower()]
         if len(query_result) >= inter_agreement_quota:
             return True
         else:
