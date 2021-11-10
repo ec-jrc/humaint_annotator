@@ -910,11 +910,14 @@ function getNumberOfTagsTopress(numberOfAgents){
 
 function isAgentCorrectlyLabelled(numberOfAgents){
     var agentsCorrectlyLabelled = 0;
+    var realAgents = 0;
+    var nonRealAgents = 0;
     for (i = 0; i < numberOfAgents; i++){
         var isRealAgent = getAgentAutenticity(i, false);
+        var categoriesLabelled = 0;
         if(isRealAgent){
-            var index = i + 1;
-            var query = $("#floating-window-" + index + " >> div");
+            realAgents +=1;
+            var query = $("#floating-window-" + realAgents + " >> div");
             var numCategoriesAgent = query.length;
             for(j = 1; j < numCategoriesAgent - 1; j++){//We don't want the current labels nor the custom label form info
                 if(!query[j].firstElementChild.classList.contains('join-agent')){
@@ -932,25 +935,26 @@ function isAgentCorrectlyLabelled(numberOfAgents){
                     }
                     else{
                         //Look for pressed tags in category
-                        agentsCorrectlyLabelled = $(query[j]).find(".tag-pressed").length;
-                    }
-
-                    if(!agentsCorrectlyLabelled){//If one category is not labelled, agent is not correctly labelled
-                        break;
+                        if($(query[j]).find(".tag-pressed").length == 1){
+                            categoriesLabelled +=1;
+                        }
                     }
                 }
             }
 
-            if(!agentsCorrectlyLabelled){//If one category is not labelled, agent is not correctly labelled
+            if(categoriesLabelled != numCategoriesAgent - 2){//If one category is not labelled, agent is not correctly labelled
                 break;
+            }
+            else{
+                agentsCorrectlyLabelled += 1;
             }
         }
         else{
-            agentsCorrectlyLabelled = numberOfAgents;
+            nonRealAgents += 1;
         }
     }
 
-    return agentsCorrectlyLabelled;
+    return agentsCorrectlyLabelled == realAgents;//return true if all real agents are correctly labelled
 }
 
 async function saveEditedJson(json){
