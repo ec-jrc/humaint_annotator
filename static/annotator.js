@@ -495,6 +495,7 @@ function addAgentToGroup(selectObject, agentNumber){
     }
     drawImgCanvas(canvasElem.getContext("2d"), imgData.img, canvasElem);
     if(document.getElementById('group-btn-' + newGroup) == null){
+        document.getElementById('groupsList').innerHTML = "Available groups:&nbsp;&nbsp";
         addGroupTag(newGroup);
     }
     addGroupButtonToAgent();
