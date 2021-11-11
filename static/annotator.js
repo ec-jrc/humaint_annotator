@@ -189,11 +189,20 @@ async function loadJSONData(file){
 function loadCanvas(canvasElem){
     var canvas = canvasElem,
     context = canvas.getContext('2d');
-
+    var floatingWindowHeight = 617;
     img = new Image();
     img.onload = function(){
         drawImgCanvas(context, img, canvasElem)
     }
+    if(selectedDataset != "kitti"){//DS Kitti has a different aspect ratio and hence cannot be adapted to usual canvas
+        canvasHeight = 654;
+        
+    }
+    else{
+        canvasHeight = 370;
+        floatingWindowHeight = 335;
+    }
+    document.getElementById("canvasContainer").style.height = canvasHeight + "px"
     img.width = canvasWidth;
     img.height = canvasHeight;
     img.src = imgData.src;//src is specified later so that the browser does not use cached image
@@ -658,6 +667,15 @@ function loadAgents(){
             newAgentsLabels["Agent " + agentIndex] = new Object();
             newAgentsLabels["Agent " + agentIndex]["sub_entities"] = new Object();
         }
+    }
+
+    var floatingWindowHeight = 617;
+    if(selectedDataset == "kitti"){
+        floatingWindowHeight = 335;
+    }
+    var elements = document.querySelectorAll('.floating-window-container');
+    for(var i=0; i<elements.length; i++){
+        elements[i].style.height = floatingWindowHeight + "px";
     }
 
     numberOfTagsToPressInImage = getNumberOfTagsTopress(datasetSpecificFeatures.agents.length);
