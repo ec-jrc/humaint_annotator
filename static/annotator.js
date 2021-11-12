@@ -189,19 +189,11 @@ async function loadJSONData(file){
 function loadCanvas(canvasElem){
     var canvas = canvasElem,
     context = canvas.getContext('2d');
-    var floatingWindowHeight = 617;
     img = new Image();
     img.onload = function(){
         drawImgCanvas(context, img, canvasElem)
     }
-    if(selectedDataset != "kitti"){//DS Kitti has a different aspect ratio and hence cannot be adapted to usual canvas
-        canvasHeight = 654;
-        
-    }
-    else{
-        canvasHeight = 370;
-        floatingWindowHeight = 335;
-    }
+
     document.getElementById("canvasContainer").style.height = canvasHeight + "px"
     img.width = canvasWidth;
     img.height = canvasHeight;
@@ -996,6 +988,14 @@ async function saveEditedJson(json){
 async function cleanAndDrawNew(){
     groupsInPicture = {};
     closeAllFloatingWindows();
+
+    if(selectedDataset != "kitti"){//DS Kitti has a different aspect ratio and hence cannot be adapted to usual canvas
+        canvasHeight = 654;  
+    }
+    else{
+        canvasHeight = 370;
+    }
+
     var autoDiscardImg = true;
     while(autoDiscardImg){
         await getRandomImageDataFromDataset();
