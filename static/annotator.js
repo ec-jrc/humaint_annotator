@@ -189,11 +189,12 @@ async function loadJSONData(file){
 function loadCanvas(canvasElem){
     var canvas = canvasElem,
     context = canvas.getContext('2d');
-
     img = new Image();
     img.onload = function(){
         drawImgCanvas(context, img, canvasElem)
     }
+
+    document.getElementById("canvasContainer").style.height = canvasHeight + "px"
     img.width = canvasWidth;
     img.height = canvasHeight;
     img.src = imgData.src;//src is specified later so that the browser does not use cached image
@@ -660,6 +661,15 @@ function loadAgents(){
         }
     }
 
+    var floatingWindowHeight = 617;
+    if(selectedDataset == "kitti"){
+        floatingWindowHeight = 335;
+    }
+    var elements = document.querySelectorAll('.floating-window-container');
+    for(var i=0; i<elements.length; i++){
+        elements[i].style.height = floatingWindowHeight + "px";
+    }
+
     numberOfTagsToPressInImage = getNumberOfTagsTopress(datasetSpecificFeatures.agents.length);
     percentageImageAnnotated = 0;
     globalNumberOfTagsPressed = 0;
@@ -978,6 +988,14 @@ async function saveEditedJson(json){
 async function cleanAndDrawNew(){
     groupsInPicture = {};
     closeAllFloatingWindows();
+
+    if(selectedDataset != "kitti"){//DS Kitti has a different aspect ratio and hence cannot be adapted to usual canvas
+        canvasHeight = 654;  
+    }
+    else{
+        canvasHeight = 370;
+    }
+
     var autoDiscardImg = true;
     while(autoDiscardImg){
         await getRandomImageDataFromDataset();
