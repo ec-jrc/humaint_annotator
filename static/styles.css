@@ -379,6 +379,10 @@ canvas#imgToAnnotate { border: 1px solid white; width: auto; height: auto; posit
     color: white;
 }
 
+.icon-pressed{
+    color: #243d57;
+}
+
 .group-btn:hover:after{
     content: "  X";
 }
