@@ -38,26 +38,25 @@ const pedestrianHTML = `<div class="mb-0 mt-2"><span>Age</span><br/>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Others</span></button></div>`
 
 const vehicleHTML = `<div class="mb-0 mt-2"><span>Vehicle Type</span><br/> 
-<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Bicycle</span></button>
-<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Car</span></button>
-<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Motorcycle</span></button>
-<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Truck</span></button>
-<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Bus</span></button>
-<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Van</span></button>
-<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Ambulance</span></button>
-<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Fire truck</span></button>
-<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Police car</span></button>
-<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Police van</span></button>
-<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">other</span></button>
-<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>
+<i class="fas fa-bicycle fa-3x" style="color:#0b5ed7;" onClick="toggleTag(this)" data-vehicle-type="bicycle"></i>
+<i class="fas fa-car-side fa-3x" style="color:#0b5ed7;" onClick="toggleTag(this)" data-vehicle-type="car"></i>
+<i class="fas fa-motorcycle fa-3x" style="color:#0b5ed7;" onClick="toggleTag(this)" data-vehicle-type="motorcycle"></i>
+<i class="fas fa-truck-moving fa-3x" style="color:#0b5ed7;" onClick="toggleTag(this)" data-vehicle-type="truck"></i>
+<i class="fas fa-bus fa-3x" style="color:#0b5ed7;" onClick="toggleTag(this)" data-vehicle-type="bus"></i>
+<i class="fas fa-shuttle-van fa-3x" style="color:#0b5ed7;" onClick="toggleTag(this)" data-vehicle-type="van"></i>
+<i class="fas fa-ambulance fa-3x" style="color:#0b5ed7;" onClick="toggleTag(this)" data-vehicle-type="ambulance"></i>
+<i class="fas fa-fire-extinguisher fa-3x" style="color:#0b5ed7;" onClick="toggleTag(this)" data-vehicle-type="firetruck"></i>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Other</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button>
+</div>
 <div class="mb-0 mt-2"><span>Color</span><br/>
-<button type="button" class="btn btn-dark rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Black</span></button>
-<button type="button" class="btn btn-light rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">White</span></button>
-<button type="button" class="btn btn-secondary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Grey</span></button>
-<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Blue</span></button>
-<button type="button" class="btn btn-danger rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Red</span></button>
-<button type="button" class="btn btn-warning rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Yellow</span></button>
-<button type="button" class="btn btn-success rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Green</span></button>
+<button type="button" class="btn btn-dark rounded-pill btn-sm dark-btn" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Black</span></button>
+<button type="button" class="btn btn-light rounded-pill btn-sm light-btn" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">White</span></button>
+<button type="button" class="btn btn-secondary rounded-pill btn-sm secondary-btn" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Grey</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm primary-btn" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Blue</span></button>
+<button type="button" class="btn btn-danger rounded-pill btn-sm danger-btn" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Red</span></button>
+<button type="button" class="btn btn-warning rounded-pill btn-sm warning-btn" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Yellow</span></button>
+<button type="button" class="btn btn-success rounded-pill btn-sm success-btn" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Green</span></button>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Other</span></button>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>`
 
@@ -600,8 +599,34 @@ function toggleTag(element){
         else if(elementParentChildren[i].classList.contains("btn-light-skin")){
             elementParentChildren[i].classList.add("btn-light-skin-tone");
         }
-        else{
+        else if(elementParentChildren[i].classList.contains("dark-btn")){
+            elementParentChildren[i].classList.add("btn-dark");
+        }
+        else if(elementParentChildren[i].classList.contains("light-btn")){
+            elementParentChildren[i].classList.add("btn-light");
+        }
+        else if(elementParentChildren[i].classList.contains("secondary-btn")){
+            elementParentChildren[i].classList.add("btn-secondary");
+        }
+        else if(elementParentChildren[i].classList.contains("primary-btn")){
             elementParentChildren[i].classList.add("btn-primary");
+        }
+        else if(elementParentChildren[i].classList.contains("danger-btn")){
+            elementParentChildren[i].classList.add("btn-danger");
+        }
+        else if(elementParentChildren[i].classList.contains("warning-btn")){
+            elementParentChildren[i].classList.add("btn-warning");
+        }
+        else if(elementParentChildren[i].classList.contains("success-btn")){
+            elementParentChildren[i].classList.add("btn-success");
+        }
+        else{
+            if(element.tagName.toLowerCase() == "button"){
+                elementParentChildren[i].classList.add("btn-primary");
+            }
+            else{
+                element.style.color = "#0b5ed7"
+            }
         }
     }
     if(element.classList.contains("btn-dark-skin")){
@@ -610,17 +635,55 @@ function toggleTag(element){
     else if(element.classList.contains("btn-light-skin")){
         element.classList.remove("btn-light-skin-tone");
     }
-    else{
+    else if(element.classList.contains("dark-btn")){
+        element.classList.remove("btn-dark");
+    }
+    else if(element.classList.contains("light-btn")){
+        element.classList.remove("btn-light");
+    }
+    else if(element.classList.contains("secondary-btn")){
+        element.classList.remove("btn-secondary");
+    }
+    else if(element.classList.contains("primary-btn")){
         element.classList.remove("btn-primary");
     }
-    element.classList.add("tag-pressed");
+    else if(element.classList.contains("danger-btn")){
+        element.classList.remove("btn-danger");
+    }
+    else if(element.classList.contains("warning-btn")){
+        element.classList.remove("btn-warning");
+    }
+    else if(element.classList.contains("success-btn")){
+        element.classList.remove("btn-success");
+    }
+    else{
+        if(element.tagName.toLowerCase() == "button"){
+            element.classList.remove("btn-primary");
+        }
+        else{
+            element.style.color = "#0b5ed7"
+        }
+    }
+    if(element.tagName.toLowerCase() == "button"){
+        element.classList.add("tag-pressed");
+    }
+    else{
+        element.classList.add("icon-pressed");
+    }
     globalNumberOfTagsPressed += 1;
     percentageImageAnnotated = ((globalNumberOfTagsPressed/numberOfTagsToPressInImage) * 100).toFixed();
     changeImagePtgAnnotated();
 
     var currentAgent = element.closest(".container").firstElementChild.id.replace("current-labels-", "Agent ");//Get agent name
     var category = element.parentElement.firstElementChild.innerText;//Get label category
-    var labelValue = element.innerText;//Get label value
+    var labelValue = ""
+    
+    if(element.tagName.toLowerCase() == "button"){
+        labelValue = element.innerText;//Get label value
+    }
+    else{
+        labelValue = element.dataset["vehicleType"];
+    }
 
     if(element.closest("#subentity") != null){//If the label comes from a subentity, agent's children dictionary has to be edited
         var subEnt = element.closest("#subentity").children[0].firstChild.innerText.toLowerCase();
