@@ -488,6 +488,10 @@ background-color: #ddd;
     height: 617px;
 }
 
+.hide-preview{
+    display: none;
+}
+
 @media screen and (max-width: 1030px) {
     .ptg-circle{
         right: -55.8vw;

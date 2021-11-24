@@ -38,17 +38,18 @@ const pedestrianHTML = `<div class="mb-0 mt-2"><span>Age</span><br/>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Others</span></button></div>`
 
 const vehicleHTML = `<div class="mb-0 mt-2"><span>Vehicle Type</span><br/> 
-<i class="fas fa-bicycle fa-3x" style="color:#0b5ed7;" onClick="toggleTag(this)" data-vehicle-type="bicycle"></i>
-<i class="fas fa-car-side fa-3x" style="color:#0b5ed7;" onClick="toggleTag(this)" data-vehicle-type="car"></i>
-<i class="fas fa-motorcycle fa-3x" style="color:#0b5ed7;" onClick="toggleTag(this)" data-vehicle-type="motorcycle"></i>
-<i class="fas fa-truck-moving fa-3x" style="color:#0b5ed7;" onClick="toggleTag(this)" data-vehicle-type="truck"></i>
-<i class="fas fa-bus fa-3x" style="color:#0b5ed7;" onClick="toggleTag(this)" data-vehicle-type="bus"></i>
-<i class="fas fa-shuttle-van fa-3x" style="color:#0b5ed7;" onClick="toggleTag(this)" data-vehicle-type="van"></i>
-<i class="fas fa-ambulance fa-3x" style="color:#0b5ed7;" onClick="toggleTag(this)" data-vehicle-type="ambulance"></i>
-<i class="fas fa-fire-extinguisher fa-3x" style="color:#0b5ed7;" onClick="toggleTag(this)" data-vehicle-type="firetruck"></i>
-<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Other</span></button>
-<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button>
-</div>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Bicycle</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Car</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Motorcycle</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Truck</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Bus</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Van</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Ambulance</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Fire truck</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Police car</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Police van</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">other</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>
 <div class="mb-0 mt-2"><span>Color</span><br/>
 <button type="button" class="btn btn-dark rounded-pill btn-sm dark-btn" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Black</span></button>
 <button type="button" class="btn btn-light rounded-pill btn-sm light-btn" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">White</span></button>
@@ -406,11 +407,13 @@ function getAgentInnerHTML(i, currentClass){
     else{
         if(currentClass.toLowerCase().indexOf("car") != -1){
             innerHTML += `<div class="mb-0 mt-2"><span>Car type</span><br/>
-            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Sedan</span></button>
-            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Wagon</span></button>
-            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Minivan</span></button>
-            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">SUV</span></button>
-            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Compact</span></button>
+            <img id="car-preview-` + i + `" class="hide-preview" src="" style="width: 100%; margin-top: -102px; height:100px;">
+            <div id="spacer-` + i + `" style="height: 22.6px"></div>
+            <button type="button" class="btn btn-primary rounded-pill btn-sm btn-sedan" data-bs-toggle="button" onClick="toggleTag(this)" onmouseover="$('#car-preview-` + i + `').attr('src', 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Paris_-_Mondial_de_l%27automobile_2010_-_Peugeot_508_-_002.JPG/1920px-Paris_-_Mondial_de_l%27automobile_2010_-_Peugeot_508_-_002.JPG');$('#car-preview-` + i + `').removeClass('hide-preview');$('#spacer-` + i +`').hide(0)" onmouseout="$('#car-preview-` + i + `').addClass('hide-preview');$('#spacer-` + i +`').show(0)"><span class="font-weight-bold">Sedan</span></button>
+            <button type="button" class="btn btn-primary rounded-pill btn-sm btn-wagon" data-bs-toggle="button" onClick="toggleTag(this)" onmouseover="$('#car-preview-` + i + `').attr('src', 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/BMW_3er_Touring_F30.jpg/1920px-BMW_3er_Touring_F30.jpg');$('#car-preview-` + i + `').removeClass('hide-preview');$('#spacer-` + i +`').hide(0)" onmouseout="$('#car-preview-` + i + `').addClass('hide-preview');$('#spacer-` + i +`').show(0)"><span class="font-weight-bold">Wagon</span></button>
+            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)" onmouseover="$('#car-preview-` + i + `').attr('src', 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/2021_Chrysler_Grand_Caravan_SE%2C_Front_Left%2C_03-25-2021.jpg/1920px-2021_Chrysler_Grand_Caravan_SE%2C_Front_Left%2C_03-25-2021.jpg');$('#car-preview-` + i + `').removeClass('hide-preview');$('#spacer-` + i +`').hide(0)" onmouseout="$('#car-preview-` + i + `').addClass('hide-preview');$('#spacer-` + i +`').show(0)"><span class="font-weight-bold">Minivan</span></button>
+            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)" onmouseover="$('#car-preview-` + i + `').attr('src', 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2016_Toyota_RAV4_%28ASA44R_MY16%29_GX_wagon_%282017-01-15%29_01.jpg/1920px-2016_Toyota_RAV4_%28ASA44R_MY16%29_GX_wagon_%282017-01-15%29_01.jpg');$('#car-preview-` + i + `').removeClass('hide-preview');$('#spacer-` + i +`').hide(0)" onmouseout="$('#car-preview-` + i + `').addClass('hide-preview');$('#spacer-` + i +`').show(0)"><span class="font-weight-bold">SUV</span></button>
+            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)" onmouseover="$('#car-preview-` + i + `').attr('src', 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/2018_Toyota_Corolla_%28MZEA12R%29_Ascent_Sport_hatchback_%282018-11-02%29_01.jpg/1920px-2018_Toyota_Corolla_%28MZEA12R%29_Ascent_Sport_hatchback_%282018-11-02%29_01.jpg');$('#car-preview-` + i + `').removeClass('hide-preview');$('#spacer-` + i +`').hide(0)" onmouseout="$('#car-preview-` + i + `').addClass('hide-preview');$('#spacer-` + i +`').show(0)"><span class="font-weight-bold">Compact</span></button>
             <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Others</span></button></div>`
         }
     }
