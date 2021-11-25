@@ -406,7 +406,7 @@ function getAgentInnerHTML(i, currentClass){
     }
     else{
         if(currentClass.toLowerCase().indexOf("car") != -1){
-            innerHTML += `<div class="mb-0 mt-2"><span>Car type</span><br/>
+            innerHTML += `<div class="mb-0 mt-2"><span data-elem-name="car-type">Car type</span><br/>
             <img id="car-preview-` + i + `" class="hide-preview" src="" style="width: 100%; margin-top: -102px; height:100px;">
             <div id="spacer-` + i + `" style="height: 22.6px"></div>
             <button type="button" class="btn btn-primary rounded-pill btn-sm btn-sedan" data-bs-toggle="button" onClick="toggleTag(this)" onmouseover="$('#car-preview-` + i + `').attr('src', 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Paris_-_Mondial_de_l%27automobile_2010_-_Peugeot_508_-_002.JPG/1920px-Paris_-_Mondial_de_l%27automobile_2010_-_Peugeot_508_-_002.JPG');$('#car-preview-` + i + `').removeClass('hide-preview');$('#spacer-` + i +`').hide(0)" onmouseout="$('#car-preview-` + i + `').addClass('hide-preview');$('#spacer-` + i +`').show(0)"><span class="font-weight-bold">Sedan</span></button>
@@ -592,6 +592,10 @@ function changeImagePtgAnnotated(){
 function toggleTag(element){
     var elementParentChildren = element.parentElement.children;
     for(i = 2; i < elementParentChildren.length; i++){//first two elements are not buttons
+        if(i == 2 && elementParentChildren[0].dataset["elemName"] == "car-type"){//On first iteration of "Car Type" tooltip and spacer must be avoided
+            i += 2;
+        }
+
         if(elementParentChildren[i].classList.contains("tag-pressed")){
             globalNumberOfTagsPressed -= 1;
             elementParentChildren[i].classList.remove("tag-pressed");
@@ -975,7 +979,8 @@ function getNumberOfTagsTopress(numberOfAgents){
         if(isRealAgent){
             var query = $("#floating-window-" + index + " >> div");
             if(query.length > 0){
-                numberOfTagsTopressPerAgent = query.length - 2;//We don't take into account "join to agent" button and current labels
+                //We don't take into account current labels (or "join to agent" button in persons datasets) 
+                numberOfTagsTopressPerAgent = selectedDatasetType == 'persons' ? query.length - 2 : query.length - 1;
             }
             index += 1;
         }
