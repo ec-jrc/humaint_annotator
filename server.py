@@ -160,7 +160,7 @@ def get_img(dataset, dataset_type):
     ds = "ECP" if dataset == "eurocity" else dataset
     variables = [ds, dataset_type]
     images = open_DB_connection("get_img", variables, 'img_info')
-    rand_index = random.randint(0, len(images))
+    rand_index = random.randint(0, len(images) - 1)
     img_uuid = images[rand_index][0]
     img_dataset = images[rand_index][1]
     img_city = images[rand_index][2]
