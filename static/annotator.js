@@ -32,6 +32,7 @@ const pedestrianHTML = `<div class="mb-0 mt-2"><span>Age</span><br/>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>
 <div class="mb-0 mt-2"><span>Mean of transport</span><br/>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Walking</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Wheelchair</span></button>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Bicycle</span></button>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Motorcycle</span></button>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Electric scooter</span></button>
@@ -51,13 +52,13 @@ const vehicleHTML = `<div class="mb-0 mt-2"><span>Vehicle Type</span><br/>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">other</span></button>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>
 <div class="mb-0 mt-2"><span>Color</span><br/>
-<button type="button" class="btn btn-dark rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Black</span></button>
-<button type="button" class="btn btn-light rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">White</span></button>
-<button type="button" class="btn btn-secondary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Grey</span></button>
-<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Blue</span></button>
-<button type="button" class="btn btn-danger rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Red</span></button>
-<button type="button" class="btn btn-warning rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Yellow</span></button>
-<button type="button" class="btn btn-success rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Green</span></button>
+<button type="button" class="btn btn-dark rounded-pill btn-sm dark-btn" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Black</span></button>
+<button type="button" class="btn btn-light rounded-pill btn-sm light-btn" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">White</span></button>
+<button type="button" class="btn btn-secondary rounded-pill btn-sm secondary-btn" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Grey</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm primary-btn" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Blue</span></button>
+<button type="button" class="btn btn-danger rounded-pill btn-sm danger-btn" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Red</span></button>
+<button type="button" class="btn btn-warning rounded-pill btn-sm warning-btn" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Yellow</span></button>
+<button type="button" class="btn btn-success rounded-pill btn-sm success-btn" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Green</span></button>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Other</span></button>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>`
 
@@ -189,11 +190,12 @@ async function loadJSONData(file){
 function loadCanvas(canvasElem){
     var canvas = canvasElem,
     context = canvas.getContext('2d');
-
     img = new Image();
     img.onload = function(){
         drawImgCanvas(context, img, canvasElem)
     }
+
+    document.getElementById("canvasContainer").style.height = canvasHeight + "px"
     img.width = canvasWidth;
     img.height = canvasHeight;
     img.src = imgData.src;//src is specified later so that the browser does not use cached image
@@ -405,12 +407,14 @@ function getAgentInnerHTML(i, currentClass){
     }
     else{
         if(currentClass.toLowerCase().indexOf("car") != -1){
-            innerHTML += `<div class="mb-0 mt-2"><span>Car type</span><br/>
-            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Sedan</span></button>
-            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Wagon</span></button>
-            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Minivan</span></button>
-            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">SUV</span></button>
-            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Compact</span></button>
+            innerHTML += `<div class="mb-0 mt-2"><span data-elem-name="car-type">Car type</span><br/>
+            <img id="car-preview-` + i + `" class="hide-preview" src="" style="width: 100%; margin-top: -102px; height:100px;">
+            <div id="spacer-` + i + `" style="height: 22.6px"></div>
+            <button type="button" class="btn btn-primary rounded-pill btn-sm btn-sedan" data-bs-toggle="button" onClick="toggleTag(this)" onmouseover="$('#car-preview-` + i + `').attr('src', 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Paris_-_Mondial_de_l%27automobile_2010_-_Peugeot_508_-_002.JPG/1920px-Paris_-_Mondial_de_l%27automobile_2010_-_Peugeot_508_-_002.JPG');$('#car-preview-` + i + `').removeClass('hide-preview');$('#spacer-` + i +`').hide(0)" onmouseout="$('#car-preview-` + i + `').addClass('hide-preview');$('#spacer-` + i +`').show(0)"><span class="font-weight-bold">Sedan</span></button>
+            <button type="button" class="btn btn-primary rounded-pill btn-sm btn-wagon" data-bs-toggle="button" onClick="toggleTag(this)" onmouseover="$('#car-preview-` + i + `').attr('src', 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/BMW_3er_Touring_F30.jpg/1920px-BMW_3er_Touring_F30.jpg');$('#car-preview-` + i + `').removeClass('hide-preview');$('#spacer-` + i +`').hide(0)" onmouseout="$('#car-preview-` + i + `').addClass('hide-preview');$('#spacer-` + i +`').show(0)"><span class="font-weight-bold">Wagon</span></button>
+            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)" onmouseover="$('#car-preview-` + i + `').attr('src', 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/2021_Chrysler_Grand_Caravan_SE%2C_Front_Left%2C_03-25-2021.jpg/1920px-2021_Chrysler_Grand_Caravan_SE%2C_Front_Left%2C_03-25-2021.jpg');$('#car-preview-` + i + `').removeClass('hide-preview');$('#spacer-` + i +`').hide(0)" onmouseout="$('#car-preview-` + i + `').addClass('hide-preview');$('#spacer-` + i +`').show(0)"><span class="font-weight-bold">Minivan</span></button>
+            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)" onmouseover="$('#car-preview-` + i + `').attr('src', 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2016_Toyota_RAV4_%28ASA44R_MY16%29_GX_wagon_%282017-01-15%29_01.jpg/1920px-2016_Toyota_RAV4_%28ASA44R_MY16%29_GX_wagon_%282017-01-15%29_01.jpg');$('#car-preview-` + i + `').removeClass('hide-preview');$('#spacer-` + i +`').hide(0)" onmouseout="$('#car-preview-` + i + `').addClass('hide-preview');$('#spacer-` + i +`').show(0)"><span class="font-weight-bold">SUV</span></button>
+            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)" onmouseover="$('#car-preview-` + i + `').attr('src', 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/2018_Toyota_Corolla_%28MZEA12R%29_Ascent_Sport_hatchback_%282018-11-02%29_01.jpg/1920px-2018_Toyota_Corolla_%28MZEA12R%29_Ascent_Sport_hatchback_%282018-11-02%29_01.jpg');$('#car-preview-` + i + `').removeClass('hide-preview');$('#spacer-` + i +`').hide(0)" onmouseout="$('#car-preview-` + i + `').addClass('hide-preview');$('#spacer-` + i +`').show(0)"><span class="font-weight-bold">Compact</span></button>
             <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Others</span></button></div>`
         }
     }
@@ -495,6 +499,7 @@ function addAgentToGroup(selectObject, agentNumber){
     }
     drawImgCanvas(canvasElem.getContext("2d"), imgData.img, canvasElem);
     if(document.getElementById('group-btn-' + newGroup) == null){
+        document.getElementById('groupsList').innerHTML = "Available groups:&nbsp;&nbsp";
         addGroupTag(newGroup);
     }
     addGroupButtonToAgent();
@@ -588,6 +593,10 @@ function changeImagePtgAnnotated(){
 function toggleTag(element){
     var elementParentChildren = element.parentElement.children;
     for(i = 2; i < elementParentChildren.length; i++){//first two elements are not buttons
+        if(i == 2 && elementParentChildren[0].dataset["elemName"] == "car-type"){//On first iteration of "Car Type" tooltip and spacer must be avoided
+            i += 2;
+        }
+
         if(elementParentChildren[i].classList.contains("tag-pressed")){
             globalNumberOfTagsPressed -= 1;
             elementParentChildren[i].classList.remove("tag-pressed");
@@ -598,8 +607,34 @@ function toggleTag(element){
         else if(elementParentChildren[i].classList.contains("btn-light-skin")){
             elementParentChildren[i].classList.add("btn-light-skin-tone");
         }
-        else{
+        else if(elementParentChildren[i].classList.contains("dark-btn")){
+            elementParentChildren[i].classList.add("btn-dark");
+        }
+        else if(elementParentChildren[i].classList.contains("light-btn")){
+            elementParentChildren[i].classList.add("btn-light");
+        }
+        else if(elementParentChildren[i].classList.contains("secondary-btn")){
+            elementParentChildren[i].classList.add("btn-secondary");
+        }
+        else if(elementParentChildren[i].classList.contains("primary-btn")){
             elementParentChildren[i].classList.add("btn-primary");
+        }
+        else if(elementParentChildren[i].classList.contains("danger-btn")){
+            elementParentChildren[i].classList.add("btn-danger");
+        }
+        else if(elementParentChildren[i].classList.contains("warning-btn")){
+            elementParentChildren[i].classList.add("btn-warning");
+        }
+        else if(elementParentChildren[i].classList.contains("success-btn")){
+            elementParentChildren[i].classList.add("btn-success");
+        }
+        else{
+            if(element.tagName.toLowerCase() == "button"){
+                elementParentChildren[i].classList.add("btn-primary");
+            }
+            else{
+                element.style.color = "#0b5ed7"
+            }
         }
     }
     if(element.classList.contains("btn-dark-skin")){
@@ -608,17 +643,55 @@ function toggleTag(element){
     else if(element.classList.contains("btn-light-skin")){
         element.classList.remove("btn-light-skin-tone");
     }
-    else{
+    else if(element.classList.contains("dark-btn")){
+        element.classList.remove("btn-dark");
+    }
+    else if(element.classList.contains("light-btn")){
+        element.classList.remove("btn-light");
+    }
+    else if(element.classList.contains("secondary-btn")){
+        element.classList.remove("btn-secondary");
+    }
+    else if(element.classList.contains("primary-btn")){
         element.classList.remove("btn-primary");
     }
-    element.classList.add("tag-pressed");
+    else if(element.classList.contains("danger-btn")){
+        element.classList.remove("btn-danger");
+    }
+    else if(element.classList.contains("warning-btn")){
+        element.classList.remove("btn-warning");
+    }
+    else if(element.classList.contains("success-btn")){
+        element.classList.remove("btn-success");
+    }
+    else{
+        if(element.tagName.toLowerCase() == "button"){
+            element.classList.remove("btn-primary");
+        }
+        else{
+            element.style.color = "#0b5ed7"
+        }
+    }
+    if(element.tagName.toLowerCase() == "button"){
+        element.classList.add("tag-pressed");
+    }
+    else{
+        element.classList.add("icon-pressed");
+    }
     globalNumberOfTagsPressed += 1;
     percentageImageAnnotated = ((globalNumberOfTagsPressed/numberOfTagsToPressInImage) * 100).toFixed();
     changeImagePtgAnnotated();
 
     var currentAgent = element.closest(".container").firstElementChild.id.replace("current-labels-", "Agent ");//Get agent name
     var category = element.parentElement.firstElementChild.innerText;//Get label category
-    var labelValue = element.innerText;//Get label value
+    var labelValue = ""
+    
+    if(element.tagName.toLowerCase() == "button"){
+        labelValue = element.innerText;//Get label value
+    }
+    else{
+        labelValue = element.dataset["vehicleType"];
+    }
 
     if(element.closest("#subentity") != null){//If the label comes from a subentity, agent's children dictionary has to be edited
         var subEnt = element.closest("#subentity").children[0].firstChild.innerText.toLowerCase();
@@ -657,6 +730,15 @@ function loadAgents(){
             newAgentsLabels["Agent " + agentIndex] = new Object();
             newAgentsLabels["Agent " + agentIndex]["sub_entities"] = new Object();
         }
+    }
+
+    var floatingWindowHeight = 617;
+    if(selectedDataset == "kitti"){
+        floatingWindowHeight = 335;
+    }
+    var elements = document.querySelectorAll('.floating-window-container');
+    for(var i=0; i<elements.length; i++){
+        elements[i].style.height = floatingWindowHeight + "px";
     }
 
     numberOfTagsToPressInImage = getNumberOfTagsTopress(datasetSpecificFeatures.agents.length);
@@ -898,7 +980,8 @@ function getNumberOfTagsTopress(numberOfAgents){
         if(isRealAgent){
             var query = $("#floating-window-" + index + " >> div");
             if(query.length > 0){
-                numberOfTagsTopressPerAgent = query.length - 2;//We don't take into account "join to agent" button and current labels
+                //We don't take into account current labels (or "join to agent" button in persons datasets) 
+                numberOfTagsTopressPerAgent = selectedDatasetType == 'persons' ? query.length - 2 : query.length - 1;
             }
             index += 1;
         }
@@ -910,11 +993,14 @@ function getNumberOfTagsTopress(numberOfAgents){
 
 function isAgentCorrectlyLabelled(numberOfAgents){
     var agentsCorrectlyLabelled = 0;
+    var realAgents = 0;
+    var nonRealAgents = 0;
     for (i = 0; i < numberOfAgents; i++){
         var isRealAgent = getAgentAutenticity(i, false);
+        var categoriesLabelled = 0;
         if(isRealAgent){
-            var index = i + 1;
-            var query = $("#floating-window-" + index + " >> div");
+            realAgents +=1;
+            var query = $("#floating-window-" + realAgents + " >> div");
             var numCategoriesAgent = query.length;
             for(j = 1; j < numCategoriesAgent - 1; j++){//We don't want the current labels nor the custom label form info
                 if(!query[j].firstElementChild.classList.contains('join-agent')){
@@ -932,25 +1018,26 @@ function isAgentCorrectlyLabelled(numberOfAgents){
                     }
                     else{
                         //Look for pressed tags in category
-                        agentsCorrectlyLabelled = $(query[j]).find(".tag-pressed").length;
-                    }
-
-                    if(!agentsCorrectlyLabelled){//If one category is not labelled, agent is not correctly labelled
-                        break;
+                        if($(query[j]).find(".tag-pressed").length == 1){
+                            categoriesLabelled +=1;
+                        }
                     }
                 }
             }
 
-            if(!agentsCorrectlyLabelled){//If one category is not labelled, agent is not correctly labelled
+            if(categoriesLabelled != numCategoriesAgent - 2){//If one category is not labelled, agent is not correctly labelled
                 break;
+            }
+            else{
+                agentsCorrectlyLabelled += 1;
             }
         }
         else{
-            agentsCorrectlyLabelled = numberOfAgents;
+            nonRealAgents += 1;
         }
     }
 
-    return agentsCorrectlyLabelled;
+    return agentsCorrectlyLabelled == realAgents;//return true if all real agents are correctly labelled
 }
 
 async function saveEditedJson(json){
@@ -973,6 +1060,14 @@ async function saveEditedJson(json){
 async function cleanAndDrawNew(){
     groupsInPicture = {};
     closeAllFloatingWindows();
+
+    if(selectedDataset != "kitti"){//DS Kitti has a different aspect ratio and hence cannot be adapted to usual canvas
+        canvasHeight = 654;  
+    }
+    else{
+        canvasHeight = 370;
+    }
+
     var autoDiscardImg = true;
     while(autoDiscardImg){
         await getRandomImageDataFromDataset();
