@@ -1315,6 +1315,9 @@ function updatePercentages(percentagesDict){
                 else if(ptg.length == 2){
                     ptg = "&nbsp;" + ptg + "%&nbsp;"
                 }
+                else if(ptg.length == 3){
+                    ptg = ptg + "%"
+                }
 
                 ptgElement.innerHTML = ptg;
                 break;
