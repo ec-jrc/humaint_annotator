@@ -46,8 +46,8 @@ def open_DB_connection(rqst, variables, db_name):
                 aux_inter_agreement = inter_agreement - 1
                 while(aux_inter_agreement >= 0):
                     cursor.execute("SELECT img_id, dataset, city, file_name FROM imgs_info WHERE dataset=%(dataset)s AND persons_annotated=%("
-                                   "aux_inter_agreement)s AND NOT (SELECT COUNT(*) FROM img_annotator_relation WHERE "
-                                   "img_annotator_relation.img_name=imgs_info.file_name AND user_name=%(user_name)s AND ds_type='persons')>0 AND "
+                                   "aux_inter_agreement)s AND file_name NOT IN (SELECT img_name FROM img_annotator_relation LEFT JOIN imgs_info "
+                                   "ii on ii.file_name=img_name where user_name=%(user_name)s and ds_type='persons') AND "
                                    "discarded_by_user IS NOT TRUE AND auto_discarded IS NOT TRUE AND is_key_frame=1", {'dataset': variables[0],
                                    'aux_inter_agreement': aux_inter_agreement, 'user_name': current_user.name}) #We select the images with less
                     # than 3 annotators and for which the current user has not participated (i.e. image of a given name in imgs_info table is not
@@ -73,8 +73,8 @@ def open_DB_connection(rqst, variables, db_name):
                 aux_inter_agreement = inter_agreement - 1
                 while (aux_inter_agreement >= 0):
                     cursor.execute("SELECT img_id, dataset, city, file_name FROM imgs_info WHERE dataset=%(dataset)s AND vehicles_annotated=%("
-                                   "aux_inter_agreement)s AND NOT (SELECT COUNT(*) FROM img_annotator_relation WHERE "
-                                   "img_annotator_relation.img_name=imgs_info.file_name AND user_name=%(user_name)s AND ds_type='vehicles')>0 AND "
+                                   "aux_inter_agreement)s AND file_name NOT IN (SELECT img_name FROM img_annotator_relation LEFT JOIN imgs_info "
+                                   "ii on ii.file_name=img_name where user_name=%(user_name)s and ds_type='vehicles') AND "
                                    "discarded_by_user IS NOT TRUE AND auto_discarded IS NOT TRUE AND is_key_frame=1", {'dataset': variables[0],
                                    'aux_inter_agreement': aux_inter_agreement, 'user_name': current_user.name})
                     result = cursor.fetchall()
