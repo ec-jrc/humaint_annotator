@@ -25,7 +25,12 @@ const pedestrianHTML = `<div class="mb-0 mt-2"><span>Age</span><br/>
 <div class="mb-0 mt-2"><span>Sex</span><br/>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Male</span></button>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Female</span></button>
-<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="displayConfCasePopup(this)"><span class="font-weight-bold">Unknown</span></button>
+<div class="conflicting-case">
+<span>A conflicting case is given when the image is good enough to see the agent's features but it is still hard to tell the agent's sex. Is this a conflicting case?</span>
+<div class="row conf-case-row-buttons">
+<button class="btn btn-primary rounded-pill btn-sm conf-case-btn" onClick="setConflictingState(this, true)">Yes</button>
+<button class="btn btn-primary rounded-pill btn-sm conf-case-btn" onClick="setConflictingState(this, false)">No</button></div></div></div>
 <div class="mb-0 mt-2"><span>Skin tone</span><br/>
 <button type="button" class="btn btn-dark-skin btn-dark-skin-tone rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Dark Skin</span></button>
 <button type="button" class="btn btn-light-skin btn-light-skin-tone rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Light Skin</span></button>
@@ -590,7 +595,7 @@ function changeImagePtgAnnotated(){
     percentageElem.parentElement.style.width = percentageImageAnnotated + "%";
 }
 
-function toggleTag(element){
+function toggleTag(element, addConfCaseTag = false, isConfCase = false){
     var elementParentChildren = element.parentElement.children;
     for(i = 2; i < elementParentChildren.length; i++){//first two elements are not buttons
         if(i == 2 && elementParentChildren[0].dataset["elemName"] == "car-type"){//On first iteration of "Car Type" tooltip and spacer must be avoided
@@ -688,6 +693,9 @@ function toggleTag(element){
     
     if(element.tagName.toLowerCase() == "button"){
         labelValue = element.innerText;//Get label value
+        if(addConfCaseTag){
+            labelValue += isConfCase ? "(C)" : "(NC)";
+        }
     }
     else{
         labelValue = element.dataset["vehicleType"];
@@ -703,6 +711,17 @@ function toggleTag(element){
     else{
         newAgentsLabels[currentAgent][category.toLowerCase()] = labelValue.toLowerCase();
     }
+}
+
+function displayConfCasePopup(element){
+    var popup = $(element).next();
+    popup.css("display", "block");
+}
+
+function setConflictingState(element, isConfCase){
+    var unknownBtn = element.parentElement.parentElement.previousElementSibling;
+    $(element.parentElement.parentElement).css("display", "none");
+    toggleTag(unknownBtn, true, isConfCase);
 }
 
 function loadAgents(){
