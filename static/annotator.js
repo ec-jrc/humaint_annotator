@@ -1202,7 +1202,7 @@ async function selectDataset(ds, type){
 }
 
 function discardImage(discardAuthor){
-    fetch('/discard-img/' + discardAuthor + '/' + imgData.imgName)
+    fetch('/discard-img/' + discardAuthor + '/' + selectedDatasetType + '/' + imgData.imgName)
         .then(function (response){
             console.log(response.text());
         })
