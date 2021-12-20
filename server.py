@@ -37,7 +37,7 @@ def open_DB_connection(rqst, variables, db_name):
         inter_agreement = int(get_inter_agreement())
         if variables[1] == 'persons':
             cursor.execute("SELECT img_id, dataset, city, file_name FROM imgs_info WHERE dataset=%(dataset)s AND persons_annotated=%(inter_agreement)s"
-                           " AND discarded_by_user IS NOT TRUE AND auto_discarded IS NOT TRUE AND is_key_frame=1",
+                           " AND discarded_by_user_persons IS NOT TRUE AND auto_discarded_persons IS NOT TRUE AND is_key_frame=1",
                            {'dataset': variables[0], 'inter_agreement': inter_agreement}) #Number of images that have been annotated by the number
             # of inter_agreement annotators (default 3)
             result = cursor.fetchall()
@@ -48,7 +48,8 @@ def open_DB_connection(rqst, variables, db_name):
                     cursor.execute("SELECT img_id, dataset, city, file_name FROM imgs_info WHERE dataset=%(dataset)s AND persons_annotated=%("
                                    "aux_inter_agreement)s AND file_name NOT IN (SELECT img_name FROM img_annotator_relation LEFT JOIN imgs_info "
                                    "ii on ii.file_name=img_name where user_name=%(user_name)s and ds_type='persons') AND "
-                                   "discarded_by_user IS NOT TRUE AND auto_discarded IS NOT TRUE AND is_key_frame=1", {'dataset': variables[0],
+                                   "discarded_by_user_persons IS NOT TRUE AND auto_discarded_persons IS NOT TRUE AND is_key_frame=1",
+                                   {'dataset': variables[0],
                                    'aux_inter_agreement': aux_inter_agreement, 'user_name': current_user.name}) #We select the images with less
                     # than 3 annotators and for which the current user has not participated (i.e. image of a given name in imgs_info table is not
                     # found in img_annotator_relation table)
@@ -58,13 +59,13 @@ def open_DB_connection(rqst, variables, db_name):
                         break
             else:
                 cursor.execute("SELECT img_id, dataset, city, file_name FROM imgs_info WHERE dataset=%(dataset)s AND persons_annotated=0"
-                       " AND discarded_by_user IS NOT TRUE AND auto_discarded IS NOT TRUE AND is_key_frame=1",
+                       " AND discarded_by_user_persons IS NOT TRUE AND auto_discarded_persons IS NOT TRUE AND is_key_frame=1",
                        {'dataset': variables[0]})
 
         elif variables[1] == 'vehicles':
             cursor.execute(
                 "SELECT img_id, dataset, city, file_name FROM imgs_info WHERE dataset=%(dataset)s AND vehicles_annotated=%(inter_agreement)s"
-                " AND discarded_by_user IS NOT TRUE AND auto_discarded IS NOT TRUE",
+                " AND discarded_by_user_vehicles IS NOT TRUE AND auto_discarded_vehicles IS NOT TRUE",
                 {'dataset': variables[0], 'inter_agreement': inter_agreement})  # Number of images that have been annotated by the number
             # of inter_agreement annotators (default 3)
             result = cursor.fetchall()
@@ -75,7 +76,8 @@ def open_DB_connection(rqst, variables, db_name):
                     cursor.execute("SELECT img_id, dataset, city, file_name FROM imgs_info WHERE dataset=%(dataset)s AND vehicles_annotated=%("
                                    "aux_inter_agreement)s AND file_name NOT IN (SELECT img_name FROM img_annotator_relation LEFT JOIN imgs_info "
                                    "ii on ii.file_name=img_name where user_name=%(user_name)s and ds_type='vehicles') AND "
-                                   "discarded_by_user IS NOT TRUE AND auto_discarded IS NOT TRUE AND is_key_frame=1", {'dataset': variables[0],
+                                   "discarded_by_user_vehicles IS NOT TRUE AND auto_discarded_vehicles IS NOT TRUE AND is_key_frame=1",
+                                   {'dataset': variables[0],
                                    'aux_inter_agreement': aux_inter_agreement, 'user_name': current_user.name})
                     result = cursor.fetchall()
                     aux_inter_agreement -= 1
@@ -83,7 +85,8 @@ def open_DB_connection(rqst, variables, db_name):
                         break
             else:
                 cursor.execute("SELECT img_id, dataset, city, file_name FROM imgs_info WHERE dataset=%(dataset)s AND vehicles_annotated=0 AND"
-                           "discarded_by_user IS NOT TRUE AND auto_discarded IS NOT TRUE AND is_key_frame=1", {'dataset': variables[0]})
+                           "discarded_by_user_vehicles IS NOT TRUE AND auto_discarded_vehicles IS NOT TRUE AND is_key_frame=1",
+                               {'dataset': variables[0]})
 
     elif rqst == "get_json":
         edit_db_entry = variables[2]
@@ -97,15 +100,20 @@ def open_DB_connection(rqst, variables, db_name):
         cursor.execute("SELECT associated_json FROM imgs_info WHERE file_name=%(json_file)s", {'json_file': variables[0]})
     elif rqst == "discard_img":
         if(variables[1] == "discarded-by-user"):
-            cursor.execute("UPDATE imgs_info SET discarded_by_user=1 WHERE file_name=%(img_name)s",
-                       {'img_name': variables[0]})
-        else:
-            cursor.execute("UPDATE imgs_info SET auto_discarded=1 WHERE file_name=%(img_name)s",
+            if(variables[2] == "persons"):
+                cursor.execute("UPDATE imgs_info SET discarded_by_user_persons=1 WHERE file_name=%(img_name)s",
                            {'img_name': variables[0]})
+            else:
+                cursor.execute("UPDATE imgs_info SET discarded_by_user_vehicles=1 WHERE file_name=%(img_name)s",
+                               {'img_name': variables[0]})
+        else:
+            if (variables[2] == "persons"):
+                cursor.execute("UPDATE imgs_info SET auto_discarded_persons=1 WHERE file_name=%(img_name)s",
+                               {'img_name': variables[0]})
+            else:
+                cursor.execute("UPDATE imgs_info SET auto_discarded_vehicles=1 WHERE file_name=%(img_name)s",
+                               {'img_name': variables[0]})
         conn.commit()
-
-        cursor.execute("SELECT discarded_by_user, auto_discarded FROM imgs_info WHERE file_name=%(img_name)s",
-                       {'img_name': variables[0]})
     elif rqst == "get_num_annotated_imgs":
         if(variables[0] == "persons"):
             cursor.execute("SELECT COUNT(*) FROM imgs_info WHERE dataset=%(ds)s and persons_annotated!=0",
@@ -329,9 +337,9 @@ def logout():
     logout_user()
     return redirect('index.html')
 
-@app.route('/discard-img/<discard_author>/<img_name>', methods=['GET'])
-def discard_img(img_name, discard_author):
-    variables = [img_name, discard_author]
+@app.route('/discard-img/<discard_author>/<ds_type>/<img_name>', methods=['GET'])
+def discard_img(img_name, discard_author, ds_type):
+    variables = [img_name, discard_author, ds_type]
     db_result = open_DB_connection("discard_img", variables, 'img_info')
 
     return 'OK', 200
