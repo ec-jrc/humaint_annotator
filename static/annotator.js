@@ -25,7 +25,12 @@ const pedestrianHTML = `<div class="mb-0 mt-2"><span>Age</span><br/>
 <div class="mb-0 mt-2"><span>Sex</span><br/>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Male</span></button>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Female</span></button>
-<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="displayConfCasePopup(this)"><span class="font-weight-bold">Unknown</span></button>
+<div class="conflicting-case">
+<span>A conflicting case is given when the image is good enough to see the agent's features but it is still hard to tell the agent's sex. Is this a conflicting case?</span>
+<div class="row conf-case-row-buttons">
+<button class="btn btn-primary rounded-pill btn-sm conf-case-btn" onClick="setConflictingState(this, true)">Yes</button>
+<button class="btn btn-primary rounded-pill btn-sm conf-case-btn" onClick="setConflictingState(this, false)">No</button></div></div></div>
 <div class="mb-0 mt-2"><span>Skin tone</span><br/>
 <button type="button" class="btn btn-dark-skin btn-dark-skin-tone rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Dark Skin</span></button>
 <button type="button" class="btn btn-light-skin btn-light-skin-tone rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Light Skin</span></button>
@@ -36,7 +41,8 @@ const pedestrianHTML = `<div class="mb-0 mt-2"><span>Age</span><br/>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Bicycle</span></button>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Motorcycle</span></button>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Electric scooter</span></button>
-<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Others</span></button></div>`
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Others</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>`
 
 const vehicleHTML = `<div class="mb-0 mt-2"><span>Vehicle Type</span><br/> 
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Bicycle</span></button>
@@ -49,7 +55,7 @@ const vehicleHTML = `<div class="mb-0 mt-2"><span>Vehicle Type</span><br/>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Fire truck</span></button>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Police car</span></button>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Police van</span></button>
-<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">other</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Other</span></button>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>
 <div class="mb-0 mt-2"><span>Color</span><br/>
 <button type="button" class="btn btn-dark rounded-pill btn-sm dark-btn" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Black</span></button>
@@ -415,7 +421,8 @@ function getAgentInnerHTML(i, currentClass){
             <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)" onmouseover="$('#car-preview-` + i + `').attr('src', 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/2021_Chrysler_Grand_Caravan_SE%2C_Front_Left%2C_03-25-2021.jpg/1920px-2021_Chrysler_Grand_Caravan_SE%2C_Front_Left%2C_03-25-2021.jpg');$('#car-preview-` + i + `').removeClass('hide-preview');$('#spacer-` + i +`').hide(0)" onmouseout="$('#car-preview-` + i + `').addClass('hide-preview');$('#spacer-` + i +`').show(0)"><span class="font-weight-bold">Minivan</span></button>
             <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)" onmouseover="$('#car-preview-` + i + `').attr('src', 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2016_Toyota_RAV4_%28ASA44R_MY16%29_GX_wagon_%282017-01-15%29_01.jpg/1920px-2016_Toyota_RAV4_%28ASA44R_MY16%29_GX_wagon_%282017-01-15%29_01.jpg');$('#car-preview-` + i + `').removeClass('hide-preview');$('#spacer-` + i +`').hide(0)" onmouseout="$('#car-preview-` + i + `').addClass('hide-preview');$('#spacer-` + i +`').show(0)"><span class="font-weight-bold">SUV</span></button>
             <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)" onmouseover="$('#car-preview-` + i + `').attr('src', 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/2018_Toyota_Corolla_%28MZEA12R%29_Ascent_Sport_hatchback_%282018-11-02%29_01.jpg/1920px-2018_Toyota_Corolla_%28MZEA12R%29_Ascent_Sport_hatchback_%282018-11-02%29_01.jpg');$('#car-preview-` + i + `').removeClass('hide-preview');$('#spacer-` + i +`').hide(0)" onmouseout="$('#car-preview-` + i + `').addClass('hide-preview');$('#spacer-` + i +`').show(0)"><span class="font-weight-bold">Compact</span></button>
-            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Others</span></button></div>`
+            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Others</span></button>
+            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>`
         }
     }
     
@@ -590,7 +597,7 @@ function changeImagePtgAnnotated(){
     percentageElem.parentElement.style.width = percentageImageAnnotated + "%";
 }
 
-function toggleTag(element){
+function toggleTag(element, addConfCaseTag = false, isConfCase = false){
     var elementParentChildren = element.parentElement.children;
     for(i = 2; i < elementParentChildren.length; i++){//first two elements are not buttons
         if(i == 2 && elementParentChildren[0].dataset["elemName"] == "car-type"){//On first iteration of "Car Type" tooltip and spacer must be avoided
@@ -688,6 +695,9 @@ function toggleTag(element){
     
     if(element.tagName.toLowerCase() == "button"){
         labelValue = element.innerText;//Get label value
+        if(addConfCaseTag){
+            labelValue += isConfCase ? "(C)" : "(NC)";
+        }
     }
     else{
         labelValue = element.dataset["vehicleType"];
@@ -703,6 +713,17 @@ function toggleTag(element){
     else{
         newAgentsLabels[currentAgent][category.toLowerCase()] = labelValue.toLowerCase();
     }
+}
+
+function displayConfCasePopup(element){
+    var popup = $(element).next();
+    popup.css("display", "block");
+}
+
+function setConflictingState(element, isConfCase){
+    var unknownBtn = element.parentElement.parentElement.previousElementSibling;
+    $(element.parentElement.parentElement).css("display", "none");
+    toggleTag(unknownBtn, true, isConfCase);
 }
 
 function loadAgents(){
@@ -1183,7 +1204,7 @@ async function selectDataset(ds, type){
 }
 
 function discardImage(discardAuthor){
-    fetch('/discard-img/' + discardAuthor + '/' + imgData.imgName)
+    fetch('/discard-img/' + discardAuthor + '/' + selectedDatasetType + '/' + imgData.imgName)
         .then(function (response){
             console.log(response.text());
         })
@@ -1314,6 +1335,9 @@ function updatePercentages(percentagesDict){
                 }
                 else if(ptg.length == 2){
                     ptg = "&nbsp;" + ptg + "%&nbsp;"
+                }
+                else if(ptg.length == 3){
+                    ptg = ptg + "%"
                 }
 
                 ptgElement.innerHTML = ptg;
