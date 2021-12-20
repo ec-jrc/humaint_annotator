@@ -41,7 +41,8 @@ const pedestrianHTML = `<div class="mb-0 mt-2"><span>Age</span><br/>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Bicycle</span></button>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Motorcycle</span></button>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Electric scooter</span></button>
-<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Others</span></button></div>`
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Others</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>`
 
 const vehicleHTML = `<div class="mb-0 mt-2"><span>Vehicle Type</span><br/> 
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Bicycle</span></button>
@@ -54,7 +55,7 @@ const vehicleHTML = `<div class="mb-0 mt-2"><span>Vehicle Type</span><br/>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Fire truck</span></button>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Police car</span></button>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Police van</span></button>
-<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">other</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Other</span></button>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>
 <div class="mb-0 mt-2"><span>Color</span><br/>
 <button type="button" class="btn btn-dark rounded-pill btn-sm dark-btn" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Black</span></button>
@@ -420,7 +421,8 @@ function getAgentInnerHTML(i, currentClass){
             <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)" onmouseover="$('#car-preview-` + i + `').attr('src', 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/2021_Chrysler_Grand_Caravan_SE%2C_Front_Left%2C_03-25-2021.jpg/1920px-2021_Chrysler_Grand_Caravan_SE%2C_Front_Left%2C_03-25-2021.jpg');$('#car-preview-` + i + `').removeClass('hide-preview');$('#spacer-` + i +`').hide(0)" onmouseout="$('#car-preview-` + i + `').addClass('hide-preview');$('#spacer-` + i +`').show(0)"><span class="font-weight-bold">Minivan</span></button>
             <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)" onmouseover="$('#car-preview-` + i + `').attr('src', 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2016_Toyota_RAV4_%28ASA44R_MY16%29_GX_wagon_%282017-01-15%29_01.jpg/1920px-2016_Toyota_RAV4_%28ASA44R_MY16%29_GX_wagon_%282017-01-15%29_01.jpg');$('#car-preview-` + i + `').removeClass('hide-preview');$('#spacer-` + i +`').hide(0)" onmouseout="$('#car-preview-` + i + `').addClass('hide-preview');$('#spacer-` + i +`').show(0)"><span class="font-weight-bold">SUV</span></button>
             <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)" onmouseover="$('#car-preview-` + i + `').attr('src', 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/2018_Toyota_Corolla_%28MZEA12R%29_Ascent_Sport_hatchback_%282018-11-02%29_01.jpg/1920px-2018_Toyota_Corolla_%28MZEA12R%29_Ascent_Sport_hatchback_%282018-11-02%29_01.jpg');$('#car-preview-` + i + `').removeClass('hide-preview');$('#spacer-` + i +`').hide(0)" onmouseout="$('#car-preview-` + i + `').addClass('hide-preview');$('#spacer-` + i +`').show(0)"><span class="font-weight-bold">Compact</span></button>
-            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Others</span></button></div>`
+            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Others</span></button>
+            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>`
         }
     }
     
