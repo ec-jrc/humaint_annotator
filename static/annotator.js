@@ -27,14 +27,19 @@ const pedestrianHTML = `<div class="mb-0 mt-2"><span>Age</span><br/>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Female</span></button>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="displayConfCasePopup(this)"><span class="font-weight-bold">Unknown</span></button>
 <div class="conflicting-case">
-<span>A conflicting case is given when the image is good enough to see the agent's features but it is still hard to tell the agent's sex. Is this a conflicting case?</span>
+<span>A conflicting case is declared when a person's sexual identity cannot be classified following the traditional binary approach. Select "Yes" if: (1) you can clearly see the agent but they do not conform to the traditional male/female appearance. (2) The characteristics of the person you can see in the image are not sufficient to declare whether he/she/they is male or female. Select "No" when the quality of the image does not allow you to make a decision.</span>
 <div class="row conf-case-row-buttons">
 <button class="btn btn-primary rounded-pill btn-sm conf-case-btn" onClick="setConflictingState(this, true)">Yes</button>
 <button class="btn btn-primary rounded-pill btn-sm conf-case-btn" onClick="setConflictingState(this, false)">No</button></div></div></div>
 <div class="mb-0 mt-2"><span>Skin tone</span><br/>
 <button type="button" class="btn btn-dark-skin btn-dark-skin-tone rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Dark Skin</span></button>
 <button type="button" class="btn btn-light-skin btn-light-skin-tone rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Light Skin</span></button>
-<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="displayConfCasePopup(this)"><span class="font-weight-bold">Unknown</span></button>
+<div class="conflicting-case">
+<span>A conflicting case is declared when a person's skin tone cannot be classified following a binary approach. Select "Yes" when you can clearly see the person to be labeled in the image but they does not conform to either dark or light skin tones, . Select "No" when the quality of the image does not allow you to make a decision.</span>
+<div class="row conf-case-row-buttons">
+<button class="btn btn-primary rounded-pill btn-sm conf-case-btn" onClick="setConflictingState(this, true)">Yes</button>
+<button class="btn btn-primary rounded-pill btn-sm conf-case-btn" onClick="setConflictingState(this, false)">No</button></div></div></div>
 <div class="mb-0 mt-2"><span>Mean of transport</span><br/>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Walking</span></button>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Wheelchair</span></button>
