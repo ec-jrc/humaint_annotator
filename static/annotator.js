@@ -133,7 +133,8 @@ const avoidPersons = [
     "human.pedestrian.stroller",
     "human.pedestrian.wheelchair",
     "cyclist",
-    "person_sitting"
+    "person_sitting",
+    "person"
 ]
 
 const commonToAvoid = [
