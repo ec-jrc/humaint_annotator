@@ -971,7 +971,10 @@ async function saveCurrent(){
     }
     else{
         imageLabelled = true;
+        var isErrorInLabelling = $('#errorInLabellingCheckbox').is(':checked');
+        imgData.json["error_in_labelling"] = isErrorInLabelling;
         await saveEditedJson(imgData.json);
+        $('#errorInLabellingCheckbox').prop('checked', false)
     }
 }
 
@@ -1202,6 +1205,7 @@ async function selectDataset(ds, type){
     if(selectedDatasetType == "persons"){
         $('#groupsList').css("visibility", "visible");
     }
+    $('#errorInLabelling').css("visibility", "visible");
     $('#agentsTabs').css("visibility", "visible");
     $('.custom-select').css("visibility", "visible");
     $('.w3-container').css("visibility", "visible");
