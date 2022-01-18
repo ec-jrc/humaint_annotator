@@ -256,7 +256,7 @@ def save_edited_json(img_name, dataset_type, annotator, selected_dataset):
     json_file = str(open_DB_connection("get_json", variables, 'img_info')[0][0])
     list_of_sweeps_jsons = get_list_of_sweeps_jsons(img_name)
 
-    edit_json_files(json_file, edited_json, dict_of_agents, list_of_sweeps_jsons, annotator, selected_dataset)
+    edit_json_files(json_file, edited_json["json"], dict_of_agents, list_of_sweeps_jsons, annotator, selected_dataset)
     update_sweeps_in_db(img_name, dataset_type)
 
     return 'OK', 200

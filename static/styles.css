@@ -437,6 +437,12 @@ background-color: #ddd;
 
 #groupsList{
     visibility: hidden;
+    margin: inherit;
+    padding: 0;
+}
+
+#errorInLabelling{
+    visibility: hidden;
 }
 
 .dataset-btn{
