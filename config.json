@@ -1,17 +1,17 @@
 {
-    "images_to_annotate": {
+    "agents_to_annotate": {
         "persons": {
-            "citypersons": 1000,
-            "ecp": 1000,
-            "nuscenes": 1000,
-            "tsinghua-daimler": 1000,
-            "kitti": 1000,
-            "bair": 1000
+            "citypersons": 5000,
+            "ecp": 5000,
+            "nuscenes": 5000,
+            "tsinghua-daimler": 5000,
+            "kitti": 5000,
+            "bair": 5000
         },
         "vehicles": {
-            "nuscenes": 1000,
-            "kitti": 1000,
-            "bair": 1000
+            "nuscenes": 5000,
+            "kitti": 5000,
+            "bair": 5000
         }
     },
     "num_imgs_several_annotators": {
