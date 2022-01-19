@@ -1021,10 +1021,9 @@ function getNumberOfTagsTopress(numberOfAgents){
     return numberOfTagsTopress;
 }
 
-function isAgentCorrectlyLabelled(numberOfAgents){
+async function isAgentCorrectlyLabelled(numberOfAgents){
     var agentsCorrectlyLabelled = 0;
     var realAgents = 0;
-    var nonRealAgents = 0;
     for (i = 0; i < numberOfAgents; i++){
         var isRealAgent = getAgentAutenticity(i, false);
         var categoriesLabelled = 0;
@@ -1062,12 +1061,22 @@ function isAgentCorrectlyLabelled(numberOfAgents){
                 agentsCorrectlyLabelled += 1;
             }
         }
-        else{
-            nonRealAgents += 1;
-        }
+    }
+    
+    correctlyLabelled = false;
+    if(agentsCorrectlyLabelled == realAgents){
+        correctlyLabelled = true
+        await update_annotated_agents(agentsCorrectlyLabelled)
     }
 
-    return agentsCorrectlyLabelled == realAgents;//return true if all real agents are correctly labelled
+    return correctlyLabelled;//return true if all real agents are correctly labelled
+}
+
+async function update_annotated_agents(num_agents){
+    fetch('/update_annotated_agents/' + imgData.imgName + '/' + num_agents)
+    .then(function (response){
+        console.log(response.text());
+    });
 }
 
 async function saveEditedJson(json){
@@ -1217,7 +1226,7 @@ function discardImage(discardAuthor){
     fetch('/discard-img/' + discardAuthor + '/' + selectedDatasetType + '/' + imgData.imgName)
         .then(function (response){
             console.log(response.text());
-        })
+        });
 }
 
 async function getRandomImageDataFromDataset(){
