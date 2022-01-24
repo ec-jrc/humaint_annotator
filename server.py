@@ -404,6 +404,5 @@ def walk_error_handler(exception_instance):
     print("The specified path is incorrect or permission is needed")
 
 if __name__ == '__main__':
-    #app.run(debug=True, host='0.0.0.0', port='80')#APP HOST AND PORT CHANGE WHEN USING AWS INFRASTRUCTURE
-    app.run(debug=True, host='localhost', port='8080')
+    app.run(debug=True, host='0.0.0.0', port='80')
 
