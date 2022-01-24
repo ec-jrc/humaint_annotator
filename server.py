@@ -114,12 +114,12 @@ def open_DB_connection(rqst, variables, db_name):
                 cursor.execute("UPDATE imgs_info SET auto_discarded_vehicles=1 WHERE file_name=%(img_name)s",
                                {'img_name': variables[0]})
         conn.commit()
-    elif rqst == "get_num_annotated_imgs":
+    elif rqst == "get_num_annotated_agents":
         if(variables[0] == "persons"):
-            cursor.execute("SELECT COUNT(*) FROM imgs_info WHERE dataset=%(ds)s and persons_annotated!=0",
+            cursor.execute("SELECT num_annotated_agents FROM imgs_info WHERE dataset=%(ds)s and persons_annotated!=0",
                            {'ds': variables[1]})
         else:
-            cursor.execute("SELECT COUNT(*) FROM imgs_info WHERE dataset=%(ds)s and vehicles_annotated!=0",
+            cursor.execute("SELECT num_annotated_agents FROM imgs_info WHERE dataset=%(ds)s and vehicles_annotated!=0",
                            {'ds': variables[1]})
     elif rqst == "new_annotation_entry":
         cursor.execute("INSERT INTO img_annotator_relation (img_name, user_name, ds_type) VALUES (%(img_name)s, %(user_name)s, %(ds_type)s);",
@@ -134,6 +134,10 @@ def open_DB_connection(rqst, variables, db_name):
         elif variables[1] == "vehicles":
             cursor.execute("UPDATE imgs_info SET vehicles_annotated=vehicles_annotated+1 WHERE key_frame_name=%(kf_name)s AND is_key_frame=0;",
                            {'kf_name': variables[0]})
+        conn.commit()
+    elif rqst == "update_annotated_agents":
+        cursor.execute("UPDATE imgs_info SET num_annotated_agents=num_annotated_agents+%(num_agents)s WHERE file_name=%(img_name)s",
+                       {'img_name': variables[0], 'num_agents': variables[1]})
         conn.commit()
 
 
@@ -256,7 +260,7 @@ def save_edited_json(img_name, dataset_type, annotator, selected_dataset):
     json_file = str(open_DB_connection("get_json", variables, 'img_info')[0][0])
     list_of_sweeps_jsons = get_list_of_sweeps_jsons(img_name)
 
-    edit_json_files(json_file, edited_json, dict_of_agents, list_of_sweeps_jsons, annotator, selected_dataset)
+    edit_json_files(json_file, edited_json["json"], dict_of_agents, list_of_sweeps_jsons, annotator, selected_dataset)
     update_sweeps_in_db(img_name, dataset_type)
 
     return 'OK', 200
@@ -351,14 +355,22 @@ def get_annotation_percentages():
     annotation_ptgs['vehicles'] = {}
     with open('config.json') as config_file:
         config = json.load(config_file)
-        for agents_type in config['images_to_annotate']:
-            for ds in config['images_to_annotate'][agents_type]:
+        for agents_type in config['agents_to_annotate']:
+            for ds in config['agents_to_annotate'][agents_type]:
                 variables = [agents_type, ds]
-                num_annotated_imgs = open_DB_connection("get_num_annotated_imgs", variables, 'img_info')
-                annotation_ptgs[agents_type][ds] = math.trunc(num_annotated_imgs[0][0]/config['images_to_annotate'][agents_type][ds] * 100)
+                annotated_agents_in_imgs = open_DB_connection("get_num_annotated_agents", variables, 'img_info')
+                num_annotated_agents = 0
+                for img in annotated_agents_in_imgs:
+                    num_annotated_agents += img[0]
+                annotation_ptgs[agents_type][ds] = math.trunc(num_annotated_agents/config['agents_to_annotate'][agents_type][ds] * 100)
 
     return jsonify(annotation_ptgs)
 
+@app.route('/update_annotated_agents/<img_name>/<num_agents>', methods=['GET'])
+def update_annotated_agents(img_name, num_agents):
+    variables = [img_name, num_agents]
+    result = open_DB_connection("update_annotated_agents", variables, 'imgs_info')
+    return 'OK', 200
 
 @app.route('/')
 def index():

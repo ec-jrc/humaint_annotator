@@ -64,13 +64,13 @@
                             <option value="eurocity-persons">Eurocity</option>
                             <option value="nuscenes-persons">NuScenes Persons</option>
                             <option value="tsinghua-daimler-persons">Tsinghua-Daimler</option>
-                            <option value="kitti-persons">Kitti Persons</option>
-                            <option value="bair-persons">BAIR Persons</option>
+                            <option value="kitti-persons">KITTI Persons</option>
+                            <option value="bair-persons">BDD100K Persons</option>
                         </optgroup>
                         <optgroup label="Vehicles">
                             <option value="nuscenes-vehicles">NuScenes Vehicles</option>
-                            <option value="kitti-vehicles">Kitti Vehicles</option>
-                            <option value="bair-vehicles">BAIR Vehicles</option>
+                            <option value="kitti-vehicles">KITTI Vehicles</option>
+                            <option value="bair-vehicles">BDD100K Vehicles</option>
                         </optgroup>
                     </select>
                 </div>
@@ -128,7 +128,7 @@
                     </svg>
                 </button>
                 <button class="dataset-btn btn-primary mt-3" onclick="selectDataset('kitti', 'persons')">
-                    <div class="ds-name" data-ds-type="persons" data-ds-name="kitti">Kitti Persons</div>
+                    <div class="ds-name" data-ds-type="persons" data-ds-name="kitti">KITTI Persons</div>
                     <span class="ptg-labelled-title">Images labelled: </span>
                     <span id="ptg-kitti-persons" class="percentage-completed">&nbsp;&nbsp;0%&nbsp;&nbsp;</span>
                     <svg class="ptg-circle">
@@ -139,7 +139,7 @@
                     </svg>
                 </button>
                 <button class="dataset-btn btn-primary mt-3 mb-5" onclick="selectDataset('bair', 'persons')">
-                    <div class="ds-name" data-ds-type="persons" data-ds-name="bair">BAIR Persons</div>
+                    <div class="ds-name" data-ds-type="persons" data-ds-name="bair">BDD100K Persons</div>
                     <span class="ptg-labelled-title">Images labelled: </span>
                     <span id="ptg-bair-persons" class="percentage-completed">&nbsp;&nbsp;0%&nbsp;&nbsp;</span>
                     <svg class="ptg-circle">
@@ -162,7 +162,7 @@
                     </svg>
                 </button>
                 <button class="dataset-btn btn-primary mt-3" onclick="selectDataset('kitti', 'vehicles')">
-                    <div class="ds-name" data-ds-type="vehicles" data-ds-name="kitti">Kitti Vehicles</div>
+                    <div class="ds-name" data-ds-type="vehicles" data-ds-name="kitti">KITTI Vehicles</div>
                     <span class="ptg-labelled-title">Images labelled: </span>
                     <span id="ptg-kitti-vehicles" class="percentage-completed">&nbsp;&nbsp;0%&nbsp;&nbsp;</span>
                     <svg class="ptg-circle">
@@ -173,7 +173,7 @@
                     </svg>
                 </button>
                 <button class="dataset-btn btn-primary mt-3" onclick="selectDataset('bair', 'vehicles')">
-                    <div class="ds-name" data-ds-type="vehicles" data-ds-name="bair">BAIR Vehicles</div>
+                    <div class="ds-name" data-ds-type="vehicles" data-ds-name="bair">BDD100K Vehicles</div>
                     <span class="ptg-labelled-title">Images labelled: </span>
                     <span id="ptg-bair-vehicles" class="percentage-completed">&nbsp;&nbsp;0%&nbsp;&nbsp;</span>
                     <svg class="ptg-circle">
@@ -189,9 +189,11 @@
                 <canvas id="zoomed-canvas"></canvas>
             </div>
             <div id="agentsTabs" class="tab" style="visibility:hidden;"></div>
-            <div id="groupsList" class="row mt-5">
-                Available groups:&nbsp;&nbsp;
-            </div>   
+            <div id="errorInLabelling" class="mt-3">
+                <span>Error in labelling</span>
+                <input id="errorInLabellingCheckbox" type="checkbox">
+            </div>
+            <div id="groupsList" class="row mt-3">Available groups:&nbsp;&nbsp;</div>   
             <div class="text-center">
                 <button id="loadimage-btn" type="button" class="btn btn-primary btn-lg rounded mt-3" onclick="loadData()"><span class="font-weight-bold">Save and load image</span></button>
                 <button id="discardimage-btn" type="button" class="btn btn-primary btn-lg rounded mt-3" onclick="discardImage('discarded-by-user');cleanAndDrawNew()"><span class="font-weight-bold">Discard image</span></button>
