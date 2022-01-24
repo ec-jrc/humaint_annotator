@@ -191,11 +191,18 @@ def get_img(dataset, dataset_type):
 def get_img_from_storage(dataset, dataset_type):
     try:
         img = get_img(dataset, dataset_type)
-        imgs_path = "/media/hector/HDD-4TB/annotator/Datasets/imgs/" + dataset + "/" + img["file_name"]
+        imgs_path = "/media/hector/HDD-4TB/annotator/Datasets/" + dataset + "/images"
+        complete_img_path = ""
+        for subdir, dirs, files in os.walk(imgs_path, onerror=walk_error_handler):
+            for city in dirs:
+                if os.path.exists(imgs_path + '/' + city + '/' + img["file_name"]):
+                    complete_img_path = imgs_path + '/' + city + '/' + img["file_name"]
+                    break
+
         img_in_base64 = {}
-        with open(imgs_path, "rb") as f:
+        with open(complete_img_path, "rb") as f:
             image_binary = f.read()
-            img_in_base64 = {'img': str(base64.b64encode(image_binary).decode('ascii')), 'img_name': "b2d8704e-66d10551.jpg"}#img['file_name']}
+            img_in_base64 = {'img': str(base64.b64encode(image_binary).decode('ascii')), 'img_name': img['file_name']}
     except Exception as e:
         logging.error(e)
         return None
@@ -241,19 +248,7 @@ def get_img_json(dataset, file_name):
 
 def search_json_in_datasets(json_file, dataset):
     # TEMPORARY TILL JSONS ARE IN STORAGE
-    jsons_path = "annotations_json/"
-    if dataset == "eurocity":
-        jsons_path += "ECP/barcelona/"  # Barcelona for test purposes
-    elif dataset == "citypersons":
-        jsons_path += "citypersons/strasbourg/"
-    elif dataset == "nuscenes":
-        jsons_path += "nuscenes/"
-    elif dataset == "tsinghua-daimler":
-        jsons_path += "tsinghua-daimler"
-    elif dataset == "kitti":
-        jsons_path += "kitti"
-    elif dataset == "bair":
-        jsons_path += "bair"
+    jsons_path = "/media/hector/HDD-4TB/annotator/Datasets/" + dataset + "/jsons"
 
     for subdir, dirs, files in os.walk(jsons_path, onerror=walk_error_handler):
         if os.path.exists(subdir + '/' + json_file):
@@ -295,7 +290,6 @@ def edit_json_files(json_file, edited_json, dict_of_agents, list_of_sweeps_jsons
     for sweep in list_of_sweeps_jsons:
         sweep_json = search_json_in_datasets(sweep[0], selected_dataset)
         edited_sweep_json_path = "edited_jsons/" + sweep[0].replace('.json', '_' + annotator + '.json')
-        #current_json = json.dumps(sweep_json, indent=4)
         for agent in dict_of_agents:
             k = 0
             while k < len(sweep_json["agents"]):
