@@ -4,11 +4,12 @@ import logging
 import random
 import boto3
 import boto3.session
+import base64
 import hashlib
 import math
 from botocore.exceptions import ClientError
 import pymysql
-from flask import Flask, render_template, jsonify, abort, request, redirect
+from flask import Flask, render_template, jsonify, abort, request, redirect, send_file, make_response
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 from models import User, users
 
@@ -23,7 +24,8 @@ def open_DB_connection(rqst, variables, db_name):
     DB_USER = os.getenv('HUMAINT_ANNOTATOR_DB_USER')
     DB_PWD = os.getenv('HUMAINT_ANNOTATOR_DB_PWD')
     conn = pymysql.connect(
-        host='database-1.cefjjcummrpw.eu-west-3.rds.amazonaws.com',
+        host='localhost',
+        #host='database-1.cefjjcummrpw.eu-west-3.rds.amazonaws.com' #HOST CHANGES WHEN USING AWS INFRASTRUCTURE
         user=DB_USER,
         password=DB_PWD,
         database='humaint_annotator'
@@ -140,7 +142,6 @@ def open_DB_connection(rqst, variables, db_name):
                        {'img_name': variables[0], 'num_agents': variables[1]})
         conn.commit()
 
-
     if len(result) == 0:
         result = cursor.fetchall()
 
@@ -187,32 +188,47 @@ def get_img(dataset, dataset_type):
     return img
 
 @app.route('/img_url/<dataset>/<dataset_type>', methods=['GET'])
-def get_img_url(dataset, dataset_type):
-    # Creating the low level functional client
-    # Credentials can be specified but it is safer to keep them in environment variables. boto3 will look for
-    # AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY
-    ACCESS_KEY = os.getenv('AWS_ACCESS_KEY_ID')
-    SECRET_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
-
-    session = boto3.session.Session(region_name='eu-west-3')
-    client = session.client(
-                        's3',
-                        config=boto3.session.Config(signature_version='s3v4'),
-                        aws_access_key_id=ACCESS_KEY,
-                        aws_secret_access_key=SECRET_KEY)
-
+def get_img_from_storage(dataset, dataset_type):
     try:
         img = get_img(dataset, dataset_type)
-        img_path = img["dataset"] + "/" + img["city"] + "/" + img["file_name"]
-        img_url = client.generate_presigned_url('get_object', Params={'Bucket': 'datasets-humaint',
-                                                                       'Key': img_path}, ExpiresIn=3600)
-    except ClientError as e:
+        imgs_path = "/media/hector/HDD-4TB/annotator/Datasets/imgs/" + dataset + "/" + img["file_name"]
+        img_in_base64 = {}
+        with open(imgs_path, "rb") as f:
+            image_binary = f.read()
+            img_in_base64 = {'img': str(base64.b64encode(image_binary).decode('ascii')), 'img_name': "b2d8704e-66d10551.jpg"}#img['file_name']}
+    except Exception as e:
         logging.error(e)
         return None
 
-    json_response = {'img_url': str(img_url), 'img_name': img["file_name"]}
+    return jsonify(img_in_base64)
 
-    return jsonify(json_response)
+##### PREVIOUS METHOD CHANGES WHEN USING AWS INFRASTRUCTURE, AS FOLLOWS ######
+#def get_img_url(dataset, dataset_type):
+    # Creating the low level functional client
+    # Credentials can be specified but it is safer to keep them in environment variables. boto3 will look for
+    # AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY
+#    ACCESS_KEY = os.getenv('AWS_ACCESS_KEY_ID')
+#    SECRET_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
+
+#    session = boto3.session.Session(region_name='eu-west-3')
+#    client = session.client(
+#                        's3',
+#                        config=boto3.session.Config(signature_version='s3v4'),
+#                        aws_access_key_id=ACCESS_KEY,
+#                        aws_secret_access_key=SECRET_KEY)
+
+#   try:
+#        img = get_img(dataset, dataset_type)
+#        img_path = img["dataset"] + "/" + img["city"] + "/" + img["file_name"]
+#        img_url = client.generate_presigned_url('get_object', Params={'Bucket': 'datasets-humaint',
+#                                                                       'Key': img_path}, ExpiresIn=3600)
+#    except ClientError as e:
+#        logging.error(e)
+#        return None
+
+#    json_response = {'img_url': str(img_url), 'img_name': img["file_name"]}
+
+#    return jsonify(json_response)
 
 @app.route('/img_json/<dataset>/<file_name>', methods=['GET'])
 def get_img_json(dataset, file_name):
@@ -394,5 +410,6 @@ def walk_error_handler(exception_instance):
     print("The specified path is incorrect or permission is needed")
 
 if __name__ == '__main__':
-    app.run(debug=False, host='0.0.0.0', port='80')
+    #app.run(debug=True, host='0.0.0.0', port='80')#APP HOST AND PORT CHANGE WHEN USING AWS INFRASTRUCTURE
+    app.run(debug=True, host='localhost', port='8080')
 

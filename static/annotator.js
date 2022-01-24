@@ -1231,17 +1231,26 @@ function discardImage(discardAuthor){
 
 async function getRandomImageDataFromDataset(){
     var imgName, imgSrc;
-    await fetch('/img_url/' + selectedDataset + '/' + selectedDatasetType)//Request to flask server to retrieve a random image from storage
+    /*INFO FETCHING CHANGES WHEN USING AWS INFRASTRUCTURE, AS FOLLOWS */
+    /*await fetch('/img_url/' + selectedDataset + '/' + selectedDatasetType)//Request to flask server to retrieve a random image from storage
         .then(function (response) {
             return response.json();
             }).then(function (elem) {
                 imgSrc = elem.img_url;
                 imgName = elem.img_name;
-            });
+            });*/
+
+    await fetch('/img_url/' + selectedDataset + '/' + selectedDatasetType)//Request to flask server to retrieve a random image from storage
+    .then(function (response) {
+        return response.json();
+        }).then(function (elem) {
+            imgSrc = elem.img;
+            imgName = elem.img_name;
+        });
 
     var jsonData = await loadJSONData(imgName); 
 
-    imgData.src = imgSrc;
+    imgData.src = "data:image/png;base64," + imgSrc;
     imgData.json = jsonData;
     imgData.imgName = imgName;
 }
