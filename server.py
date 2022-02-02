@@ -38,7 +38,7 @@ def open_DB_connection(rqst, variables, db_name):
     elif rqst == "get_img":
         inter_agreement = int(get_inter_agreement())
         if variables[1] == 'persons':
-            cursor.execute("SELECT img_id, dataset, city, file_name FROM imgs_info WHERE dataset=%(dataset)s AND persons_annotated=%(inter_agreement)s"
+            cursor.execute("SELECT img_id, dataset, file_name FROM imgs_info WHERE dataset=%(dataset)s AND persons_annotated=%(inter_agreement)s"
                            " AND discarded_by_user_persons IS NOT TRUE AND auto_discarded_persons IS NOT TRUE AND is_key_frame=1",
                            {'dataset': variables[0], 'inter_agreement': inter_agreement}) #Number of images that have been annotated by the number
             # of inter_agreement annotators (default 3)
@@ -47,7 +47,7 @@ def open_DB_connection(rqst, variables, db_name):
             if len(result) == 0 or not inter_agreement_quota_acquired:
                 aux_inter_agreement = inter_agreement - 1
                 while(aux_inter_agreement >= 0):
-                    cursor.execute("SELECT img_id, dataset, city, file_name FROM imgs_info WHERE dataset=%(dataset)s AND persons_annotated=%("
+                    cursor.execute("SELECT img_id, dataset, file_name FROM imgs_info WHERE dataset=%(dataset)s AND persons_annotated=%("
                                    "aux_inter_agreement)s AND file_name NOT IN (SELECT img_name FROM img_annotator_relation LEFT JOIN imgs_info "
                                    "ii on ii.file_name=img_name where user_name=%(user_name)s and ds_type='persons') AND "
                                    "discarded_by_user_persons IS NOT TRUE AND auto_discarded_persons IS NOT TRUE AND is_key_frame=1",
@@ -60,13 +60,13 @@ def open_DB_connection(rqst, variables, db_name):
                     if len(result) != 0:
                         break
             else:
-                cursor.execute("SELECT img_id, dataset, city, file_name FROM imgs_info WHERE dataset=%(dataset)s AND persons_annotated=0"
+                cursor.execute("SELECT img_id, dataset, file_name FROM imgs_info WHERE dataset=%(dataset)s AND persons_annotated=0"
                        " AND discarded_by_user_persons IS NOT TRUE AND auto_discarded_persons IS NOT TRUE AND is_key_frame=1",
                        {'dataset': variables[0]})
 
         elif variables[1] == 'vehicles':
             cursor.execute(
-                "SELECT img_id, dataset, city, file_name FROM imgs_info WHERE dataset=%(dataset)s AND vehicles_annotated=%(inter_agreement)s"
+                "SELECT img_id, dataset, file_name FROM imgs_info WHERE dataset=%(dataset)s AND vehicles_annotated=%(inter_agreement)s"
                 " AND discarded_by_user_vehicles IS NOT TRUE AND auto_discarded_vehicles IS NOT TRUE",
                 {'dataset': variables[0], 'inter_agreement': inter_agreement})  # Number of images that have been annotated by the number
             # of inter_agreement annotators (default 3)
@@ -75,7 +75,7 @@ def open_DB_connection(rqst, variables, db_name):
             if len(result) == 0 or not inter_agreement_quota_acquired:
                 aux_inter_agreement = inter_agreement - 1
                 while (aux_inter_agreement >= 0):
-                    cursor.execute("SELECT img_id, dataset, city, file_name FROM imgs_info WHERE dataset=%(dataset)s AND vehicles_annotated=%("
+                    cursor.execute("SELECT img_id, dataset, file_name FROM imgs_info WHERE dataset=%(dataset)s AND vehicles_annotated=%("
                                    "aux_inter_agreement)s AND file_name NOT IN (SELECT img_name FROM img_annotator_relation LEFT JOIN imgs_info "
                                    "ii on ii.file_name=img_name where user_name=%(user_name)s and ds_type='vehicles') AND "
                                    "discarded_by_user_vehicles IS NOT TRUE AND auto_discarded_vehicles IS NOT TRUE AND is_key_frame=1",
@@ -86,7 +86,7 @@ def open_DB_connection(rqst, variables, db_name):
                     if len(result) != 0:
                         break
             else:
-                cursor.execute("SELECT img_id, dataset, city, file_name FROM imgs_info WHERE dataset=%(dataset)s AND vehicles_annotated=0 AND"
+                cursor.execute("SELECT img_id, dataset, file_name FROM imgs_info WHERE dataset=%(dataset)s AND vehicles_annotated=0 AND"
                            "discarded_by_user_vehicles IS NOT TRUE AND auto_discarded_vehicles IS NOT TRUE AND is_key_frame=1",
                                {'dataset': variables[0]})
 
@@ -176,12 +176,10 @@ def get_img(dataset, dataset_type):
     rand_index = random.randint(0, len(images) - 1)
     img_uuid = images[rand_index][0]
     img_dataset = images[rand_index][1]
-    img_city = images[rand_index][2]
-    img_file_name = images[rand_index][3]
+    img_file_name = images[rand_index][2]
     img = {
         "uuid": img_uuid,
         "dataset": img_dataset,
-        "city": img_city,
         "file_name": img_file_name
     }
 
@@ -194,10 +192,9 @@ def get_img_from_storage(dataset, dataset_type):
         imgs_path = "/media/hector/HDD-4TB/annotator/Datasets/" + dataset + "/images"
         complete_img_path = ""
         for subdir, dirs, files in os.walk(imgs_path, onerror=walk_error_handler):
-            for city in dirs:
-                if os.path.exists(imgs_path + '/' + city + '/' + img["file_name"]):
-                    complete_img_path = imgs_path + '/' + city + '/' + img["file_name"]
-                    break
+            if os.path.exists(subdir + '/' + img["file_name"]):
+                complete_img_path = subdir + '/' + img["file_name"]
+                break
 
         img_in_base64 = {}
         with open(complete_img_path, "rb") as f:
