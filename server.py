@@ -2,12 +2,12 @@ import os
 import json
 import logging
 import random
-import boto3
-import boto3.session
+#import boto3
+#import boto3.session
 import base64
 import hashlib
 import math
-from botocore.exceptions import ClientError
+#from botocore.exceptions import ClientError
 import pymysql
 from flask import Flask, render_template, jsonify, abort, request, redirect, send_file, make_response
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
