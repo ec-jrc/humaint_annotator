@@ -170,8 +170,7 @@ def is_inter_agreement_quota_acquired(query_result, dataset, ds_type):
             return False
 
 def get_img(dataset, dataset_type):
-    ds = "ECP" if dataset == "eurocity" else dataset
-    variables = [ds, dataset_type]
+    variables = [dataset, dataset_type]
     images = open_DB_connection("get_img", variables, 'img_info')
     rand_index = random.randint(0, len(images) - 1)
     img_uuid = images[rand_index][0]
