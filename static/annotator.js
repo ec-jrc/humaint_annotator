@@ -13,7 +13,7 @@ var groupsInPicture = new Object();
 var correctionIndex = 0;
 var canvasWidth = 1296;
 var canvasHeight = 654;
-var minbBoxArea = 3000;
+var minbBoxArea = 6000;
 var magnifyingGlassZoomFactor = 2;
 var percentageImageAnnotated = 0;
 var numberOfTagsToPressInImage = 0;
@@ -302,6 +302,7 @@ function loadAgentsInfo(agents){
         var identity = agents[agent].identity;
         var bBoxArea = getbBoxArea(agents[agent]);
         var subentitiesText = "";
+        minbBoxArea = selectedDatasetType == "persons" ? 6000 : 8000;
 
         if(!identitiesToAvoid.includes(identity.toLowerCase()) && bBoxArea >= minbBoxArea){//Identities to avoid are scooters, bikes,...
             agentIndex += 1;
@@ -874,6 +875,7 @@ function getbBoxArea(agentFeatures){
 
 function getAgentAutenticity(agent, updateCorrectionIndex){
     var isRealAgent = true;
+    minbBoxArea = selectedDatasetType == "persons" ? 6000 : 8000
     var bBoxArea = getbBoxArea(datasetSpecificFeatures.agents[agent]);
     if(identitiesToAvoid.includes(datasetSpecificFeatures.agents[agent].identity.toLowerCase()) || bBoxArea < minbBoxArea){
         isRealAgent = false;
