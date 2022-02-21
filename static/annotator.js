@@ -13,7 +13,7 @@ var groupsInPicture = new Object();
 var correctionIndex = 0;
 var canvasWidth = 1296;
 var canvasHeight = 654;
-var minbBoxArea = 3000;
+var minbBoxArea = 6000;
 var magnifyingGlassZoomFactor = 2;
 var percentageImageAnnotated = 0;
 var numberOfTagsToPressInImage = 0;
@@ -302,6 +302,7 @@ function loadAgentsInfo(agents){
         var identity = agents[agent].identity;
         var bBoxArea = getbBoxArea(agents[agent]);
         var subentitiesText = "";
+        minbBoxArea = selectedDatasetType == "persons" ? 6000 : 8000;
 
         if(!identitiesToAvoid.includes(identity.toLowerCase()) && bBoxArea >= minbBoxArea){//Identities to avoid are scooters, bikes,...
             agentIndex += 1;
@@ -422,11 +423,11 @@ function getAgentInnerHTML(i, currentClass){
             innerHTML += `<div class="mb-0 mt-2"><span data-elem-name="car-type">Car type</span><br/>
             <img id="car-preview-` + i + `" class="hide-preview" src="" style="width: 100%; margin-top: -102px; height:100px;">
             <div id="spacer-` + i + `" style="height: 22.6px"></div>
-            <button type="button" class="btn btn-primary rounded-pill btn-sm btn-sedan" data-bs-toggle="button" onClick="toggleTag(this)" onmouseover="$('#car-preview-` + i + `').attr('src', 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Paris_-_Mondial_de_l%27automobile_2010_-_Peugeot_508_-_002.JPG/1920px-Paris_-_Mondial_de_l%27automobile_2010_-_Peugeot_508_-_002.JPG');$('#car-preview-` + i + `').removeClass('hide-preview');$('#spacer-` + i +`').hide(0)" onmouseout="$('#car-preview-` + i + `').addClass('hide-preview');$('#spacer-` + i +`').show(0)"><span class="font-weight-bold">Sedan</span></button>
-            <button type="button" class="btn btn-primary rounded-pill btn-sm btn-wagon" data-bs-toggle="button" onClick="toggleTag(this)" onmouseover="$('#car-preview-` + i + `').attr('src', 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/BMW_3er_Touring_F30.jpg/1920px-BMW_3er_Touring_F30.jpg');$('#car-preview-` + i + `').removeClass('hide-preview');$('#spacer-` + i +`').hide(0)" onmouseout="$('#car-preview-` + i + `').addClass('hide-preview');$('#spacer-` + i +`').show(0)"><span class="font-weight-bold">Wagon</span></button>
-            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)" onmouseover="$('#car-preview-` + i + `').attr('src', 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/2021_Chrysler_Grand_Caravan_SE%2C_Front_Left%2C_03-25-2021.jpg/1920px-2021_Chrysler_Grand_Caravan_SE%2C_Front_Left%2C_03-25-2021.jpg');$('#car-preview-` + i + `').removeClass('hide-preview');$('#spacer-` + i +`').hide(0)" onmouseout="$('#car-preview-` + i + `').addClass('hide-preview');$('#spacer-` + i +`').show(0)"><span class="font-weight-bold">Minivan</span></button>
-            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)" onmouseover="$('#car-preview-` + i + `').attr('src', 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2016_Toyota_RAV4_%28ASA44R_MY16%29_GX_wagon_%282017-01-15%29_01.jpg/1920px-2016_Toyota_RAV4_%28ASA44R_MY16%29_GX_wagon_%282017-01-15%29_01.jpg');$('#car-preview-` + i + `').removeClass('hide-preview');$('#spacer-` + i +`').hide(0)" onmouseout="$('#car-preview-` + i + `').addClass('hide-preview');$('#spacer-` + i +`').show(0)"><span class="font-weight-bold">SUV</span></button>
-            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)" onmouseover="$('#car-preview-` + i + `').attr('src', 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/2018_Toyota_Corolla_%28MZEA12R%29_Ascent_Sport_hatchback_%282018-11-02%29_01.jpg/1920px-2018_Toyota_Corolla_%28MZEA12R%29_Ascent_Sport_hatchback_%282018-11-02%29_01.jpg');$('#car-preview-` + i + `').removeClass('hide-preview');$('#spacer-` + i +`').hide(0)" onmouseout="$('#car-preview-` + i + `').addClass('hide-preview');$('#spacer-` + i +`').show(0)"><span class="font-weight-bold">Compact</span></button>
+            <button type="button" class="btn btn-primary rounded-pill btn-sm btn-sedan" data-bs-toggle="button" onClick="toggleTag(this)" onmouseover="$('#car-preview-` + i + `').attr('src', '../static/small-car.png');$('#car-preview-` + i + `').removeClass('hide-preview');$('#spacer-` + i +`').hide(0)" onmouseout="$('#car-preview-` + i + `').addClass('hide-preview');$('#spacer-` + i +`').show(0)"><span class="font-weight-bold">Small</span></button>
+            <button type="button" class="btn btn-primary rounded-pill btn-sm btn-wagon" data-bs-toggle="button" onClick="toggleTag(this)" onmouseover="$('#car-preview-` + i + `').attr('src', '../static/medium-car.png');$('#car-preview-` + i + `').removeClass('hide-preview');$('#spacer-` + i +`').hide(0)" onmouseout="$('#car-preview-` + i + `').addClass('hide-preview');$('#spacer-` + i +`').show(0)"><span class="font-weight-bold">Medium</span></button>
+            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)" onmouseover="$('#car-preview-` + i + `').attr('src', '../static/large-car.png');$('#car-preview-` + i + `').removeClass('hide-preview');$('#spacer-` + i +`').hide(0)" onmouseout="$('#car-preview-` + i + `').addClass('hide-preview');$('#spacer-` + i +`').show(0)"><span class="font-weight-bold">Large</span></button>
+            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)" onmouseover="$('#car-preview-` + i + `').attr('src', '../static/pickup-car.png');$('#car-preview-` + i + `').removeClass('hide-preview');$('#spacer-` + i +`').hide(0)" onmouseout="$('#car-preview-` + i + `').addClass('hide-preview');$('#spacer-` + i +`').show(0)"><span class="font-weight-bold">Pickup</span></button>
+            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)" onmouseover="$('#car-preview-` + i + `').attr('src', '../static/convertible-car.png');$('#car-preview-` + i + `').removeClass('hide-preview');$('#spacer-` + i +`').hide(0)" onmouseout="$('#car-preview-` + i + `').addClass('hide-preview');$('#spacer-` + i +`').show(0)"><span class="font-weight-bold">Convertible</span></button>
             <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Others</span></button>
             <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>`
         }
@@ -874,6 +875,7 @@ function getbBoxArea(agentFeatures){
 
 function getAgentAutenticity(agent, updateCorrectionIndex){
     var isRealAgent = true;
+    minbBoxArea = selectedDatasetType == "persons" ? 6000 : 8000
     var bBoxArea = getbBoxArea(datasetSpecificFeatures.agents[agent]);
     if(identitiesToAvoid.includes(datasetSpecificFeatures.agents[agent].identity.toLowerCase()) || bBoxArea < minbBoxArea){
         isRealAgent = false;
@@ -1231,17 +1233,26 @@ function discardImage(discardAuthor){
 
 async function getRandomImageDataFromDataset(){
     var imgName, imgSrc;
-    await fetch('/img_url/' + selectedDataset + '/' + selectedDatasetType)//Request to flask server to retrieve a random image from storage
+    /*INFO FETCHING CHANGES WHEN USING AWS INFRASTRUCTURE, AS FOLLOWS */
+    /*await fetch('/img_url/' + selectedDataset + '/' + selectedDatasetType)//Request to flask server to retrieve a random image from storage
         .then(function (response) {
             return response.json();
             }).then(function (elem) {
                 imgSrc = elem.img_url;
                 imgName = elem.img_name;
-            });
+            });*/
+
+    await fetch('/img_url/' + selectedDataset + '/' + selectedDatasetType)//Request to flask server to retrieve a random image from storage
+    .then(function (response) {
+        return response.json();
+        }).then(function (elem) {
+            imgSrc = elem.img;
+            imgName = elem.img_name;
+        });
 
     var jsonData = await loadJSONData(imgName); 
 
-    imgData.src = imgSrc;
+    imgData.src = "data:image/png;base64," + imgSrc;
     imgData.json = jsonData;
     imgData.imgName = imgName;
 }
