@@ -28,7 +28,8 @@ def open_DB_connection(rqst, variables, db_name):
         #host='database-1.cefjjcummrpw.eu-west-3.rds.amazonaws.com' #HOST CHANGES WHEN USING AWS INFRASTRUCTURE
         user=DB_USER,
         password=DB_PWD,
-        database='humaint_annotator'
+        database='humaint_annotator',
+        unix_socket='/var/run/mysqld/mysqld.sock'
     )
 
     cursor = conn.cursor()
