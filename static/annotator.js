@@ -1082,7 +1082,7 @@ async function update_annotated_agents(num_agents){
 }
 
 async function saveEditedJson(json){
-    fetch('/save_edited_json/' + imgData.imgName + '/' + selectedDatasetType + '/' + imgData.json["annotator"] + '/' + selectDataset, {//Request to flask server to save new json 
+    fetch('/save_edited_json/' + imgData.imgName + '/' + selectedDatasetType + '/' + imgData.json["annotator"] + '/' + selectedDataset, {//Request to flask server to save new json 
         headers: {
           'Content-Type': 'application/json'
         },
