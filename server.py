@@ -2,13 +2,14 @@ import os
 import json
 import logging
 import random
-import boto3
-import boto3.session
+#import boto3
+#import boto3.session
+import base64
 import hashlib
 import math
-from botocore.exceptions import ClientError
+#from botocore.exceptions import ClientError
 import pymysql
-from flask import Flask, render_template, jsonify, abort, request, redirect
+from flask import Flask, render_template, jsonify, abort, request, redirect, send_file, make_response
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 from models import User, users
 
@@ -23,10 +24,12 @@ def open_DB_connection(rqst, variables, db_name):
     DB_USER = os.getenv('HUMAINT_ANNOTATOR_DB_USER')
     DB_PWD = os.getenv('HUMAINT_ANNOTATOR_DB_PWD')
     conn = pymysql.connect(
-        host='database-1.cefjjcummrpw.eu-west-3.rds.amazonaws.com',
+        host='localhost',
+        #host='database-1.cefjjcummrpw.eu-west-3.rds.amazonaws.com' #HOST CHANGES WHEN USING AWS INFRASTRUCTURE
         user=DB_USER,
         password=DB_PWD,
-        database='humaint_annotator'
+        database='humaint_annotator',
+        unix_socket='/var/run/mysqld/mysqld.sock'
     )
 
     cursor = conn.cursor()
@@ -36,7 +39,7 @@ def open_DB_connection(rqst, variables, db_name):
     elif rqst == "get_img":
         inter_agreement = int(get_inter_agreement())
         if variables[1] == 'persons':
-            cursor.execute("SELECT img_id, dataset, city, file_name FROM imgs_info WHERE dataset=%(dataset)s AND persons_annotated=%(inter_agreement)s"
+            cursor.execute("SELECT img_id, dataset, file_name FROM imgs_info WHERE dataset=%(dataset)s AND persons_annotated=%(inter_agreement)s"
                            " AND discarded_by_user_persons IS NOT TRUE AND auto_discarded_persons IS NOT TRUE AND is_key_frame=1",
                            {'dataset': variables[0], 'inter_agreement': inter_agreement}) #Number of images that have been annotated by the number
             # of inter_agreement annotators (default 3)
@@ -45,7 +48,7 @@ def open_DB_connection(rqst, variables, db_name):
             if len(result) == 0 or not inter_agreement_quota_acquired:
                 aux_inter_agreement = inter_agreement - 1
                 while(aux_inter_agreement >= 0):
-                    cursor.execute("SELECT img_id, dataset, city, file_name FROM imgs_info WHERE dataset=%(dataset)s AND persons_annotated=%("
+                    cursor.execute("SELECT img_id, dataset, file_name FROM imgs_info WHERE dataset=%(dataset)s AND persons_annotated=%("
                                    "aux_inter_agreement)s AND file_name NOT IN (SELECT img_name FROM img_annotator_relation LEFT JOIN imgs_info "
                                    "ii on ii.file_name=img_name where user_name=%(user_name)s and ds_type='persons') AND "
                                    "discarded_by_user_persons IS NOT TRUE AND auto_discarded_persons IS NOT TRUE AND is_key_frame=1",
@@ -58,13 +61,13 @@ def open_DB_connection(rqst, variables, db_name):
                     if len(result) != 0:
                         break
             else:
-                cursor.execute("SELECT img_id, dataset, city, file_name FROM imgs_info WHERE dataset=%(dataset)s AND persons_annotated=0"
+                cursor.execute("SELECT img_id, dataset, file_name FROM imgs_info WHERE dataset=%(dataset)s AND persons_annotated=0"
                        " AND discarded_by_user_persons IS NOT TRUE AND auto_discarded_persons IS NOT TRUE AND is_key_frame=1",
                        {'dataset': variables[0]})
 
         elif variables[1] == 'vehicles':
             cursor.execute(
-                "SELECT img_id, dataset, city, file_name FROM imgs_info WHERE dataset=%(dataset)s AND vehicles_annotated=%(inter_agreement)s"
+                "SELECT img_id, dataset, file_name FROM imgs_info WHERE dataset=%(dataset)s AND vehicles_annotated=%(inter_agreement)s"
                 " AND discarded_by_user_vehicles IS NOT TRUE AND auto_discarded_vehicles IS NOT TRUE",
                 {'dataset': variables[0], 'inter_agreement': inter_agreement})  # Number of images that have been annotated by the number
             # of inter_agreement annotators (default 3)
@@ -73,7 +76,7 @@ def open_DB_connection(rqst, variables, db_name):
             if len(result) == 0 or not inter_agreement_quota_acquired:
                 aux_inter_agreement = inter_agreement - 1
                 while (aux_inter_agreement >= 0):
-                    cursor.execute("SELECT img_id, dataset, city, file_name FROM imgs_info WHERE dataset=%(dataset)s AND vehicles_annotated=%("
+                    cursor.execute("SELECT img_id, dataset, file_name FROM imgs_info WHERE dataset=%(dataset)s AND vehicles_annotated=%("
                                    "aux_inter_agreement)s AND file_name NOT IN (SELECT img_name FROM img_annotator_relation LEFT JOIN imgs_info "
                                    "ii on ii.file_name=img_name where user_name=%(user_name)s and ds_type='vehicles') AND "
                                    "discarded_by_user_vehicles IS NOT TRUE AND auto_discarded_vehicles IS NOT TRUE AND is_key_frame=1",
@@ -84,7 +87,7 @@ def open_DB_connection(rqst, variables, db_name):
                     if len(result) != 0:
                         break
             else:
-                cursor.execute("SELECT img_id, dataset, city, file_name FROM imgs_info WHERE dataset=%(dataset)s AND vehicles_annotated=0 AND"
+                cursor.execute("SELECT img_id, dataset, file_name FROM imgs_info WHERE dataset=%(dataset)s AND vehicles_annotated=0 AND"
                            "discarded_by_user_vehicles IS NOT TRUE AND auto_discarded_vehicles IS NOT TRUE AND is_key_frame=1",
                                {'dataset': variables[0]})
 
@@ -140,7 +143,6 @@ def open_DB_connection(rqst, variables, db_name):
                        {'img_name': variables[0], 'num_agents': variables[1]})
         conn.commit()
 
-
     if len(result) == 0:
         result = cursor.fetchall()
 
@@ -169,50 +171,68 @@ def is_inter_agreement_quota_acquired(query_result, dataset, ds_type):
             return False
 
 def get_img(dataset, dataset_type):
-    ds = "ECP" if dataset == "eurocity" else dataset
-    variables = [ds, dataset_type]
+    variables = [dataset, dataset_type]
     images = open_DB_connection("get_img", variables, 'img_info')
     rand_index = random.randint(0, len(images) - 1)
     img_uuid = images[rand_index][0]
     img_dataset = images[rand_index][1]
-    img_city = images[rand_index][2]
-    img_file_name = images[rand_index][3]
+    img_file_name = images[rand_index][2]
     img = {
         "uuid": img_uuid,
         "dataset": img_dataset,
-        "city": img_city,
         "file_name": img_file_name
     }
 
     return img
 
 @app.route('/img_url/<dataset>/<dataset_type>', methods=['GET'])
-def get_img_url(dataset, dataset_type):
-    # Creating the low level functional client
-    # Credentials can be specified but it is safer to keep them in environment variables. boto3 will look for
-    # AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY
-    ACCESS_KEY = os.getenv('AWS_ACCESS_KEY_ID')
-    SECRET_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
-
-    session = boto3.session.Session(region_name='eu-west-3')
-    client = session.client(
-                        's3',
-                        config=boto3.session.Config(signature_version='s3v4'),
-                        aws_access_key_id=ACCESS_KEY,
-                        aws_secret_access_key=SECRET_KEY)
-
+def get_img_from_storage(dataset, dataset_type):
     try:
         img = get_img(dataset, dataset_type)
-        img_path = img["dataset"] + "/" + img["city"] + "/" + img["file_name"]
-        img_url = client.generate_presigned_url('get_object', Params={'Bucket': 'datasets-humaint',
-                                                                       'Key': img_path}, ExpiresIn=3600)
-    except ClientError as e:
+        imgs_path = "/media/hector/HDD-4TB/annotator/Datasets/" + dataset + "/images"
+        complete_img_path = ""
+        for subdir, dirs, files in os.walk(imgs_path, onerror=walk_error_handler):
+            if os.path.exists(subdir + '/' + img["file_name"]):
+                complete_img_path = subdir + '/' + img["file_name"]
+                break
+
+        img_in_base64 = {}
+        with open(complete_img_path, "rb") as f:
+            image_binary = f.read()
+            img_in_base64 = {'img': str(base64.b64encode(image_binary).decode('ascii')), 'img_name': img['file_name']}
+    except Exception as e:
         logging.error(e)
         return None
 
-    json_response = {'img_url': str(img_url), 'img_name': img["file_name"]}
+    return jsonify(img_in_base64)
 
-    return jsonify(json_response)
+##### PREVIOUS METHOD CHANGES WHEN USING AWS INFRASTRUCTURE, AS FOLLOWS ######
+#def get_img_url(dataset, dataset_type):
+    # Creating the low level functional client
+    # Credentials can be specified but it is safer to keep them in environment variables. boto3 will look for
+    # AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY
+#    ACCESS_KEY = os.getenv('AWS_ACCESS_KEY_ID')
+#    SECRET_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
+
+#    session = boto3.session.Session(region_name='eu-west-3')
+#    client = session.client(
+#                        's3',
+#                        config=boto3.session.Config(signature_version='s3v4'),
+#                        aws_access_key_id=ACCESS_KEY,
+#                        aws_secret_access_key=SECRET_KEY)
+
+#   try:
+#        img = get_img(dataset, dataset_type)
+#        img_path = img["dataset"] + "/" + img["city"] + "/" + img["file_name"]
+#        img_url = client.generate_presigned_url('get_object', Params={'Bucket': 'datasets-humaint',
+#                                                                       'Key': img_path}, ExpiresIn=3600)
+#    except ClientError as e:
+#        logging.error(e)
+#        return None
+
+#    json_response = {'img_url': str(img_url), 'img_name': img["file_name"]}
+
+#    return jsonify(json_response)
 
 @app.route('/img_json/<dataset>/<file_name>', methods=['GET'])
 def get_img_json(dataset, file_name):
@@ -225,19 +245,7 @@ def get_img_json(dataset, file_name):
 
 def search_json_in_datasets(json_file, dataset):
     # TEMPORARY TILL JSONS ARE IN STORAGE
-    jsons_path = "annotations_json/"
-    if dataset == "eurocity":
-        jsons_path += "ECP/barcelona/"  # Barcelona for test purposes
-    elif dataset == "citypersons":
-        jsons_path += "citypersons/strasbourg/"
-    elif dataset == "nuscenes":
-        jsons_path += "nuscenes/"
-    elif dataset == "tsinghua-daimler":
-        jsons_path += "tsinghua-daimler"
-    elif dataset == "kitti":
-        jsons_path += "kitti"
-    elif dataset == "bair":
-        jsons_path += "bair"
+    jsons_path = "/media/hector/HDD-4TB/annotator/Datasets/" + dataset + "/jsons"
 
     for subdir, dirs, files in os.walk(jsons_path, onerror=walk_error_handler):
         if os.path.exists(subdir + '/' + json_file):
@@ -271,15 +279,18 @@ def update_sweeps_in_db(key_frame_name, ds_type):
 
 def edit_json_files(json_file, edited_json, dict_of_agents, list_of_sweeps_jsons, annotator, selected_dataset):
     #First edit the key frame json
-    key_frame_json_path = "edited_jsons/" + json_file.replace('.json', '_' + annotator + '.json')
+    base_path = "edited_jsons/" + selected_dataset
+    if not os.path.exists(base_path):
+        os.makedirs(base_path)
+
+    key_frame_json_path = "edited_jsons/" + selected_dataset + "/" + json_file.replace('.json', '_' + annotator + '.json')
     with open(key_frame_json_path, 'w', encoding='utf-8') as f:
         json.dump(edited_json, f, ensure_ascii=False, indent=4)
 
     #Then edit sweeps' jsons
     for sweep in list_of_sweeps_jsons:
         sweep_json = search_json_in_datasets(sweep[0], selected_dataset)
-        edited_sweep_json_path = "edited_jsons/" + sweep[0].replace('.json', '_' + annotator + '.json')
-        #current_json = json.dumps(sweep_json, indent=4)
+        edited_sweep_json_path = "edited_jsons/" + selected_dataset + "/" + sweep[0].replace('.json', '_' + annotator + '.json')
         for agent in dict_of_agents:
             k = 0
             while k < len(sweep_json["agents"]):
@@ -394,5 +405,5 @@ def walk_error_handler(exception_instance):
     print("The specified path is incorrect or permission is needed")
 
 if __name__ == '__main__':
-    app.run(debug=False, host='0.0.0.0', port='80')
+    app.run(debug=True, host='0.0.0.0', port='80')
 
