@@ -28,32 +28,33 @@ def open_DB_connection(rqst, variables, db_name):
         #host='database-1.cefjjcummrpw.eu-west-3.rds.amazonaws.com' #HOST CHANGES WHEN USING AWS INFRASTRUCTURE
         user=DB_USER,
         password=DB_PWD,
-        database='humaint_annotator',
-        unix_socket='/var/run/mysqld/mysqld.sock'
+        database='humaint_annotator'
     )
 
     cursor = conn.cursor()
     result = ()
+    change_distribution = False
     if rqst == "login":
         cursor.execute("SELECT user_id, username, pwd, role FROM user_info WHERE user_email=%(user_email)s", {'user_email': variables[0]})
     elif rqst == "get_img":
         inter_agreement = int(get_inter_agreement())
         if variables[1] == 'persons':
-            cursor.execute("SELECT img_id, dataset, file_name FROM imgs_info WHERE dataset=%(dataset)s AND persons_annotated=%(inter_agreement)s"
-                           " AND discarded_by_user_persons IS NOT TRUE AND auto_discarded_persons IS NOT TRUE AND is_key_frame=1",
-                           {'dataset': variables[0], 'inter_agreement': inter_agreement}) #Number of images that have been annotated by the number
+            cursor.execute("SELECT img_id, dataset, file_name FROM imgs_info WHERE dataset=%(dataset)s AND img_distribution=%(img_distribution)s AND "
+                           "persons_annotated=%(inter_agreement)s AND discarded_by_user_persons IS NOT TRUE AND auto_discarded_persons IS NOT TRUE AND "
+                           "is_key_frame=1", {'dataset': variables[0], 'inter_agreement': inter_agreement,
+                                              'img_distribution': variables[2]}) #Number of images that have been annotated by the number
             # of inter_agreement annotators (default 3)
             result = cursor.fetchall()
-            inter_agreement_quota_acquired = is_inter_agreement_quota_acquired(result, variables[0], 'persons')
+            inter_agreement_quota_acquired = is_inter_agreement_quota_acquired(result, variables[0], 'persons', variables[2])
             if len(result) == 0 or not inter_agreement_quota_acquired:
                 aux_inter_agreement = inter_agreement - 1
                 while(aux_inter_agreement >= 0):
-                    cursor.execute("SELECT img_id, dataset, file_name FROM imgs_info WHERE dataset=%(dataset)s AND persons_annotated=%("
-                                   "aux_inter_agreement)s AND file_name NOT IN (SELECT img_name FROM img_annotator_relation LEFT JOIN imgs_info "
-                                   "ii on ii.file_name=img_name where user_name=%(user_name)s and ds_type='persons') AND "
+                    cursor.execute("SELECT img_id, dataset, file_name FROM imgs_info WHERE dataset=%(dataset)s AND img_distribution=%(img_distribution)s AND "
+                                   "persons_annotated=%(aux_inter_agreement)s AND file_name NOT IN (SELECT img_name FROM img_annotator_relation LEFT JOIN "
+                                   "imgs_info ii on ii.file_name=img_name where user_name=%(user_name)s and ds_type='persons') AND "
                                    "discarded_by_user_persons IS NOT TRUE AND auto_discarded_persons IS NOT TRUE AND is_key_frame=1",
-                                   {'dataset': variables[0],
-                                   'aux_inter_agreement': aux_inter_agreement, 'user_name': current_user.name}) #We select the images with less
+                                   {'dataset': variables[0], 'aux_inter_agreement': aux_inter_agreement, 'user_name': current_user.name,
+                                    'img_distribution': variables[2]}) #We select the images with less
                     # than 3 annotators and for which the current user has not participated (i.e. image of a given name in imgs_info table is not
                     # found in img_annotator_relation table)
                     result = cursor.fetchall()
@@ -61,35 +62,33 @@ def open_DB_connection(rqst, variables, db_name):
                     if len(result) != 0:
                         break
             else:
-                cursor.execute("SELECT img_id, dataset, file_name FROM imgs_info WHERE dataset=%(dataset)s AND persons_annotated=0"
-                       " AND discarded_by_user_persons IS NOT TRUE AND auto_discarded_persons IS NOT TRUE AND is_key_frame=1",
-                       {'dataset': variables[0]})
+                result = ()
+                change_distribution = True
 
         elif variables[1] == 'vehicles':
             cursor.execute(
-                "SELECT img_id, dataset, file_name FROM imgs_info WHERE dataset=%(dataset)s AND vehicles_annotated=%(inter_agreement)s"
-                " AND discarded_by_user_vehicles IS NOT TRUE AND auto_discarded_vehicles IS NOT TRUE",
-                {'dataset': variables[0], 'inter_agreement': inter_agreement})  # Number of images that have been annotated by the number
+                "SELECT img_id, dataset, file_name FROM imgs_info WHERE dataset=%(dataset)s AND img_distribution=%(img_distribution)s AND "
+                "vehicles_annotated=%(inter_agreement)s AND discarded_by_user_vehicles IS NOT TRUE AND auto_discarded_vehicles IS NOT TRUE",
+                {'dataset': variables[0], 'inter_agreement': inter_agreement, 'img_distribution': variables[2]})  # Number of images that have been annotated by the number
             # of inter_agreement annotators (default 3)
             result = cursor.fetchall()
-            inter_agreement_quota_acquired = is_inter_agreement_quota_acquired(result, variables[0], 'vehicles')
+            inter_agreement_quota_acquired = is_inter_agreement_quota_acquired(result, variables[0], 'vehicles', variables[2])
             if len(result) == 0 or not inter_agreement_quota_acquired:
                 aux_inter_agreement = inter_agreement - 1
                 while (aux_inter_agreement >= 0):
-                    cursor.execute("SELECT img_id, dataset, file_name FROM imgs_info WHERE dataset=%(dataset)s AND vehicles_annotated=%("
-                                   "aux_inter_agreement)s AND file_name NOT IN (SELECT img_name FROM img_annotator_relation LEFT JOIN imgs_info "
-                                   "ii on ii.file_name=img_name where user_name=%(user_name)s and ds_type='vehicles') AND "
+                    cursor.execute("SELECT img_id, dataset, file_name FROM imgs_info WHERE dataset=%(dataset)s AND img_distribution=%(img_distribution)s AND "
+                                   "vehicles_annotated=%(aux_inter_agreement)s AND file_name NOT IN (SELECT img_name FROM img_annotator_relation LEFT JOIN "
+                                   "imgs_info ii on ii.file_name=img_name where user_name=%(user_name)s and ds_type='vehicles') AND "
                                    "discarded_by_user_vehicles IS NOT TRUE AND auto_discarded_vehicles IS NOT TRUE AND is_key_frame=1",
-                                   {'dataset': variables[0],
-                                   'aux_inter_agreement': aux_inter_agreement, 'user_name': current_user.name})
+                                   {'dataset': variables[0], 'aux_inter_agreement': aux_inter_agreement, 'user_name': current_user.name,
+                                    'img_distribution': variables[2]})
                     result = cursor.fetchall()
                     aux_inter_agreement -= 1
                     if len(result) != 0:
                         break
             else:
-                cursor.execute("SELECT img_id, dataset, file_name FROM imgs_info WHERE dataset=%(dataset)s AND vehicles_annotated=0 AND"
-                           "discarded_by_user_vehicles IS NOT TRUE AND auto_discarded_vehicles IS NOT TRUE AND is_key_frame=1",
-                               {'dataset': variables[0]})
+                result = ()
+                change_distribution = True
 
     elif rqst == "get_json":
         edit_db_entry = variables[2]
@@ -143,7 +142,7 @@ def open_DB_connection(rqst, variables, db_name):
                        {'img_name': variables[0], 'num_agents': variables[1]})
         conn.commit()
 
-    if len(result) == 0:
+    if len(result) == 0 and not change_distribution:
         result = cursor.fetchall()
 
     conn.close()
@@ -161,27 +160,33 @@ def get_inter_agreement():
         inter_agreement = config["inter_agreement"]
         return inter_agreement
 
-def is_inter_agreement_quota_acquired(query_result, dataset, ds_type):
+def is_inter_agreement_quota_acquired(query_result, dataset, ds_type, distribution):
     with open('config.json') as config_file:
         config = json.load(config_file)
-        inter_agreement_quota = config['num_imgs_several_annotators'][ds_type][dataset.lower()]
+        inter_agreement_quota = config['num_imgs_several_annotators'][ds_type][dataset.lower()][distribution]
         if len(query_result) >= inter_agreement_quota:
             return True
         else:
             return False
 
+
 def get_img(dataset, dataset_type):
-    variables = [dataset, dataset_type]
-    images = open_DB_connection("get_img", variables, 'img_info')
-    rand_index = random.randint(0, len(images) - 1)
-    img_uuid = images[rand_index][0]
-    img_dataset = images[rand_index][1]
-    img_file_name = images[rand_index][2]
-    img = {
-        "uuid": img_uuid,
-        "dataset": img_dataset,
-        "file_name": img_file_name
-    }
+    with open('config.json') as config_file:
+        config = json.load(config_file)
+        for dist in config['agents_to_annotate'][dataset_type][dataset]:
+            variables = [dataset, dataset_type, dist]
+            images = open_DB_connection("get_img", variables, 'img_info')
+            if len(images) != 0:
+                break
+        rand_index = random.randint(0, len(images) - 1)
+        img_uuid = images[rand_index][0]
+        img_dataset = images[rand_index][1]
+        img_file_name = images[rand_index][2]
+        img = {
+            "uuid": img_uuid,
+            "dataset": img_dataset,
+            "file_name": img_file_name
+        }
 
     return img
 
