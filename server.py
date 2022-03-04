@@ -119,11 +119,11 @@ def open_DB_connection(rqst, variables, db_name):
         conn.commit()
     elif rqst == "get_num_annotated_agents":
         if(variables[0] == "persons"):
-            cursor.execute("SELECT num_annotated_agents FROM imgs_info WHERE dataset=%(ds)s and persons_annotated!=0",
-                           {'ds': variables[1]})
+            cursor.execute("SELECT num_annotated_agents FROM imgs_info WHERE dataset=%(ds)s and persons_annotated!=0 and img_distribution=%(imgD)s",
+                           {'ds': variables[1], 'imgD': variables[2]})
         else:
-            cursor.execute("SELECT num_annotated_agents FROM imgs_info WHERE dataset=%(ds)s and vehicles_annotated!=0",
-                           {'ds': variables[1]})
+            cursor.execute("SELECT num_annotated_agents FROM imgs_info WHERE dataset=%(ds)s and vehicles_annotated!=0 and img_distribution=%(imgD)s",
+                           {'ds': variables[1], 'imgD': variables[2]})
     elif rqst == "new_annotation_entry":
         cursor.execute("INSERT INTO img_annotator_relation (img_name, user_name, ds_type) VALUES (%(img_name)s, %(user_name)s, %(ds_type)s);",
                        {'img_name': variables[0], 'user_name': variables[1], 'ds_type': variables[2]})
@@ -364,16 +364,21 @@ def get_annotation_percentages():
     annotation_ptgs = {}
     annotation_ptgs['persons'] = {}
     annotation_ptgs['vehicles'] = {}
+
     with open('config.json') as config_file:
         config = json.load(config_file)
         for agents_type in config['agents_to_annotate']:
             for ds in config['agents_to_annotate'][agents_type]:
-                variables = [agents_type, ds]
-                annotated_agents_in_imgs = open_DB_connection("get_num_annotated_agents", variables, 'img_info')
+                sum_agents_per_dataset = 0
                 num_annotated_agents = 0
-                for img in annotated_agents_in_imgs:
-                    num_annotated_agents += img[0]
-                annotation_ptgs[agents_type][ds] = math.trunc(num_annotated_agents/config['agents_to_annotate'][agents_type][ds] * 100)
+                for distribution in config['agents_to_annotate'][agents_type][ds]:
+                    variables = [agents_type, ds, distribution]
+                    sum_agents_per_dataset += config['agents_to_annotate'][agents_type][ds][distribution]
+                    annotated_agents_in_imgs = open_DB_connection("get_num_annotated_agents", variables, 'img_info')
+                    for img in annotated_agents_in_imgs:
+                        num_annotated_agents += img[0]
+
+                annotation_ptgs[agents_type][ds] = math.trunc(num_annotated_agents/sum_agents_per_dataset * 100)
 
     return jsonify(annotation_ptgs)
 
@@ -405,5 +410,5 @@ def walk_error_handler(exception_instance):
     print("The specified path is incorrect or permission is needed")
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port='80')
+    app.run(debug=True, host='127.0.0.1', port='5000')
 
