@@ -45,7 +45,8 @@ const pedestrianHTML = `<div class="mb-0 mt-2"><span>Age</span><br/>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Wheelchair</span></button>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Bicycle</span></button>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Personal mobility device</span></button>
-<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>`
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button>
+<div class="mt-3 errorInLabellingAgent"><span style="margin-right:10px;">Error in agent's labelling</span><input type="checkbox" onClick="toggleErrorInAgent(this)"></div></div>`
 
 const vehicleHTML = `<div class="mb-0 mt-2"><span>Vehicle Type</span><br/> 
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Car</span></button>
@@ -64,7 +65,8 @@ const vehicleHTML = `<div class="mb-0 mt-2"><span>Vehicle Type</span><br/>
 <button type="button" class="btn btn-warning rounded-pill btn-sm warning-btn" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Yellow</span></button>
 <button type="button" class="btn btn-success rounded-pill btn-sm success-btn" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Green</span></button>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Other</span></button>
-<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>`
+<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button>
+<div class="mt-3 errorInLabellingAgent"><span style="margin-right:10px;">Error in agent's labelling</span><input type="checkbox" onClick="toggleErrorInAgent(this)"></div></div>`
 
 var agentHTML = ""
 
@@ -597,6 +599,16 @@ function changeImagePtgAnnotated(){
     percentageElem.parentElement.style.width = percentageImageAnnotated + "%";
 }
 
+function toggleErrorInAgent(element){
+    var currentAgent = element.closest(".container").firstElementChild.id.replace("current-labels-", "Agent ");//Get agent name
+    if(element.checked){
+        newAgentsLabels[currentAgent]["error_labelling_agent"] = "true";
+    }
+    else{
+        delete newAgentsLabels[currentAgent]["error_labelling_agent"];
+    }
+}
+
 function toggleTag(element, addConfCaseTag = false, isConfCase = false){
     var elementParentChildren = element.parentElement.children;
     for(i = 2; i < elementParentChildren.length; i++){//first two elements are not buttons
@@ -636,10 +648,10 @@ function toggleTag(element, addConfCaseTag = false, isConfCase = false){
             elementParentChildren[i].classList.add("btn-success");
         }
         else{
-            if(element.tagName.toLowerCase() == "button"){
+            if(element.tagName.toLowerCase() == "button" && !elementParentChildren[i].classList.contains("errorInLabellingAgent")){
                 elementParentChildren[i].classList.add("btn-primary");
             }
-            else{
+            else if(!elementParentChildren[i].classList.contains("errorInLabellingAgent")){
                 element.style.color = "#0b5ed7"
             }
         }
@@ -853,7 +865,7 @@ function selectAgentInCanvas(visibleAgentsIndex){
 }
 
 function highlightRect(context, x, y, w, h){
-    context.lineWidth = 5;
+    context.lineWidth = 1;
     context.strokeStyle = 'yellow';
     context.strokeRect(x, y, w, h);
 }
