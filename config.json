@@ -49,49 +49,49 @@
     "num_imgs_several_annotators": {
         "persons": {
             "citypersons": {
-                "train": 100,
-                "val": 100
+                "train": 296,
+                "val": 64
             },
             "eurocity": {
-                "train_day": 100,
-                "val_day": 100,
-                "train_night": 100,
-                "val_night": 100
+                "train_day": 1683,
+                "val_day": 365,
+                "train_night": 397,
+                "val_night": 76
             },
             "nuscenes": {
                 "mini": 0,
-                "train": 100,
-                "val": 100,
+                "train": 1712,
+                "val": 388,
                 "test": 0
             },
             "tsinghua-daimler": {
-                "train": 100,
-                "val": 100,
-                "test": 100
+                "train": 231,
+                "val": 31,
+                "test": 97
             },
             "kitti": {
-                "train": 100
+                "train": 60
             },
             "bair": {
-                "train": 100,
-                "val": 100
+                "train": 526,
+                "val": 74
             }
         },
         "vehicles": {
             "nuscenes": {
                 "mini": 0,
-                "train": 100,
-                "val": 100,
+                "train": 877,
+                "val": 203,
                 "test": 0
             },
             "kitti": {
-                "train": 100
+                "train": 120
             },
             "bair": {
-                "train": 100,
-                "val": 100
+                "train": 1576,
+                "val": 224
             }
         }
     },
-    "inter_agreement": 3
+    "inter_agreement": 5
 }
