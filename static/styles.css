@@ -377,6 +377,9 @@ canvas#imgToAnnotate { border: 1px solid white; width: auto; height: auto; posit
 .tag-pressed{
     background: #243d57;
     color: white;
+    font-weight: bold;
+    font-style: italic;
+    text-decoration: underline;
 }
 
 .icon-pressed{
