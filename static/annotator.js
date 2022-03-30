@@ -207,6 +207,7 @@ function loadCanvas(canvasElem){
     img.height = canvasHeight;
     img.src = imgData.src;//src is specified later so that the browser does not use cached image
     imgData.img = img;
+    document.getElementById("img-name-title").innerText = imgData.imgName;
 }
 
 function drawRect(context, agent, rectColor, linewidth){
@@ -1226,6 +1227,7 @@ async function selectDataset(ds, type){
     $('.custom-select').css("visibility", "visible");
     $('.w3-container').css("visibility", "visible");
     $('#ptg-annotated-text').css("visibility", "visible");
+    $('#img-name-title').css("visibility", "visible");
     $('#ds-buttons').css("visibility", "hidden");
 }
 
