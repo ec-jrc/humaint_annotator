@@ -15,7 +15,7 @@ from flask import Flask, render_template, jsonify, abort, request, redirect, sen
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 from models import User, users
 
-app = Flask(__name__)
+app = Flask(__name__, instance_path="/{project_folder_abs_path}/instance")
 app.config['SECRET_KEY'] = '8BUgFTZ-352QRSxa7Jq30yyaFWeIk2mOhOSsL3v1GB4gCHnyu0xzH2JPopp4bBuRxH0'
 
 login_manager = LoginManager(app)
@@ -42,8 +42,7 @@ def open_DB_connection(rqst, variables, db_name):
         #host='database-1.cefjjcummrpw.eu-west-3.rds.amazonaws.com' #HOST CHANGES WHEN USING AWS INFRASTRUCTURE
         user=DB_USER,
         password=DB_PWD,
-        database='humaint_annotator',
-        unix_socket='/var/run/mysqld/mysqld.sock'
+        database='humaint_annotator'
     )
 
     cursor = conn.cursor()
@@ -54,7 +53,11 @@ def open_DB_connection(rqst, variables, db_name):
     elif rqst == "get_img":
         inter_agreement = int(get_inter_agreement())
         if variables[1] == 'persons':
-            cursor.execute("SELECT img_id, dataset, file_name FROM imgs_info WHERE file_name!=%(img_to_avoid)s AND dataset=%(dataset)s AND img_distribution=%(img_distribution)s AND "
+            cursor.execute("SELECT img_name FROM img_annotator_relation WHERE user_name=%(user)s and ds_type='persons'", {'user': variables[3]})
+            imgs_to_avoid_tuple = cursor.fetchall()
+            list_of_images_to_avoid = str(imgs_to_avoid_tuple).replace("),", "").replace("(", "")
+
+            cursor.execute("SELECT file_name FROM imgs_info WHERE dataset=%(dataset)s AND img_distribution=%(img_distribution)s AND "
                            "persons_annotated=%(inter_agreement)s AND discarded_by_user_persons IS NOT TRUE AND auto_discarded_persons IS NOT TRUE AND "
                            "is_key_frame=1", {'img_to_avoid': variables[3], 'dataset': variables[0], 'inter_agreement': inter_agreement,
                                               'img_distribution': variables[2]}) #Number of images that have been annotated by the number
@@ -64,12 +67,11 @@ def open_DB_connection(rqst, variables, db_name):
             if len(result) == 0 or not inter_agreement_quota_acquired:
                 aux_inter_agreement = inter_agreement - 1
                 while(aux_inter_agreement >= 0):
-                    cursor.execute("SELECT img_id, dataset, file_name FROM imgs_info WHERE file_name!=%(img_to_avoid)s AND dataset=%(dataset)s AND img_distribution=%(img_distribution)s AND "
-                                   "persons_annotated=%(aux_inter_agreement)s AND file_name NOT IN (SELECT img_name FROM img_annotator_relation LEFT JOIN "
-                                   "imgs_info ii on ii.file_name=img_name where user_name=%(user_name)s and ds_type='persons') AND "
-                                   "discarded_by_user_persons IS NOT TRUE AND auto_discarded_persons IS NOT TRUE AND is_key_frame=1",
-                                   {'img_to_avoid': variables[3], 'dataset': variables[0], 'aux_inter_agreement': aux_inter_agreement, 'user_name': variables[4],
-                                    'img_distribution': variables[2]}) #We select the images with less
+                    cursor.execute("SELECT img_id, dataset, file_name FROM imgs_info WHERE dataset=%(dataset)s AND img_distribution=%(img_distribution)s AND "
+                                   "persons_annotated=%(aux_inter_agreement)s AND file_name NOT IN (%(test_string)s) AND "
+                                   "discarded_by_user_persons IS NOT TRUE AND auto_discarded_persons IS NOT TRUE AND is_key_frame=1 LIMIT 1",
+                                   {'img_to_avoid': variables[3], 'dataset': variables[0], 'aux_inter_agreement': aux_inter_agreement,
+                                    'img_distribution': variables[2], 'test_string': list_of_images_to_avoid}) #We select the images with less
                     # than 3 annotators and for which the current user has not participated (i.e. image of a given name in imgs_info table is not
                     # found in img_annotator_relation table)
                     result = cursor.fetchall()
@@ -185,16 +187,15 @@ def is_inter_agreement_quota_acquired(query_result, dataset, ds_type, distributi
             return False
 
 
-def get_img(dataset, dataset_type, img_to_avoid, user_name):
+def get_img(dataset, dataset_type, user_name):
     with open('config.json') as config_file:
         config = json.load(config_file)
         for dist in config['agents_to_annotate'][dataset_type][dataset]:
-            variables = [dataset, dataset_type, dist, img_to_avoid, user_name]
+            variables = [dataset, dataset_type, dist, user_name]
             images = open_DB_connection("get_img", variables, 'img_info')
             if len(images) != 0:
                 break
         rand_index = random.randint(0, len(images) - 1)
-        rand_index2 = choice([i for i in range(0, len(images) - 1) if i is not rand_index])
         img_uuid = images[rand_index][0]
         img_dataset = images[rand_index][1]
         img_file_name = images[rand_index][2]
@@ -203,36 +204,15 @@ def get_img(dataset, dataset_type, img_to_avoid, user_name):
             "dataset": img_dataset,
             "file_name": img_file_name
         }
-        img_uuid2 = images[rand_index2][0]
-        img_dataset2 = images[rand_index2][1]
-        img_file_name2 = images[rand_index2][2]
-        img2 = {
-            "uuid": img_uuid2,
-            "dataset": img_dataset2,
-            "file_name": img_file_name2
-        }
 
-    return [img, img2]
-
-def async_get_img(dataset, dataset_type, img_dataset_info, img, user_name):
-    imgs = get_img(dataset, dataset_type, img["file_name"], user_name)
-    new_img = imgs[0]
-    update_next_img_for_ds(img_dataset_info, new_img)
+    return img
 
 @app.route('/img_url/<dataset>/<dataset_type>', methods=['GET'])
 def get_img_from_storage(dataset, dataset_type):
     try:
-        img_dataset_info = dataset + "_" + dataset_type
-        if(next_img_dict[img_dataset_info] == ""):
-            imgs = get_img(dataset, dataset_type, "", current_user.name)
-            img = imgs[0]
-            img2 = imgs[1]
-            update_next_img_for_ds(img_dataset_info, img2)
-        else:
-            img = next_img_dict[img_dataset_info]
-            x = threading.Thread(target=async_get_img, args=(dataset, dataset_type, img_dataset_info, img, current_user.name))
-            x.start()
-        imgs_path = "/media/hector/HDD-4TB/annotator/Datasets/" + dataset + "/images"
+        img = get_img(dataset, dataset_type, current_user.name)
+        imgs_path = "../Datasets/citypersons/imgs"
+        # imgs_path = "/media/hector/HDD-4TB/annotator/Datasets/" + dataset + "/images"
         complete_img_path = ""
         for subdir, dirs, files in os.walk(imgs_path, onerror=walk_error_handler):
             if os.path.exists(subdir + '/' + img["file_name"]):
@@ -291,7 +271,8 @@ def get_img_json(dataset, file_name):
 
 def search_json_in_datasets(json_file, dataset):
     # TEMPORARY TILL JSONS ARE IN STORAGE
-    jsons_path = "/media/hector/HDD-4TB/annotator/Datasets/" + dataset + "/jsons"
+    jsons_path = "../Datasets/citypersons/annotations/annotations_json"
+    #jsons_path = "/media/hector/HDD-4TB/annotator/Datasets/" + dataset + "/jsons"
 
     for subdir, dirs, files in os.walk(jsons_path, onerror=walk_error_handler):
         if os.path.exists(subdir + '/' + json_file):
@@ -456,5 +437,5 @@ def walk_error_handler(exception_instance):
     print("The specified path is incorrect or permission is needed")
 
 if __name__ == '__main__':
-    app.run(debug=True, host='127.0.0.1', port='5000')
+    app.run(debug=True, host='localhost', port='8080')
 
