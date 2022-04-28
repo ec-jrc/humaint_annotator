@@ -68,8 +68,8 @@ def open_DB_connection(rqst, variables, db_name):
             if len(result) == 0 or not inter_agreement_quota_acquired:
                 aux_inter_agreement = inter_agreement - 1
                 #while(aux_inter_agreement >= 0):
-                cursor.execute("SELECT file_name FROM imgs_info WHERE dataset=%(dataset)s AND img_distribution=%(img_distribution)s AND "
-                               "persons_annotated=%(aux_inter_agreement)s AND file_name NOT IN (%(test_string)s) AND "
+                cursor.execute("SELECT file_name FROM imgs_info WHERE dataset=%(dataset)s AND img_distribution=%(img_distribution)s "
+                               " AND file_name NOT IN (%(test_string)s) AND "
                                "discarded_by_user_persons IS NOT TRUE AND auto_discarded_persons IS NOT TRUE AND is_key_frame=1 "
                                "ORDER BY persons_annotated DESC LIMIT 1",
                                {'img_to_avoid': variables[3], 'dataset': variables[0], 'aux_inter_agreement': aux_inter_agreement,
@@ -197,8 +197,8 @@ def get_img(dataset, dataset_type, user_name):
             images = open_DB_connection("get_img", variables, 'img_info')
             if len(images) != 0:
                 break
-        rand_index = random.randint(0, len(images) - 1)
-        img_file_name = images[rand_index][2]
+        #rand_index = random.randint(0, len(images) - 1)
+        img_file_name = images[0]#[2]
         img = {
             "file_name": img_file_name
         }
@@ -213,8 +213,8 @@ def get_img_from_storage(dataset, dataset_type):
         # imgs_path = "/media/hector/HDD-4TB/annotator/Datasets/" + dataset + "/images"
         complete_img_path = ""
         for subdir, dirs, files in os.walk(imgs_path, onerror=walk_error_handler):
-            if os.path.exists(subdir + '/' + img["file_name"]):
-                complete_img_path = subdir + '/' + img["file_name"]
+            if os.path.exists(subdir + '/' + img["file_name"][0]):
+                complete_img_path = subdir + '/' + img["file_name"][0]
                 break
 
         img_in_base64 = {}
