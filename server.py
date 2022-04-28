@@ -58,26 +58,28 @@ def open_DB_connection(rqst, variables, db_name):
             list_of_images_to_avoid = str(imgs_to_avoid_tuple).replace("),", "").replace("(", "")
 
             cursor.execute("SELECT file_name FROM imgs_info WHERE dataset=%(dataset)s AND img_distribution=%(img_distribution)s AND "
-                           "persons_annotated=%(inter_agreement)s AND discarded_by_user_persons IS NOT TRUE AND auto_discarded_persons IS NOT TRUE AND "
+                           "persons_annotated=%(inter_agreement)s AND "
                            "is_key_frame=1", {'img_to_avoid': variables[3], 'dataset': variables[0], 'inter_agreement': inter_agreement,
                                               'img_distribution': variables[2]}) #Number of images that have been annotated by the number
+
             # of inter_agreement annotators (default 3)
             result = cursor.fetchall()
             inter_agreement_quota_acquired = is_inter_agreement_quota_acquired(result, variables[0], 'persons', variables[2])
             if len(result) == 0 or not inter_agreement_quota_acquired:
                 aux_inter_agreement = inter_agreement - 1
-                while(aux_inter_agreement >= 0):
-                    cursor.execute("SELECT img_id, dataset, file_name FROM imgs_info WHERE dataset=%(dataset)s AND img_distribution=%(img_distribution)s AND "
-                                   "persons_annotated=%(aux_inter_agreement)s AND file_name NOT IN (%(test_string)s) AND "
-                                   "discarded_by_user_persons IS NOT TRUE AND auto_discarded_persons IS NOT TRUE AND is_key_frame=1 LIMIT 1",
-                                   {'img_to_avoid': variables[3], 'dataset': variables[0], 'aux_inter_agreement': aux_inter_agreement,
-                                    'img_distribution': variables[2], 'test_string': list_of_images_to_avoid}) #We select the images with less
-                    # than 3 annotators and for which the current user has not participated (i.e. image of a given name in imgs_info table is not
-                    # found in img_annotator_relation table)
-                    result = cursor.fetchall()
-                    aux_inter_agreement -= 1
-                    if len(result) != 0:
-                        break
+                #while(aux_inter_agreement >= 0):
+                cursor.execute("SELECT file_name FROM imgs_info WHERE dataset=%(dataset)s AND img_distribution=%(img_distribution)s AND "
+                               "persons_annotated=%(aux_inter_agreement)s AND file_name NOT IN (%(test_string)s) AND "
+                               "discarded_by_user_persons IS NOT TRUE AND auto_discarded_persons IS NOT TRUE AND is_key_frame=1 "
+                               "ORDER BY persons_annotated DESC LIMIT 1",
+                               {'img_to_avoid': variables[3], 'dataset': variables[0], 'aux_inter_agreement': aux_inter_agreement,
+                                'img_distribution': variables[2], 'test_string': list_of_images_to_avoid}) #We select the images with less
+                # than 3 annotators and for which the current user has not participated (i.e. image of a given name in imgs_info table is not
+                # found in img_annotator_relation table)
+                result = cursor.fetchall()
+                aux_inter_agreement -= 1
+                    #if len(result) != 0:
+                    #    break
             else:
                 result = ()
                 change_distribution = True
@@ -196,12 +198,8 @@ def get_img(dataset, dataset_type, user_name):
             if len(images) != 0:
                 break
         rand_index = random.randint(0, len(images) - 1)
-        img_uuid = images[rand_index][0]
-        img_dataset = images[rand_index][1]
         img_file_name = images[rand_index][2]
         img = {
-            "uuid": img_uuid,
-            "dataset": img_dataset,
             "file_name": img_file_name
         }
 
