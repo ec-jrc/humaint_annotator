@@ -1,6 +1,7 @@
 import os
 import json
 import logging
+from sqlalchemy import create_engine, select, Table, MetaData, and_, func
 import random
 from random import choice
 import threading
@@ -21,18 +22,6 @@ app.config['SECRET_KEY'] = '8BUgFTZ-352QRSxa7Jq30yyaFWeIk2mOhOSsL3v1GB4gCHnyu0xz
 login_manager = LoginManager(app)
 login_manager.login_view = "/login"
 
-next_img_dict = {
-    "citypersons_persons": "",
-    "eurocity_persons": "",
-    "nuscenes_persons": "",
-    "tsinghua-daimler_persons": "",
-    "kitti_persons": "",
-    "bair_persons": "",
-    "nuscenes_vehicles": "",
-    "kitti_vehicles": "",
-    "bair_vehicles": ""
-}
-
 def open_DB_connection(rqst, variables, db_name):
     #Database connection
     DB_USER = os.getenv('HUMAINT_ANNOTATOR_DB_USER')
@@ -45,6 +34,22 @@ def open_DB_connection(rqst, variables, db_name):
         database='humaint_annotator'
     )
 
+    engine = create_engine('mysql+pymysql://root:magumuli@localhost/humaint_annotator')
+    metadata = MetaData(bind=None)
+    imgs_info = Table(
+        'imgs_info',
+        metadata,
+        autoload=True,
+        autoload_with=engine
+    )
+    img_annotator_relation = Table(
+        'img_annotator_relation',
+        metadata,
+        autoload=True,
+        autoload_with=engine
+    )
+    connection = engine.connect()
+
     cursor = conn.cursor()
     result = ()
     change_distribution = False
@@ -53,58 +58,137 @@ def open_DB_connection(rqst, variables, db_name):
     elif rqst == "get_img":
         inter_agreement = int(get_inter_agreement())
         if variables[1] == 'persons':
-            cursor.execute("SELECT img_name FROM img_annotator_relation WHERE user_name=%(user)s and ds_type='persons'", {'user': variables[3]})
-            imgs_to_avoid_tuple = cursor.fetchall()
-            list_of_images_to_avoid = str(imgs_to_avoid_tuple).replace("),", "").replace("(", "")
+            ### KEEP UNTIL FURTHER TESTING
+            #cursor.execute("SELECT img_name FROM img_annotator_relation WHERE user_name=%(user)s and ds_type='persons'", {'user': variables[3]})
+            #imgs_to_avoid_tuple = cursor.fetchall()
+            #list_of_images_to_avoid = str(imgs_to_avoid_tuple).replace("),", "").replace("(", "")
 
-            cursor.execute("SELECT file_name FROM imgs_info WHERE dataset=%(dataset)s AND img_distribution=%(img_distribution)s AND "
-                           "persons_annotated=%(inter_agreement)s AND "
-                           "is_key_frame=1", {'img_to_avoid': variables[3], 'dataset': variables[0], 'inter_agreement': inter_agreement,
-                                              'img_distribution': variables[2]}) #Number of images that have been annotated by the number
+            try:
+                stmt = select(
+                    img_annotator_relation.columns.img_name
+                ).where(and_(
+                    img_annotator_relation.columns.user_name == variables[3],
+                    img_annotator_relation.columns.ds_type == 'persons'
+                ))
+                imgs_to_avoid_tuple = connection.execute(stmt).fetchall()
+            except Exception as e:
+                print(e)
 
-            # of inter_agreement annotators (default 3)
-            result = cursor.fetchall()
-            inter_agreement_quota_acquired = is_inter_agreement_quota_acquired(result, variables[0], 'persons', variables[2])
+            list_of_images_to_avoid = []
+            for tuple in imgs_to_avoid_tuple:
+                list_of_images_to_avoid.append(tuple[0])
+
+            ### KEEP UNTIL FURTHER TESTING
+            #cursor.execute("SELECT count(*) FROM imgs_info WHERE dataset=%(dataset)s AND img_distribution=%(img_distribution)s AND "
+            #               "persons_annotated=%(inter_agreement)s", {'dataset': variables[0], 'inter_agreement': inter_agreement,
+            #                                                         'img_distribution': variables[2]})
+            #Number of images that have been annotated by the number of inter_agreement annotators (default 3)
+
+            #result = cursor.fetchall()
+
+            try:
+                stmt = select([func.count()]).select_from(
+                    imgs_info
+                ).where(and_(
+                    imgs_info.columns.dataset == variables[0],
+                    imgs_info.columns.img_distribution == variables[2],
+                    imgs_info.columns.persons_annotated == inter_agreement
+                ))
+                result = connection.execute(stmt).fetchall()
+            except Exception as e:
+                print(e)
+
+            inter_agreement_quota_acquired = is_inter_agreement_quota_acquired(result[0][0], variables[0], 'persons', variables[2])
             if len(result) == 0 or not inter_agreement_quota_acquired:
-                aux_inter_agreement = inter_agreement - 1
-                #while(aux_inter_agreement >= 0):
-                cursor.execute("SELECT file_name FROM imgs_info WHERE dataset=%(dataset)s AND img_distribution=%(img_distribution)s "
-                               " AND file_name NOT IN (%(test_string)s) AND "
-                               "discarded_by_user_persons IS NOT TRUE AND auto_discarded_persons IS NOT TRUE AND is_key_frame=1 "
-                               "ORDER BY persons_annotated DESC LIMIT 1",
-                               {'img_to_avoid': variables[3], 'dataset': variables[0], 'aux_inter_agreement': aux_inter_agreement,
-                                'img_distribution': variables[2], 'test_string': list_of_images_to_avoid}) #We select the images with less
-                # than 3 annotators and for which the current user has not participated (i.e. image of a given name in imgs_info table is not
-                # found in img_annotator_relation table)
-                result = cursor.fetchall()
-                aux_inter_agreement -= 1
-                    #if len(result) != 0:
-                    #    break
+                try:
+                    stmt = select(
+                        imgs_info.columns.file_name
+                    ).where(and_(
+                        imgs_info.columns.dataset == variables[0],
+                        imgs_info.columns.img_distribution == variables[2],
+                        imgs_info.columns.file_name.not_in(list_of_images_to_avoid),
+                        imgs_info.columns.discarded_by_user_persons != True,
+                        imgs_info.columns.auto_discarded_persons != True,
+                        imgs_info.columns.is_key_frame == 1
+                    )).order_by(imgs_info.columns.persons_annotated.desc()).limit(1)
+                    result = connection.execute(stmt).fetchall()
+                except Exception as e:
+                    print(e)
+
+                ### KEEP UNTIL FURTHER TESTING
+                #cursor.execute("SELECT file_name FROM imgs_info WHERE dataset=%(dataset)s AND img_distribution=%(img_distribution)s "
+                #               " AND file_name NOT IN (%(list_to_avoid)s) AND discarded_by_user_persons IS NOT TRUE AND auto_discarded_persons "
+                #                "IS NOT TRUE AND is_key_frame=1 ORDER BY persons_annotated DESC LIMIT 1",
+                #               {'dataset': variables[0], 'img_distribution': variables[2], 'list_to_avoid': list_of_images_to_avoid})
+                #We select the images with less than 3 annotators and for which the current user has not participated (i.e. image of a given name
+                # in imgs_info table is not found in img_annotator_relation table)
+                #result = cursor.fetchall()
             else:
                 result = ()
                 change_distribution = True
 
         elif variables[1] == 'vehicles':
-            cursor.execute(
-                "SELECT img_id, dataset, file_name FROM imgs_info WHERE file_name!=%(img_to_avoid)s AND dataset=%(dataset)s AND img_distribution=%(img_distribution)s AND "
-                "vehicles_annotated=%(inter_agreement)s AND discarded_by_user_vehicles IS NOT TRUE AND auto_discarded_vehicles IS NOT TRUE AND "
-                "is_key_frame=1", {'img_to_avoid': variables[3], 'dataset': variables[0], 'inter_agreement': inter_agreement, 'img_distribution': variables[2]})  # Number of images that have been annotated by the number
-            # of inter_agreement annotators (default 3)
-            result = cursor.fetchall()
-            inter_agreement_quota_acquired = is_inter_agreement_quota_acquired(result, variables[0], 'vehicles', variables[2])
+            ### KEEP UNTIL FURTHER TESTING
+            #cursor.execute("SELECT img_name FROM img_annotator_relation WHERE user_name=%(user)s and ds_type='vehicles'", {'user': variables[3]})
+            #imgs_to_avoid_tuple = cursor.fetchall()
+
+            try:
+                stmt = select(
+                    img_annotator_relation.columns.img_name
+                ).where(and_(
+                    img_annotator_relation.columns.user_name == variables[3],
+                    img_annotator_relation.columns.ds_type == 'vehicles'
+                ))
+                imgs_to_avoid_tuple = connection.execute(stmt).fetchall()
+            except Exception as e:
+                print(e)
+
+            list_of_images_to_avoid = []
+            for tuple in imgs_to_avoid_tuple:
+                list_of_images_to_avoid.append(tuple[0])
+            ### KEEP UNTIL FURTHER TESTING
+            #list_of_images_to_avoid = str(imgs_to_avoid_tuple).replace("),", "").replace(",))","").replace("(", "")
+
+            #cursor.execute(
+            #    "SELECT count(*) FROM imgs_info WHERE dataset=%(dataset)s AND img_distribution=%(img_distribution)s AND "
+            #    "vehicles_annotated=%(inter_agreement)s", {'dataset': variables[0], 'inter_agreement': inter_agreement,
+            #                                               'img_distribution': variables[2]})
+            # Number of images that have been annotated by the number of inter_agreement annotators (default 3)
+            # result = cursor.fetchall()
+
+            try:
+                stmt = select([func.count()]).select_from(
+                    imgs_info
+                ).where(and_(
+                    imgs_info.columns.dataset == variables[0],
+                    imgs_info.columns.img_distribution == variables[2],
+                    imgs_info.columns.vehicles_annotated == inter_agreement
+                ))
+                result = connection.execute(stmt).fetchall()
+            except Exception as e:
+                print(e)
+
+            inter_agreement_quota_acquired = is_inter_agreement_quota_acquired(result[0][0], variables[0], 'vehicles', variables[2])
             if len(result) == 0 or not inter_agreement_quota_acquired:
-                aux_inter_agreement = inter_agreement - 1
-                while (aux_inter_agreement >= 0):
-                    cursor.execute("SELECT img_id, dataset, file_name FROM imgs_info WHERE file_name!=%(img_to_avoid)s AND dataset=%(dataset)s AND img_distribution=%(img_distribution)s AND "
-                                   "vehicles_annotated=%(aux_inter_agreement)s AND file_name NOT IN (SELECT img_name FROM img_annotator_relation LEFT JOIN "
-                                   "imgs_info ii on ii.file_name=img_name where user_name=%(user_name)s and ds_type='vehicles') AND "
-                                   "discarded_by_user_vehicles IS NOT TRUE AND auto_discarded_vehicles IS NOT TRUE AND is_key_frame=1",
-                                   {'img_to_avoid': variables[3], 'dataset': variables[0], 'aux_inter_agreement': aux_inter_agreement, 'user_name': variables[4],
-                                    'img_distribution': variables[2]})
-                    result = cursor.fetchall()
-                    aux_inter_agreement -= 1
-                    if len(result) != 0:
-                        break
+                try:
+                    stmt = select(
+                        imgs_info.columns.file_name
+                    ).where(and_(
+                        imgs_info.columns.dataset == variables[0],
+                        imgs_info.columns.img_distribution == variables[2],
+                        imgs_info.columns.file_name.not_in(list_of_images_to_avoid),
+                        imgs_info.columns.discarded_by_user_vehicles != True,
+                        imgs_info.columns.auto_discarded_vehicles != True,
+                        imgs_info.columns.is_key_frame == 1
+                    )).order_by(imgs_info.columns.vehicles_annotated.desc()).limit(1)
+                    result = connection.execute(stmt).fetchall()
+                except Exception as e:
+                    print(e)
+                #cursor.execute("SELECT file_name FROM imgs_info WHERE dataset=%(dataset)s AND img_distribution=%(img_distribution)s AND "
+                #               "AND file_name NOT IN (" + list_of_images_to_avoid + ") AND discarded_by_user_vehicles IS NOT TRUE AND auto_discarded_vehicles "
+                #               "IS NOT TRUE AND is_key_frame=1 ORDER BY vehicles_annotated DESC LIMIT 1",
+                #               {'dataset': variables[0], 'img_distribution': variables[2], 'list_to_avoid': list_of_images_to_avoid})
+                #result = cursor.fetchall()
             else:
                 result = ()
                 change_distribution = True
@@ -183,7 +267,7 @@ def is_inter_agreement_quota_acquired(query_result, dataset, ds_type, distributi
     with open('config.json') as config_file:
         config = json.load(config_file)
         inter_agreement_quota = config['num_imgs_several_annotators'][ds_type][dataset.lower()][distribution]
-        if len(query_result) >= inter_agreement_quota:
+        if query_result >= inter_agreement_quota:
             return True
         else:
             return False
@@ -198,7 +282,7 @@ def get_img(dataset, dataset_type, user_name):
             if len(images) != 0:
                 break
         #rand_index = random.randint(0, len(images) - 1)
-        img_file_name = images[0]#[2]
+        img_file_name = images[0][0]
         img = {
             "file_name": img_file_name
         }
@@ -226,9 +310,6 @@ def get_img_from_storage(dataset, dataset_type):
         return None
 
     return jsonify(img_in_base64)
-
-def update_next_img_for_ds(ds, img):
-    next_img_dict[ds] = img
 
 ##### PREVIOUS METHOD CHANGES WHEN USING AWS INFRASTRUCTURE, AS FOLLOWS ######
 #def get_img_url(dataset, dataset_type):
