@@ -35,7 +35,7 @@ def open_DB_connection(rqst, variables, db_name):
         unix_socket = '/var/run/mysqld/mysqld.sock'
     )
 
-    engine = create_engine('mysql+pymysql://root:magumuli@localhost/humaint_annotator')
+    engine = create_engine('mysql+pymysql://'+DB_USER+':'+DB_PWD+'@localhost/humaint_annotator')
     metadata = MetaData(bind=None)
     imgs_info = Table(
         'imgs_info',
