@@ -31,7 +31,8 @@ def open_DB_connection(rqst, variables, db_name):
         #host='database-1.cefjjcummrpw.eu-west-3.rds.amazonaws.com' #HOST CHANGES WHEN USING AWS INFRASTRUCTURE
         user=DB_USER,
         password=DB_PWD,
-        database='humaint_annotator'
+        database='humaint_annotator',
+        unix_socket = '/var/run/mysqld/mysqld.sock'
     )
 
     engine = create_engine('mysql+pymysql://root:magumuli@localhost/humaint_annotator')
@@ -213,8 +214,8 @@ def get_img(dataset, dataset_type, user_name):
 def get_img_from_storage(dataset, dataset_type):
     try:
         img = get_img(dataset, dataset_type, current_user.name)
-        imgs_path = "../Datasets/citypersons/imgs"
-        # imgs_path = "/media/hector/HDD-4TB/annotator/Datasets/" + dataset + "/images"
+        #imgs_path = "../Datasets/citypersons/imgs"
+        imgs_path = "/media/hector/HDD-4TB/annotator/Datasets/" + dataset + "/images"
         complete_img_path = ""
         for subdir, dirs, files in os.walk(imgs_path, onerror=walk_error_handler):
             if os.path.exists(subdir + '/' + img["file_name"][0]):
@@ -231,34 +232,6 @@ def get_img_from_storage(dataset, dataset_type):
 
     return jsonify(img_in_base64)
 
-##### PREVIOUS METHOD CHANGES WHEN USING AWS INFRASTRUCTURE, AS FOLLOWS ######
-#def get_img_url(dataset, dataset_type):
-    # Creating the low level functional client
-    # Credentials can be specified but it is safer to keep them in environment variables. boto3 will look for
-    # AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY
-#    ACCESS_KEY = os.getenv('AWS_ACCESS_KEY_ID')
-#    SECRET_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
-
-#    session = boto3.session.Session(region_name='eu-west-3')
-#    client = session.client(
-#                        's3',
-#                        config=boto3.session.Config(signature_version='s3v4'),
-#                        aws_access_key_id=ACCESS_KEY,
-#                        aws_secret_access_key=SECRET_KEY)
-
-#   try:
-#        img = get_img(dataset, dataset_type)
-#        img_path = img["dataset"] + "/" + img["city"] + "/" + img["file_name"]
-#        img_url = client.generate_presigned_url('get_object', Params={'Bucket': 'datasets-humaint',
-#                                                                       'Key': img_path}, ExpiresIn=3600)
-#    except ClientError as e:
-#        logging.error(e)
-#        return None
-
-#    json_response = {'img_url': str(img_url), 'img_name': img["file_name"]}
-
-#    return jsonify(json_response)
-
 @app.route('/img_json/<dataset>/<file_name>', methods=['GET'])
 def get_img_json(dataset, file_name):
     edit_db_entry = False
@@ -270,8 +243,8 @@ def get_img_json(dataset, file_name):
 
 def search_json_in_datasets(json_file, dataset):
     # TEMPORARY TILL JSONS ARE IN STORAGE
-    jsons_path = "../Datasets/citypersons/annotations/annotations_json"
-    #jsons_path = "/media/hector/HDD-4TB/annotator/Datasets/" + dataset + "/jsons"
+    #jsons_path = "../Datasets/citypersons/annotations/annotations_json"
+    jsons_path = "/media/hector/HDD-4TB/annotator/Datasets/" + dataset + "/jsons"
 
     for subdir, dirs, files in os.walk(jsons_path, onerror=walk_error_handler):
         if os.path.exists(subdir + '/' + json_file):
@@ -436,5 +409,5 @@ def walk_error_handler(exception_instance):
     print("The specified path is incorrect or permission is needed")
 
 if __name__ == '__main__':
-    app.run(debug=True, host='localhost', port='8080')
+    app.run(debug=True, host='127.0.0.1', port='5000')
 
