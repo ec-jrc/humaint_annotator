@@ -35,7 +35,7 @@ def open_DB_connection(rqst, variables, db_name):
         unix_socket = '/var/run/mysqld/mysqld.sock'
     )
 
-    engine = create_engine('mysql+pymysql://'+DB_USER+':'+DB_PWD+'@localhost/humaint_annotator')
+    engine = create_engine('mysql+pymysql://'+DB_USER+':'+DB_PWD+'@localhost/humaint_annotator?unix_socket=/var/run/mysqld/mysqld.sock')
     metadata = MetaData(bind=None)
     imgs_info = Table(
         'imgs_info',
@@ -218,8 +218,8 @@ def get_img_from_storage(dataset, dataset_type):
         imgs_path = "/media/hector/HDD-4TB/annotator/Datasets/" + dataset + "/images"
         complete_img_path = ""
         for subdir, dirs, files in os.walk(imgs_path, onerror=walk_error_handler):
-            if os.path.exists(subdir + '/' + img["file_name"][0]):
-                complete_img_path = subdir + '/' + img["file_name"][0]
+            if os.path.exists(subdir + '/' + img["file_name"]):
+                complete_img_path = subdir + '/' + img["file_name"]
                 break
 
         img_in_base64 = {}
