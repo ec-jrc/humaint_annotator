@@ -1,16 +1,10 @@
 import os
 import json
 import logging
-from sqlalchemy import create_engine, select, Table, MetaData, and_, func
-import random
-from random import choice
-import threading
-#import boto3
-#import boto3.session
+from sqlalchemy import create_engine, select, Table, MetaData, and_, func, update, insert
 import base64
 import hashlib
 import math
-#from botocore.exceptions import ClientError
 import pymysql
 from flask import Flask, render_template, jsonify, abort, request, redirect, send_file, make_response
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
@@ -26,36 +20,56 @@ def open_DB_connection(rqst, variables, db_name):
     #Database connection
     DB_USER = os.getenv('HUMAINT_ANNOTATOR_DB_USER')
     DB_PWD = os.getenv('HUMAINT_ANNOTATOR_DB_PWD')
-    conn = pymysql.connect(
-        host='localhost',
-        #host='database-1.cefjjcummrpw.eu-west-3.rds.amazonaws.com' #HOST CHANGES WHEN USING AWS INFRASTRUCTURE
-        user=DB_USER,
-        password=DB_PWD,
-        database='humaint_annotator',
-        unix_socket = '/var/run/mysqld/mysqld.sock'
-    )
+    #conn = pymysql.connect(
+    #    host='localhost',
+    #    user=DB_USER,
+    #    password=DB_PWD,
+    #    database='humaint_annotator',
+        #unix_socket = '/var/run/mysqld/mysqld.sock'
+    #)
 
-    engine = create_engine('mysql+pymysql://'+DB_USER+':'+DB_PWD+'@localhost/humaint_annotator?unix_socket=/var/run/mysqld/mysqld.sock')
+    engine = create_engine('mysql+pymysql://'+DB_USER+':'+DB_PWD+'@localhost/humaint_annotator')#?unix_socket=/var/run/mysqld/mysqld.sock')
     metadata = MetaData(bind=None)
+
+    ### DATABASE TABLES
     imgs_info = Table(
         'imgs_info',
         metadata,
         autoload=True,
         autoload_with=engine
     )
+
     img_annotator_relation = Table(
         'img_annotator_relation',
         metadata,
         autoload=True,
         autoload_with=engine
     )
+
+    user_info = Table(
+        'user_info',
+        metadata,
+        autoload=True,
+        autoload_with=engine
+    )
+
+    ### CONNECTION TO DATABASE
     connection = engine.connect()
 
-    cursor = conn.cursor()
+    #cursor = conn.cursor()
     result = ()
     change_distribution = False
+    is_update = False
     if rqst == "login":
-        cursor.execute("SELECT user_id, username, pwd, role FROM user_info WHERE user_email=%(user_email)s", {'user_email': variables[0]})
+        #cursor.execute("SELECT user_id, username, pwd, role FROM user_info WHERE user_email=%(user_email)s", {'user_email': variables[0]})
+        stmt = select(
+            user_info.columns.user_id,
+            user_info.columns.username,
+            user_info.columns.pwd,
+            user_info.columns.role
+        ).where(
+            user_info.columns.user_email == variables[0]
+        )
     elif rqst == "get_img":
         inter_agreement = int(get_inter_agreement())
         if variables[1] == 'persons':
@@ -118,58 +132,179 @@ def open_DB_connection(rqst, variables, db_name):
         edit_db_entry = variables[2]
         if edit_db_entry:
             if variables[1] == 'persons':
-                cursor.execute("UPDATE imgs_info SET persons_annotated=persons_annotated+1 WHERE file_name=%(img_name)s", {'img_name': variables[0]})
+                #annotated_val = imgs_info.columns.persons_annotated
+                stmt = update(
+                    imgs_info
+                ).where(
+                    imgs_info.columns.file_name == variables[0]
+                ).values(
+                    persons_annotated=imgs_info.columns.persons_annotated + 1
+                )
             elif variables[1] == 'vehicles':
-                cursor.execute("UPDATE imgs_info SET vehicles_annotated=vehicles_annotated+1 WHERE file_name=%(img_name)s", {'img_name': variables[0]})
-            conn.commit()
+                #annotated_val = imgs_info.columns.vehicle_annotated
+                #cursor.execute("UPDATE imgs_info SET persons_annotated=persons_annotated+1 WHERE file_name=%(img_name)s", {'img_name': variables[0]})
+                stmt = update(
+                    imgs_info
+                ).where(
+                    imgs_info.columns.file_name == variables[0]
+                ).values(
+                    vehicle_annotated=imgs_info.columns.vehicle_annotated + 1
+                )
 
-        cursor.execute("SELECT associated_json FROM imgs_info WHERE file_name=%(json_file)s", {'json_file': variables[0]})
+            connection.execute(stmt)
+            is_update = True
+            #elif variables[1] == 'vehicles':
+                #cursor.execute("UPDATE imgs_info SET vehicles_annotated=vehicles_annotated+1 WHERE file_name=%(img_name)s", {'img_name': variables[0]})
+            #conn.commit()
+
+        #cursor.execute("SELECT associated_json FROM imgs_info WHERE file_name=%(json_file)s", {'json_file': variables[0]})
+        stmt = select(
+            imgs_info.columns.associated_json
+        ).where(
+            imgs_info.columns.file_name == variables[0]
+        )
     elif rqst == "discard_img":
         if(variables[1] == "discarded-by-user"):
             if(variables[2] == "persons"):
-                cursor.execute("UPDATE imgs_info SET discarded_by_user_persons=1 WHERE file_name=%(img_name)s",
-                           {'img_name': variables[0]})
+                # cursor.execute("UPDATE imgs_info SET discarded_by_user_persons=1 WHERE file_name=%(img_name)s",
+                #           {'img_name': variables[0]})
+
+                #discarded_by_user = imgs_info.columns.discarded_by_user_persons
+                stmt = update(
+                    imgs_info
+                ).where(
+                    imgs_info.columns.file_name == variables[0]
+                ).values(
+                    discarded_by_user_persons=1
+                )
             else:
-                cursor.execute("UPDATE imgs_info SET discarded_by_user_vehicles=1 WHERE file_name=%(img_name)s",
-                               {'img_name': variables[0]})
+                #    cursor.execute("UPDATE imgs_info SET discarded_by_user_vehicles=1 WHERE file_name=%(img_name)s",
+                #                   {'img_name': variables[0]})
+                #discarded_by_user = imgs_info.columns.discarded_by_user_vehicles
+                stmt = update(
+                    imgs_info
+                ).where(
+                    imgs_info.columns.file_name == variables[0]
+                ).values(
+                    discarded_by_user_vehicles=1
+                )
         else:
             if (variables[2] == "persons"):
-                cursor.execute("UPDATE imgs_info SET auto_discarded_persons=1 WHERE file_name=%(img_name)s",
-                               {'img_name': variables[0]})
+                #cursor.execute("UPDATE imgs_info SET auto_discarded_persons=1 WHERE file_name=%(img_name)s",
+                #               {'img_name': variables[0]})
+                #auto_discarded = imgs_info.columns.auto_discarded_persons
+                stmt = update(
+                    imgs_info
+                ).where(
+                    imgs_info.columns.file_name == variables[0]
+                ).values(
+                    auto_discarded_persons=1
+                )
             else:
-                cursor.execute("UPDATE imgs_info SET auto_discarded_vehicles=1 WHERE file_name=%(img_name)s",
-                               {'img_name': variables[0]})
-        conn.commit()
+                #cursor.execute("UPDATE imgs_info SET auto_discarded_vehicles=1 WHERE file_name=%(img_name)s",
+                #               {'img_name': variables[0]})
+                #auto_discarded = imgs_info.columns.auto_discarded_vehicles
+                stmt = update(
+                    imgs_info
+                ).where(
+                    imgs_info.columns.file_name == variables[0]
+                ).values(
+                    auto_discarded_vehicles=1
+                )
+        connection.execute(stmt)
+        is_update = True
+        #conn.commit()
     elif rqst == "get_num_annotated_agents":
         if(variables[0] == "persons"):
-            cursor.execute("SELECT num_annotated_agents FROM imgs_info WHERE dataset=%(ds)s and persons_annotated!=0 and img_distribution=%(imgD)s",
-                           {'ds': variables[1], 'imgD': variables[2]})
+            #cursor.execute("SELECT num_annotated_agents FROM imgs_info WHERE dataset=%(ds)s and persons_annotated!=0 and img_distribution=%(imgD)s",
+            #    {'ds': variables[1], 'imgD': variables[2]})
+            stmt = select(
+                imgs_info.columns.num_annotated_agents
+            ).where(
+                imgs_info.columns.dataset == variables[1],
+                imgs_info.columns.persons_annotated != 0,
+                imgs_info.columns.img_distribution == variables[2]
+            )
         else:
-            cursor.execute("SELECT num_annotated_agents FROM imgs_info WHERE dataset=%(ds)s and vehicles_annotated!=0 and img_distribution=%(imgD)s",
-                           {'ds': variables[1], 'imgD': variables[2]})
+            #cursor.execute("SELECT num_annotated_agents FROM imgs_info WHERE dataset=%(ds)s and vehicles_annotated!=0 and img_distribution=%(imgD)s",
+            #    {'ds': variables[1], 'imgD': variables[2]})
+            stmt = select(
+                imgs_info.columns.num_annotated_agents
+            ).where(
+                imgs_info.columns.dataset == variables[1],
+                imgs_info.columns.vehicles_annotated != 0,
+                imgs_info.columns.img_distribution == variables[2]
+            )
+
     elif rqst == "new_annotation_entry":
-        cursor.execute("INSERT INTO img_annotator_relation (img_name, user_name, ds_type) VALUES (%(img_name)s, %(user_name)s, %(ds_type)s);",
-                       {'img_name': variables[0], 'user_name': variables[1], 'ds_type': variables[2]})
-        conn.commit()
+        #cursor.execute("INSERT INTO img_annotator_relation (img_name, user_name, ds_type) VALUES (%(img_name)s, %(user_name)s, %(ds_type)s);",
+        #               {'img_name': variables[0], 'user_name': variables[1], 'ds_type': variables[2]})
+        #conn.commit()
+        #img_name = img_annotator_relation.columns.img_name
+        #user_name = img_annotator_relation.columns.user_name
+        #ds_type = img_annotator_relation.columns.ds_type
+        stmt = insert(
+            img_annotator_relation
+        ).values(
+            img_name=variables[0],
+            user_name=variables[1],
+            ds_type=variables[2]
+        )
+        connection.execute(stmt)
+        is_update = True
     elif rqst == "get_sweeps_jsons":
-        cursor.execute("SELECT associated_json FROM imgs_info WHERE key_frame_name=%(kf_name)s AND is_key_frame=0;", {'kf_name': variables[0]})
+        #cursor.execute("SELECT associated_json FROM imgs_info WHERE key_frame_name=%(kf_name)s AND is_key_frame=0;", {'kf_name': variables[0]})
+        stmt = select(
+            imgs_info.columns.associated_json
+        ).where(
+            imgs_info.columns.key_frame_name == variables[0],
+            imgs_info.columns.is_key_frame == 0
+        )
     elif rqst == "update_sweeps":
         if variables[1] == "persons":
-            cursor.execute("UPDATE imgs_info SET persons_annotated=persons_annotated+1 WHERE key_frame_name=%(kf_name)s AND is_key_frame=0;",
-                           {'kf_name': variables[0]})
+            #cursor.execute("UPDATE imgs_info SET persons_annotated=persons_annotated+1 WHERE key_frame_name=%(kf_name)s AND is_key_frame=0;",
+            #               {'kf_name': variables[0]})
+            stmt = update(
+                imgs_info
+            ).where(
+                imgs_info.columns.key_frame_name == variables[0],
+                imgs_info.columns.is_key_frame == 0
+            ).values(
+                persons_annotated=imgs_info.columns.persons_annotated+1
+            )
         elif variables[1] == "vehicles":
-            cursor.execute("UPDATE imgs_info SET vehicles_annotated=vehicles_annotated+1 WHERE key_frame_name=%(kf_name)s AND is_key_frame=0;",
-                           {'kf_name': variables[0]})
-        conn.commit()
+            #cursor.execute("UPDATE imgs_info SET vehicles_annotated=vehicles_annotated+1 WHERE key_frame_name=%(kf_name)s AND is_key_frame=0;",
+            #               {'kf_name': variables[0]})
+            stmt = update(
+                imgs_info
+            ).where(
+                imgs_info.columns.key_frame_name == variables[0],
+                imgs_info.columns.is_key_frame == 0
+            ).values(
+                vehicles_annotated=imgs_info.columns.vehicles_annotated + 1
+            )
+        connection.execute(stmt)
+        is_update = True
+        #conn.commit()
     elif rqst == "update_annotated_agents":
-        cursor.execute("UPDATE imgs_info SET num_annotated_agents=num_annotated_agents+%(num_agents)s WHERE file_name=%(img_name)s",
-                       {'img_name': variables[0], 'num_agents': variables[1]})
-        conn.commit()
+        #cursor.execute("UPDATE imgs_info SET num_annotated_agents=num_annotated_agents+%(num_agents)s WHERE file_name=%(img_name)s",
+        #               {'img_name': variables[0], 'num_agents': variables[1]})
+        stmt = update(
+            imgs_info
+        ).where(
+            imgs_info.columns.file_name == variables[0]
+        ).values(
+            num_annotated_agents=imgs_info.columns.num_annotated_agents+variables[1]
+        )
+        connection.execute(stmt)
+        is_update = True
+        #conn.commit()
 
-    if len(result) == 0 and not change_distribution:
-        result = cursor.fetchall()
+    if len(result) == 0 and not change_distribution and not is_update:
+        #result = cursor.fetchall()
+        result = connection.execute(stmt).fetchall()
 
-    conn.close()
+    #conn.close()
     # Database connection closed
 
     return result
@@ -202,7 +337,6 @@ def get_img(dataset, dataset_type, user_name):
             images = open_DB_connection("get_img", variables, 'img_info')
             if len(images) != 0:
                 break
-        #rand_index = random.randint(0, len(images) - 1)
         img_file_name = images[0][0]
         img = {
             "file_name": img_file_name
@@ -214,8 +348,8 @@ def get_img(dataset, dataset_type, user_name):
 def get_img_from_storage(dataset, dataset_type):
     try:
         img = get_img(dataset, dataset_type, current_user.name)
-        #imgs_path = "../Datasets/citypersons/imgs"
-        imgs_path = "/media/hector/HDD-4TB/annotator/Datasets/" + dataset + "/images"
+        imgs_path = "../Datasets/citypersons/imgs"
+        #imgs_path = "/media/hector/HDD-4TB/annotator/Datasets/" + dataset + "/images"
         complete_img_path = ""
         for subdir, dirs, files in os.walk(imgs_path, onerror=walk_error_handler):
             if os.path.exists(subdir + '/' + img["file_name"]):
@@ -243,8 +377,8 @@ def get_img_json(dataset, file_name):
 
 def search_json_in_datasets(json_file, dataset):
     # TEMPORARY TILL JSONS ARE IN STORAGE
-    #jsons_path = "../Datasets/citypersons/annotations/annotations_json"
-    jsons_path = "/media/hector/HDD-4TB/annotator/Datasets/" + dataset + "/jsons"
+    jsons_path = "../Datasets/citypersons/annotations/annotations_json"
+    #jsons_path = "/media/hector/HDD-4TB/annotator/Datasets/" + dataset + "/jsons"
 
     for subdir, dirs, files in os.walk(jsons_path, onerror=walk_error_handler):
         if os.path.exists(subdir + '/' + json_file):
