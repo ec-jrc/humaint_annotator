@@ -111,17 +111,23 @@ def open_DB_connection(rqst, variables, db_name):
         inter_agreement_quota_acquired = is_inter_agreement_quota_acquired(result[0][0], variables[0], variables[1], variables[2])
         if len(result) == 0 or not inter_agreement_quota_acquired:
             try:
-                stmt = select(
-                    imgs_info.columns.file_name
-                ).where(and_(
-                    imgs_info.columns.dataset == variables[0],
-                    imgs_info.columns.img_distribution == variables[2],
-                    imgs_info.columns.file_name.not_in(list_of_images_to_avoid),
-                    discarded_by_user != True,
-                    auto_discarded != True,
-                    imgs_info.columns.is_key_frame == 1
-                )).order_by(ds_type_annotated.desc()).limit(1)
-                result = connection.execute(stmt).fetchall()
+                aux_inter_agreement = inter_agreement - 1
+                while(aux_inter_agreement >= 0):
+                    stmt = select(
+                        imgs_info.columns.file_name
+                    ).where(and_(
+                        imgs_info.columns.dataset == variables[0],
+                        imgs_info.columns.img_distribution == variables[2],
+                        imgs_info.columns.file_name.not_in(list_of_images_to_avoid),
+                        discarded_by_user != True,
+                        auto_discarded != True,
+                        imgs_info.columns.is_key_frame == 1,
+                        ds_type_annotated == aux_inter_agreement
+                    )).order_by(ds_type_annotated.desc()).limit(1)
+                    result = connection.execute(stmt).fetchall()
+                    aux_inter_agreement -= 1
+                    if(len(result) != 0):
+                        break
             except Exception as e:
                 print(e)
         else:
@@ -163,6 +169,7 @@ def open_DB_connection(rqst, variables, db_name):
         ).where(
             imgs_info.columns.file_name == variables[0]
         )
+        result = connection.execute(stmt).fetchall()
     elif rqst == "discard_img":
         if(variables[1] == "discarded-by-user"):
             if(variables[2] == "persons"):
