@@ -549,6 +549,13 @@ def update_annotated_agents(img_name, num_agents):
     result = open_DB_connection("update_annotated_agents", variables, 'imgs_info')
     return 'OK', 200
 
+@app.route('/ia_stats_json', methods=['GET'])
+def get_IA_stats():
+    with open('ia_stats.json') as ia_stats_file:
+        ia_stats = json.load(ia_stats_file)
+
+    return ia_stats
+
 @app.route('/')
 def index():
     return render_template('index.html')
