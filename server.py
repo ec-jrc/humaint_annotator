@@ -101,7 +101,6 @@ def open_DB_connection(rqst, variables, db_name):
             print(e)
 
         inter_agreement_quota_acquired = is_inter_agreement_quota_acquired(result[0][0], variables[0], variables[1], variables[2])
-        print(inter_agreement_quota_acquired)
         if len(result) == 0 or not inter_agreement_quota_acquired:
             try:
                 aux_inter_agreement = inter_agreement - 1
