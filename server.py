@@ -97,12 +97,12 @@ def open_DB_connection(rqst, variables, db_name):
             list_of_images_to_avoid.append(tuple[0])
 
         try:
-            stmt = select([func.count()]).select_from(
+            stmt = select([func.sum(imgs_info.columns.num_annotated_agents)]).select_from(
                 imgs_info
             ).where(and_(
                 imgs_info.columns.dataset == variables[0],
                 imgs_info.columns.img_distribution == variables[2],
-                ds_type_annotated == inter_agreement
+                ds_type_annotated >= inter_agreement
             ))
             result = connection.execute(stmt).fetchall()
         except Exception as e:
@@ -133,6 +133,19 @@ def open_DB_connection(rqst, variables, db_name):
         else:
             result = ()
             change_distribution = True
+        if variables[4]:
+            stmt = select(
+                imgs_info.columns.file_name
+            ).where(and_(
+                imgs_info.columns.dataset == variables[0],
+                imgs_info.columns.img_distribution == variables[2],
+                imgs_info.columns.file_name.not_in(list_of_images_to_avoid),
+                discarded_by_user != True,
+                auto_discarded != True,
+                imgs_info.columns.is_key_frame == 1,
+                ds_type_annotated == 0
+            )).order_by(ds_type_annotated.desc()).limit(1)
+            result = connection.execute(stmt).fetchall()
 
     elif rqst == "get_json":
         edit_db_entry = variables[2]
@@ -330,7 +343,7 @@ def is_inter_agreement_quota_acquired(query_result, dataset, ds_type, distributi
     with open('config.json') as config_file:
         config = json.load(config_file)
         inter_agreement_quota = config['num_imgs_several_annotators'][ds_type][dataset.lower()][distribution]
-        if query_result >= inter_agreement_quota:
+        if query_result!= None and query_result >= inter_agreement_quota:
             return True
         else:
             return False
@@ -339,11 +352,19 @@ def is_inter_agreement_quota_acquired(query_result, dataset, ds_type, distributi
 def get_img(dataset, dataset_type, user_name):
     with open('config.json') as config_file:
         config = json.load(config_file)
+        inter_agreement_quota_acquired = False
         for dist in config['agents_to_annotate'][dataset_type][dataset]:
-            variables = [dataset, dataset_type, dist, user_name]
+            variables = [dataset, dataset_type, dist, user_name, inter_agreement_quota_acquired]
             images = open_DB_connection("get_img", variables, 'img_info')
             if len(images) != 0:
                 break
+        if len(images) == 0:
+            inter_agreement_quota_acquired = True
+            for dist in config['agents_to_annotate'][dataset_type][dataset]:
+                variables = [dataset, dataset_type, dist, user_name, inter_agreement_quota_acquired]
+                images = open_DB_connection("get_img", variables, 'img_info')
+                if len(images) != 0:
+                    break
         img_file_name = images[0][0]
         img = {
             "file_name": img_file_name
