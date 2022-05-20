@@ -35,7 +35,7 @@ def open_DB_connection(rqst, variables, db_name):
         unix_socket = '/var/run/mysqld/mysqld.sock'
     )
 
-    engine = create_engine('mysql+pymysql://'+DB_USER+':'+DB_PWD+'@localhost/humaint_annotator')
+    engine = create_engine('mysql+pymysql://'+DB_USER+':'+DB_PWD+'@localhost/humaint_annotator?unix_socket=/var/run/mysqld/mysqld.sock')
     metadata = MetaData(bind=None)
     imgs_info = Table(
         'imgs_info',
@@ -83,36 +83,56 @@ def open_DB_connection(rqst, variables, db_name):
             list_of_images_to_avoid.append(tuple[0])
 
         try:
-            stmt = select([func.count()]).select_from(
+            stmt = select([func.sum(imgs_info.columns.num_annotated_agents)]).select_from(
                 imgs_info
             ).where(and_(
                 imgs_info.columns.dataset == variables[0],
                 imgs_info.columns.img_distribution == variables[2],
-                ds_type_annotated == inter_agreement
+                ds_type_annotated >= inter_agreement
             ))
             result = connection.execute(stmt).fetchall()
         except Exception as e:
             print(e)
 
         inter_agreement_quota_acquired = is_inter_agreement_quota_acquired(result[0][0], variables[0], variables[1], variables[2])
+        print(inter_agreement_quota_acquired)
         if len(result) == 0 or not inter_agreement_quota_acquired:
             try:
-                stmt = select(
-                    imgs_info.columns.file_name
-                ).where(and_(
-                    imgs_info.columns.dataset == variables[0],
-                    imgs_info.columns.img_distribution == variables[2],
-                    imgs_info.columns.file_name.not_in(list_of_images_to_avoid),
-                    discarded_by_user != True,
-                    auto_discarded != True,
-                    imgs_info.columns.is_key_frame == 1
-                )).order_by(ds_type_annotated.desc()).limit(1)
-                result = connection.execute(stmt).fetchall()
+                aux_inter_agreement = inter_agreement - 1
+                while(aux_inter_agreement >= 0):
+                    stmt = select(
+                        imgs_info.columns.file_name
+                    ).where(and_(
+                        imgs_info.columns.dataset == variables[0],
+                        imgs_info.columns.img_distribution == variables[2],
+                        imgs_info.columns.file_name.not_in(list_of_images_to_avoid),
+                        discarded_by_user != True,
+                        auto_discarded != True,
+                        imgs_info.columns.is_key_frame == 1,
+                        ds_type_annotated == aux_inter_agreement
+                    )).order_by(ds_type_annotated.desc()).limit(1)
+                    result = connection.execute(stmt).fetchall()
+                    aux_inter_agreement -= 1
+                    if(len(result) != 0):
+                        break
             except Exception as e:
                 print(e)
         else:
             result = ()
             change_distribution = True
+        if variables[4]:
+            stmt = select(
+                imgs_info.columns.file_name
+            ).where(and_(
+                imgs_info.columns.dataset == variables[0],
+                imgs_info.columns.img_distribution == variables[2],
+                imgs_info.columns.file_name.not_in(list_of_images_to_avoid),
+                discarded_by_user != True,
+                auto_discarded != True,
+                imgs_info.columns.is_key_frame == 1,
+                ds_type_annotated == 0
+            )).order_by(ds_type_annotated.desc()).limit(1)
+            result = connection.execute(stmt).fetchall()
 
     elif rqst == "get_json":
         edit_db_entry = variables[2]
@@ -188,7 +208,7 @@ def is_inter_agreement_quota_acquired(query_result, dataset, ds_type, distributi
     with open('config.json') as config_file:
         config = json.load(config_file)
         inter_agreement_quota = config['num_imgs_several_annotators'][ds_type][dataset.lower()][distribution]
-        if query_result >= inter_agreement_quota:
+        if query_result != None and query_result >= inter_agreement_quota:
             return True
         else:
             return False
@@ -197,11 +217,20 @@ def is_inter_agreement_quota_acquired(query_result, dataset, ds_type, distributi
 def get_img(dataset, dataset_type, user_name):
     with open('config.json') as config_file:
         config = json.load(config_file)
+        inter_agreement_quota_acquired = False
         for dist in config['agents_to_annotate'][dataset_type][dataset]:
-            variables = [dataset, dataset_type, dist, user_name]
+            variables = [dataset, dataset_type, dist, user_name, inter_agreement_quota_acquired]
             images = open_DB_connection("get_img", variables, 'img_info')
             if len(images) != 0:
                 break
+            print("Changing distribution")
+        if len(images) == 0:
+            inter_agreement_quota_acquired = True
+            for dist in config['agents_to_annotate'][dataset_type][dataset]:
+                variables = [dataset, dataset_type, dist, user_name, inter_agreement_quota_acquired]
+                images = open_DB_connection("get_img", variables, 'img_info')
+                if len(images) != 0:
+                    break
         #rand_index = random.randint(0, len(images) - 1)
         img_file_name = images[0][0]
         img = {
@@ -218,8 +247,8 @@ def get_img_from_storage(dataset, dataset_type):
         imgs_path = "/media/hector/HDD-4TB/annotator/Datasets/" + dataset + "/images"
         complete_img_path = ""
         for subdir, dirs, files in os.walk(imgs_path, onerror=walk_error_handler):
-            if os.path.exists(subdir + '/' + img["file_name"][0]):
-                complete_img_path = subdir + '/' + img["file_name"][0]
+            if os.path.exists(subdir + '/' + img["file_name"]):
+                complete_img_path = subdir + '/' + img["file_name"]
                 break
 
         img_in_base64 = {}
