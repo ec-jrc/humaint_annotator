@@ -507,6 +507,10 @@ def get_IA_stats():
 
     return ia_stats
 
+@app.route('/get_user_name', methods=["GET"])
+def get_user_name():
+    return jsonify(current_user.name)
+
 @app.route('/')
 def index():
     return render_template('index.html')
