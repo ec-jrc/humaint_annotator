@@ -15,13 +15,13 @@
                 <div class="container-fluid">
                     <a href="index.html" class="navbar-brand text-light" href="#">HUMAINT Annotator</a>
                 </div>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent" style="width: 25vw">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link active text-light" aria-current="page" href="/annotation.html">Annotate</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active text-light" aria-current="page" href="/inter-agreement.html">Inter-agreement</a>
+                            <a class="nav-link active text-light" aria-current="page" href="#">About</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-light" href="#">Contact</a>
@@ -40,27 +40,46 @@
             </div>
         </nav>
         <div class="container page-content-block mt-5">
-            <h2 class="text-center">Welcome to the HUMAINT image annotator!</h2>
+            <h2 class="text-center">Inter-agreement stats for {{current_user.name}}</h2>
             <br/>
-            <p>With this tool you will be able to annotate images coming from autonomous 
-                vehicles datasets. The idea is to study the bias among different agents found in the images 
-                such as, in the case of people, their gender, whether they are children or adults, etc. and in
-                the case of vehicles, their color, whether it is a bicycle, a segway or others.
-            </p>
-            <br/>
-            <h2 class="text-center">How does it work?</h2>
-            <br/>
-            <p class="text-center">Images will be displayed automatically. All images will contain one or several
-                bounding boxes highlighting an agent in the image. 
-            </p>
-            <ul>
-                <li>Click inside the bounding box to select the agent and a list of possible tags will appear on the right.</li> 
-                <li>Select as many tags as you consider fit the description of the agent (keep in mind tags must be consistent e.g. a man/woman person does not exist).</li>
-                <li>Once you are finished click the "Next image" button to step forward to the next image.</li>
-            </ul>
-            <div class="text-center mt-5">
-                <button onclick="window.location='/annotation.html'" type="button" class="btn btn-primary btn-lg rounded"><span class="font-weight-bold">Annotate!</span></button>
-            </div>
+            <table id="ia-stats-table">
+                <tr>
+                    <td>
+                        Citypersons:
+                    </td>
+                    <td id="citypersons"></td>
+                </tr>
+                <tr>
+                    <td>
+                        Eurocity:
+                    </td>
+                    <td id="ecp"></td>
+                </tr>
+                <tr>
+                    <td>
+                        Nuscenes:
+                    </td>
+                    <td id="nuscenes"></td>
+                </tr>
+                <tr>
+                    <td>
+                        Tsinghua-Daimler:
+                    </td>
+                    <td id="tsinghua-daimler"></td>
+                </tr>
+                <tr>
+                    <td>
+                        Kitti:
+                    </td>
+                    <td id="kitti"></td>
+                </tr>
+                <tr>
+                    <td>
+                        BDD100K:
+                    </td>
+                    <td id="bdd100k"></td>
+                </tr>
+            </table>
         </div>
         <div class="container line mt-5"></div>
         <footer class="footer text-center mt-5">
@@ -91,5 +110,6 @@
         <div class="copyright py-4 text-center text-white mt-5" style="background-color: #0b5ed7;">
             <div class="container"><small>Copyright © HUMAINT group, European Commision, 2021</small></div>
         </div>
+        <script src="/static/ia-stats.js"></script>
     </body>
 </html>
