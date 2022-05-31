@@ -380,7 +380,7 @@ def save_edited_json(img_name, dataset_type, annotator, selected_dataset):
     json_file = str(open_DB_connection("get_json", variables, 'img_info')[0][0])
     list_of_sweeps_jsons = get_list_of_sweeps_jsons(img_name)
 
-    edit_json_files(json_file, edited_json["json"], dict_of_agents, list_of_sweeps_jsons, annotator, selected_dataset)
+    edit_json_files(json_file, edited_json["json"], dict_of_agents, list_of_sweeps_jsons, annotator, selected_dataset, dataset_type)
     update_sweeps_in_db(img_name, dataset_type)
 
     return 'OK', 200
@@ -389,20 +389,19 @@ def update_sweeps_in_db(key_frame_name, ds_type):
     variables = [key_frame_name, ds_type]
     updated = open_DB_connection("update_sweeps", variables, "imgs_info")
 
-def edit_json_files(json_file, edited_json, dict_of_agents, list_of_sweeps_jsons, annotator, selected_dataset):
+def edit_json_files(json_file, edited_json, dict_of_agents, list_of_sweeps_jsons, annotator, selected_dataset, dataset_type):
     #First edit the key frame json
-    base_path = "edited_jsons/" + selected_dataset
+    base_path = "edited_jsons/" + selected_dataset + "/" + dataset_type
     if not os.path.exists(base_path):
         os.makedirs(base_path)
-
-    key_frame_json_path = "edited_jsons/" + selected_dataset + "/" + json_file.replace('.json', '_' + annotator + '.json')
+    key_frame_json_path = base_path + "/" + json_file.replace('.json', '_' + annotator + '.json')
     with open(key_frame_json_path, 'w', encoding='utf-8') as f:
         json.dump(edited_json, f, ensure_ascii=False, indent=4)
 
     #Then edit sweeps' jsons
     for sweep in list_of_sweeps_jsons:
         sweep_json = search_json_in_datasets(sweep[0], selected_dataset)
-        edited_sweep_json_path = "edited_jsons/" + selected_dataset + "/" + sweep[0].replace('.json', '_' + annotator + '.json')
+        edited_sweep_json_path = base_path + "/" + sweep[0].replace('.json', '_' + annotator + '.json')
         for agent in dict_of_agents:
             k = 0
             while k < len(sweep_json["agents"]):
