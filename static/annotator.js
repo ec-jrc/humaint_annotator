@@ -18,6 +18,8 @@ var magnifyingGlassZoomFactor = 2;
 var percentageImageAnnotated = 0;
 var numberOfTagsToPressInImage = 0;
 var globalNumberOfTagsPressed = 0;
+var expectedAttributesPersons = ["age", "sex", "skin tone", "mean of transport"];
+var expectedAttributesVehicles = ["vehicle type", "color"];
 const pedestrianHTML = `<div class="mb-0 mt-2"><span>Age</span><br/> 
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Adult</span></button>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Kid</span></button>
@@ -942,6 +944,7 @@ function getAgentToDeploy(relX, relY){
 async function saveCurrent(){
     var numberOfAgents = datasetSpecificFeatures.numberOfAgents;
     var index = 0;
+    var newErrorInLabelling = false;
 
     //Edit each agent of the json object
     for (i = 0; i < numberOfAgents; i++){
@@ -961,7 +964,9 @@ async function saveCurrent(){
             var currentAgentNewInfo = newAgentsLabels["Agent " + index];
             var agent = datasetSpecificFeatures.agents[i];
             
-            var agentKeys = Object.keys(currentAgentNewInfo); 
+            var agentKeys = Object.keys(currentAgentNewInfo);
+            allAttributesPresent = checkAllAttributesPresent(currentAgentNewInfo);
+            if(!allAttributesPresent){break;}
             for(j = 0; j < agentKeys.length; j++){
                 parserInfo = datasetJSONParse(i, j, agent, currentAgentNewInfo, agentKeys);
                 agent = parserInfo.agent;//Copy info from new labels into the agent
@@ -971,19 +976,35 @@ async function saveCurrent(){
         }
     }
 
-    var agentsLabelled = isAgentCorrectlyLabelled(numberOfAgents);
+    if(allAttributesPresent){
+        var agentsLabelled = isAgentCorrectlyLabelled(numberOfAgents);
 
-    if(!agentsLabelled){
-        alert("You need to label all the agents of the picture to load a new image");
-        imageLabelled = false;
+        if(!agentsLabelled){
+            alert("You need to label all the agents of the picture to load a new image");
+            imageLabelled = false;
+        }
+        else{
+            imageLabelled = true;
+            var isErrorInLabelling = $('#errorInLabellingCheckbox').is(':checked');
+            imgData.json["error_in_labelling"] = isErrorInLabelling;
+            await saveEditedJson(imgData.json);
+            $('#errorInLabellingCheckbox').prop('checked', false)
+        }
     }
-    else{
-        imageLabelled = true;
-        var isErrorInLabelling = $('#errorInLabellingCheckbox').is(':checked');
-        imgData.json["error_in_labelling"] = isErrorInLabelling;
-        await saveEditedJson(imgData.json);
-        $('#errorInLabellingCheckbox').prop('checked', false)
+}
+
+function checkAllAttributesPresent(agentNewInfo){
+    var allAttributesPresent = false;
+    var expectedAttributes = selectedDatasetType == 'persons' ? expectedAttributesPersons : expectedAttributesVehicles;
+    for(i = 0; i < expectedAttributes.length; i++){
+        allAttributesPresent = agentNewInfo.hasOwnProperty(expectedAttributes[i]) ? true : false;
+        if(!allAttributesPresent){
+            alert("Attribute '" + expectedAttributes[i] + "' is missing for one of the agents. Please double check the annotation or reload the page to start over.")
+            break;
+        }
     }
+
+    return allAttributesPresent
 }
 
 function datasetJSONParse(agentIndex, agentNewKeysIndex, agent, currentAgentNewInfo, agentKeys){
