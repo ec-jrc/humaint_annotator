@@ -996,10 +996,10 @@ async function saveCurrent(){
 function checkAllAttributesPresent(agentNewInfo){
     var allAttributesPresent = false;
     var expectedAttributes = selectedDatasetType == 'persons' ? expectedAttributesPersons : expectedAttributesVehicles;
-    for(i = 0; i < expectedAttributes.length; i++){
-        allAttributesPresent = agentNewInfo.hasOwnProperty(expectedAttributes[i]) ? true : false;
+    for(eA = 0; eA < expectedAttributes.length; eA++){
+        allAttributesPresent = agentNewInfo.hasOwnProperty(expectedAttributes[eA]) ? true : false;
         if(!allAttributesPresent){
-            alert("Attribute '" + expectedAttributes[i] + "' is missing for one of the agents. Please double check the annotation or reload the page to start over.")
+            alert("Attribute '" + expectedAttributes[eA] + "' is missing for one of the agents. Please double check the annotation or reload the page to start over.")
             break;
         }
     }
