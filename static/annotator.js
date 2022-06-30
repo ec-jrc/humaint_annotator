@@ -1144,13 +1144,13 @@ async function cleanAndDrawNew(){
         zoomCtx = zoom.getContext("2d");
         imgData.json["annotator"] = $("#userInfo").data('user')
         assignDatasetSpecificFeatures(imgData.json);
-        autoDiscardImg = isDiscardableImg();
+        autoDiscardImg = await isDiscardableImg();
     }
     loadCanvas(canvasElem);
     loadAgents();
 }
 
-function isDiscardableImg(){
+async function isDiscardableImg(){
     var agentsKeys = Object.keys(datasetSpecificFeatures.agents);
     var realAgentsNum = 0;
     for(i = 0; i < agentsKeys.length; i++){
@@ -1165,7 +1165,7 @@ function isDiscardableImg(){
         return false;
     }
     else{
-        discardImage('auto-discarded');
+        await discardImage('auto-discarded');
         return true;
     }
 }
@@ -1252,8 +1252,8 @@ async function selectDataset(ds, type){
     $('#ds-buttons').css("visibility", "hidden");
 }
 
-function discardImage(discardAuthor){
-    fetch('/discard-img/' + discardAuthor + '/' + selectedDatasetType + '/' + imgData.imgName)
+async function discardImage(discardAuthor){
+    await fetch('/discard-img/' + discardAuthor + '/' + selectedDataset + '/' + selectedDatasetType + '/' + imgData.imgName)
         .then(function (response){
             console.log(response.text());
         });

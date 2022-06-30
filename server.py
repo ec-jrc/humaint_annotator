@@ -326,7 +326,8 @@ def get_img(dataset, dataset_type, user_name):
 @app.route('/img_url/<dataset>/<dataset_type>', methods=['GET'])
 def get_img_from_storage(dataset, dataset_type):
     try:
-        img = get_img(dataset, dataset_type, current_user.name)
+        print("Getting image for user " + current_user.name)
+        img = get_img_for_user(dataset, current_user.name)#get_img(dataset, dataset_type, current_user.name)
         #imgs_path = "../Datasets/citypersons/imgs"
         imgs_path = "/media/hector/HDD-4TB/annotator/Datasets/" + dataset + "/images"
         complete_img_path = ""
@@ -344,6 +345,31 @@ def get_img_from_storage(dataset, dataset_type):
         return None
 
     return jsonify(img_in_base64)
+
+def get_img_for_user(dataset, user):
+    user_json_path = "left_imgs_inter_agreement/left_imgs_" + user + ".json"
+    with open(user_json_path) as f:
+        left_imgs_parsed_json = json.load(f)
+    imgs_for_dataset = left_imgs_parsed_json[dataset]
+    img = {}
+    if(len(imgs_for_dataset) != 0):
+        img["file_name"] = imgs_for_dataset[0]
+    else:
+        print("No more images for user " + user + " on dataset " + dataset)
+
+    return img
+
+def remove_img_from_user_list(dataset, img_name, user):
+    print("Removing image from pending list")
+    user_json_path = "left_imgs_inter_agreement/left_imgs_" + user + ".json"
+    with open(user_json_path) as f:
+        left_imgs_parsed_json = json.load(f)
+    imgs_for_dataset = left_imgs_parsed_json[dataset]
+    if(imgs_for_dataset[0] == img_name):
+        del imgs_for_dataset[0]
+        left_imgs_parsed_json[dataset] = imgs_for_dataset
+    with open(user_json_path, 'w', encoding='utf-8') as f2:
+        json.dump(left_imgs_parsed_json, f2, ensure_ascii=False, indent=4)
 
 @app.route('/img_json/<dataset>/<file_name>', methods=['GET'])
 def get_img_json(dataset, file_name):
@@ -371,6 +397,7 @@ def search_json_in_datasets(json_file, dataset):
 
 @app.route('/save_edited_json/<img_name>/<dataset_type>/<annotator>/<selected_dataset>', methods=['POST'])
 def save_edited_json(img_name, dataset_type, annotator, selected_dataset):
+    remove_img_from_user_list(selected_dataset, img_name, annotator)
     # POST request
     edited_json = request.get_json()
     dict_of_agents = create_edited_agents(edited_json)
@@ -378,7 +405,8 @@ def save_edited_json(img_name, dataset_type, annotator, selected_dataset):
     variables = [img_name, dataset_type, edit_db_entry]
     create_new_annotation_entry(img_name, dataset_type)
     json_file = str(open_DB_connection("get_json", variables, 'img_info')[0][0])
-    list_of_sweeps_jsons = get_list_of_sweeps_jsons(img_name)
+    if(selected_dataset == 'nuscenes'):
+        list_of_sweeps_jsons = get_list_of_sweeps_jsons(img_name)
 
     edit_json_files(json_file, edited_json["json"], dict_of_agents, list_of_sweeps_jsons, annotator, selected_dataset, dataset_type)
     update_sweeps_in_db(img_name, dataset_type)
@@ -463,9 +491,10 @@ def logout():
     logout_user()
     return redirect('index.html')
 
-@app.route('/discard-img/<discard_author>/<ds_type>/<img_name>', methods=['GET'])
-def discard_img(img_name, discard_author, ds_type):
+@app.route('/discard-img/<discard_author>/<dataset>/<ds_type>/<img_name>', methods=['GET'])
+def discard_img(img_name, discard_author, ds_type, dataset):
     variables = [img_name, discard_author, ds_type]
+    remove_img_from_user_list(dataset, img_name, current_user.name)
     db_result = open_DB_connection("discard_img", variables, 'img_info')
 
     return 'OK', 200
