@@ -6,9 +6,11 @@ import base64
 import hashlib
 import math
 import pymysql
-from flask import Flask, render_template, jsonify, abort, request, redirect, send_file, make_response
+from flask import Flask, render_template, jsonify, abort, request, redirect, send_file, make_response, current_app
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 from models import User, users
+import time
+
 
 app = Flask(__name__, instance_path="/{project_folder_abs_path}/instance")
 app.config['SECRET_KEY'] = '8BUgFTZ-352QRSxa7Jq30yyaFWeIk2mOhOSsL3v1GB4gCHnyu0xzH2JPopp4bBuRxH0'
@@ -51,7 +53,6 @@ def open_DB_connection(rqst, variables, db_name):
 
     #cursor = conn.cursor()
     result = ()
-    change_distribution = False
     is_update = False
     if rqst == "login":
         stmt = select(
@@ -89,42 +90,26 @@ def open_DB_connection(rqst, variables, db_name):
             list_of_images_to_avoid.append(tuple[0])
 
         try:
-            stmt = select([func.sum(imgs_info.columns.num_annotated_agents)]).select_from(
-                imgs_info
-            ).where(and_(
-                imgs_info.columns.dataset == variables[0],
-                imgs_info.columns.img_distribution == variables[2],
-                ds_type_annotated >= inter_agreement
-            ))
-            result = connection.execute(stmt).fetchall()
+            aux_inter_agreement = inter_agreement - 1
+            while(aux_inter_agreement >= 0):
+                stmt = select(
+                    imgs_info.columns.file_name
+                ).where(and_(
+                    imgs_info.columns.dataset == variables[0],
+                    imgs_info.columns.img_distribution == variables[2],
+                    imgs_info.columns.file_name.not_in(list_of_images_to_avoid),
+                    discarded_by_user != True,
+                    auto_discarded != True,
+                    imgs_info.columns.is_key_frame == 1,
+                    ds_type_annotated == aux_inter_agreement
+                )).order_by(ds_type_annotated.desc()).limit(1)
+                result = connection.execute(stmt).fetchall()
+                aux_inter_agreement -= 1
+                if(len(result) != 0):
+                    break
         except Exception as e:
             print(e)
 
-        inter_agreement_quota_acquired = is_inter_agreement_quota_acquired(result[0][0], variables[0], variables[1], variables[2])
-        if len(result) == 0 or not inter_agreement_quota_acquired:
-            try:
-                aux_inter_agreement = inter_agreement - 1
-                while(aux_inter_agreement >= 0):
-                    stmt = select(
-                        imgs_info.columns.file_name
-                    ).where(and_(
-                        imgs_info.columns.dataset == variables[0],
-                        imgs_info.columns.img_distribution == variables[2],
-                        imgs_info.columns.file_name.not_in(list_of_images_to_avoid),
-                        discarded_by_user != True,
-                        auto_discarded != True,
-                        imgs_info.columns.is_key_frame == 1,
-                        ds_type_annotated == aux_inter_agreement
-                    )).order_by(ds_type_annotated.desc()).limit(1)
-                    result = connection.execute(stmt).fetchall()
-                    aux_inter_agreement -= 1
-                    if(len(result) != 0):
-                        break
-            except Exception as e:
-                print(e)
-        else:
-            result = ()
-            change_distribution = True
         if variables[4]:
             stmt = select(
                 imgs_info.columns.file_name
@@ -272,7 +257,7 @@ def open_DB_connection(rqst, variables, db_name):
         connection.execute(stmt)
         is_update = True
 
-    if len(result) == 0 and not change_distribution and not is_update:
+    if len(result) == 0 and not is_update:
         result = connection.execute(stmt).fetchall()
 
     return result
@@ -323,18 +308,37 @@ def get_img(dataset, dataset_type, user_name):
 
     return img
 
+def walklevel(some_dir, level=1):
+    some_dir = some_dir.rstrip(os.path.sep)
+    assert os.path.isdir(some_dir)
+    num_sep = some_dir.count(os.path.sep)
+    for root, dirs, files in os.walk(some_dir):
+        yield root, dirs, files
+        num_sep_this = root.count(os.path.sep)
+        if num_sep + level <= num_sep_this:
+            del dirs[:]
+
 @app.route('/img_url/<dataset>/<dataset_type>', methods=['GET'])
 def get_img_from_storage(dataset, dataset_type):
     try:
         img = get_img(dataset, dataset_type, current_user.name)
-        #imgs_path = "../Datasets/citypersons/imgs"
-        imgs_path = "/media/hector/HDD-4TB/annotator/Datasets/" + dataset + "/images"
+        imgs_path = "../Datasets/citypersons/imgs"
+        #imgs_path = "/media/hector/HDD-4TB/annotator/Datasets/" + dataset + "/images"
         complete_img_path = ""
-        for subdir, dirs, files in os.walk(imgs_path, onerror=walk_error_handler):
-            if os.path.exists(subdir + '/' + img["file_name"]):
-                complete_img_path = subdir + '/' + img["file_name"]
+        depth_search = 0
+        if dataset == "kitti" or dataset == "eurocity":
+            depth_search = 1
+                
+        for root, dirs, files in walklevel(imgs_path, level=depth_search):
+            find = False
+            for d in dirs:
+                if os.path.exists(str(root) +'/'+ str(d) + '/' + img["file_name"]):
+                    complete_img_path = str(root) +'/'+ str(d) + '/' + img["file_name"]
+                    find = True
+                    break
+            if find:
                 break
-
+        
         img_in_base64 = {}
         with open(complete_img_path, "rb") as f:
             image_binary = f.read()
@@ -532,5 +536,5 @@ def walk_error_handler(exception_instance):
     print("The specified path is incorrect or permission is needed")
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port='5000')
+    app.run(debug=False, host='0.0.0.0', port='5000')
 

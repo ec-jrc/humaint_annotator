@@ -1425,8 +1425,8 @@ function updatePercentages(percentagesDict){
 }
 
 $(document).ready(async function() {
-    await getPercentageAnnotated();
-    displayPtgLabelled();
+    //await getPercentageAnnotated();
+    //displayPtgLabelled();
 
     $('#canvasContainer').mousemove(function(e){
         if(selectedDataset != ""){
