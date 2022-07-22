@@ -53,7 +53,6 @@ def open_DB_connection(rqst, variables, db_name):
 
     #cursor = conn.cursor()
     result = ()
-    change_distribution = False
     is_update = False
     if rqst == "login":
         stmt = select(
@@ -91,42 +90,26 @@ def open_DB_connection(rqst, variables, db_name):
             list_of_images_to_avoid.append(tuple[0])
 
         try:
-            stmt = select([func.sum(imgs_info.columns.num_annotated_agents)]).select_from(
-                imgs_info
-            ).where(and_(
-                imgs_info.columns.dataset == variables[0],
-                imgs_info.columns.img_distribution == variables[2],
-                ds_type_annotated >= inter_agreement
-            ))
-            result = connection.execute(stmt).fetchall()
+            aux_inter_agreement = inter_agreement - 1
+            while(aux_inter_agreement >= 0):
+                stmt = select(
+                    imgs_info.columns.file_name
+                ).where(and_(
+                    imgs_info.columns.dataset == variables[0],
+                    imgs_info.columns.img_distribution == variables[2],
+                    imgs_info.columns.file_name.not_in(list_of_images_to_avoid),
+                    discarded_by_user != True,
+                    auto_discarded != True,
+                    imgs_info.columns.is_key_frame == 1,
+                    ds_type_annotated == aux_inter_agreement
+                )).order_by(ds_type_annotated.desc()).limit(1)
+                result = connection.execute(stmt).fetchall()
+                aux_inter_agreement -= 1
+                if(len(result) != 0):
+                    break
         except Exception as e:
             print(e)
 
-        inter_agreement_quota_acquired = is_inter_agreement_quota_acquired(result[0][0], variables[0], variables[1], variables[2])
-        if len(result) == 0 or not inter_agreement_quota_acquired:
-            try:
-                aux_inter_agreement = inter_agreement - 1
-                while(aux_inter_agreement >= 0):
-                    stmt = select(
-                        imgs_info.columns.file_name
-                    ).where(and_(
-                        imgs_info.columns.dataset == variables[0],
-                        imgs_info.columns.img_distribution == variables[2],
-                        imgs_info.columns.file_name.not_in(list_of_images_to_avoid),
-                        discarded_by_user != True,
-                        auto_discarded != True,
-                        imgs_info.columns.is_key_frame == 1,
-                        ds_type_annotated == aux_inter_agreement
-                    )).order_by(ds_type_annotated.desc()).limit(1)
-                    result = connection.execute(stmt).fetchall()
-                    aux_inter_agreement -= 1
-                    if(len(result) != 0):
-                        break
-            except Exception as e:
-                print(e)
-        else:
-            result = ()
-            change_distribution = True
         if variables[4]:
             stmt = select(
                 imgs_info.columns.file_name
@@ -274,7 +257,7 @@ def open_DB_connection(rqst, variables, db_name):
         connection.execute(stmt)
         is_update = True
 
-    if len(result) == 0 and not change_distribution and not is_update:
+    if len(result) == 0 and not is_update:
         result = connection.execute(stmt).fetchall()
 
     return result
@@ -558,6 +541,5 @@ def walk_error_handler(exception_instance):
     print("The specified path is incorrect or permission is needed")
 
 if __name__ == '__main__':
-    #app.run(debug=True, host='0.0.0.0', port='5000')
     app.run(debug=False, host='0.0.0.0', port='5000')
 
