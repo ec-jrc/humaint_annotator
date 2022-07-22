@@ -6,9 +6,11 @@ import base64
 import hashlib
 import math
 import pymysql
-from flask import Flask, render_template, jsonify, abort, request, redirect, send_file, make_response
+from flask import Flask, render_template, jsonify, abort, request, redirect, send_file, make_response, current_app
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 from models import User, users
+import time
+
 
 app = Flask(__name__, instance_path="/{project_folder_abs_path}/instance")
 app.config['SECRET_KEY'] = '8BUgFTZ-352QRSxa7Jq30yyaFWeIk2mOhOSsL3v1GB4gCHnyu0xzH2JPopp4bBuRxH0'
@@ -326,19 +328,43 @@ def get_img(dataset, dataset_type, user_name):
 @app.route('/img_url/<dataset>/<dataset_type>', methods=['GET'])
 def get_img_from_storage(dataset, dataset_type):
     try:
+        #print("Entramos a get_img_from_storage")
+        #t = time.process_time()
         img = get_img(dataset, dataset_type, current_user.name)
         #imgs_path = "../Datasets/citypersons/imgs"
         imgs_path = "/media/hector/HDD-4TB/annotator/Datasets/" + dataset + "/images"
         complete_img_path = ""
-        for subdir, dirs, files in os.walk(imgs_path, onerror=walk_error_handler):
-            if os.path.exists(subdir + '/' + img["file_name"]):
-                complete_img_path = subdir + '/' + img["file_name"]
+        #for subdir, dirs, files in os.walk(imgs_path, onerror=walk_error_handler):
+            #if os.path.exists(subdir + '/' + img["file_name"]):
+                #complete_img_path = subdir + '/' + img["file_name"]
+                #break
+        #elapsed_time = time.process_time() - t
+        #print("get_img "+str(elapsed_time))
+        depth_search=0
+        if dataset == "kitti" or dataset == "eurocity":
+            depth_search=1
+                
+        for root, dirs, files in walklevel(imgs_path, level=depth_search):
+            find = False
+            for d in dirs:
+                if os.path.exists(str(root) +'/'+ str(d) + '/' + img["file_name"]):
+                    complete_img_path = str(root) +'/'+ str(d) + '/' + img["file_name"]
+                    find = True
+                    break
+            if find:
                 break
-
+        
+        #if complete_img_new == complete_img_path:
+            #print("Todo OK!!!!")
+        #elapsed_time = time.process_time() - t
+        #print("busca path walklevel"+str(elapsed_time))     
+                    
         img_in_base64 = {}
         with open(complete_img_path, "rb") as f:
             image_binary = f.read()
             img_in_base64 = {'img': str(base64.b64encode(image_binary).decode('ascii')), 'img_name': img['file_name']}
+        #elapsed_time = time.process_time() - t
+        #print("img_url "+str(elapsed_time))
     except Exception as e:
         logging.error(e)
         return None
@@ -532,5 +558,6 @@ def walk_error_handler(exception_instance):
     print("The specified path is incorrect or permission is needed")
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port='5000')
+    #app.run(debug=True, host='0.0.0.0', port='5000')
+    app.run(debug=False, host='0.0.0.0', port='5000')
 
