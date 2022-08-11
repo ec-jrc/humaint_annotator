@@ -13,7 +13,10 @@ import time
 
 
 app = Flask(__name__, instance_path="/{project_folder_abs_path}/instance")
-app.config['SECRET_KEY'] = '8BUgFTZ-352QRSxa7Jq30yyaFWeIk2mOhOSsL3v1GB4gCHnyu0xzH2JPopp4bBuRxH0'
+secret_key = os.getenv('FLASK_SECRET_KEY')
+app.config['SECRET_KEY'] = secret_key
+###### TO BE REMOVED FOR LISO COMPLIANCE
+#app.config['SECRET_KEY'] = '8BUgFTZ-352QRSxa7Jq30yyaFWeIk2mOhOSsL3v1GB4gCHnyu0xzH2JPopp4bBuRxH0'
 
 login_manager = LoginManager(app)
 login_manager.login_view = "/login"
@@ -322,7 +325,9 @@ def walklevel(some_dir, level=1):
 def get_img_from_storage(dataset, dataset_type):
     try:
         img = get_img(dataset, dataset_type, current_user.name)
-        imgs_path = "../Datasets/citypersons/imgs"
+        imgs_path = os.getenv('HUMAINT_IMGS_PATH')
+        ###### TO BE REMOVED FOR LISO COMPLIANCE
+        #imgs_path = "../Datasets/citypersons/imgs"
         #imgs_path = "/media/hector/HDD-4TB/annotator/Datasets/" + dataset + "/images"
         complete_img_path = ""
         depth_search = 0
@@ -359,9 +364,10 @@ def get_img_json(dataset, file_name):
     return json_data
 
 def search_json_in_datasets(json_file, dataset):
-    # TEMPORARY TILL JSONS ARE IN STORAGE
+    jsons_path = os.getenv('HUMAINT_JSONS_PATH')
+    ###### TO BE REMOVED FOR LISO COMPLIANCE
     #jsons_path = "../Datasets/citypersons/annotations/annotations_json"
-    jsons_path = "/media/hector/HDD-4TB/annotator/Datasets/" + dataset + "/jsons"
+    #jsons_path = "/media/hector/HDD-4TB/annotator/Datasets/" + dataset + "/jsons"
 
     for subdir, dirs, files in os.walk(jsons_path, onerror=walk_error_handler):
         if os.path.exists(subdir + '/' + json_file):
