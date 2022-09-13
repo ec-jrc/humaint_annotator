@@ -19,6 +19,8 @@ login_manager = LoginManager(app)
 login_manager.login_view = "/login"
 
 def open_DB_connection(rqst, variables, db_name):
+    #print("Entramos a open_DB_connection")
+    #t = time.process_time()
     #Database connection
     DB_USER = os.getenv('HUMAINT_ANNOTATOR_DB_USER')
     DB_PWD = os.getenv('HUMAINT_ANNOTATOR_DB_PWD')
@@ -276,6 +278,9 @@ def open_DB_connection(rqst, variables, db_name):
 
     if len(result) == 0 and not change_distribution and not is_update:
         result = connection.execute(stmt).fetchall()
+        
+    #elapsed_time = time.process_time() - t
+    #print("salida openDB "+str(elapsed_time))
 
     return result
 
@@ -325,6 +330,16 @@ def get_img(dataset, dataset_type, user_name):
 
     return img
 
+def walklevel(some_dir, level=1):
+    some_dir = some_dir.rstrip(os.path.sep)
+    assert os.path.isdir(some_dir)
+    num_sep = some_dir.count(os.path.sep)
+    for root, dirs, files in os.walk(some_dir):
+        yield root, dirs, files
+        num_sep_this = root.count(os.path.sep)
+        if num_sep + level <= num_sep_this:
+            del dirs[:]
+
 @app.route('/img_url/<dataset>/<dataset_type>', methods=['GET'])
 def get_img_from_storage(dataset, dataset_type):
     try:
@@ -369,6 +384,12 @@ def get_img_from_storage(dataset, dataset_type):
         logging.error(e)
         return None
 
+    #start = time.time()
+    #print("get_img_from_storage ")
+    jsonify(img_in_base64)
+    #end = time.time()
+    #print(end - start)
+
     return jsonify(img_in_base64)
 
 @app.route('/img_json/<dataset>/<file_name>', methods=['GET'])
@@ -381,33 +402,79 @@ def get_img_json(dataset, file_name):
     return json_data
 
 def search_json_in_datasets(json_file, dataset):
+    ##print("-- Entramos a search_json_in_datasets ")
+    ##t = time.process_time()
     # TEMPORARY TILL JSONS ARE IN STORAGE
     #jsons_path = "../Datasets/citypersons/annotations/annotations_json"
-    jsons_path = "/media/hector/HDD-4TB/annotator/Datasets/" + dataset + "/jsons"
-
-    for subdir, dirs, files in os.walk(jsons_path, onerror=walk_error_handler):
-        if os.path.exists(subdir + '/' + json_file):
-            with open(subdir + '/' + json_file) as f:
-                json_data = json.load(f)
+    #jsons_path = "/media/hector/HDD-4TB/annotator/Datasets/" + dataset + "/jsons"
+    
+    depth_search=0
+    if dataset == "kitti" or dataset == "eurocity" or dataset == "citypersons":
+        depth_search=1
+    
+    if dataset == "nuscenes":
+        jsons_path = "/media/hector/HDD-4TB/annotator/Datasets/" + dataset + "/jsons/nuscenes" 
+    else:
+        jsons_path = "/media/hector/HDD-4TB/annotator/Datasets/" + dataset + "/jsons"
+        
+    for root, dirs, files in walklevel(jsons_path, level=depth_search):
+        find = False
+        for d in dirs:
+            #print("Fichero buscando  " + root + '/' + d + '/' + json_file)
+            if os.path.exists(root + '/' + d + '/' + json_file):
+                complete_json_path = root + '/' + d + '/' + json_file
+                find = True
                 break
+        if find:
+            break
+
+    if find:
+        with open(complete_json_path) as f:
+            json_data = json.load(f)
     else:
         abort(404)
+           
+            
+    #for subdir, dirs, files in os.walk(jsons_path, onerror=walk_error_handler):
+        #if os.path.exists(subdir + '/' + json_file):
+            #with open(subdir + '/' + json_file) as f:
+                #json_data = json.load(f)
+                #break
+    #else:
+        #abort(404)
 
     return json_data
 
 @app.route('/save_edited_json/<img_name>/<dataset_type>/<annotator>/<selected_dataset>', methods=['POST'])
 def save_edited_json(img_name, dataset_type, annotator, selected_dataset):
+    #print("-- Entramos a save_edited_json ")
+    #t = time.process_time()
     # POST request
     edited_json = request.get_json()
     dict_of_agents = create_edited_agents(edited_json)
+    #elapsed_time = time.process_time() - t
+    #print("-- salida create_edited_agents "+str(elapsed_time))
+    
     edit_db_entry = True
     variables = [img_name, dataset_type, edit_db_entry]
     create_new_annotation_entry(img_name, dataset_type)
-    json_file = str(open_DB_connection("get_json", variables, 'img_info')[0][0])
-    list_of_sweeps_jsons = get_list_of_sweeps_jsons(img_name)
+    #elapsed_time = time.process_time() - t
+    #print("-- salida create_new_annotation_entry "+str(elapsed_time))
 
+    json_file = str(open_DB_connection("get_json", variables, 'img_info')[0][0])
+
+    list_of_sweeps_jsons = get_list_of_sweeps_jsons(img_name)
+    #elapsed_time = time.process_time() - t
+    #print("-- salida get_list_of_sweeps_jsons "+str(elapsed_time))
+    
     edit_json_files(json_file, edited_json["json"], dict_of_agents, list_of_sweeps_jsons, annotator, selected_dataset, dataset_type)
+    #elapsed_time = time.process_time() - t
+    #print("--- salida edit_json_files "+str(elapsed_time))
+    
     update_sweeps_in_db(img_name, dataset_type)
+    
+    #elapsed_time = time.process_time() - t
+    #print("--- salida save_edited_json "+str(elapsed_time))
 
     return 'OK', 200
 
@@ -416,17 +483,28 @@ def update_sweeps_in_db(key_frame_name, ds_type):
     updated = open_DB_connection("update_sweeps", variables, "imgs_info")
 
 def edit_json_files(json_file, edited_json, dict_of_agents, list_of_sweeps_jsons, annotator, selected_dataset, dataset_type):
+    #print("++ Entramos a save_edited_json ")
+    #t = time.process_time()
     #First edit the key frame json
     base_path = "edited_jsons/" + selected_dataset + "/" + dataset_type
     if not os.path.exists(base_path):
         os.makedirs(base_path)
+    #elapsed_time = time.process_time() - t
+    #print("++ salida makedirs "+str(elapsed_time))
+    
     key_frame_json_path = base_path + "/" + json_file.replace('.json', '_' + annotator + '.json')
     with open(key_frame_json_path, 'w', encoding='utf-8') as f:
         json.dump(edited_json, f, ensure_ascii=False, indent=4)
 
+    #elapsed_time = time.process_time() - t
+    #print("++ salida open "+str(elapsed_time))
+    
     #Then edit sweeps' jsons
-    for sweep in list_of_sweeps_jsons:
+    for sweep in list_of_sweeps_jsons:        
         sweep_json = search_json_in_datasets(sweep[0], selected_dataset)
+        #elapsed_time = time.process_time() - t
+        #print("++ search_json_in_datasets "+str(elapsed_time))
+        
         edited_sweep_json_path = base_path + "/" + sweep[0].replace('.json', '_' + annotator + '.json')
         for agent in dict_of_agents:
             k = 0
@@ -517,6 +595,12 @@ def get_annotation_percentages():
 
                 annotation_ptgs[agents_type][ds] = math.trunc(num_annotated_agents/sum_agents_per_dataset * 100)
 
+    start = time.time()
+    #print("get_annotation_percentages ")
+    jsonify(annotation_ptgs)    
+    #end = time.time()
+    #print(end - start)
+    
     return jsonify(annotation_ptgs)
 
 @app.route('/update_annotated_agents/<img_name>/<num_agents>', methods=['GET'])
@@ -534,6 +618,13 @@ def get_IA_stats():
 
 @app.route('/get_user_name', methods=["GET"])
 def get_user_name():
+    
+    #start = time.time()
+    #print("get_user_name ")
+    jsonify(current_user.name)  
+    #end = time.time()
+    #print(end - start)   
+    
     return jsonify(current_user.name)
 
 @app.route('/')
