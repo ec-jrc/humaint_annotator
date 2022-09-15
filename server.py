@@ -344,8 +344,11 @@ def walklevel(some_dir, level=1):
 def get_img_from_storage(dataset, dataset_type):
     try:
         print("Getting image for user " + current_user.name)
-        img = get_img_for_user(dataset, current_user.name)#get_img(dataset, dataset_type, current_user.name)
-        #imgs_path = "../Datasets/citypersons/imgs"
+        if(dataset_type == "vehicles"):
+            img = get_img_for_user(dataset, current_user.name)
+        else:
+            img = get_img(dataset, dataset_type, current_user.name)
+        #imgs_path = "../Datasets/kitti/images"
         imgs_path = "/media/hector/HDD-4TB/annotator/Datasets/" + dataset + "/images"
         complete_img_path = ""
         #for subdir, dirs, files in os.walk(imgs_path, onerror=walk_error_handler):
@@ -385,7 +388,7 @@ def get_img_from_storage(dataset, dataset_type):
 
     #start = time.time()
     #print("get_img_from_storage ")
-    jsonify(img_in_base64)
+    #jsonify(img_in_base64)
     #end = time.time()
     #print(end - start)
 
@@ -440,6 +443,7 @@ def search_json_in_datasets(json_file, dataset):
         jsons_path = "/media/hector/HDD-4TB/annotator/Datasets/" + dataset + "/jsons/nuscenes" 
     else:
         jsons_path = "/media/hector/HDD-4TB/annotator/Datasets/" + dataset + "/jsons"
+        #jsons_path = "../Datasets/kitti/jsons"
         
     for root, dirs, files in walklevel(jsons_path, level=depth_search):
         find = False
@@ -621,7 +625,7 @@ def get_annotation_percentages():
 
     start = time.time()
     #print("get_annotation_percentages ")
-    jsonify(annotation_ptgs)    
+    #jsonify(annotation_ptgs)
     #end = time.time()
     #print(end - start)
     
@@ -645,7 +649,7 @@ def get_user_name():
     
     #start = time.time()
     #print("get_user_name ")
-    jsonify(current_user.name)  
+    #jsonify(current_user.name)
     #end = time.time()
     #print(end - start)   
     
