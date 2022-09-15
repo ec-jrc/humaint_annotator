@@ -160,7 +160,7 @@ def open_DB_connection(rqst, variables, db_name):
                 ).where(
                     imgs_info.columns.file_name == variables[0]
                 ).values(
-                    vehicle_annotated=imgs_info.columns.vehicle_annotated + 1
+                    vehicles_annotated=imgs_info.columns.vehicles_annotated + 1
                 )
 
             connection.execute(stmt)
