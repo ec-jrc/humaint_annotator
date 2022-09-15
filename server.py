@@ -475,7 +475,8 @@ def search_json_in_datasets(json_file, dataset):
 
 @app.route('/save_edited_json/<img_name>/<dataset_type>/<annotator>/<selected_dataset>', methods=['POST'])
 def save_edited_json(img_name, dataset_type, annotator, selected_dataset):
-    remove_img_from_user_list(selected_dataset, img_name, annotator)
+    if (dataset_type == "vehicles"):
+        remove_img_from_user_list(selected_dataset, img_name, annotator)
     # POST request
     edited_json = request.get_json()
     dict_of_agents = create_edited_agents(edited_json)
