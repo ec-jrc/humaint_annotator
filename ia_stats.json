@@ -1,69 +1,71 @@
+{ "list_of_annotators": [
 {
-  "list_of_annotators": [
+  "annotator": "augusto",
+  "anotaciones": [
     {
-      "annotator": "augusto",
-      "anotaciones": [
-        {
-          "bdd100k": "(2/120)",
-          "kitti": "(6/12)",
-          "nuScenes": "(450/421)",
-          "tsing": "(28/73)",
-          "city": "(952/73)",
-          "euro": "(243/169)"
-        }
-      ]
-    },
-    {
-      "annotator": "admin",
-      "anotaciones": [
-        {
-          "bdd100k": "(162/120)",
-          "kitti": "(12/12)",
-          "nuScenes": "(1133/421)",
-          "tsing": "(64/73)",
-          "city": "(130/73)",
-          "euro": "(419/169)"
-        }
-      ]
-    },
-    {
-      "annotator": "aquintanar",
-      "anotaciones": [
-        {
-          "bdd100k": "(443/120)",
-          "kitti": "(33/12)",
-          "nuScenes": "(1/421)",
-          "tsing": "(154/73)",
-          "city": "(38/73)",
-          "euro": "(51/169)"
-        }
-      ]
-    },
-    {
-      "annotator": "nhernandez",
-      "anotaciones": [
-        {
-          "bdd100k": "(3/120)",
-          "kitti": "(2/12)",
-          "nuScenes": "(916/421)",
-          "tsing": "(1/73)",
-          "city": "(1/73)",
-          "euro": "(173/169)"
-        }
-      ]
-    },
-    {
-      "annotator": "rizquierdo",
-      "anotaciones": [
-        {
-          "bdd100k": "(3/120)",
-          "kitti": "(2/12)",
-          "nuScenes": "(1/421)",
-          "tsing": "(20/73)",
-          "city": "(27/73)",
-          "euro": "(6/169)"
-        }
-      ]
+      "bdd100k": "(2027/2000)",
+      "kitti": "213/200",
+      "nuScenes": "(7085/7000)",
+      "tsing": "(1281/1200)",
+      "city": "(1974/1200)",
+      "euro": "(8796/8400)"
     }
   ]
 }
+,
+{
+  "annotator": "ahernandez",
+  "anotaciones": [
+    {
+      "bdd100k": "(2000/2000)",
+      "kitti": "(202/200)",
+      "nuScenes": "(7000/7000)",
+      "tsing": "(1200/1200)",
+      "city": "(1213/1200)",
+      "euro": "(3750/8400)"
+    }
+  ]
+}
+,
+{
+  "annotator": "aquintanar",
+  "anotaciones": [
+    {
+      "bdd100k": "(2111/2000)",
+      "kitti": "(201/200)",
+      "nuScenes": "(3046/7000)",
+      "tsing": "(1226/1200)",
+      "city": "(1255/1200)",
+      "euro": "(4598/8400)"
+    }
+  ]
+}
+,
+{
+  "annotator": "nhernandez",
+  "anotaciones": [
+    {
+      "bdd100k": "(2014/2000)",
+      "kitti": "(217/200)",
+      "nuScenes": "(7028/7000)",
+      "tsing": "(1232/1200)",
+      "city": "(1222/1200)",
+      "euro": "(8404/8400)"
+    }
+  ]
+}
+,
+{
+  "annotator": "rizquierdo",
+  "anotaciones": [
+    {
+      "bdd100k": "(2037/2000)",
+      "kitti": "(202/200)",
+      "nuScenes": "(7065/7000)",
+      "tsing": "(1201/1200)",
+      "city": "1263/1200",
+      "euro": "(8422/8400)"
+    }
+  ]
+}
+] }
