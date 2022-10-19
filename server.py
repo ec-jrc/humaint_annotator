@@ -395,7 +395,7 @@ def get_img_from_storage(dataset, dataset_type):
     return jsonify(img_in_base64)
 
 def get_img_for_user(dataset, user):
-    user_json_path = "left_imgs_inter_agreement/left_imgs_" + user + ".json"
+    user_json_path = "left_imgs_non_inter_agreement/left_imgs_" + user + ".json"
     with open(user_json_path) as f:
         left_imgs_parsed_json = json.load(f)
     imgs_for_dataset = left_imgs_parsed_json[dataset]
@@ -409,7 +409,7 @@ def get_img_for_user(dataset, user):
 
 def remove_img_from_user_list(dataset, img_name, user):
     print("Removing image from pending list")
-    user_json_path = "left_imgs_inter_agreement/left_imgs_" + user + ".json"
+    user_json_path = "left_imgs_non_inter_agreement/left_imgs_" + user + ".json"
     with open(user_json_path) as f:
         left_imgs_parsed_json = json.load(f)
     imgs_for_dataset = left_imgs_parsed_json[dataset]
