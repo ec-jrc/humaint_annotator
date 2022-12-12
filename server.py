@@ -55,7 +55,6 @@ def open_DB_connection(rqst, variables, db_name):
 
     #cursor = conn.cursor()
     result = ()
-    change_distribution = False
     is_update = False
     if rqst == "login":
         stmt = select(
@@ -276,7 +275,7 @@ def open_DB_connection(rqst, variables, db_name):
         connection.execute(stmt)
         is_update = True
 
-    if len(result) == 0 and not change_distribution and not is_update:
+    if len(result) == 0 and not is_update:
         result = connection.execute(stmt).fetchall()
         
     #elapsed_time = time.process_time() - t
@@ -351,15 +350,9 @@ def get_img_from_storage(dataset, dataset_type):
         #imgs_path = "../Datasets/kitti/images"
         imgs_path = "/media/hector/HDD-4TB/annotator/Datasets/" + dataset + "/images"
         complete_img_path = ""
-        #for subdir, dirs, files in os.walk(imgs_path, onerror=walk_error_handler):
-            #if os.path.exists(subdir + '/' + img["file_name"]):
-                #complete_img_path = subdir + '/' + img["file_name"]
-                #break
-        #elapsed_time = time.process_time() - t
-        #print("get_img "+str(elapsed_time))
-        depth_search=0
+        depth_search = 0
         if dataset == "kitti" or dataset == "eurocity":
-            depth_search=1
+            depth_search = 1
                 
         for root, dirs, files in walklevel(imgs_path, level=depth_search):
             find = False
@@ -371,17 +364,10 @@ def get_img_from_storage(dataset, dataset_type):
             if find:
                 break
         
-        #if complete_img_new == complete_img_path:
-            #print("Todo OK!!!!")
-        #elapsed_time = time.process_time() - t
-        #print("busca path walklevel"+str(elapsed_time))     
-                    
         img_in_base64 = {}
         with open(complete_img_path, "rb") as f:
             image_binary = f.read()
             img_in_base64 = {'img': str(base64.b64encode(image_binary).decode('ascii')), 'img_name': img['file_name']}
-        #elapsed_time = time.process_time() - t
-        #print("img_url "+str(elapsed_time))
     except Exception as e:
         logging.error(e)
         return None
@@ -678,6 +664,5 @@ def walk_error_handler(exception_instance):
     print("The specified path is incorrect or permission is needed")
 
 if __name__ == '__main__':
-    #app.run(debug=True, host='0.0.0.0', port='5000')
     app.run(debug=False, host='0.0.0.0', port='5000')
 
