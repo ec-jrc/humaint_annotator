@@ -15,8 +15,6 @@ import time
 app = Flask(__name__, instance_path="/{project_folder_abs_path}/instance")
 secret_key = os.getenv('FLASK_SECRET_KEY')
 app.config['SECRET_KEY'] = secret_key
-###### TO BE REMOVED FOR LISO COMPLIANCE
-#app.config['SECRET_KEY'] = '8BUgFTZ-352QRSxa7Jq30yyaFWeIk2mOhOSsL3v1GB4gCHnyu0xzH2JPopp4bBuRxH0'
 
 login_manager = LoginManager(app)
 login_manager.login_view = "/login"
@@ -54,7 +52,6 @@ def open_DB_connection(rqst, variables, db_name):
     ### CONNECTION TO DATABASE
     connection = engine.connect()
 
-    #cursor = conn.cursor()
     result = ()
     is_update = False
     if rqst == "login":
@@ -92,40 +89,56 @@ def open_DB_connection(rqst, variables, db_name):
         for tuple in imgs_to_avoid_tuple:
             list_of_images_to_avoid.append(tuple[0])
 
-        try:
-            aux_inter_agreement = inter_agreement - 1
-            while(aux_inter_agreement >= 0):
-                stmt = select(
-                    imgs_info.columns.file_name
-                ).where(and_(
-                    imgs_info.columns.dataset == variables[0],
-                    imgs_info.columns.img_distribution == variables[2],
-                    imgs_info.columns.file_name.not_in(list_of_images_to_avoid),
-                    discarded_by_user != True,
-                    auto_discarded != True,
-                    imgs_info.columns.is_key_frame == 1,
-                    ds_type_annotated == aux_inter_agreement
-                )).order_by(ds_type_annotated.desc()).limit(1)
-                result = connection.execute(stmt).fetchall()
-                aux_inter_agreement -= 1
-                if(len(result) != 0):
-                    break
-        except Exception as e:
-            print(e)
-
-        if variables[4]:
-            stmt = select(
-                imgs_info.columns.file_name
-            ).where(and_(
-                imgs_info.columns.dataset == variables[0],
-                imgs_info.columns.img_distribution == variables[2],
-                imgs_info.columns.file_name.not_in(list_of_images_to_avoid),
-                discarded_by_user != True,
-                auto_discarded != True,
-                imgs_info.columns.is_key_frame == 1,
-                ds_type_annotated == 0
-            )).order_by(ds_type_annotated.desc()).limit(1)
-            result = connection.execute(stmt).fetchall()
+        # try:
+        #     stmt = select([func.sum(imgs_info.columns.num_annotated_agents)]).select_from(
+        #         imgs_info
+        #     ).where(and_(
+        #         imgs_info.columns.dataset == variables[0],
+        #         imgs_info.columns.img_distribution == variables[2],
+        #         ds_type_annotated >= inter_agreement
+        #     ))
+        #     result = connection.execute(stmt).fetchall()
+        # except Exception as e:
+        #     print(e)
+        #
+        # inter_agreement_quota_acquired = is_inter_agreement_quota_acquired(result[0][0], variables[0], variables[1], variables[2])
+        # if len(result) == 0 or not inter_agreement_quota_acquired:
+        #     try:
+        #         aux_inter_agreement = inter_agreement - 1
+        #         while(aux_inter_agreement >= 0):
+        #             stmt = select(
+        #                 imgs_info.columns.file_name
+        #             ).where(and_(
+        #                 imgs_info.columns.dataset == variables[0],
+        #                 imgs_info.columns.img_distribution == variables[2],
+        #                 imgs_info.columns.file_name.not_in(list_of_images_to_avoid),
+        #                 discarded_by_user != True,
+        #                 auto_discarded != True,
+        #                 imgs_info.columns.is_key_frame == 1,
+        #                 ds_type_annotated == aux_inter_agreement
+        #             )).order_by(ds_type_annotated.desc()).limit(1)
+        #             result = connection.execute(stmt).fetchall()
+        #             aux_inter_agreement -= 1
+        #             if(len(result) != 0):
+        #                 break
+        #     except Exception as e:
+        #         print(e)
+        # else:
+        #     result = ()
+        #     change_distribution = True
+        #if variables[4]:#inter-agreement quota acquired
+        stmt = select(
+            imgs_info.columns.file_name
+        ).where(and_(
+            imgs_info.columns.dataset == variables[0],
+            imgs_info.columns.img_distribution == variables[2],
+            imgs_info.columns.file_name.not_in(list_of_images_to_avoid),
+            discarded_by_user != True,
+            auto_discarded != True,
+            imgs_info.columns.is_key_frame == 1,
+            ds_type_annotated == 0
+        )).order_by(ds_type_annotated.desc()).limit(1)
+        result = connection.execute(stmt).fetchall()
 
     elif rqst == "get_json":
         edit_db_entry = variables[2]
@@ -144,7 +157,7 @@ def open_DB_connection(rqst, variables, db_name):
                 ).where(
                     imgs_info.columns.file_name == variables[0]
                 ).values(
-                    vehicle_annotated=imgs_info.columns.vehicle_annotated + 1
+                    vehicles_annotated=imgs_info.columns.vehicles_annotated + 1
                 )
 
             connection.execute(stmt)
@@ -262,7 +275,7 @@ def open_DB_connection(rqst, variables, db_name):
 
     if len(result) == 0 and not is_update:
         result = connection.execute(stmt).fetchall()
-
+        
     return result
 
 def create_new_annotation_entry(img_name, ds_type):
@@ -324,11 +337,12 @@ def walklevel(some_dir, level=1):
 @app.route('/img_url/<dataset>/<dataset_type>', methods=['GET'])
 def get_img_from_storage(dataset, dataset_type):
     try:
-        img = get_img(dataset, dataset_type, current_user.name)
+        print("Getting image for user " + current_user.name)
+        if(dataset_type == "vehicles"):
+            img = get_img_for_user(dataset, current_user.name)
+        else:
+            img = get_img(dataset, dataset_type, current_user.name)
         imgs_path = os.getenv('HUMAINT_IMGS_PATH')
-        ###### TO BE REMOVED FOR LISO COMPLIANCE
-        #imgs_path = "../Datasets/citypersons/imgs"
-        #imgs_path = "/media/hector/HDD-4TB/annotator/Datasets/" + dataset + "/images"
         complete_img_path = ""
         depth_search = 0
         if dataset == "kitti" or dataset == "eurocity":
@@ -354,6 +368,31 @@ def get_img_from_storage(dataset, dataset_type):
 
     return jsonify(img_in_base64)
 
+def get_img_for_user(dataset, user):
+    user_json_path = "left_imgs_non_inter_agreement/left_imgs_" + user + ".json"
+    with open(user_json_path) as f:
+        left_imgs_parsed_json = json.load(f)
+    imgs_for_dataset = left_imgs_parsed_json[dataset]
+    img = {}
+    if(len(imgs_for_dataset) != 0):
+        img["file_name"] = imgs_for_dataset[0]
+    else:
+        print("No more images for user " + user + " on dataset " + dataset)
+
+    return img
+
+def remove_img_from_user_list(dataset, img_name, user):
+    print("Removing image from pending list")
+    user_json_path = "left_imgs_non_inter_agreement/left_imgs_" + user + ".json"
+    with open(user_json_path) as f:
+        left_imgs_parsed_json = json.load(f)
+    imgs_for_dataset = left_imgs_parsed_json[dataset]
+    if(imgs_for_dataset[0] == img_name):
+        del imgs_for_dataset[0]
+        left_imgs_parsed_json[dataset] = imgs_for_dataset
+    with open(user_json_path, 'w', encoding='utf-8') as f2:
+        json.dump(left_imgs_parsed_json, f2, ensure_ascii=False, indent=4)
+
 @app.route('/img_json/<dataset>/<file_name>', methods=['GET'])
 def get_img_json(dataset, file_name):
     edit_db_entry = False
@@ -364,35 +403,54 @@ def get_img_json(dataset, file_name):
     return json_data
 
 def search_json_in_datasets(json_file, dataset):
+    depth_search=0
+    if dataset == "kitti" or dataset == "eurocity" or dataset == "citypersons":
+        depth_search=1
+    
     jsons_path = os.getenv('HUMAINT_JSONS_PATH')
-    ###### TO BE REMOVED FOR LISO COMPLIANCE
-    #jsons_path = "../Datasets/citypersons/annotations/annotations_json"
-    #jsons_path = "/media/hector/HDD-4TB/annotator/Datasets/" + dataset + "/jsons"
-
-    for subdir, dirs, files in os.walk(jsons_path, onerror=walk_error_handler):
-        if os.path.exists(subdir + '/' + json_file):
-            with open(subdir + '/' + json_file) as f:
-                json_data = json.load(f)
+    if dataset == "nuscenes":
+        jsons_path = jsons_path + "/" + dataset + "/jsons/nuscenes" 
+    else:
+        jsons_path = jsons_path + "/" + dataset + "/jsons"
+        
+    for root, dirs, files in walklevel(jsons_path, level=depth_search):
+        find = False
+        for d in dirs:
+            if os.path.exists(root + '/' + d + '/' + json_file):
+                complete_json_path = root + '/' + d + '/' + json_file
+                find = True
                 break
+        if find:
+            break
+
+    if find:
+        with open(complete_json_path) as f:
+            json_data = json.load(f)
     else:
         abort(404)
-
+           
     return json_data
 
 @app.route('/save_edited_json/<img_name>/<dataset_type>/<annotator>/<selected_dataset>', methods=['POST'])
 def save_edited_json(img_name, dataset_type, annotator, selected_dataset):
+    if (dataset_type == "vehicles"):
+        remove_img_from_user_list(selected_dataset, img_name, annotator)
     # POST request
     edited_json = request.get_json()
     dict_of_agents = create_edited_agents(edited_json)
+    
     edit_db_entry = True
     variables = [img_name, dataset_type, edit_db_entry]
     create_new_annotation_entry(img_name, dataset_type)
+
     json_file = str(open_DB_connection("get_json", variables, 'img_info')[0][0])
+
     list_of_sweeps_jsons = get_list_of_sweeps_jsons(img_name)
-
+    
     edit_json_files(json_file, edited_json["json"], dict_of_agents, list_of_sweeps_jsons, annotator, selected_dataset, dataset_type)
+    
     update_sweeps_in_db(img_name, dataset_type)
-
+    
     return 'OK', 200
 
 def update_sweeps_in_db(key_frame_name, ds_type):
@@ -404,12 +462,13 @@ def edit_json_files(json_file, edited_json, dict_of_agents, list_of_sweeps_jsons
     base_path = "edited_jsons/" + selected_dataset + "/" + dataset_type
     if not os.path.exists(base_path):
         os.makedirs(base_path)
+    
     key_frame_json_path = base_path + "/" + json_file.replace('.json', '_' + annotator + '.json')
     with open(key_frame_json_path, 'w', encoding='utf-8') as f:
         json.dump(edited_json, f, ensure_ascii=False, indent=4)
 
     #Then edit sweeps' jsons
-    for sweep in list_of_sweeps_jsons:
+    for sweep in list_of_sweeps_jsons:        
         sweep_json = search_json_in_datasets(sweep[0], selected_dataset)
         edited_sweep_json_path = base_path + "/" + sweep[0].replace('.json', '_' + annotator + '.json')
         for agent in dict_of_agents:
@@ -473,9 +532,10 @@ def logout():
     logout_user()
     return redirect('index.html')
 
-@app.route('/discard-img/<discard_author>/<ds_type>/<img_name>', methods=['GET'])
-def discard_img(img_name, discard_author, ds_type):
+@app.route('/discard-img/<discard_author>/<dataset>/<ds_type>/<img_name>', methods=['GET'])
+def discard_img(img_name, discard_author, ds_type, dataset):
     variables = [img_name, discard_author, ds_type]
+    remove_img_from_user_list(dataset, img_name, current_user.name)
     db_result = open_DB_connection("discard_img", variables, 'img_info')
 
     return 'OK', 200
@@ -518,6 +578,7 @@ def get_IA_stats():
 
 @app.route('/get_user_name', methods=["GET"])
 def get_user_name():
+    
     return jsonify(current_user.name)
 
 @app.route('/')

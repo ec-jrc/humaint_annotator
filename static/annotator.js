@@ -51,7 +51,7 @@ const pedestrianHTML = `<div class="mb-0 mt-2"><span>Age</span><br/>
 <div class="mt-3 errorInLabellingAgent"><span style="margin-right:10px;">Error in agent's labelling</span><input type="checkbox" onClick="toggleErrorInAgent(this)"></div></div>`
 
 const vehicleHTML = `<div class="mb-0 mt-2"><span>Vehicle Type</span><br/> 
-<button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Car</span></button>
+<button type="button" class="btn btn-primary rounded-pill btn-sm pre-select" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Car</span></button>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Motorcycle</span></button>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Truck</span></button>
 <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Bus</span></button>
@@ -417,18 +417,18 @@ function getAgentInnerHTML(i, currentClass){
         <span class="font-weight-bold">Join to agent/group</span></button></div></div>`;
     }
     else{
-        if(currentClass.toLowerCase().indexOf("car") != -1){
+        //if(currentClass.toLowerCase().indexOf("car") != -1){
             innerHTML += `<div class="mb-0 mt-2"><span data-elem-name="car-type">Car type</span><br/>
             <img id="car-preview-` + i + `" class="hide-preview" src="" style="width: 100%; margin-top: -102px; height:100px;">
             <div id="spacer-` + i + `" style="height: 22.6px"></div>
-            <button type="button" class="btn btn-primary rounded-pill btn-sm btn-sedan" data-bs-toggle="button" onClick="toggleTag(this)" onmouseover="$('#car-preview-` + i + `').attr('src', '../static/small-car.png');$('#car-preview-` + i + `').removeClass('hide-preview');$('#spacer-` + i +`').hide(0)" onmouseout="$('#car-preview-` + i + `').addClass('hide-preview');$('#spacer-` + i +`').show(0)"><span class="font-weight-bold">Small (Compact/Micro/Hatchback)</span></button>
-            <button type="button" class="btn btn-primary rounded-pill btn-sm btn-wagon" data-bs-toggle="button" onClick="toggleTag(this)" onmouseover="$('#car-preview-` + i + `').attr('src', '../static/medium-car.png');$('#car-preview-` + i + `').removeClass('hide-preview');$('#spacer-` + i +`').hide(0)" onmouseout="$('#car-preview-` + i + `').addClass('hide-preview');$('#spacer-` + i +`').show(0)"><span class="font-weight-bold">Medium (Sedan/Coupe/Sport/Mid size/Wagon)</span></button>
-            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)" onmouseover="$('#car-preview-` + i + `').attr('src', '../static/large-car.png');$('#car-preview-` + i + `').removeClass('hide-preview');$('#spacer-` + i +`').hide(0)" onmouseout="$('#car-preview-` + i + `').addClass('hide-preview');$('#spacer-` + i +`').show(0)"><span class="font-weight-bold">Large (SUV/Crossover)</span></button>
+            <button type="button" class="btn btn-primary rounded-pill btn-sm btn-sedan" data-bs-toggle="button" onClick="toggleTag(this)" onmouseover="$('#car-preview-` + i + `').attr('src', '../static/small-car.png');$('#car-preview-` + i + `').removeClass('hide-preview');$('#spacer-` + i +`').hide(0)" onmouseout="$('#car-preview-` + i + `').addClass('hide-preview');$('#spacer-` + i +`').show(0)"><span class="font-weight-bold">Small</span></button>
+            <button type="button" class="btn btn-primary rounded-pill btn-sm btn-wagon" data-bs-toggle="button" onClick="toggleTag(this)" onmouseover="$('#car-preview-` + i + `').attr('src', '../static/medium-car.png');$('#car-preview-` + i + `').removeClass('hide-preview');$('#spacer-` + i +`').hide(0)" onmouseout="$('#car-preview-` + i + `').addClass('hide-preview');$('#spacer-` + i +`').show(0)"><span class="font-weight-bold">Medium</span></button>
+            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)" onmouseover="$('#car-preview-` + i + `').attr('src', '../static/large-car.png');$('#car-preview-` + i + `').removeClass('hide-preview');$('#spacer-` + i +`').hide(0)" onmouseout="$('#car-preview-` + i + `').addClass('hide-preview');$('#spacer-` + i +`').show(0)"><span class="font-weight-bold">Large</span></button>
             <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)" onmouseover="$('#car-preview-` + i + `').attr('src', '../static/pickup-car.png');$('#car-preview-` + i + `').removeClass('hide-preview');$('#spacer-` + i +`').hide(0)" onmouseout="$('#car-preview-` + i + `').addClass('hide-preview');$('#spacer-` + i +`').show(0)"><span class="font-weight-bold">Pickup</span></button>
             <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)" onmouseover="$('#car-preview-` + i + `').attr('src', '../static/convertible-car.png');$('#car-preview-` + i + `').removeClass('hide-preview');$('#spacer-` + i +`').hide(0)" onmouseout="$('#car-preview-` + i + `').addClass('hide-preview');$('#spacer-` + i +`').show(0)"><span class="font-weight-bold">Convertible / Cabriolet</span></button>
-            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Others (Off-roader/Camping van/Limousine/etc.)</span></button>
+            <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Others</span></button>
             <button type="button" class="btn btn-primary rounded-pill btn-sm" data-bs-toggle="button" onClick="toggleTag(this)"><span class="font-weight-bold">Unknown</span></button></div>`
-        }
+        //}
     }
     
     return innerHTML;
@@ -706,10 +706,12 @@ function toggleTag(element, addConfCaseTag = false, isConfCase = false){
 
     var currentAgent = element.closest(".container").firstElementChild.id.replace("current-labels-", "Agent ");//Get agent name
     var category = element.parentElement.firstElementChild.innerText;//Get label category
+    if(category == "") {category = element.parentElement.firstElementChild.innerHTML}
     var labelValue = ""
     
     if(element.tagName.toLowerCase() == "button"){
         labelValue = element.innerText;//Get label value
+        if (labelValue == "") {labelValue = element.firstElementChild.innerHTML}
         if(addConfCaseTag){
             labelValue += isConfCase ? "(C)" : "(NC)";
         }
@@ -746,10 +748,12 @@ function loadAgents(){
     $(agentsTabs).empty();
     var agentIndex = 0;
 
+    var num_real_agents = 0;
     for(i = 0; i < datasetSpecificFeatures.agents.length; i++){
         var agent = Object.keys(datasetSpecificFeatures.agents)[i];
         var isRealAgent = getAgentAutenticity(agent, true);//Check if it is a real agent or not
         if(isRealAgent){
+            num_real_agents += 1;
             agentIndex += 1;
             var agentButton = document.createElement('button');
 
@@ -765,6 +769,11 @@ function loadAgents(){
             //Initializing newAgentsLabels to be used in toggleTag() method
             newAgentsLabels["Agent " + agentIndex] = new Object();
             newAgentsLabels["Agent " + agentIndex]["sub_entities"] = new Object();
+
+            preSelectedButtons = document.getElementsByClassName("pre-select");
+            for(var b = 0; b<preSelectedButtons.length; b++){
+                toggleTag(preSelectedButtons[b]);
+            }
         }
     }
 
@@ -779,9 +788,8 @@ function loadAgents(){
 
     numberOfTagsToPressInImage = getNumberOfTagsTopress(datasetSpecificFeatures.agents.length);
     percentageImageAnnotated = 0;
-    globalNumberOfTagsPressed = 0;
+    globalNumberOfTagsPressed = num_real_agents;
     changeImagePtgAnnotated();
-
     addGroupButtonToAgent();
 }
 
@@ -1144,13 +1152,13 @@ async function cleanAndDrawNew(){
         zoomCtx = zoom.getContext("2d");
         imgData.json["annotator"] = $("#userInfo").data('user')
         assignDatasetSpecificFeatures(imgData.json);
-        autoDiscardImg = isDiscardableImg();
+        autoDiscardImg = await isDiscardableImg();
     }
     loadCanvas(canvasElem);
     loadAgents();
 }
 
-function isDiscardableImg(){
+async function isDiscardableImg(){
     var agentsKeys = Object.keys(datasetSpecificFeatures.agents);
     var realAgentsNum = 0;
     for(i = 0; i < agentsKeys.length; i++){
@@ -1165,7 +1173,7 @@ function isDiscardableImg(){
         return false;
     }
     else{
-        discardImage('auto-discarded');
+        await discardImage('auto-discarded');
         return true;
     }
 }
@@ -1252,8 +1260,8 @@ async function selectDataset(ds, type){
     $('#ds-buttons').css("visibility", "hidden");
 }
 
-function discardImage(discardAuthor){
-    fetch('/discard-img/' + discardAuthor + '/' + selectedDatasetType + '/' + imgData.imgName)
+async function discardImage(discardAuthor){
+    await fetch('/discard-img/' + discardAuthor + '/' + selectedDataset + '/' + selectedDatasetType + '/' + imgData.imgName)
         .then(function (response){
             console.log(response.text());
         });
