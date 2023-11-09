@@ -173,8 +173,9 @@ def get_citypersons_data(dataset_path):
                 json.dump(json_object, f, ensure_ascii=False, indent=4)
                 print("Saved " + standarized_jsons_city_path + '/' + file)
 
-def get_nuscenes_data(jsons_path):
-    standarized_jsons_path = "standarized_jsons/nuscenes/new_standarized"
+def get_nuscenes_data(jsons_path, set):
+    cwd = os.getcwd()
+    standarized_jsons_path = os.path.join(cwd, "standarized_jsons/nuscenes")
     #ds = jsons_path.split('/')
     #zone = ds[len(ds) - 2].split(' ')[2]
     #standarized_jsons_zone_path = standarized_jsons_path + zone
@@ -183,10 +184,10 @@ def get_nuscenes_data(jsons_path):
     if not os.path.exists(standarized_jsons_path):
         os.makedirs(standarized_jsons_path)
 
-    log_json = json.load(open(os.path.join(jsons_path, "new_log.json")))
-    sample_data_json = json.load(open(os.path.join(jsons_path, "new_sample_data.json")))
-    sample_json = json.load(open(os.path.join(jsons_path, "new_sample.json")))
-    object_ann_json = json.load(open(os.path.join(jsons_path, "new_object_ann.json")))
+    log_json = json.load(open(os.path.join(jsons_path, "log.json")))
+    sample_data_json = json.load(open(os.path.join(jsons_path, "sample_data.json")))
+    sample_json = json.load(open(os.path.join(jsons_path, "sample.json")))
+    object_ann_json = json.load(open(os.path.join(jsons_path, "object_ann.json")))
     category_json = json.load(open(os.path.join(jsons_path, "category.json")))
     attributes_json = json.load(open(os.path.join(jsons_path, "attribute.json")))
 
@@ -204,10 +205,11 @@ def get_nuscenes_data(jsons_path):
             if(log['token'] == log_id):
                 city_name = log['location']
                 break
-
+        im_name = ""
         for sample in sample_data_json:
             if(sample['token'] == keyframe_id or sample['sample_token'] == key_sample_token):
                 im_name_parts = sample['filename'].split('/')
+                im_name = im_name_parts[len(im_name_parts) - 1]
                 im_names.append(im_name_parts[len(im_name_parts) - 1])
                 im_widths.append(sample['width'])
                 im_heights.append(sample['height'])
@@ -238,7 +240,7 @@ def get_nuscenes_data(jsons_path):
                 y0 = object['bbox'][1]
                 x1 = object['bbox'][2]
                 y1 = object['bbox'][3]
-                attributes = '{'
+                attributes = '{"sandbox_tags": ['
                 first_attr = True
                 for attribute in object['attribute_tokens']:
                     for attr in attributes_json:
@@ -247,10 +249,13 @@ def get_nuscenes_data(jsons_path):
                                 attributes += ','
                             else:
                                 first_attr = False
-                            attributes += '"sandbox_tags": ["' + attr['name'] + '"]}'
+                            attributes += '"' + attr['name'] + '"'
                             break
-                if(first_attr == True):
-                    attributes += '"sandbox_tags": []}'
+                if attributes[len(attributes) - 1] == ",":
+                    attributes = attributes[:-1]
+                attributes += ']}'
+                '''if(first_attr == True):
+                    attributes += '"sandbox_tags": []}'''
 
                 if not first_agent:
                     standarized_agents_text += ','
@@ -272,25 +277,32 @@ def get_nuscenes_data(jsons_path):
         i = 0
         while(i < len(im_names)):
             data = Dataset_data(im_names[i], city_name, im_widths[i], im_heights[i], sandbox_tags, agents)
+            try:
+                json_text = '{"im_name": "' + data.im_name + '"'
+                json_text = json_text + ', "key_frame_name": "' + im_names[0] + '"'
+                json_text = json_text + ', "city_name": "' + data.city_name + '"'
+                json_text = json_text + ', "im_width": ' + str(data.im_width)
+                json_text = json_text + ', "im_height": ' + str(data.im_height)
+                json_text = json_text + ', "sandbox_tags": ' + str(data.sandbox_tags).replace('\'', '"')
+                json_text = json_text + ', "agents": [' + str(data.agents) + ']}'
 
-            json_text = '{"im_name": "' + data.im_name + '"'
-            json_text = json_text + ', "key_frame_name": "' + im_names[0] + '"'
-            json_text = json_text + ', "city_name": "' + data.city_name + '"'
-            json_text = json_text + ', "im_width": ' + str(data.im_width)
-            json_text = json_text + ', "im_height": ' + str(data.im_height)
-            json_text = json_text + ', "sandbox_tags": ' + str(data.sandbox_tags).replace('\'', '"')
-            json_text = json_text + ', "agents": [' + str(data.agents) + ']}'
+                json_object = json.loads(json_text)
 
-            json_object = json.loads(json_text)
+                im_name_splitted = data.im_name.split("/")
+                new_file = im_name_splitted[len(im_name_splitted) - 1].replace(".jpg", ".json")
 
-            im_name_splitted = data.im_name.split("/")
-            new_file = im_name_splitted[len(im_name_splitted) - 1].replace(".jpg", ".json")
-
-            with open(standarized_jsons_path + '/' + new_file, 'w', encoding='utf-8') as f:
-                json.dump(json_object, f, ensure_ascii=False, indent=4)
-                print("Saved " + standarized_jsons_path + '/' + new_file)
+                with open(standarized_jsons_path + '/' + new_file, 'w', encoding='utf-8') as f:
+                    json.dump(json_object, f, ensure_ascii=False, indent=4)
+                    #print("Saved " + standarized_jsons_path + '/' + new_file)
+            except Exception as e:
+                print(key_sample_token)
+                files_with_error.append(data.im_name)
 
             i += 1
+
+    print("ERROR ON FILES: ")
+    for file in files_with_error:
+        print(file)
 
 def get_tsinghua_daimler_data(dataset_path):
     standarized_jsons_path = "standarized_jsons/tsinghua-daimler/valid"
@@ -489,13 +501,13 @@ def get_bair_data(dataset_path):
                             json.dump(json_object, f, ensure_ascii=False, indent=4)
                             print("Saved " + standarized_jsons_path + '/' + im_name.replace(".jpg", ".json"))
 
-def standarize(dataset, dataset_path):
+def standarize(dataset, dataset_path, dataset_set):
     if(dataset == "citypersons"):
         get_citypersons_data(dataset_path)
     elif(dataset == "ECP"):
         get_ECP_data(dataset_path)
     elif(dataset == "nuscenes"):
-        get_nuscenes_data(dataset_path)
+        get_nuscenes_data(dataset_path, dataset_set)
     elif(dataset == "tsinghua-daimler"):
         get_tsinghua_daimler_data(dataset_path)
     elif(dataset == "kitti"):
@@ -508,4 +520,5 @@ def standarize(dataset, dataset_path):
 if __name__ == "__main__":
     dataset = str(sys.argv[1])
     dataset_path = str(sys.argv[2])
-    standarize(dataset, dataset_path)
+    dataset_set = str(sys.argv[3])
+    standarize(dataset, dataset_path, dataset_set)
